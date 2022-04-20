@@ -1,0 +1,14 @@
+[user]
+	name = Tony_Sol
+	email = tony.kent.nar.earth@gmail.com
+[pull]
+	rebase = false
+[core]
+	autocrlf = input
+	editor = nvim
+[init]
+	defaultBranch = master
+[color]
+	ui = always
+	grep = always
+	interactive = always

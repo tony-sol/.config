@@ -1,0 +1,6 @@
+[submodule "tmux/plugins/tmux-current-pane-hostname"]
+	path = tmux/plugins/tmux-current-pane-hostname
+	url = https://github.com/soyuka/tmux-current-pane-hostname
+[submodule "zsh/extensions/git-aware-prompt"]
+	path = zsh/extensions/git-aware-prompt
+	url = https://github.com/joeytwiddle/git-aware-prompt.git
