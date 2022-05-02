@@ -17,4 +17,5 @@ _complete_alias() {
 zstyle ':completion:*' completer _complete _ignored _complete_alias
 zstyle ':completion:*' rehash true
 
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # end
