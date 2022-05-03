@@ -1,14 +1,37 @@
 [user]
-	name = Tony_Sol
+	name = Tony-Sol
 	email = tony.kent.nar.earth@gmail.com
-[pull]
-	rebase = false
+[init]
+	defaultBranch = master
 [core]
 	autocrlf = input
 	editor = nvim
-[init]
-	defaultBranch = master
+	pager = less -i
+[fetch]
+	prune = true
+[pull]
+	rebase = true
+[push]
+	default = current
 [color]
 	ui = always
 	grep = always
 	interactive = always
+	diff = always
+	branch = always
+	status = always
+[color "branch"]
+	current = magenta
+	local = green
+	remote = yellow
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[format]
+	pretty = format:%C(cyan bold)%h%C(reset) %ci - %cr %C(red)%cn%C(reset) %C(green)%s%C(magenta)%d %C(red)(%an)%C(reset) %C(yellow)(%p)%C(reset) %b
