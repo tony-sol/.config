@@ -2,7 +2,6 @@ if has('nvim')
     " Neovim specific commands
     let &viminfo .= '.nvim'
     lua require('plugins')
-    lua require('cmp_setup')
 else
     " Standard vim specific commands
     " set viminfo+=n~/.vim/viminfo

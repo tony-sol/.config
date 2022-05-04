@@ -5,6 +5,12 @@ vim.opt.listchars:append("space:⋅")
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup {}
+        end
+    }
+    use {
         'lukas-reineke/indent-blankline.nvim',
         requires = {
             'nvim-treesitter/nvim-treesitter'
@@ -48,7 +54,7 @@ return require('packer').startup(function()
     }
     use {
         'tzachar/cmp-tabnine',
---      run = './install.sh',
+        run = './install.sh',
         requires = {
             'hrsh7th/nvim-cmp'
         }
