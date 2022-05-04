@@ -15,16 +15,40 @@ return require('packer').startup(function()
         }
     }
     use {
-        "hrsh7th/nvim-cmp" -- completion
-    }
-    use {
-        'tzachar/cmp-tabnine',
-        -- run='./install.sh',
+        "hrsh7th/nvim-cmp", -- completion
         require('cmp').setup {
+            mapping = {
+                ['<Tab>'] = function(fallback)
+                    if require('cmp').visible() then
+                        require('cmp').select_next_item()
+--                  elseif luasnip.expand_or_jumpable() then
+--                      luasnip.expand_or_jump()
+                    else
+                        fallback()
+                    end
+                end,
+                ['<S-Tab>'] = function(fallback)
+                    if require('cmp').visible() then
+                        require('cmp').select_prev_item()
+--                  elseif luasnip.jumpable(-1) then
+--                      luasnip.jump(-1)
+                    else
+                        fallback()
+                    end
+                end,
+                ['<CR>'] = require('cmp').mapping.confirm {
+                    behavior = require('cmp').ConfirmBehavior.Replace,
+                    select = true
+                }
+            },
             sources = {
                 { name = 'cmp_tabnine' }
             }
-        },
+        }
+    }
+    use {
+        'tzachar/cmp-tabnine',
+--      run = './install.sh',
         requires = {
             'hrsh7th/nvim-cmp'
         }
