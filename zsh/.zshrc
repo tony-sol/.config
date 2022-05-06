@@ -1,10 +1,12 @@
 export PROMPT='%{$bldcyn%}%~%{$txtrst$txtcyn%}$git_branch%{$bldgrn%}$git_ahead_mark$git_ahead_count%{$bldred%}$git_behind_mark$git_behind_count%{$bldylw%}$git_stash_mark%{$txtrst$txtylw%}$git_dirty$git_dirty_count%{$txtcyn%}$git_staged_mark$git_staged_count%{$txtpur%}$git_unknown_mark$git_unknown_count%{$txtrst%}$ ' # %n@%m
 
 # aliases
+if [ -f "${ZDOTDIR}/.zsh_aliases" ]; then
+	source "${ZDOTDIR}/.zsh_aliases"
+fi
 alias ll='ls -alhFT'
 alias treee='tree -halFpugD'
 alias vim='nvim'
-alias yubikey='ssh-add -e /usr/local/lib/opensc-pkcs11.so; ansible-vault view ~/.ssh/.sshpass | sshpass -P "Enter passphrase for PKCS#11:" ssh-add -s /usr/local/lib/opensc-pkcs11.so'
 
 # auto completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
