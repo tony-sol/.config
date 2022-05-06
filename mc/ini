@@ -89,8 +89,6 @@ filepos_max_saved_entries=1024
 
 [Layout]
 output_lines=0
-left_panel_size=70
-top_panel_size=0
 message_visible=true
 keybar_visible=true
 xterm_title=true
@@ -173,7 +171,3 @@ select_flags=6
 simple_swap=false
 
 [Panelize]
-Изменённые файлы под контролем git=git ls-files --modified
-Найти корректуры, отвергнутые командой patch=find . -name \\*.rej -print
-Найти оригиналы (*.orig) после команды patch=find . -name \\*.orig -print
-Найти программы с установленными SUID/SGID битами=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
