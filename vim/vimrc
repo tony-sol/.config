@@ -1,13 +1,3 @@
-if has('nvim')
-    " Neovim specific commands
-    let &viminfo .= '.nvim'
-    lua require('plugins')
-else
-    " Standard vim specific commands
-    " set viminfo+=n~/.vim/viminfo
-    set viminfo+=n~/.config/vim/viminfo
-endif
-
 syntax on
 set tabstop=4
 set softtabstop=0
@@ -16,6 +6,7 @@ set shiftwidth=4
 set smarttab
 set clipboard=unnamedplus
 set viminfofile="${XDG_CONFIG_HOME}/vim/viminfo"
+set viminfo="n${XDG_CONFIG_HOME}/vim/viminfo"
 set number
 set list
 set relativenumber

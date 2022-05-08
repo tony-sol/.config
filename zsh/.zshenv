@@ -7,7 +7,7 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
-export VIMINIT="source ${XDG_CONFIG_HOME}/vim/vimrc"
+export VIMINIT='let $VIMINIT = has("nvim") ? "${XDG_CONFIG_HOME}/nvim/init.lua" : "${XDG_CONFIG_HOME}/vim/vimrc" | source $VIMINIT'
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export KUBECONFIG="${XDG_CONFIG_HOME}/kube/config"
