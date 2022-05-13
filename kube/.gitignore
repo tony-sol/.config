@@ -1,0 +1,3 @@
+.minikube/cache/*
+.minikube/logs/*
+.minikube/certs/*

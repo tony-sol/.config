@@ -11,9 +11,15 @@ export VIMINIT='let $VIMINIT = has("nvim") ? "${XDG_CONFIG_HOME}/nvim/init.lua" 
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export KUBECONFIG="${XDG_CONFIG_HOME}/kube/config"
+export MINIKUBE_HOME="${XDG_CONFIG_HOME}/kube"
 export VAGRANT_HOME="${XDG_CONFIG_HOME}/vagrant"
 export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"
 export ANSIBLE_VAULT_PASSWORD_FILE="${HOME}/.ansible/.keyfile"
+export GOPATH="${HOME}/Projects/go"
+export PIPENV_VENV_IN_PROJECT=1
+export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
+export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget/cache"
+export NUGET_PLUGINS_CACHE_PATH="${XDG_CACHE_HOME}/cache/plugins"
 
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST

@@ -10,6 +10,7 @@ alias vim='nvim'
 
 # auto completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 _complete_alias() {
@@ -19,5 +20,7 @@ _complete_alias() {
 zstyle ':completion:*' completer _complete _ignored _complete_alias
 zstyle ':completion:*' rehash true
 
+source <(kubectl completion zsh)
+source <(minikube completion zsh)
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # end
