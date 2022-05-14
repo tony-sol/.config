@@ -7,3 +7,6 @@
 [submodule "ovpn/openvpn-mac-dns"]
 	path = ovpn/openvpn-mac-dns
 	url = https://github.com/Tony-Sol/openvpn-mac-dns.git
+[submodule "zsh/extensions/zsh-autosuggestions"]
+	path = zsh/extensions/zsh-autosuggestions
+	url = https://github.com/Tony-Sol/zsh-autosuggestions.git

@@ -43,4 +43,6 @@ fi
 export GITAWAREPROMPT="${ZDOTDIR}/extensions/git-aware-prompt"
 source "${GITAWAREPROMPT}/main.sh"
 
+# zsh autosuggestions
+source "${ZDOTDIR}/extensions/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # end

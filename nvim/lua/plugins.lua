@@ -151,7 +151,7 @@ return require('packer').startup(function()
 			},
 			renderer = {
 				indent_markers = {
-					enable = false,
+					enable = true,
 					icons = {
 						corner = '└ ',
 						edge   = '│ ',
@@ -194,7 +194,7 @@ return require('packer').startup(function()
 			},
 			git = {
 				enable  = true,
-				ignore  = true,
+				ignore  = false,
 				timeout = 400
 			},
 			actions = {
