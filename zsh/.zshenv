@@ -32,7 +32,7 @@ setopt INC_APPEND_HISTORY
 
 # ssh agent
 if [ -z "${SSH_AUTH_SOCK}" ] ; then
-	eval `ssh-agent -s` > /dev/null
+	eval `ssh-agent -P "${HOMEBREW_PREFIX}/lib/*"` > /dev/null
 fi
 export SSH_AGENT_PID=${SSH_AGENT_PID:-`pgrep -x ssh-agent`}
 if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
