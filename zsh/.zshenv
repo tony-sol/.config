@@ -31,18 +31,18 @@ setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 
 # ssh agent
-plugins=(git ssh-agent)
 if [ -z "${SSH_AUTH_SOCK}" ] ; then
-	eval `ssh-agent -s`
+	eval `ssh-agent -s` > /dev/null
 fi
+export SSH_AGENT_PID=${SSH_AGENT_PID:-`pgrep -x ssh-agent`}
 if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
 	ssh-add "${HOME}/.ssh/id_rsa"
 fi
 
 # git aware prompt
-export GITAWAREPROMPT="${ZDOTDIR}/extensions/git-aware-prompt"
-source "${GITAWAREPROMPT}/main.sh"
+source "${ZDOTDIR}/extensions/git-aware-prompt/main.sh"
 
 # zsh autosuggestions
 source "${ZDOTDIR}/extensions/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
 # end
