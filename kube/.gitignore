@@ -1,3 +1,11 @@
+**.crt*
+**.key*
+**.pem*
+**.lock
 .minikube/cache/*
-.minikube/logs/*
 .minikube/certs/*
+.minikube/logs/*
+.minikube/machines/*
+.minikube/profiles/minikube/events.json
+
+config
