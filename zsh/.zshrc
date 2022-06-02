@@ -1,4 +1,5 @@
-export PROMPT='%{$bldcyn%}%~%{$txtrst$txtcyn%}$git_branch%{$bldgrn%}$git_ahead_mark$git_ahead_count%{$bldred%}$git_behind_mark$git_behind_count%{$bldylw%}$git_stash_mark%{$txtrst$txtylw%}$git_dirty$git_dirty_count%{$txtcyn%}$git_staged_mark$git_staged_count%{$txtpur%}$git_unknown_mark$git_unknown_count%{$txtrst%}$ ' # %n@%m
+export PROMPT='%{$bldcyn%}%~%{$txtrst%}%{$txtcyn%}$git_branch%{$bldgrn%}$git_ahead_mark$git_ahead_count%{$bldred%}$git_behind_mark$git_behind_count%{$bldcyn%}$git_stash_mark%{$bldylw%}$git_dirty$git_dirty_count%{$bldblu%}$git_staged_mark$git_staged_count%{$bldpur%}$git_unknown_mark$git_unknown_count%{$txtrst%} $([ $? -ne 0 ] && echo %{$bldred%}✘ || echo %{$bldgrn%}✔︎)%{$txtrst%} $ '
+export RPROMPT='$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_code)%{$txtrst%}'
 
 # aliases
 if [ -f "${ZDOTDIR}/.zsh_aliases" ]; then
