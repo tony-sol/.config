@@ -96,22 +96,12 @@ return require('packer').startup(function()
 					option = {
 						trailing_slash = true
 					}
-				},
-				{
-					name = 'cmp_tabnine'
 				}
 			}
 		}
 	}
 	use {
 		'hrsh7th/cmp-path',
-		requires = {
-			'hrsh7th/nvim-cmp'
-		}
-	}
-	use {
-		'tzachar/cmp-tabnine',
-		run = './install.sh',
 		requires = {
 			'hrsh7th/nvim-cmp'
 		}
