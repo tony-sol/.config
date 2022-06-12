@@ -58,6 +58,16 @@ return require('packer').startup(function()
 		}
 	}
 	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate',
+		require('nvim-treesitter.configs').setup {
+			ensure_installed = 'all',
+			highlight        = {
+				enable = true
+			}
+		}
+	}
+	use {
 		'lukas-reineke/indent-blankline.nvim',
 		requires = {
 			'nvim-treesitter/nvim-treesitter'
@@ -96,12 +106,21 @@ return require('packer').startup(function()
 					option = {
 						trailing_slash = true
 					}
+				},
+				{
+					name = 'buffer'
 				}
 			}
 		}
 	}
 	use {
 		'hrsh7th/cmp-path',
+		requires = {
+			'hrsh7th/nvim-cmp'
+		}
+	}
+	use {
+		'hrsh7th/cmp-buffer',
 		requires = {
 			'hrsh7th/nvim-cmp'
 		}
