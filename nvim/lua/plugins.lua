@@ -15,6 +15,9 @@ return require('packer').startup(function()
 		'neovim/nvim-lspconfig'
 	}
 	use {
+		'tversteeg/registers.nvim'
+	}
+	use {
 		'numToStr/Comment.nvim',
 		require('Comment').setup {}
 	}
