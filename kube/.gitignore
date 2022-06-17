@@ -8,5 +8,3 @@
 .minikube/machines/*
 .minikube/profiles/minikube/config.json
 .minikube/profiles/minikube/events.json
-
-config
