@@ -26,5 +26,6 @@ zstyle ':completion:*' rehash true
 
 source <(kubectl completion zsh)
 source <(minikube completion zsh)
+source <(kompose completion zsh)
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # end
