@@ -12,15 +12,19 @@ return require('packer').startup(function()
 		'williamboman/nvim-lsp-installer',
 		config = function()
 			require('nvim-lsp-installer').setup {
-				automatic_installation = true
+				automatic_installation = true,
+				ensure_installed       = {
+					'sumneko_lua',
+					'gopls'
+				}
 			}
 		end
 	}
 	use {
 		'neovim/nvim-lspconfig',
 		config = function()
-			local lspconfig = require('lspconfig')
-			lspconfig.sumneko_lua.setup {}
+			require('lspconfig').sumneko_lua.setup {}
+			require('lspconfig').gopls.setup {}
 		end
 	}
 	use {
