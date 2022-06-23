@@ -28,7 +28,8 @@ return require('packer').startup(function()
 		end
 	}
 	use {
-		'tversteeg/registers.nvim'
+		'folke/which-key.nvim',
+		require('which-key').setup {}
 	}
 	use {
 		'numToStr/Comment.nvim',
