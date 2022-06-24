@@ -6,19 +6,20 @@ return require('packer').startup(function()
 	}
 	use {
 		'windwp/nvim-autopairs',
-		require('nvim-autopairs').setup {}
+		require('nvim-autopairs').setup {
+			disable_in_macro = true,
+			check_ts         = true
+		}
 	}
 	use {
 		'williamboman/nvim-lsp-installer',
-		config = function()
-			require('nvim-lsp-installer').setup {
-				automatic_installation = true,
-				ensure_installed       = {
-					'sumneko_lua',
-					'gopls'
-				}
+		require('nvim-lsp-installer').setup {
+			automatic_installation = true,
+			ensure_installed       = {
+				'sumneko_lua',
+				'gopls'
 			}
-		end
+		}
 	}
 	use {
 		'neovim/nvim-lspconfig',
@@ -83,7 +84,25 @@ return require('packer').startup(function()
 			ensure_installed = 'all',
 			highlight        = {
 				enable = true
+			},
+			refactor         = {
+				highlight_definitions   = { enable = true },
+				highlight_current_scope = { enable = false },
+				smart_rename            = { enable = true }
 			}
+		}
+	}
+	use {
+		'nvim-treesitter/nvim-treesitter-context',
+		requires = {
+			'nvim-treesitter/nvim-treesitter'
+		},
+		require('treesitter-context').setup {}
+	}
+	use {
+		'nvim-treesitter/nvim-treesitter-refactor',
+		requires = {
+			'nvim-treesitter/nvim-treesitter'
 		}
 	}
 	use {
@@ -337,8 +356,8 @@ return require('packer').startup(function()
 				signs                             = {
 					add          = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
 					change       = { hl = 'GitSignsChange', text = '│', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-					delete       = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-					topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+						delete       = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+						topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
 					changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
 				},
 				signcolumn                        = true, -- Toggle with `:Gitsigns toggle_signs`
