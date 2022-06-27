@@ -39,10 +39,8 @@ if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
 	ssh-add "${HOME}/.ssh/id_rsa"
 fi
 
-# git aware prompt
+# zsh extensions
 source "${ZDOTDIR}/extensions/git-aware-prompt/main.sh"
-
-# zsh autosuggestions
 source "${ZDOTDIR}/extensions/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # end
