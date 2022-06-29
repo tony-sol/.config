@@ -21,6 +21,9 @@ export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
 export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget/cache"
 export NUGET_PLUGINS_CACHE_PATH="${XDG_CACHE_HOME}/cache/plugins"
 
+export EDITOR=nvim
+export VISUAL=nvim
+
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
@@ -29,6 +32,7 @@ setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
+setopt EMACS
 
 # ssh agent
 if [ -z "${SSH_AUTH_SOCK}" ] ; then
