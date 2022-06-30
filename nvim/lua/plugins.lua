@@ -16,8 +16,11 @@ return require('packer').startup(function()
 		require('nvim-lsp-installer').setup {
 			automatic_installation = true,
 			ensure_installed       = {
-				'sumneko_lua',
-				'gopls'
+				'gopls',
+				'golangci_lint_ls',
+				"marksman",
+				'pylsp',
+				'sumneko_lua'
 			}
 		}
 	}
@@ -38,6 +41,44 @@ return require('packer').startup(function()
 	}
 	use {
 		'Mofiqul/vscode.nvim'
+	}
+	use {
+		'kylechui/nvim-surround',
+		require('nvim-surround').setup {
+			keymaps = { -- vim-surround style keymaps
+				insert = "ys",
+				visual = "S",
+				delete = "ds",
+				change = "cs"
+			},
+			delimiters = {
+				pairs = {
+					["("] = { "( ", " )" },
+					[")"] = { "(",   ")" },
+					["{"] = { "{ ", " }" },
+					["}"] = { "{",   "}" },
+					["<"] = { "< ", " >" },
+					[">"] = { "<",   ">" },
+					["["] = { "[ ", " ]" },
+					["]"] = { "[",   "]" }
+				},
+				separators = {
+					["'"] = { "'", "'" },
+					['"'] = { '"', '"' },
+					["`"] = { "`", "`" }
+				},
+				HTML = {
+					["t"] = true, -- Use "t" for HTML-style mappings
+				},
+				aliases = {
+					["a"] = ">", -- Single character aliases apply everywhere
+					["b"] = ")",
+					["B"] = "}",
+					["r"] = "]",
+					["q"] = { '"', "'", "`" } -- Table aliases only apply for changes/deletions
+				}
+			}
+		}
 	}
 	use {
 		'nvim-lualine/lualine.nvim',
@@ -82,6 +123,9 @@ return require('packer').startup(function()
 		run = ':TSUpdate',
 		require('nvim-treesitter.configs').setup {
 			ensure_installed = 'all',
+			ignore_install   = {
+				'phpdoc'
+			},
 			highlight        = {
 				enable = true
 			},
@@ -233,7 +277,7 @@ return require('packer').startup(function()
 			hijack_netrw                       = true,
 			hijack_unnamed_buffer_when_opening = false,
 			ignore_buffer_on_setup             = false,
-			open_on_setup                      = true,
+			open_on_setup                      = false,
 			open_on_setup_file                 = false,
 			open_on_tab                        = true,
 			sort_by                            = 'name',

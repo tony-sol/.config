@@ -1,0 +1,153 @@
+---
+- name: Clone configs
+  become: false
+  gather_facts: true
+  tags:
+    - configs
+  vars:
+    the_user: "{{ ansible_user_id }}"
+  tasks:
+    - name: Ensure zsh is default shell
+      become: true
+      user:
+        name: "{{ the_user }}"
+        shell: /bin/zsh
+
+    - name: Clone configs from Github
+      git:
+        repo: "https://github.com/Tony-Sol/.config.git"
+        dest: "~"
+
+    - name: Remove existing configs
+      file:
+        path: "~/{{ item }}"
+        state: absent
+      loop:
+        - .zshenv
+        - .zshrc
+        - .zprofile
+        - .bashrc
+        - .bash_profile
+        - .profile
+
+    - name: Link config to shell
+      file:
+        src: "~/.config/zsh/.zshenv"
+        dest: "~/.zshenv"
+        state: link
+
+- name: Install everything
+  become: true
+  gather_facts: true
+  hosts: localhost
+  tags:
+    - packages
+  tasks:
+    - name: Update brew itself
+      homebrew:
+        update_homebrew: true
+
+    - name: Tap required repos
+      homebrew_tap:
+        name: "{{ item }}"
+      loop:
+        - hashicorp/tap
+        - homebrew/cask
+        - homebrew/cask-drivers
+        - homebrew/cask-fonts
+        - homebrew/cask-versions
+        - homebrew/core
+        - homebrew/services
+        - mutagen-io/mutagen
+        - qmk/qmk
+        - sunscan/repo
+
+    - name: Install packages
+      homebrew:
+        name: "{{ item }}"
+        state: latest
+        install_options: ignore-dependencies
+        upgrade_all: true
+      loop:
+        - ansible
+        - ca-certificates
+        - cmake
+        - ctop
+        - gdbm
+        - gettext
+        - glib
+        - go
+        - helm
+        - hey
+        - htop
+        - kompose
+        - kubernetes-cli
+        - libevent
+        - libffi
+        - libpng
+        - libssh2
+        - libtermkey
+        - libuv
+        - libyaml
+        - luajit-openresty
+        - luv
+        - lz4
+        - lzo
+        - midnight-commander
+        - minikube
+        - mpdecimal
+        - msgpack
+        - mutagen-io/mutagen/mutagen
+        - ncurses
+        - neovim
+        - nvm
+        - opensc
+        - openssl@1.1
+        - openvpn
+        - packer
+        - pcre
+        - pcre2
+        - pipenv
+        - pkcs11-helper
+        - python@3.10
+        - readline
+        - ripgrep
+        - s-lang
+        - six
+        - socat
+        - sqlite
+        - sunscan/repo/sshpass
+        - telnet
+        - terraform
+        - terraform-inventory
+        - tmux
+        - tree
+        - tree-sitter
+        - unibilium
+        - utf8proc
+        - vault
+        - xz
+        - ykman
+        - yq
+
+    - name: Install cask packages
+      homebrew_cask:
+        name: "{{ item }}"
+        state: latest
+        upgrade_all: true
+      loop:
+        - docker
+        - firefox-developer-edition
+        - font-jetbrains-mono-nerd-font
+        - google-chrome
+        - jetbrains-toolbox
+        - logitech-g-hub
+        - macfuse
+        - qmk-toolbox
+        - rectangle
+        - telegram
+        - via
+        - viscosity
+        - visual-studio-code
+        - zoom
+
