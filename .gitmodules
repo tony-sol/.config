@@ -16,3 +16,6 @@
 [submodule "zsh/extensions/zsh-syntax-highlighting"]
 	path = zsh/extensions/zsh-syntax-highlighting
 	url = https://github.com/Tony-Sol/zsh-syntax-highlighting.git
+[submodule "zsh/extensions/zsh-history-substring-search"]
+	path = zsh/extensions/zsh-history-substring-search
+	url = https://github.com/Tony-Sol/zsh-history-substring-search.git

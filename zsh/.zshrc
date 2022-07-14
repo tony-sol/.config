@@ -12,6 +12,10 @@ alias fgrep='fgrep --color=always'
 alias treee='tree -halFpugD'
 alias vim='nvim'
 
+# keymappings
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # auto completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 

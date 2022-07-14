@@ -57,5 +57,9 @@ fi
 source "${ZDOTDIR}/extensions/git-aware-prompt/main.sh"
 source "${ZDOTDIR}/extensions/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "${ZDOTDIR}/extensions/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "${ZDOTDIR}/extensions/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
+# zsh extensions configs
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets cursor)
 
 # end
