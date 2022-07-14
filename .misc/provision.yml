@@ -89,7 +89,7 @@
         - libtermkey
         - libuv
         - libyaml
-        - luajit-openresty
+        - luajit
         - luv
         - lz4
         - lzo
@@ -106,12 +106,11 @@
         - openvpn
         - packer
         - pcre
-        - pcre2
         - pipenv
         - pkcs11-helper
+        - pv
         - python@3.10
         - readline
-        - ripgrep
         - s-lang
         - six
         - socat

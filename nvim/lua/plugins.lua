@@ -16,11 +16,17 @@ return require('packer').startup(function()
 		require('nvim-lsp-installer').setup {
 			automatic_installation = true,
 			ensure_installed       = {
-				'gopls',
+				'ansiblels',
+				'dockerls',
 				'golangci_lint_ls',
-				"marksman",
+				'gopls',
+				'graphql',
+				'intelephense',
+				'marksman',
 				'pylsp',
-				'sumneko_lua'
+				'sumneko_lua',
+				'terraformls',
+				'yamlls'
 			}
 		}
 	}
