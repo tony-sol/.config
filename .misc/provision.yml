@@ -59,6 +59,7 @@
         - homebrew/core
         - homebrew/services
         - mutagen-io/mutagen
+        - puppetlabs/puppet
         - qmk/qmk
         - sunscan/repo
 
@@ -106,11 +107,13 @@
         - openvpn
         - packer
         - pcre
+        - pcre2
         - pipenv
         - pkcs11-helper
         - pv
         - python@3.10
         - readline
+        - ripgrep
         - s-lang
         - six
         - socat
@@ -142,6 +145,7 @@
         - jetbrains-toolbox
         - logitech-g-hub
         - macfuse
+        - pdk
         - qmk-toolbox
         - rectangle
         - telegram

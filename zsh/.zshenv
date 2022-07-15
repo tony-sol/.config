@@ -17,7 +17,6 @@ export MINIKUBE_HOME="${XDG_CONFIG_HOME}/minikube"
 export VAGRANT_HOME="${XDG_CONFIG_HOME}/vagrant"
 export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraform.tfrc"
-export VAULT_ADDR="http://127.0.0.1:8200"
 export VAULT_TOKEN=`cat "${XDG_CONFIG_HOME}/vault/.vault-token"`
 export ANSIBLE_VAULT_PASSWORD_FILE="${HOME}/.ansible/.keyfile"
 export GOPATH="${HOME}/Projects/go"
