@@ -18,7 +18,6 @@ opt.shiftwidth     = 4
 opt.smarttab       = true
 opt.smartcase      = true
 opt.smartindent    = true
-opt.clipboard      = 'unnamedplus'
 
 g.mapleader                  = '\\'
 g.maplocalleader             = '\\'
