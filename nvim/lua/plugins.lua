@@ -33,8 +33,17 @@ return require('packer').startup(function()
 	use {
 		'neovim/nvim-lspconfig',
 		config = function()
-			require('lspconfig').sumneko_lua.setup {}
+			require('lspconfig').ansiblels.setup {}
+			require('lspconfig').dockerls.setup {}
+			require('lspconfig').golangci_lint_ls.setup {}
 			require('lspconfig').gopls.setup {}
+			require('lspconfig').graphql.setup {}
+			require('lspconfig').intelephense.setup {}
+			require('lspconfig').marksman.setup {}
+			require('lspconfig').pylsp.setup {}
+			require('lspconfig').sumneko_lua.setup {}
+			require('lspconfig').terraformls.setup {}
+			require('lspconfig').yamlls.setup {}
 		end
 	}
 	use {
