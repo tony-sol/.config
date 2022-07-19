@@ -13,8 +13,6 @@ alias treee='tree -halFpugD'
 alias vim='nvim'
 
 # keymappings
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # auto completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
@@ -27,6 +25,10 @@ _complete_alias() {
 }
 zstyle ':completion:*' completer _complete _ignored _complete_alias
 zstyle ':completion:*' rehash true
+
+# zsh extensions completion
+zstyle ':autocomplete:*' insert-unambiguous yes
+zstyle ':autocomplete:*' widget-style menu-complete
 
 source <(kubectl completion zsh)
 source <(minikube completion zsh)
