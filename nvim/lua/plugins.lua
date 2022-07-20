@@ -51,6 +51,10 @@ return require('packer').startup(function()
 		require('which-key').setup {}
 	}
 	use {
+		'phaazon/hop.nvim',
+		require('hop').setup {}
+	}
+	use {
 		'numToStr/Comment.nvim',
 		require('Comment').setup {}
 	}
