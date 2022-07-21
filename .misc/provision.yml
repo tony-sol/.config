@@ -74,6 +74,7 @@
         - ca-certificates
         - cmake
         - ctop
+        - fd
         - gdbm
         - gettext
         - glib
@@ -96,6 +97,7 @@
         - lzo
         - midnight-commander
         - minikube
+        - molecule
         - mpdecimal
         - msgpack
         - mutagen-io/mutagen/mutagen
