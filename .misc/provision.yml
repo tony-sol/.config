@@ -84,6 +84,7 @@
         - htop
         - kompose
         - kubernetes-cli
+        - lf
         - libevent
         - libffi
         - libpng
