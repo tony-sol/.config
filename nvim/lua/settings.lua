@@ -28,3 +28,7 @@ g.vscode_italic_comment      = true
 g.vscode_disable_nvimtree_bg = true
 
 cmd([[colorscheme vscode]])
+
+vim.diagnostic.config({
+	virtual_text = false
+})

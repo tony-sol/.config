@@ -87,8 +87,6 @@
         - lf
         - libevent
         - libffi
-        - libpng
-        - libssh2
         - libtermkey
         - libuv
         - libyaml
@@ -96,7 +94,6 @@
         - luv
         - lz4
         - lzo
-        - midnight-commander
         - minikube
         - molecule
         - mpdecimal
@@ -117,7 +114,6 @@
         - python@3.10
         - readline
         - ripgrep
-        - s-lang
         - six
         - socat
         - sqlite
@@ -148,7 +144,7 @@
         - jetbrains-toolbox
         - logitech-g-hub
         - macfuse
-        - pdk
+        - puppetlabs/puppet/pdk
         - qmk-toolbox
         - rectangle
         - telegram
@@ -156,4 +152,3 @@
         - viscosity
         - visual-studio-code
         - zoom
-

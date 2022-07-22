@@ -12,6 +12,10 @@ return require('packer').startup(function()
 		}
 	}
 	use {
+		'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+		require('lsp_lines').setup {}
+	}
+	use {
 		'williamboman/nvim-lsp-installer',
 		require('nvim-lsp-installer').setup {
 			automatic_installation = true,
@@ -153,20 +157,14 @@ return require('packer').startup(function()
 				highlight_current_scope = { enable = false },
 				smart_rename            = { enable = true }
 			}
+		},
+		requires = {
+			'nvim-treesitter/nvim-treesitter-refactor'
 		}
 	}
 	use {
 		'nvim-treesitter/nvim-treesitter-context',
-		requires = {
-			'nvim-treesitter/nvim-treesitter'
-		},
 		require('treesitter-context').setup {}
-	}
-	use {
-		'nvim-treesitter/nvim-treesitter-refactor',
-		requires = {
-			'nvim-treesitter/nvim-treesitter'
-		}
 	}
 	use {
 		'simrat39/symbols-outline.nvim',
@@ -270,18 +268,11 @@ return require('packer').startup(function()
 					name = 'buffer'
 				}
 			}
-		}
-	}
-	use {
-		'hrsh7th/cmp-path',
+		},
 		requires = {
-			'hrsh7th/nvim-cmp'
-		}
-	}
-	use {
-		'hrsh7th/cmp-buffer',
-		requires = {
-			'hrsh7th/nvim-cmp'
+			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-path',
+			'hrsh7th/cmp-buffer'
 		}
 	}
 	use {

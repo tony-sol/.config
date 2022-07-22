@@ -41,7 +41,7 @@ setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
-setopt EMACS
+setopt VI
 
 # ssh agent
 if [ -z "${SSH_AUTH_SOCK}" ] ; then
