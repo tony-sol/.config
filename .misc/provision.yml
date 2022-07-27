@@ -51,6 +51,7 @@
       homebrew_tap:
         name: "{{ item }}"
       loop:
+        - gromgit/fuse
         - hashicorp/tap
         - homebrew/cask
         - homebrew/cask-drivers
@@ -79,6 +80,7 @@
         - gettext
         - glib
         - go
+        - gromgit/fuse/sshfs-mac
         - helm
         - hey
         - htop

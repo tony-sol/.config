@@ -1,6 +1,6 @@
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
 	use {
 		'wbthomason/packer.nvim'
 	}
@@ -16,8 +16,12 @@ return require('packer').startup(function()
 		require('lsp_lines').setup {}
 	}
 	use {
-		'williamboman/nvim-lsp-installer',
-		require('nvim-lsp-installer').setup {
+		'williamboman/mason.nvim',
+		require('mason').setup {}
+	}
+	use {
+		'williamboman/mason-lspconfig.nvim',
+		require('mason-lspconfig').setup {
 			automatic_installation = true,
 			ensure_installed       = {
 				'ansiblels',
