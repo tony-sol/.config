@@ -23,6 +23,9 @@ set hidden on
 # show pane borders
 set drawbox on
 
+# remove username and hostname from header prompt
+set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
+
 # show numbers and relative numbers
 set number on
 set relativenumber on
