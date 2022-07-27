@@ -16,6 +16,13 @@ return require('packer').startup(function(use)
 		require('lsp_lines').setup {}
 	}
 	use {
+		'mfussenegger/nvim-dap'
+	}
+	use {
+		'rcarriga/nvim-dap-ui',
+		require('dapui').setup {}
+	}
+	use {
 		'williamboman/mason.nvim',
 		require('mason').setup {}
 	}
@@ -77,41 +84,7 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'kylechui/nvim-surround',
-		require('nvim-surround').setup {
-			keymaps = { -- vim-surround style keymaps
-				insert = "ys",
-				visual = "S",
-				delete = "ds",
-				change = "cs"
-			},
-			delimiters = {
-				pairs = {
-					["("] = { "( ", " )" },
-					[")"] = { "(",   ")" },
-					["{"] = { "{ ", " }" },
-					["}"] = { "{",   "}" },
-					["<"] = { "< ", " >" },
-					[">"] = { "<",   ">" },
-					["["] = { "[ ", " ]" },
-					["]"] = { "[",   "]" }
-				},
-				separators = {
-					["'"] = { "'", "'" },
-					['"'] = { '"', '"' },
-					["`"] = { "`", "`" }
-				},
-				HTML = {
-					["t"] = true, -- Use "t" for HTML-style mappings
-				},
-				aliases = {
-					["a"] = ">", -- Single character aliases apply everywhere
-					["b"] = ")",
-					["B"] = "}",
-					["r"] = "]",
-					["q"] = { '"', "'", "`" } -- Table aliases only apply for changes/deletions
-				}
-			}
-		}
+		require('nvim-surround').setup {}
 	}
 	use {
 		'nvim-lualine/lualine.nvim',
@@ -301,22 +274,22 @@ return require('packer').startup(function(use)
 			renderer            = {
 				highlight_git               = true,
 				indent_markers              = {
-					enable   = true
+					enable                  = true
 				}
 			},
 			update_focused_file = {
-				enable       = true,
-				update_cwd   = true
+				enable                      = true,
+				update_cwd                  = true
+			},
+			git                 = {
+				ignore                      = false
 			},
 			diagnostics         = {
-				enable       = true,
-				show_on_dirs = true
-			},
-			filters             = {
-				dotfiles     = false
+				enable                      = true,
+				show_on_dirs                = true
 			},
 			trash               = {
-				cmd          = 'trash'
+				cmd                         = 'trash'
 			}
 		}
 	}

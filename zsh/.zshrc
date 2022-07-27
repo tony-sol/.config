@@ -29,7 +29,7 @@ zstyle ':completion:*' rehash true
 # zsh extensions completion
 zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
-
+source <(pip3 completion --zsh)
 source <(kubectl completion zsh)
 source <(minikube completion zsh)
 source <(kompose completion zsh)

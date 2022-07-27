@@ -21,6 +21,7 @@ opt.smartindent    = true
 
 g.mapleader                  = '\\'
 g.maplocalleader             = '\\'
+g.loaded_perl_provider       = 0
 
 g.vscode_style               = 'dark'
 g.vscode_transparent         = true
