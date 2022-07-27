@@ -21,11 +21,14 @@ return require('packer').startup(function()
 			automatic_installation = true,
 			ensure_installed       = {
 				'ansiblels',
+				'bashls',
+				'clangd',
 				'dockerls',
 				'golangci_lint_ls',
 				'gopls',
 				'graphql',
 				'intelephense',
+				'jsonls',
 				'marksman',
 				'pylsp',
 				'sumneko_lua',
@@ -38,11 +41,14 @@ return require('packer').startup(function()
 		'neovim/nvim-lspconfig',
 		config = function()
 			require('lspconfig').ansiblels.setup {}
+			require('lspconfig').bashls.setup {}
+			require('lspconfig').clangd.setup {}
 			require('lspconfig').dockerls.setup {}
 			require('lspconfig').golangci_lint_ls.setup {}
 			require('lspconfig').gopls.setup {}
 			require('lspconfig').graphql.setup {}
 			require('lspconfig').intelephense.setup {}
+			require('lspconfig').jsonls.setup {}
 			require('lspconfig').marksman.setup {}
 			require('lspconfig').pylsp.setup {}
 			require('lspconfig').sumneko_lua.setup {}
@@ -281,116 +287,32 @@ return require('packer').startup(function()
 			'kyazdani42/nvim-web-devicons' -- optional, for file icon
 		},
 		require('nvim-tree').setup {
-			auto_reload_on_write               = true,
-			disable_netrw                      = false,
-			hijack_cursor                      = false,
-			hijack_netrw                       = true,
-			hijack_unnamed_buffer_when_opening = false,
-			ignore_buffer_on_setup             = false,
-			open_on_setup                      = false,
-			open_on_setup_file                 = false,
-			open_on_tab                        = true,
-			sort_by                            = 'name',
-			update_cwd                         = false,
-			view                               = {
-				width                       = 30,
-				height                      = 30,
-				hide_root_folder            = false,
-				side                        = 'left',
+			sync_root_with_cwd  = true,
+			view                = {
+				adaptive_size               = true,
 				preserve_window_proportions = true,
-				number                      = false,
-				relativenumber              = false,
-				signcolumn                  = 'yes',
-				mappings                    = {
-					custom_only = false,
-					list = {
-						--	user mappings go here
-					}
+				number                      = true,
+				relativenumber              = true
+			},
+			renderer            = {
+				highlight_git               = true,
+				indent_markers              = {
+					enable   = true
 				}
 			},
-			renderer                           = {
-				indent_markers = {
-					enable = true,
-					icons = {
-						corner = '└ ',
-						edge   = '│ ',
-						none   = '  '
-					}
-				},
-				icons = {
-					webdev_colors = true,
-					git_placement = 'before'
-				}
+			update_focused_file = {
+				enable       = true,
+				update_cwd   = true
 			},
-			hijack_directories                 = {
-				enable    = true,
-				auto_open = true
+			diagnostics         = {
+				enable       = true,
+				show_on_dirs = true
 			},
-			update_focused_file                = {
-				enable      = false,
-				update_cwd  = false,
-				ignore_list = {}
+			filters             = {
+				dotfiles     = false
 			},
-			ignore_ft_on_setup                 = {},
-			system_open                        = {
-				cmd  = '',
-				args = {}
-			},
-			diagnostics                        = {
-				enable       = false,
-				show_on_dirs = false,
-				icons        = {
-					hint    = '',
-					info    = '',
-					warning = '',
-					error   = ''
-				}
-			},
-			filters                            = {
-				dotfiles = false,
-				custom   = {},
-				exclude  = {}
-			},
-			git                                = {
-				enable  = true,
-				ignore  = false,
-				timeout = 400
-			},
-			actions                            = {
-				use_system_clipboard = true,
-				change_dir = {
-					enable             = true,
-					global             = false,
-					restrict_above_cwd = false
-				},
-				open_file = {
-					quit_on_open  = false,
-					resize_window = false,
-					window_picker = {
-						enable  = true,
-						chars   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
-						exclude = {
-							filetype = { 'notify', 'packer', 'qf', 'diff', 'fugitive', 'fugitiveblame' },
-							buftype  = { 'nofile', 'terminal', 'help' }
-						}
-					}
-				}
-			},
-			trash                              = {
-				cmd             = 'trash',
-				require_confirm = true
-			},
-			log                                = {
-				enable   = false,
-				truncate = false,
-				types    = {
-					all         = false,
-					config      = false,
-					copy_paste  = false,
-					diagnostics = false,
-					git         = false,
-					profile     = false
-				}
+			trash               = {
+				cmd          = 'trash'
 			}
 		}
 	}
