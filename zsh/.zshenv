@@ -13,6 +13,9 @@ export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
 # set vim/nvim initial script
 export VIMINIT='let $VIMINIT = has("nvim") ? "${XDG_CONFIG_HOME}/nvim/init.lua" : "${XDG_CONFIG_HOME}/vim/vimrc" | source $VIMINIT'
+# set ncurses configs
+export TERMINFO="${XDG_DATA_HOME}/terminfo"
+export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo"
 # set less history file location
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 # set docker configs
@@ -85,6 +88,6 @@ source "${ZDOTDIR}/extensions/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source "${ZDOTDIR}/extensions/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 
 # zsh extensions configs
-export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets cursor)
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
 
 # end

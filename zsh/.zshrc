@@ -12,6 +12,9 @@ alias fgrep='fgrep --color=always'
 alias treee='tree -halFpugD'
 alias vim='nvim'
 
+# hacks
+export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
+
 # keymappings
 
 # auto completion

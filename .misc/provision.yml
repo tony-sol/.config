@@ -139,6 +139,7 @@
         state: latest
         upgrade_all: true
       loop:
+        - alacritty
         - docker
         - firefox-developer-edition
         - font-jetbrains-mono-nerd-font
@@ -149,6 +150,7 @@
         - puppetlabs/puppet/pdk
         - qmk-toolbox
         - rectangle
+        - skype
         - telegram
         - via
         - viscosity
