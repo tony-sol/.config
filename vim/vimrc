@@ -10,3 +10,4 @@ set viminfo="n${XDG_CONFIG_HOME}/vim/viminfo"
 set number
 set list
 set relativenumber
+set hlsearch
