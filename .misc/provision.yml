@@ -75,6 +75,7 @@
         - ca-certificates
         - cmake
         - ctop
+        - dive
         - fd
         - gdbm
         - gettext
@@ -86,6 +87,7 @@
         - htop
         - kompose
         - kubernetes-cli
+        - lazydocker
         - lf
         - libevent
         - libffi
