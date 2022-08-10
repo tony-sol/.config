@@ -37,6 +37,17 @@ return require('packer').startup(function(use)
 		'nvim-lua/plenary.nvim',
 	}
 	use {
+		'Mofiqul/vscode.nvim',
+		require('vscode').setup {
+			italic_comments     = true,
+			disable_nvimtree_bg = true,
+			transparent         = true,
+		},
+	}
+	use {
+		'stevearc/dressing.nvim',
+	}
+	use {
 		'windwp/nvim-autopairs',
 		require('nvim-autopairs').setup {
 			disable_in_macro = true,
@@ -124,16 +135,9 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'numToStr/Comment.nvim',
-		require('Comment').setup {
-		},
-	}
-	use {
-		'Mofiqul/vscode.nvim',
-		require('vscode').setup {
-			italic_comments     = true,
-			disable_nvimtree_bg = true,
-			transparent         = true,
-		},
+		config = function()
+			require('Comment').setup()
+		end
 	}
 	use {
 		'kylechui/nvim-surround',
@@ -404,7 +408,6 @@ return require('packer').startup(function(use)
 		},
 	}
 	use {
-		'nvim-telescope/telescope-ui-select.nvim',
 		'nvim-telescope/telescope-file-browser.nvim',
 		'nvim-telescope/telescope-live-grep-args.nvim',
 		'nvim-telescope/telescope-packer.nvim',
@@ -414,7 +417,6 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim',
 		requires = {
 			'nvim-lua/plenary.nvim',
-			'nvim-telescope/telescope-ui-select.nvim',
 			'nvim-telescope/telescope-file-browser.nvim',
 			'nvim-telescope/telescope-live-grep-args.nvim',
 			'nvim-telescope/telescope-packer.nvim',
@@ -433,7 +435,6 @@ return require('packer').startup(function(use)
 				dap            = {},
 			},
 		},
-		require('telescope').load_extension('ui-select'),
 		require('telescope').load_extension('file_browser'),
 		require('telescope').load_extension('live_grep_args'),
 		require('telescope').load_extension('packer'),
