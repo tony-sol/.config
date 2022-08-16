@@ -10,6 +10,10 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_RUNTIME_DIR="${HOME}/.local/run"
 # set zsh home directory
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+# set brew configs
+export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
+export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX}"
+export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
 
 # set vim/nvim initial script
 export VIMINIT='let $VIMINIT = has("nvim") ? "${XDG_CONFIG_HOME}/nvim/init.lua" : "${XDG_CONFIG_HOME}/vim/vimrc" | source $VIMINIT'
@@ -49,6 +53,8 @@ export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
+# set dotnet configs
+export DOTNET_ROOT="${HOMEBREW_PREFIX}/bin"
 # set nuget configs
 export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
 export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget"

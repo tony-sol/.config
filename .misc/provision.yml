@@ -76,6 +76,7 @@
         - cmake
         - ctop
         - dive
+        - dotnet
         - fd
         - gdbm
         - gettext
@@ -85,6 +86,7 @@
         - helm
         - hey
         - htop
+        - icu4c
         - kompose
         - kubernetes-cli
         - lazydocker
