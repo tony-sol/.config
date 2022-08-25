@@ -36,6 +36,9 @@ customCommands:
     - name: bash
       attach: true
       command: 'docker exec -it {{ .Container.ID }} bash'
+    - name: kill
+      attach: false
+      command: 'docker kill {{ .Container.ID }}'
 
 oS:
   openCommand: open {{filename}}

@@ -42,7 +42,7 @@ gui:
 git:
   paging:
     colorArg: always
-    useConfig: false
+    useConfig: true
   commit:
     signOff: false
   merging:
