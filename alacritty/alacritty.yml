@@ -69,6 +69,8 @@ shell:
   program: /bin/zsh
   args: ["-l", "-c", "tmux attach || tmux"]
 
+alt_send_esc: false
+
 #key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
