@@ -55,6 +55,7 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
 # set dotnet configs
 export DOTNET_ROOT="${HOMEBREW_PREFIX}/bin"
+export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 # set nuget configs
 export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
 export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget"
