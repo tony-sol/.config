@@ -90,6 +90,7 @@
         - kompose
         - kubernetes-cli
         - lazydocker
+        - lazygit
         - lf
         - libevent
         - libffi

@@ -82,6 +82,7 @@ return require('packer').startup(function(use)
 				'intelephense',
 				'jsonls',
 				'marksman',
+				'omnisharp',
 				'pylsp',
 				'sumneko_lua',
 				'terraformls',
@@ -102,6 +103,7 @@ return require('packer').startup(function(use)
 			require('lspconfig').intelephense.setup {}
 			require('lspconfig').jsonls.setup {}
 			require('lspconfig').marksman.setup {}
+			require('lspconfig').omnisharp.setup {}
 			require('lspconfig').pylsp.setup {}
 			require('lspconfig').sumneko_lua.setup {}
 			require('lspconfig').terraformls.setup {}
