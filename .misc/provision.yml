@@ -2,6 +2,7 @@
 - name: Clone configs
   become: false
   gather_facts: true
+  hosts: all
   tags:
     - configs
   vars:
@@ -37,127 +38,25 @@
         state: link
 
 - name: Install everything
-  become: true
+  become: false
   gather_facts: true
-  hosts: localhost
+  hosts: all
   tags:
     - packages
   tasks:
-    - name: Update brew itself
-      homebrew:
-        update_homebrew: true
-
-    - name: Tap required repos
-      homebrew_tap:
-        name: "{{ item }}"
+    - name: Ensure brew is installed
+      become: true
+      stat:
+        path: "{{ item }}"
       loop:
-        - gromgit/fuse
-        - hashicorp/tap
-        - homebrew/cask
-        - homebrew/cask-drivers
-        - homebrew/cask-fonts
-        - homebrew/cask-versions
-        - homebrew/core
-        - homebrew/services
-        - mutagen-io/mutagen
-        - puppetlabs/puppet
-        - qmk/qmk
-        - sunscan/repo
+        - /opt/homebrew/bin/brew
+        - /usr/local/bin/brew
+      register: brew
 
-    - name: Install packages
-      homebrew:
-        name: "{{ item }}"
-        state: latest
-        install_options: ignore-dependencies
-        upgrade_all: true
-      loop:
-        - ansible
-        - ca-certificates
-        - cmake
-        - ctop
-        - dive
-        - dotnet
-        - fd
-        - gdbm
-        - gettext
-        - glib
-        - go
-        - gromgit/fuse/sshfs-mac
-        - helm
-        - hey
-        - htop
-        - icu4c
-        - kompose
-        - kubernetes-cli
-        - lazydocker
-        - lazygit
-        - lf
-        - libevent
-        - libffi
-        - libtermkey
-        - libuv
-        - libyaml
-        - luajit
-        - luv
-        - lz4
-        - lzo
-        - minikube
-        - molecule
-        - mpdecimal
-        - msgpack
-        - mutagen-io/mutagen/mutagen
-        - ncurses
-        - neovim
-        - nvm
-        - opensc
-        - openssl@1.1
-        - openvpn
-        - packer
-        - pcre
-        - pcre2
-        - pipenv
-        - pkcs11-helper
-        - pv
-        - python@3.10
-        - readline
-        - ripgrep
-        - six
-        - socat
-        - sqlite
-        - sunscan/repo/sshpass
-        - telnet
-        - terraform
-        - terraform-inventory
-        - tmux
-        - tree
-        - tree-sitter
-        - unibilium
-        - utf8proc
-        - vault
-        - xz
-        - ykman
-        - yq
+    - name: Install brew
+      shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      when:
+        - brew.results | selectattr("stat.exists") | list | length < 1
 
-    - name: Install cask packages
-      homebrew_cask:
-        name: "{{ item }}"
-        state: latest
-        upgrade_all: true
-      loop:
-        - alacritty
-        - docker
-        - firefox-developer-edition
-        - font-jetbrains-mono-nerd-font
-        - google-chrome
-        - jetbrains-toolbox
-        - logitech-g-hub
-        - macfuse
-        - puppetlabs/puppet/pdk
-        - qmk-toolbox
-        - rectangle
-        - skype
-        - telegram
-        - via
-        - viscosity
-        - visual-studio-code
-        - zoom
+    - name: Install everything
+      shell: brew bundle --file ~/.config/homebrew/Brewfile --no-lock

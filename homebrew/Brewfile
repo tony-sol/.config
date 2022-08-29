@@ -1,0 +1,124 @@
+tap "gromgit/fuse"
+tap "hashicorp/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "jesseduffield/horcrux"
+tap "mutagen-io/mutagen"
+tap "puppetlabs/puppet"
+tap "qmk/qmk"
+tap "sunscan/repo"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Cross-platform make
+brew "cmake"
+# Top-like interface for container metrics
+brew "ctop"
+# Tool for exploring each layer in a docker image
+brew "dive"
+# .NET Core
+brew "dotnet"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Core application library for C
+brew "glib"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Kubernetes package manager
+brew "helm"
+# HTTP load generator, ApacheBench (ab) replacement
+brew "hey"
+# Improved top (interactive process viewer)
+brew "htop"
+# Tool to move from `docker-compose` to Kubernetes
+brew "kompose"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Lazier way to manage everything docker
+brew "lazydocker"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Terminal file manager
+brew "lf"
+# Run a Kubernetes cluster locally
+brew "minikube"
+# Automated testing for Ansible roles
+brew "molecule"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Manage multiple Node.js versions
+brew "nvm"
+# Tools and libraries for smart cards
+brew "opensc"
+# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
+brew "openvpn"
+# Tool for creating identical machine images for multiple platforms
+brew "packer"
+# Python dependency management tool
+brew "pipenv"
+# Monitor data's progress through a pipe
+brew "pv"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# SOcket CAT: netcat on steroids
+brew "socat"
+# User interface to the TELNET protocol
+brew "telnet"
+# Tool to build, change, and version infrastructure
+brew "terraform"
+# Terraform State → Ansible Dynamic Inventory
+brew "terraform-inventory"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Secures, stores, and tightly controls access to secrets
+brew "vault"
+# Tool for managing your YubiKey configuration
+brew "ykman"
+# Process YAML documents from the CLI
+brew "yq"
+# File system client based on SSH File Transfer Protocol
+brew "gromgit/fuse/sshfs-mac"
+# Fast file synchronization and network forwarding for remote development
+brew "mutagen-io/mutagen/mutagen"
+# Non-interactive ssh password auth
+brew "sunscan/repo/sshpass"
+# GPU-accelerated terminal emulator
+cask "alacritty"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Web browser
+cask "firefox-developer-edition"
+cask "font-jetbrains-mono-nerd-font"
+# Web browser
+cask "google-chrome"
+# JetBrains tools manager
+cask "jetbrains-toolbox"
+# Support for Logitech G gear
+cask "logitech-g-hub"
+# File system integration
+cask "macfuse"
+cask "pdk"
+# Toolbox companion for QMK Firmware
+cask "qmk-toolbox"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Video chat, voice call and instant messaging application
+cask "skype"
+# Messaging app with a focus on speed and security
+cask "telegram"
+# Keyboard configurator
+cask "via"
+# OpenVPN client with AppleScript support
+cask "viscosity"
+# Open-source code editor
+cask "visual-studio-code"
+# Video communication and virtual meeting platform
+cask "zoom"
