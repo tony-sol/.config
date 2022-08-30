@@ -16,6 +16,8 @@ alias vim='nvim'
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 
 # keymappings
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 
 # auto completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
