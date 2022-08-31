@@ -70,6 +70,9 @@
     "ignoredSnapAreas" : {
       "int" : 0
     },
+    "landscapeSnapAreas" : {
+
+    },
     "launchOnLogin" : {
       "bool" : true
     },
@@ -90,6 +93,9 @@
     },
     "obtainWindowOnClick" : {
       "int" : 0
+    },
+    "portraitSnapAreas" : {
+
     },
     "relaunchOpensMenu" : {
       "bool" : false
@@ -178,16 +184,20 @@
   },
   "shortcuts" : {
     "bottomHalf" : {
-      "keyCode" : 125,
+      "keyCode" : 40,
       "modifierFlags" : 1310720
     },
     "bottomLeft" : {
-      "keyCode" : 123,
+      "keyCode" : 4,
       "modifierFlags" : 1441792
     },
     "bottomRight" : {
-      "keyCode" : 124,
+      "keyCode" : 37,
       "modifierFlags" : 1441792
+    },
+    "centerHalf" : {
+      "keyCode" : 46,
+      "modifierFlags" : 1310720
     },
     "centerThird" : {
       "keyCode" : 19,
@@ -226,7 +236,7 @@
       "modifierFlags" : 1441792
     },
     "leftHalf" : {
-      "keyCode" : 123,
+      "keyCode" : 4,
       "modifierFlags" : 1310720
     },
     "maximize" : {
@@ -238,7 +248,7 @@
       "modifierFlags" : 786432
     },
     "rightHalf" : {
-      "keyCode" : 124,
+      "keyCode" : 37,
       "modifierFlags" : 1310720
     },
     "secondFourth" : {
@@ -250,17 +260,17 @@
       "modifierFlags" : 786432
     },
     "topHalf" : {
-      "keyCode" : 126,
+      "keyCode" : 38,
       "modifierFlags" : 1310720
     },
     "topLeft" : {
-      "keyCode" : 123,
+      "keyCode" : 4,
       "modifierFlags" : 1835008
     },
     "topRight" : {
-      "keyCode" : 124,
+      "keyCode" : 37,
       "modifierFlags" : 1835008
     }
   },
-  "version" : "63"
+  "version" : "64"
 }
