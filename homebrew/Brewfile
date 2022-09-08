@@ -16,6 +16,8 @@ tap "sunscan/repo"
 brew "python@3.10"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
 # Cross-platform make
 brew "cmake"
 # Top-like interface for container metrics
@@ -96,6 +98,7 @@ cask "alacritty"
 cask "docker"
 # Web browser
 cask "firefox-developer-edition"
+# Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Web browser
 cask "google-chrome"
