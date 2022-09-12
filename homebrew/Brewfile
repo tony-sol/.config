@@ -109,16 +109,12 @@ cask "logitech-g-hub"
 # File system integration
 cask "macfuse"
 cask "pdk"
-# Toolbox companion for QMK Firmware
-cask "qmk-toolbox"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Video chat, voice call and instant messaging application
 cask "skype"
 # Messaging app with a focus on speed and security
 cask "telegram"
-# Keyboard configurator
-cask "via"
 # OpenVPN client with AppleScript support
 cask "viscosity"
 # Open-source code editor
