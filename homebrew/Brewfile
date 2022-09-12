@@ -104,8 +104,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "google-chrome"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
-# Support for Logitech G gear
-cask "logitech-g-hub"
 # File system integration
 cask "macfuse"
 cask "pdk"

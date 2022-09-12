@@ -62,7 +62,7 @@
 
     },
     "gapSize" : {
-      "float" : 8
+      "float" : 4
     },
     "hideMenubarIcon" : {
       "bool" : true
@@ -81,6 +81,9 @@
     },
     "minimumWindowWidth" : {
       "float" : 0
+    },
+    "missionControlDragging" : {
+      "int" : 0
     },
     "moveCursor" : {
       "int" : 0
@@ -272,5 +275,5 @@
       "modifierFlags" : 1835008
     }
   },
-  "version" : "64"
+  "version" : "65"
 }
