@@ -1,3 +1,4 @@
+tap "go-task/tap"
 tap "gromgit/fuse"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
@@ -86,6 +87,8 @@ brew "vault"
 brew "ykman"
 # Process YAML documents from the CLI
 brew "yq"
+# Task runner / simpler Make alternative written in Go
+brew "go-task/tap/go-task"
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac"
 # Fast file synchronization and network forwarding for remote development
