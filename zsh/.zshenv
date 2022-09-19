@@ -64,6 +64,9 @@ export NUGET_PLUGINS_CACHE_PATH="${XDG_CACHE_HOME}/nuget/plugins"
 export MAVEN_REPOSITORY="${XDG_DATA_HOME}/m2/repository"
 # set gradle configs
 export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
+# set composer configs
+export COMPOSER_HOME="${XDG_CONFIG_HOME}/composer"
+export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
 
 # set neovim as default editor
 export EDITOR=nvim
