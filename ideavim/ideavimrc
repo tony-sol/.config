@@ -1,0 +1,10 @@
+source ~/.config/vim/vimrc
+
+set which-key
+set keep-english-in-normal-and-restore-in-insert
+set easymotion
+set surround
+set multiple-cursors
+set commentary
+set textobj-indent
+set vim-paragraph-motion
