@@ -67,6 +67,8 @@ export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
 # set composer configs
 export COMPOSER_HOME="${XDG_CONFIG_HOME}/composer"
 export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
+# set mutagen configs
+export MUTAGEN_DATA_DIRECTORY="${XDG_DATA_HOME}/mutagen"
 
 # set neovim as default editor
 export EDITOR=nvim
