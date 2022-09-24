@@ -19,3 +19,6 @@
 [submodule "zsh/extensions/zsh-autocomplete"]
 	path = zsh/extensions/zsh-autocomplete
 	url = https://github.com/Tony-Sol/zsh-autocomplete.git
+[submodule "zsh/extensions/zsh-completions"]
+	path = zsh/extensions/zsh-completions
+	url = https://github.com/Tony-Sol/zsh-completions.git

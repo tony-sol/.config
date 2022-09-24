@@ -21,6 +21,7 @@ bindkey "^[[1;3D" backward-word
 
 # auto completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+FPATH="${FPATH}:${ZDOTDIR}/extensions/zsh-completions/src"
 
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
