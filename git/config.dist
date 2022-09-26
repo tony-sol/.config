@@ -6,6 +6,8 @@
 	pager = less -i
 [fetch]
 	prune = true
+[rebase]
+	autoStash = true
 [pull]
 	rebase = true
 [push]
