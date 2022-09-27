@@ -5,7 +5,7 @@ export RPROMPT='$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_
 if [ -f "${ZDOTDIR}/.zsh_aliases" ]; then
 	source "${ZDOTDIR}/.zsh_aliases"
 fi
-alias ll='ls -alhFT'
+alias ll='ls -AlhFT'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
