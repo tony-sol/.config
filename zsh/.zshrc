@@ -14,14 +14,14 @@ alias vim='nvim'
 
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
+source "$(brew --prefix nvm)/nvm.sh"
 
 # keymappings
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
 # auto completion
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-FPATH="${FPATH}:${ZDOTDIR}/extensions/zsh-completions/src"
+export FPATH="${ZDOTDIR}/extensions/zsh-completions/src:${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
@@ -35,13 +35,15 @@ zstyle ':completion:*' rehash true
 # zsh extensions completion
 zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
+
+# other completions
+source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
 source <(pip3 completion --zsh)
+source <(npm completion)
 source <(kubectl completion zsh)
 source <(minikube completion zsh)
 source <(kompose completion zsh)
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
-[ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"
-[ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"
 
 # end

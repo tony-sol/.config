@@ -22,3 +22,9 @@
 [submodule "zsh/extensions/zsh-completions"]
 	path = zsh/extensions/zsh-completions
 	url = https://github.com/Tony-Sol/zsh-completions.git
+[submodule "tmux/plugins/tmux-menus"]
+	path = tmux/plugins/tmux-menus
+	url = https://github.com/Tony-Sol/tmux-menus.git
+[submodule "tmux/plugins/tmux-urlview"]
+	path = tmux/plugins/tmux-urlview
+	url = https://github.com/Tony-Sol/tmux-urlview.git

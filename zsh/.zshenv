@@ -1,3 +1,4 @@
+export SHELL=/bin/zsh
 # shell colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagacad
