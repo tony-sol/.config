@@ -18,6 +18,7 @@ opt.smarttab       = true
 opt.smartcase      = true
 opt.smartindent    = true
 opt.hlsearch       = true
+opt.splitright     = true
 
 g.mapleader                  = '\\'
 g.maplocalleader             = '\\'
@@ -157,7 +158,10 @@ return require('packer').startup(function(use)
 				theme                = 'vscode',
 				component_separators = { left = '', right = '' },
 				section_separators   = { left = '', right = '' },
-				disabled_filetypes   = {},
+				disabled_filetypes   = {
+					statusline = { 'packer', 'NvimTree', 'Outline' },
+					winbar     = { 'packer', 'NvimTree', 'Outline' }
+				},
 				always_divide_middle = true,
 				globalstatus         = false
 			},
@@ -171,11 +175,11 @@ return require('packer').startup(function(use)
 					{ 'diagnostics' }
 				},
 				lualine_c = {
-					{ 'filename' }
+					{ 'filename', path = 3 }
 				},
 				lualine_x = {
 					{ 'encoding' },
-					{ 'fileformat'},
+					{ 'fileformat' },
 					{ 'filetype' }
 				},
 				lualine_y = {
@@ -201,15 +205,32 @@ return require('packer').startup(function(use)
 				lualine_a = {
 					{ 'tabs', mode = 2 }
 				},
-				lualine_z = {
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {}
+			},
+			winbar            = {
+				lualine_a = {
 					{ 'buffers', mode = 4 }
+				},
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {
+					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' }}
 				}
 			},
-			-- winbar            = {
-			-- 	lualine_a = {
-			-- 		{ 'windows', mode = 2}
-			-- 	}
-			-- },
+			inactive_winbar   = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {}
+			},
 			extensions        = {
 				'nvim-tree',
 				'nvim-dap-ui',
