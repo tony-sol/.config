@@ -34,11 +34,13 @@ export MINIKUBE_HOME="${XDG_CONFIG_HOME}/minikube"
 export VAGRANT_HOME="${XDG_CONFIG_HOME}/vagrant"
 export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"
 # set terraform configs
+export TF_HOME_DIR="${XDG_CONFIG_HOME}/terraform"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraform.tfrc"
 # set vault configs
 export VAULT_TOKEN=`cat "${XDG_CONFIG_HOME}/vault/.vault-token"`
 # set ansible configs
-export ANSIBLE_VAULT_PASSWORD_FILE="${HOME}/.ansible/.keyfile"
+export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
+export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.keyfile"
 # set go configs
 export GOPATH="${HOME}/Projects/go"
 # set pipenv configs
