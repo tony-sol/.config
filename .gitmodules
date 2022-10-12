@@ -28,3 +28,6 @@
 [submodule "tmux/plugins/tmux-urlview"]
 	path = tmux/plugins/tmux-urlview
 	url = https://github.com/Tony-Sol/tmux-urlview.git
+[submodule "tmux/plugins/tmux-resurrect"]
+	path = tmux/plugins/tmux-resurrect
+	url = https://github.com/Tony-Sol/tmux-resurrect.git
