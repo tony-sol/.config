@@ -83,6 +83,8 @@ brew "tree"
 brew "urlview"
 # Secures, stores, and tightly controls access to secrets
 brew "vault"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
 # Tool for managing your YubiKey configuration
 brew "ykman"
 # Process YAML documents from the CLI

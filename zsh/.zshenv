@@ -22,7 +22,9 @@ export VIMINIT='let $VIMINIT = has("nvim") ? "${XDG_CONFIG_HOME}/nvim/init.lua" 
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo"
 # set less history file location
-export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
+export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
+# set ripgrep configs
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # set kubernetes configs
