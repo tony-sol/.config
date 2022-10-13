@@ -29,6 +29,7 @@ draw_bold_text_with_bright_colors: true
 
 schemes:
   vscode-dark: &default
+    transparent_background_colors: true
     primary:
       background: "#1e1e1e"
       foreground: "#cccccc"

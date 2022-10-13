@@ -106,5 +106,8 @@ source "${ZDOTDIR}/extensions/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 
 # zsh extensions configs
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=3"
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=3"
 
 # end
