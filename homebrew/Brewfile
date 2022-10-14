@@ -25,8 +25,6 @@ brew "ctop"
 brew "dive"
 # .NET Core
 brew "dotnet"
-# Simple, fast and user-friendly alternative to find
-brew "fd"
 # Core application library for C
 brew "glib"
 # Open source programming language to build simple/reliable/efficient software
@@ -111,7 +109,6 @@ cask "google-chrome"
 cask "jetbrains-toolbox"
 # File system integration
 cask "macfuse"
-cask "pdk"
 # Command-line shell and scripting language
 cask "powershell"
 # Move and resize windows using keyboard shortcuts or snap areas
@@ -124,5 +121,3 @@ cask "telegram"
 cask "viscosity"
 # Open-source code editor
 cask "visual-studio-code"
-# Video communication and virtual meeting platform
-cask "zoom"
