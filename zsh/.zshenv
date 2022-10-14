@@ -45,8 +45,6 @@ export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
 export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.keyfile"
 # set go configs
 export GOPATH="${HOME}/Projects/go"
-# set pipenv configs
-export PIPENV_VENV_IN_PROJECT=1
 # set bundler configs
 export BUNDLE_USER_CONFIG="${XDG_CONFIG_HOME}/bundle"
 export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundle"

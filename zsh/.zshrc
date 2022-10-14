@@ -38,11 +38,14 @@ zstyle ':autocomplete:*' widget-style menu-complete
 
 # other completions
 source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
+source "$(brew --prefix poetry)/etc/bash_completion.d/poetry"
 source <(pip3 completion --zsh)
+source <(pip completion --zsh)
 source <(npm completion)
 source <(kubectl completion zsh)
 source <(minikube completion zsh)
 source <(kompose completion zsh)
+source <(_MOLECULE_COMPLETE=zsh_source molecule)
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 

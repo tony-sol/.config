@@ -1,0 +1,4 @@
+cache-dir = "${XDG_CACHE_HOME}/pypoetry"
+[virtualenvs]
+path = "{cache-dir}/virtualenvs"
+in-project = true
