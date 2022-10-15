@@ -25,6 +25,8 @@ brew "ctop"
 brew "dive"
 # .NET Core
 brew "dotnet"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # Core application library for C
 brew "glib"
 # Open source programming language to build simple/reliable/efficient software
@@ -39,6 +41,10 @@ brew "htop"
 brew "kompose"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# Package manager for kubectl plugins
+brew "krew"
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
