@@ -37,8 +37,9 @@ zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
 
 # other completions
-source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
-source "$(brew --prefix poetry)/etc/bash_completion.d/poetry"
+# source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
+# source "$(brew --prefix poetry)/etc/bash_completion.d/poetry"
+source "$(brew --prefix fzf)/shell/completion.zsh"
 source <(pip3 completion --zsh)
 source <(pip completion --zsh)
 source <(npm completion)
