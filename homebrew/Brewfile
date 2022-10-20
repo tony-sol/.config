@@ -127,3 +127,5 @@ cask "telegram"
 cask "viscosity"
 # Open-source code editor
 cask "visual-studio-code"
+# Network protocol analyzer
+cask "wireshark"
