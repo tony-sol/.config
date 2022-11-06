@@ -111,6 +111,8 @@ cask "firefox-developer-edition"
 cask "font-jetbrains-mono-nerd-font"
 # Web browser
 cask "google-chrome"
+# iPhone management application
+cask "imazing"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
 # File system integration
