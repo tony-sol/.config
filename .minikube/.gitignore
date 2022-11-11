@@ -1,0 +1,9 @@
+**.crt*
+**.key*
+**.pem*
+**.lock
+cache/*
+certs/*
+logs/*
+machines/minikube/*
+profiles/minikube/*

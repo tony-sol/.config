@@ -33,7 +33,9 @@ export KUBECACHEDIR="${XDG_CACHE_HOME}/kube"
 # set kubernetes krew configs
 export KREW_ROOT="${XDG_DATA_HOME}/krew"
 # set minikube configs
-export MINIKUBE_HOME="${XDG_CONFIG_HOME}/minikube"
+# Due to minikube creates another '.minikube' dir inside MINIKUBE_HOME
+# temporary place it in XDG_CONFIG_HOME
+export MINIKUBE_HOME="${XDG_CONFIG_HOME}"
 # set vagrant configs
 export VAGRANT_HOME="${XDG_CONFIG_HOME}/vagrant"
 export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"
