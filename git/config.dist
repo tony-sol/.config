@@ -1,3 +1,9 @@
+[user]
+	name = Tony-Sol
+	email = tony.kent.nar.earth@gmail.com
+	signingKey =
+[commit]
+	gpgsign = true
 [init]
 	defaultBranch = master
 [core]

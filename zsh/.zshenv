@@ -44,6 +44,9 @@ export TF_HOME_DIR="${XDG_CONFIG_HOME}/terraform"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraform.tfrc"
 # set vault configs
 export VAULT_TOKEN=`cat "${XDG_CONFIG_HOME}/vault/.vault-token"`
+# set gnupg configs
+export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
+export GPG_TTY=$(tty)
 # set ansible configs
 export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
 export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.keyfile"

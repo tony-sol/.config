@@ -29,6 +29,8 @@ brew "dotnet"
 brew "fzf"
 # Core application library for C
 brew "glib"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Kubernetes package manager
@@ -131,3 +133,5 @@ cask "viscosity"
 cask "visual-studio-code"
 # Network protocol analyzer
 cask "wireshark"
+# Video communication and virtual meeting platform
+cask "zoom"
