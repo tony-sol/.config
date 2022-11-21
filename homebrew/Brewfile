@@ -127,6 +127,8 @@ cask "rectangle"
 cask "skype"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Development environment
+cask "vagrant"
 # OpenVPN client with AppleScript support
 cask "viscosity"
 # Open-source code editor

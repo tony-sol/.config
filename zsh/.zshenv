@@ -25,6 +25,8 @@ export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo"
 export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 # set ripgrep configs
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
+# set fzf configs
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # set kubernetes configs
@@ -92,8 +94,8 @@ setopt BSD_ECHO
 setopt INTERACTIVE_COMMENTS
 setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
-setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
+unsetopt SHARE_HISTORY
+unsetopt INC_APPEND_HISTORY
 setopt EMACS
 
 # ssh agent
