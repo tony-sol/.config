@@ -27,6 +27,8 @@ brew "dive"
 brew "dotnet"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Git extension for versioning large files
+brew "git-lfs"
 # Core application library for C
 brew "glib"
 # GNU Pretty Good Privacy (PGP) package
@@ -125,6 +127,8 @@ cask "powershell"
 cask "rectangle"
 # Video chat, voice call and instant messaging application
 cask "skype"
+# VPN client for secure internet access and private browsing
+cask "surfshark"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Development environment
