@@ -1,5 +1,7 @@
 *
 */
 !.gitignore
+!*.dist
 !*.json
+config.json
 !devenvironments
