@@ -73,6 +73,7 @@ export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
 export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget"
 export NUGET_PLUGINS_CACHE_PATH="${XDG_CACHE_HOME}/nuget/plugins"
 # set maven configs
+export MAVEN_HOME="${XDG_DATA_HOME}/m2"
 export MAVEN_REPOSITORY="${XDG_DATA_HOME}/m2/repository"
 # set gradle configs
 export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
