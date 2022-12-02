@@ -1,6 +1,3 @@
-[submodule "ovpn/openvpn-mac-dns"]
-	path = ovpn/openvpn-mac-dns
-	url = https://github.com/Tony-Sol/openvpn-mac-dns.git
 [submodule "tmux/plugins/tmux-current-pane-hostname"]
 	path = tmux/plugins/tmux-current-pane-hostname
 	url = https://github.com/Tony-Sol/tmux-current-pane-hostname.git
