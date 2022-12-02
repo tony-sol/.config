@@ -12,6 +12,7 @@
 	autocrlf = input
 	editor = nvim
 	pager = less -i
+	quotepath = true
 [fetch]
 	prune = true
 [rebase]
@@ -24,9 +25,9 @@
 	ui = always
 	grep = always
 	interactive = always
-	diff = always
 	branch = always
 	status = always
+	diff = auto
 [color "branch"]
 	current = magenta
 	local = green
@@ -42,3 +43,5 @@
 	untracked = cyan
 [format]
 	pretty = format:%C(cyan bold)%h%C(reset) %ci - %cr %C(red)%cn%C(reset) %C(green)%s%C(magenta)%d %C(red)(%an)%C(reset) %C(yellow)(%p)%C(reset) %b
+[i18n]
+	logOutputEncoding = utf-8

@@ -95,7 +95,7 @@ brew "vault"
 brew "watch"
 # Tool for managing your YubiKey configuration
 brew "ykman"
-# Process YAML documents from the CLI
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # Task runner / simpler Make alternative written in Go
 brew "go-task/tap/go-task"
@@ -139,5 +139,7 @@ cask "viscosity"
 cask "visual-studio-code"
 # Network protocol analyzer
 cask "wireshark"
+# Application for configuring any YubiKey
+cask "yubico-yubikey-manager"
 # Video communication and virtual meeting platform
 cask "zoom"

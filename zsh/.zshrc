@@ -15,7 +15,7 @@ alias vim='nvim'
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 source "$(brew --prefix nvm)/nvm.sh"
-alias yarn="${XDG_CONFIG_HOME}/yarn/config"
+alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/config"
 
 # keymappings
 bindkey "^[[1;3C" forward-word
