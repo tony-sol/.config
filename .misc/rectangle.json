@@ -46,6 +46,12 @@
     "disabledApps" : {
       "string" : "[]"
     },
+    "dragFromStage" : {
+      "int" : 0
+    },
+    "enhancedUI" : {
+      "int" : 1
+    },
     "footprintAlpha" : {
       "float" : 0.30000001192092896
     },
@@ -62,7 +68,7 @@
 
     },
     "gapSize" : {
-      "float" : 4
+      "float" : 0
     },
     "hideMenubarIcon" : {
       "bool" : true
@@ -275,5 +281,5 @@
       "modifierFlags" : 1835008
     }
   },
-  "version" : "65"
+  "version" : "69"
 }

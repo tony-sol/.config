@@ -121,6 +121,8 @@ cask "imazing"
 cask "jetbrains-toolbox"
 # File system integration
 cask "macfuse"
+# Smooths scrolling and set mouse scroll directions independently
+cask "mos"
 # Command-line shell and scripting language
 cask "powershell"
 # Move and resize windows using keyboard shortcuts or snap areas
