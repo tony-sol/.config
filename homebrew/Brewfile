@@ -1,6 +1,7 @@
 tap "go-task/tap"
 tap "gromgit/fuse"
 tap "hashicorp/tap"
+tap "helmwave/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
@@ -19,6 +20,8 @@ brew "ansible"
 brew "automake"
 # Cross-platform make
 brew "cmake"
+# Test your configuration files using Open Policy Agent
+brew "conftest"
 # Top-like interface for container metrics
 brew "ctop"
 # Tool for exploring each layer in a docker image
@@ -37,6 +40,8 @@ brew "gnupg"
 brew "go"
 # Kubernetes package manager
 brew "helm"
+# Deploy Kubernetes Helm Charts
+brew "helmfile"
 # HTTP load generator, ApacheBench (ab) replacement
 brew "hey"
 # Improved top (interactive process viewer)
@@ -47,6 +52,8 @@ brew "kompose"
 brew "kubernetes-cli"
 # Package manager for kubectl plugins
 brew "krew"
+# FAST Kubernetes manifests validator, with support for Custom Resources!
+brew "kubeconform"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
 # Lazier way to manage everything docker
@@ -63,6 +70,8 @@ brew "molecule"
 brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# Open source, general-purpose policy engine
+brew "opa"
 # Tools and libraries for smart cards
 brew "opensc"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
@@ -101,6 +110,8 @@ brew "yq"
 brew "go-task/tap/go-task"
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac"
+# HelmWave is like docker-compose for helm
+brew "helmwave/tap/helmwave"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
 # Non-interactive ssh password auth
@@ -129,8 +140,6 @@ cask "powershell"
 cask "rectangle"
 # Video chat, voice call and instant messaging application
 cask "skype"
-# VPN client for secure internet access and private browsing
-cask "surfshark"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Development environment
