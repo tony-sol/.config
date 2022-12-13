@@ -78,6 +78,8 @@ brew "opensc"
 brew "openvpn"
 # Tool for creating identical machine images for multiple platforms
 brew "packer"
+# Python dependency management tool
+brew "pipenv"
 # Python package management tool
 brew "poetry"
 # Monitor data's progress through a pipe

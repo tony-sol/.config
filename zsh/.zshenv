@@ -52,6 +52,10 @@ export GPG_TTY=$(tty)
 # set ansible configs
 export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
 export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.keyfile"
+# set poetry configs
+export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
+# set pipenv configs
+export PIPENV_VENV_IN_PROJECT=1
 # set go configs
 export GOPATH="${HOME}/Projects/go"
 # set bundler configs
