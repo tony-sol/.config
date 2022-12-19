@@ -57,7 +57,7 @@ export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
 # set pipenv configs
 export PIPENV_VENV_IN_PROJECT=1
 # set go configs
-export GOPATH="${HOME}/Projects/go"
+export GOPATH="${XDG_DATA_HOME}/go"
 # set bundler configs
 export BUNDLE_USER_CONFIG="${XDG_CONFIG_HOME}/bundle"
 export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundle"
