@@ -51,6 +51,7 @@ export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 export GPG_TTY=$(tty)
 # set ansible configs
 export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
+export ANSIBLE_LOCAL_TEMP="${XDG_CACHE_HOME}/ansible"
 export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.keyfile"
 # set poetry configs
 export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
