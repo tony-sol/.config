@@ -12,8 +12,6 @@ tap "homebrew/services"
 tap "mutagen-io/mutagen"
 tap "puppetlabs/puppet"
 tap "sunscan/repo"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Tool for generating GNU Standards-compliant Makefiles
@@ -22,6 +20,8 @@ brew "automake"
 brew "cmake"
 # Test your configuration files using Open Policy Agent
 brew "conftest"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Top-like interface for container metrics
 brew "ctop"
 # Tool for exploring each layer in a docker image
@@ -110,6 +110,8 @@ brew "ykman"
 brew "yq"
 # Task runner / simpler Make alternative written in Go
 brew "go-task/tap/go-task"
+# Simple MTP fuse filesystem driver
+brew "gromgit/fuse/simple-mtpfs-mac"
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac"
 # HelmWave is like docker-compose for helm
@@ -142,6 +144,8 @@ cask "powershell"
 cask "rectangle"
 # Video chat, voice call and instant messaging application
 cask "skype"
+# VPN client for secure internet access and private browsing
+cask "surfshark"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Development environment
