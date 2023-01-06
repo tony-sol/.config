@@ -140,12 +140,16 @@ cask "macfuse"
 cask "mos"
 # Command-line shell and scripting language
 cask "powershell"
+# Peer to peer Bitorrent client
+cask "qbittorrent"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Video chat, voice call and instant messaging application
 cask "skype"
 # VPN client for secure internet access and private browsing
 cask "surfshark"
+# Spreadsheet style tag editor for audio files
+cask "tageditor"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Development environment
@@ -154,6 +158,8 @@ cask "vagrant"
 cask "viscosity"
 # Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
 # Network protocol analyzer
 cask "wireshark"
 # Application for configuring any YubiKey
