@@ -1,4 +1,5 @@
 tap "go-task/tap"
+tap "goodwithtech/r"
 tap "gromgit/fuse"
 tap "hashicorp/tap"
 tap "helmwave/tap"
@@ -110,6 +111,8 @@ brew "ykman"
 brew "yq"
 # Task runner / simpler Make alternative written in Go
 brew "go-task/tap/go-task"
+# Simple security auditing, helping build the Best Docker Images
+brew "goodwithtech/r/dockle"
 # Simple MTP fuse filesystem driver
 brew "gromgit/fuse/simple-mtpfs-mac"
 # File system client based on SSH File Transfer Protocol
