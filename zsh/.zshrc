@@ -52,7 +52,7 @@ source <(opa completion zsh)
 source <(conftest completion zsh)
 source <(minikube completion zsh)
 source <(kompose completion zsh)
-source <(_MOLECULE_COMPLETE=zsh_source molecule)
+# source <(_MOLECULE_COMPLETE=zsh_source molecule)
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 
