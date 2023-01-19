@@ -13,6 +13,8 @@ tap "homebrew/services"
 tap "mutagen-io/mutagen"
 tap "puppetlabs/puppet"
 tap "sunscan/repo"
+# Run your GitHub Actions locally 🚀
+brew "act"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Tool for generating GNU Standards-compliant Makefiles
