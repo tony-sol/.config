@@ -4,3 +4,7 @@ if [ -z "${TMUX}" ] ; then
 	# Added by Toolbox App
 	# export PATH="${PATH}:${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
 fi
+
+yaml2env() {
+	yq -o p "$1" | awk '{gsub(/\./,"_",$1)}{print toupper($1)$2$3}'
+}
