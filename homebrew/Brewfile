@@ -153,6 +153,8 @@ cask "rectangle"
 cask "skype"
 # VPN client for secure internet access and private browsing
 cask "surfshark"
+# Quicklook extension for source files
+cask "syntax-highlight"
 # Spreadsheet style tag editor for audio files
 cask "tageditor"
 # Messaging app with a focus on speed and security
