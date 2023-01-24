@@ -6,9 +6,6 @@ if [ -f "${ZDOTDIR}/.zsh_aliases" ]; then
 	source "${ZDOTDIR}/.zsh_aliases"
 fi
 alias ll='ls -AlhF'
-alias grep='grep --color=always'
-alias egrep='egrep --color=always'
-alias fgrep='fgrep --color=always'
 alias treee='tree -halFpugD'
 alias vim='nvim'
 
