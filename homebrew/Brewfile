@@ -55,6 +55,8 @@ brew "kompose"
 brew "kubernetes-cli"
 # Package manager for kubectl plugins
 brew "krew"
+# Static analysis tool for Kubernetes YAML files and Helm charts
+brew "kube-linter"
 # FAST Kubernetes manifests validator, with support for Custom Resources!
 brew "kubeconform"
 # Tool that can switch between kubectl contexts easily and create aliases
