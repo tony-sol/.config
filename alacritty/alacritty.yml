@@ -68,7 +68,10 @@ colors: *default
 #   - (Windows) powershell
 shell:
   program: /bin/zsh
-  args: ["-l", "-c", "tmux attach || tmux"]
+  args: 
+    - "-l"
+    - "-c"
+    - "tmux attach || tmux"
 
 alt_send_esc: false
 

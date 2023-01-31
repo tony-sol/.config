@@ -13,6 +13,7 @@ tap "homebrew/services"
 tap "mutagen-io/mutagen"
 tap "puppetlabs/puppet"
 tap "sunscan/repo"
+tap "wez/wezterm"
 # Run your GitHub Actions locally 🚀
 brew "act"
 # Automate deployment, configuration, and upgrading
@@ -173,6 +174,8 @@ cask "viscosity"
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
 # Network protocol analyzer
 cask "wireshark"
 # Application for configuring any YubiKey

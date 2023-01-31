@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+file=$1
+width=$2
+height=$3
+
+if [[ "$( file -Lb --mime-type "$file")" =~ ^image ]]; then
+    wezterm imgcat --height=auto --width=auto "$file"
+    exit 1
+fi
+
+$PAGER "$file"
