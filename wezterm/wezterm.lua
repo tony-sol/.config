@@ -33,11 +33,19 @@ return {
 	bold_brightens_ansi_colors = true, --"BrightAndBold" in nightly builds
 	unicode_version            = 14,
 	custom_block_glyphs        = false,
-	font                       = wezterm.font {
-		family                    = "JetBrainsMono Nerd Font",
-		weight                    = "Regular",
-		harfbuzz_features         = { "calt=1", "clig=1", "liga=1" },
-		assume_emoji_presentation = false,
+	font                       = wezterm.font_with_fallback {
+		{
+			family                    = "JetBrainsMono Nerd Font",
+			weight                    = "Regular",
+			harfbuzz_features         = { "calt=1", "clig=1", "liga=1" },
+			assume_emoji_presentation = false,
+		},
+		{
+			family                    = "Menlo",
+			weight                    = "Regular",
+			harfbuzz_features         = { "calt=1", "clig=1", "liga=1" },
+			assume_emoji_presentation = true,
+		},
 	},
 	font_size                    = 12.0,
 	initial_cols                 = 120,
