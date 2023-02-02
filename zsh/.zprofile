@@ -1,6 +1,6 @@
 if [ -z "${TMUX}" ] ; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
-	export PATH="${KREW_ROOT}/bin:${GEM_HOME}/bin:${GOPATH}/bin:${XDG_CONFIG_HOME}/git/commands:${PATH}"
+	export PATH="${KREW_ROOT}/bin:${GEM_HOME}/bin:${GOBIN}:${M2}:${XDG_CONFIG_HOME}/git/commands:${PATH}"
 	# Added by Toolbox App
 	# export PATH="${PATH}:${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
 fi

@@ -59,6 +59,7 @@ export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
 export PIPENV_VENV_IN_PROJECT=1
 # set go configs
 export GOPATH="${XDG_DATA_HOME}/go"
+export GOBIN="${GOPATH}/bin"
 # set bundler configs
 export BUNDLE_USER_CONFIG="${XDG_CONFIG_HOME}/bundle"
 export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundle"
@@ -80,6 +81,8 @@ export NUGET_PLUGINS_CACHE_PATH="${XDG_CACHE_HOME}/nuget/plugins"
 # set maven configs
 export MAVEN_HOME="${XDG_DATA_HOME}/m2"
 export MAVEN_REPOSITORY="${XDG_DATA_HOME}/m2/repository"
+export M2_HOME="${MAVEN_HOME}"
+export M2="${M2_HOME}/bin"
 # set gradle configs
 export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
 # set composer configs
