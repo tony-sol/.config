@@ -2,6 +2,8 @@ local cmd        = vim.cmd           -- execute Vim commands
 local g          = vim.g             -- global variables
 local opt        = vim.opt           -- global/buffer/windows-scoped
 local keymap     = vim.keymap        -- keymaps
+local api        = vim.api           -- API
+local fn         = vim.fn            -- functions
 
 opt.listchars:append('space:⋅')
 opt.termguicolors  = true
@@ -29,6 +31,28 @@ keymap.set({ 'n', 'v' }, '[b', '<plug>(CybuPrev)')
 
 cmd([[packadd packer.nvim]])
 cmd([[colorscheme vscode]])
+
+api.nvim_create_autocmd({ "VimEnter" }, {
+	callback = function(data)
+		if fn.isdirectory(data.file) ~= 1 then
+			return
+		end
+		cmd.cd(data.file)
+		require("nvim-tree.api").tree.open()
+	end
+})
+-- @todo Fix autoclose - respect opened buffers,tabs and windows
+-- api.nvim_create_autocmd({ "BufEnter" }, {
+-- 	nested = true,
+-- 	callback = function()
+-- 		if #api.nvim_list_tabpages() == 1 and
+-- 			#api.nvim_list_wins() == 0 and
+-- 			require("nvim-tree.utils").is_nvim_tree_buf()
+-- 		then
+-- 			cmd([[quit]])
+-- 		end
+-- 	end
+-- })
 
 return require('packer').startup(function(use)
 	use {
@@ -209,12 +233,12 @@ return require('packer').startup(function(use)
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {}
+				lualine_z = {
+					{ 'buffers', mode = 4 }
+				}
 			},
 			winbar            = {
-				lualine_a = {
-					{ 'buffers', mode = 4 }
-				},
+				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
@@ -229,7 +253,9 @@ return require('packer').startup(function(use)
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {}
+				lualine_z = {
+					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' }}
+				}
 			},
 			extensions        = {
 				'nvim-tree',
@@ -385,7 +411,6 @@ return require('packer').startup(function(use)
 			'kyazdani42/nvim-web-devicons',
 		},
 		require('nvim-tree').setup {
-			ignore_buffer_on_setup = true,
 			disable_netrw          = true,
 			hijack_netrw           = false,
 			view                   = {
