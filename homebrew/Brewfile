@@ -132,8 +132,6 @@ brew "helmwave/tap/helmwave"
 brew "mutagen-io/mutagen/mutagen"
 # Non-interactive ssh password auth
 brew "sunscan/repo/sshpass"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # App to build and share containerized applications and microservices
 cask "docker"
 # Web browser
