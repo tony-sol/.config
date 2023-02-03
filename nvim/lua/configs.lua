@@ -1,9 +1,9 @@
-local cmd        = vim.cmd           -- execute Vim commands
-local g          = vim.g             -- global variables
-local opt        = vim.opt           -- global/buffer/windows-scoped
-local keymap     = vim.keymap        -- keymaps
-local api        = vim.api           -- API
-local fn         = vim.fn            -- functions
+local cmd    = vim.cmd -- execute Vim commands
+local g      = vim.g -- global variables
+local opt    = vim.opt -- global/buffer/windows-scoped
+local keymap = vim.keymap -- keymaps
+local api    = vim.api -- API
+local fn     = vim.fn -- functions
 
 opt.listchars:append('space:⋅')
 opt.termguicolors  = true
@@ -22,9 +22,9 @@ opt.smartindent    = true
 opt.hlsearch       = true
 opt.splitright     = true
 
-g.mapleader                  = '\\'
-g.maplocalleader             = '\\'
-g.loaded_perl_provider       = 0
+g.mapleader            = '\\'
+g.maplocalleader       = '\\'
+g.loaded_perl_provider = 0
 
 keymap.set({ 'n', 'v' }, ']b', '<plug>(CybuNext)')
 keymap.set({ 'n', 'v' }, '[b', '<plug>(CybuPrev)')
@@ -140,7 +140,7 @@ return require('packer').startup(function(use)
 		require('which-key').setup {
 		},
 	}
-	use {
+	use { -- @BREAKING Intro screen
 		'folke/todo-comments.nvim',
 		require('todo-comments').setup {
 		},
@@ -171,7 +171,7 @@ return require('packer').startup(function(use)
 		require('nvim-surround').setup {
 		},
 	}
-	use {
+	use { -- @BREAKING Intro screen
 		'nvim-lualine/lualine.nvim',
 		requires = {
 			'kyazdani42/nvim-web-devicons'
@@ -244,7 +244,7 @@ return require('packer').startup(function(use)
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {
-					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' }}
+					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } }
 				}
 			},
 			inactive_winbar   = {
@@ -254,7 +254,7 @@ return require('packer').startup(function(use)
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {
-					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' }}
+					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } }
 				}
 			},
 			extensions        = {
@@ -411,34 +411,34 @@ return require('packer').startup(function(use)
 			'kyazdani42/nvim-web-devicons',
 		},
 		require('nvim-tree').setup {
-			disable_netrw          = true,
-			hijack_netrw           = false,
-			view                   = {
+			disable_netrw       = true,
+			hijack_netrw        = false,
+			view                = {
 				adaptive_size               = true,
 				preserve_window_proportions = true,
 				number                      = true,
 				relativenumber              = true,
 			},
-			renderer               = {
-				highlight_git               = true,
-				highlight_opened_files      = 'all',
-				indent_markers              = {
-					enable                  = true,
+			renderer            = {
+				highlight_git          = true,
+				highlight_opened_files = 'all',
+				indent_markers         = {
+					enable = true,
 				},
 			},
-			update_focused_file    = {
-				enable                      = true,
-				update_cwd                  = true,
+			update_focused_file = {
+				enable     = true,
+				update_cwd = true,
 			},
-			git                    = {
-				ignore                      = false,
+			git                 = {
+				ignore = false,
 			},
-			diagnostics            = {
-				enable                      = true,
-				show_on_dirs                = true,
+			diagnostics         = {
+				enable       = true,
+				show_on_dirs = true,
 			},
-			trash                  = {
-				cmd                         = 'trash',
+			trash               = {
+				cmd = 'trash',
 			},
 		}
 	}
@@ -496,7 +496,7 @@ return require('packer').startup(function(use)
 		config = function()
 			require('gitsigns').setup {
 				signs                             = {
-					add          = { hl = 'GitSignsAdd',    text = '│', numhl = 'GitSignsAddNr',    linehl = 'GitSignsAddLn'    },
+					add          = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
 					change       = { hl = 'GitSignsChange', text = '│', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
 					delete       = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
 					topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
