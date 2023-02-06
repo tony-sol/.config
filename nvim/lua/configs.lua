@@ -73,6 +73,14 @@ return require('packer').startup(function(use)
 		'stevearc/dressing.nvim',
 	}
 	use {
+		"ellisonleao/glow.nvim",
+		require("glow").setup{
+			border       = "none",
+			width_ratio  = 0.8,
+			height_ratio = 0.8,
+		},
+	}
+	use {
 		'windwp/nvim-autopairs',
 		require('nvim-autopairs').setup {
 			disable_in_macro = true,
