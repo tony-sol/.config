@@ -129,3 +129,7 @@ ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=3"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=3"
 
 # end
+
+if [ -f "${ZDOTDIR}/.zshenv.override" ]; then
+	source "${ZDOTDIR}/.zshenv.override"
+fi

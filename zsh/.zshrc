@@ -4,9 +4,6 @@ export PROMPT='%{$bldcyn%}%~%{$txtrst%}%{$txtcyn%}$git_branch%{$bldgrn%}$git_ahe
 export RPROMPT='$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_code%{$txtrst%})'
 
 # aliases
-if [ -f "${ZDOTDIR}/.zsh_aliases" ]; then
-	source "${ZDOTDIR}/.zsh_aliases"
-fi
 alias ll='ls -AlhF'
 alias treee='tree -halFpugD'
 alias vim='nvim'
@@ -58,3 +55,7 @@ complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 
 # end
+
+if [ -f "${ZDOTDIR}/.zshrc.override" ]; then
+	source "${ZDOTDIR}/.zshrc.override"
+fi

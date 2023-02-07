@@ -1,3 +1,4 @@
+# tmux workaround
 if [ -z "${TMUX}" ] ; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 	export PATH="${KREW_ROOT}/bin:${GEM_HOME}/bin:${GOBIN}:${M2}:${XDG_CONFIG_HOME}/git/commands:${PATH}"
@@ -5,6 +6,13 @@ if [ -z "${TMUX}" ] ; then
 	# export PATH="${PATH}:${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
 fi
 
+# custom functions
 yml2env() {
 	yq -o p "$1" | awk '{gsub(/\./,"_",$1)}{print toupper($1)$2$3}'
 }
+
+# end
+
+if [ -f "${ZDOTDIR}/.zprofile.override" ]; then
+	source "${ZDOTDIR}/.zprofile.override"
+fi
