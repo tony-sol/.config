@@ -34,6 +34,8 @@ brew "dive"
 brew "dotnet"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Git extension for versioning large files
 brew "git-lfs"
 # Core application library for C
