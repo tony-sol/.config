@@ -89,7 +89,7 @@ brew "packer"
 # Python dependency management tool
 brew "pipenv"
 # Tool for managing OCI containers and pods
-brew "podman", restart_service: true
+brew "podman"
 # Alternative to docker-compose using podman
 brew "podman-compose"
 # Python package management tool
