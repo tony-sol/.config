@@ -103,8 +103,8 @@ setopt BSD_ECHO
 setopt INTERACTIVE_COMMENTS
 setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
-unsetopt SHARE_HISTORY
-unsetopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
 setopt EMACS
 
 # ssh agent
