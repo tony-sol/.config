@@ -114,10 +114,10 @@ return require('packer').startup(function(use)
 				'graphql',
 				'intelephense',
 				'jsonls',
+				'lua_ls',
 				'marksman',
 				'omnisharp',
 				'pylsp',
-				'sumneko_lua',
 				'terraformls',
 				'yamlls',
 			},
@@ -135,10 +135,10 @@ return require('packer').startup(function(use)
 			require('lspconfig').graphql.setup {}
 			require('lspconfig').intelephense.setup {}
 			require('lspconfig').jsonls.setup {}
+			require('lspconfig').lua_ls.setup {}
 			require('lspconfig').marksman.setup {}
 			require('lspconfig').omnisharp.setup {}
 			require('lspconfig').pylsp.setup {}
-			require('lspconfig').sumneko_lua.setup {}
 			require('lspconfig').terraformls.setup {}
 			require('lspconfig').yamlls.setup {}
 		end
