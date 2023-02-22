@@ -16,6 +16,9 @@
     "altThirdCycle" : {
       "int" : 0
     },
+    "alwaysAccountForStage" : {
+      "int" : 0
+    },
     "applyGapsToMaximize" : {
       "int" : 0
     },
@@ -55,6 +58,9 @@
     "footprintAlpha" : {
       "float" : 0.30000001192092896
     },
+    "footprintAnimationDurationMultiplier" : {
+      "float" : 0
+    },
     "footprintBorderWidth" : {
       "float" : 2
     },
@@ -90,6 +96,12 @@
     },
     "missionControlDragging" : {
       "int" : 0
+    },
+    "missionControlDraggingAllowedOffscreenDistance" : {
+      "float" : 25
+    },
+    "missionControlDraggingDisallowedDuration" : {
+      "int" : 250
     },
     "moveCursor" : {
       "int" : 0
@@ -198,11 +210,11 @@
     },
     "bottomLeft" : {
       "keyCode" : 4,
-      "modifierFlags" : 1441792
+      "modifierFlags" : 1835008
     },
     "bottomRight" : {
       "keyCode" : 37,
-      "modifierFlags" : 1441792
+      "modifierFlags" : 1835008
     },
     "centerHalf" : {
       "keyCode" : 46,
@@ -256,6 +268,10 @@
       "keyCode" : 38,
       "modifierFlags" : 786432
     },
+    "restore" : {
+      "keyCode" : 53,
+      "modifierFlags" : 1310720
+    },
     "rightHalf" : {
       "keyCode" : 37,
       "modifierFlags" : 1310720
@@ -274,12 +290,12 @@
     },
     "topLeft" : {
       "keyCode" : 4,
-      "modifierFlags" : 1835008
+      "modifierFlags" : 1441792
     },
     "topRight" : {
       "keyCode" : 37,
-      "modifierFlags" : 1835008
+      "modifierFlags" : 1441792
     }
   },
-  "version" : "69"
+  "version" : "71"
 }
