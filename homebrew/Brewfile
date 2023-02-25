@@ -16,6 +16,8 @@ tap "sunscan/repo"
 tap "wez/wezterm"
 # Run your GitHub Actions locally 🚀
 brew "act"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Tool for generating GNU Standards-compliant Makefiles
@@ -24,8 +26,6 @@ brew "automake"
 brew "cmake"
 # Test your configuration files using Open Policy Agent
 brew "conftest"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Top-like interface for container metrics
 brew "ctop"
 # Tool for exploring each layer in a docker image
