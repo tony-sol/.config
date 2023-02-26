@@ -78,6 +78,8 @@ brew "molecule"
 brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# SQL query tool to analyze data from different file formats and databases
+brew "octosql"
 # Open source, general-purpose policy engine
 brew "opa"
 # Tools and libraries for smart cards
