@@ -146,6 +146,8 @@ cask "google-chrome"
 cask "imazing"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
+# Open-source keystroke visualizer
+cask "keycastr"
 # File system integration
 cask "macfuse"
 # Smooths scrolling and set mouse scroll directions independently
