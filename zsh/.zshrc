@@ -32,6 +32,7 @@ zstyle ':completion:*' rehash true
 # zsh extensions completion
 zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
+zstyle ':autocomplete:*' fzf-completion yes
 
 # other completions
 # source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
