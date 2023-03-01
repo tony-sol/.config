@@ -14,8 +14,6 @@ tap "mutagen-io/mutagen"
 tap "puppetlabs/puppet"
 tap "sunscan/repo"
 tap "wez/wezterm"
-# Run your GitHub Actions locally 🚀
-brew "act"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
 # Automate deployment, configuration, and upgrading
