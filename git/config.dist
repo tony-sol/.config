@@ -42,6 +42,6 @@
 	changed = green
 	untracked = cyan
 [format]
-	pretty = format:%C(cyan bold)%h%C(reset) %ci %C(italic)(%cr)%C(reset) %C(blue)%cn%C(reset) %C(auto,bold)%G?%C(reset) %C(green)%s%C(magenta)%d%C(reset) %C(red)(%an)%C(reset) %C(yellow)[%p]%C(reset) %b
+	pretty = format:%C(cyan bold)%H%C(reset) %ci %C(italic)(%cr)%C(reset) %C(blue)%cn%C(reset) %C(auto,bold)%G?%C(reset) %C(green)%s%C(magenta)%d%C(reset) %C(red)(%an)%C(reset) %C(yellow)[%p]%C(reset) %b
 [i18n]
 	logOutputEncoding = utf-8
