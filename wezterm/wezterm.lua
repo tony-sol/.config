@@ -50,7 +50,7 @@ return {
 	font_size                    = 12.0,
 	initial_cols                 = 120,
 	initial_rows                 = 40,
-	window_padding               = { left = 1, right = 1, top = 1, bottom = 1 },
+	window_padding               = { left = 4, right = 4, top = 1, bottom = 1 },
 	enable_tab_bar               = false,
 	scrollback_lines             = 100000,
 	native_macos_fullscreen_mode = true,
