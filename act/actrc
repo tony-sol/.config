@@ -1,0 +1,6 @@
+--platform ubuntu-latest=catthehacker/ubuntu:full-latest
+--platform ubuntu-22.04=catthehacker/ubuntu:act-22.04
+--platform ubuntu-20.04=catthehacker/ubuntu:full-20.04
+--platform ubuntu-18.04=catthehacker/ubuntu:full-18.04
+--reuse
+--rm
