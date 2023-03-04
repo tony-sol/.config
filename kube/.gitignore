@@ -2,3 +2,9 @@
 **.key*
 **.pem*
 **.lock
+
+**/cache/*
+**/logs/*
+
+.minikube/machines/*
+.minikube/profiles/*

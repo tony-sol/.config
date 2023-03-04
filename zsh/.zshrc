@@ -11,7 +11,7 @@ alias vim='nvim'
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 source "$(brew --prefix nvm)/nvm.sh"
-alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/config"
+alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
 
 # keymappings
 bindkey "^[[1;3C" forward-word
@@ -52,7 +52,7 @@ source <(minikube completion zsh)
 source <(kompose completion zsh)
 source <(gh completion -s zsh)
 source <(octosql completion zsh)
-# source <(_MOLECULE_COMPLETE=zsh_source molecule)
+source <(_MOLECULE_COMPLETE=zsh_source molecule)
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 

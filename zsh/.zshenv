@@ -30,14 +30,13 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # set kubernetes configs
-export KUBECONFIG="${XDG_CONFIG_HOME}/kube/config"
 export KUBECACHEDIR="${XDG_CACHE_HOME}/kube"
+export KUBEHOMEDIR="${XDG_CONFIG_HOME}/kube"
+export KUBECONFIG="${KUBEHOMEDIR}/config"
 # set kubernetes krew configs
 export KREW_ROOT="${XDG_DATA_HOME}/krew"
 # set minikube configs
-# Due to minikube creates another '.minikube' dir inside MINIKUBE_HOME
-# temporary place it in XDG_CONFIG_HOME
-export MINIKUBE_HOME="${XDG_CONFIG_HOME}"
+export MINIKUBE_HOME="${KUBEHOMEDIR}/.minikube"
 # set vagrant configs
 export VAGRANT_HOME="${XDG_CONFIG_HOME}/vagrant"
 export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"
@@ -66,6 +65,7 @@ export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundle"
 export BUNDLE_USER_PLUGIN="${XDG_DATA_HOME}/bundle"
 # set ruby configs
 export GEM_HOME="${XDG_DATA_HOME}/gem"
+export GEM_BIN="${GEM_HOME}/bin"
 export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 # set nvm configs
 export NVM_DIR="${XDG_DATA_HOME}/nvm"

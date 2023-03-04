@@ -1,27 +1,7 @@
 apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority: /Users/anton.solovev/.config/.minikube/ca.crt
-    extensions:
-    - extension:
-        provider: minikube.sigs.k8s.io
-      name: cluster_info
-  name: minikube
-contexts:
-- context:
-    cluster: minikube
-    extensions:
-    - extension:
-        provider: minikube.sigs.k8s.io
-      name: context_info
-    namespace: default
-    user: minikube
-  name: minikube
-current-context: minikube
+clusters: null
+contexts: null
+current-context: ""
 kind: Config
 preferences: {}
-users:
-- name: minikube
-  user:
-    client-certificate: /Users/anton.solovev/.config/.minikube/profiles/minikube/client.crt
-    client-key: /Users/anton.solovev/.config/.minikube/profiles/minikube/client.key
+users: null
