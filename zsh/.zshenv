@@ -26,7 +26,7 @@ export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 # set ripgrep configs
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # set fzf configs
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
+export FZF_DEFAULT_OPTS="--multi --cycle --keep-right --height=40% --layout=reverse --border --info=inline --ansi --preview='cat -n -- {}'"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # set kubernetes configs
@@ -104,7 +104,6 @@ setopt INTERACTIVE_COMMENTS
 setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
 setopt EMACS
 
 # ssh agent
