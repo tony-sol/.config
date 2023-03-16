@@ -6,6 +6,7 @@ local api    = vim.api -- API
 local fn     = vim.fn -- functions
 
 opt.listchars:append('space:⋅')
+opt.listchars:append('eol:↴')
 opt.termguicolors  = true
 opt.signcolumn     = 'yes'
 opt.updatetime     = 100
@@ -176,6 +177,7 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'kylechui/nvim-surround',
+		tag = '*',
 		require('nvim-surround').setup {
 		},
 	}
@@ -274,9 +276,6 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		requires = {
-			'nvim-treesitter/nvim-treesitter-refactor'
-		},
 		run = ':TSUpdate',
 		require('nvim-treesitter.configs').setup {
 			ensure_installed = 'all',
@@ -286,17 +285,51 @@ return require('packer').startup(function(use)
 			highlight        = {
 				enable = true,
 			},
-			refactor         = {
-				highlight_definitions   = { enable = true },
-				highlight_current_scope = { enable = false },
-				smart_rename            = { enable = true },
-			},
 		},
 	}
 	use {
 		'nvim-treesitter/nvim-treesitter-context',
-		require('treesitter-context').setup {
+		after = { 'nvim-treesitter' },
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
 		},
+		config = function()
+			require('treesitter-context').setup {
+			}
+		end
+	}
+	use {
+		'nvim-treesitter/nvim-treesitter-refactor',
+		after = { 'nvim-treesitter' },
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
+		},
+		config = function()
+			require('nvim-treesitter.configs').setup {
+				refactor = {
+					highlight_definitions   = { enable = true },
+					highlight_current_scope = { enable = true },
+					smart_rename            = { enable = true },
+					navigation              = { enable = true },
+				},
+			}
+		end
+	}
+	use {
+		'nvim-treesitter/nvim-treesitter-textobjects',
+		after = { 'nvim-treesitter' },
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
+		},
+		config = function()
+			require('nvim-treesitter.configs').setup {
+				textobjects = {
+					select = { enable = true },
+					swap   = { enable = false },
+					move   = { enable = true },
+				},
+			}
+		end
 	}
 	use {
 		'simrat39/symbols-outline.nvim',
@@ -362,6 +395,7 @@ return require('packer').startup(function(use)
 		require('indent_blankline').setup {
 			show_current_context       = true,
 			show_current_context_start = true,
+			show_end_of_line           = true,
 		},
 	}
 	use {
