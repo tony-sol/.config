@@ -1,3 +1,9 @@
+if [ -f "${ZDOTDIR}/.zshrc.before" ]; then
+	source "${ZDOTDIR}/.zshrc.before"
+fi
+
+# =====================================================================
+
 # U+2714 ✔︎
 # U+2718 ✘
 export PROMPT='%{$bldcyn%}%~%{$txtrst%}%{$txtcyn%}$git_branch%{$bldgrn%}$git_ahead_mark$git_ahead_count%{$bldred%}$git_behind_mark$git_behind_count%{$bldcyn%}$git_stash_mark%{$bldylw%}$git_dirty$git_dirty_count%{$bldblu%}$git_staged_mark$git_staged_count%{$bldpur%}$git_unknown_mark$git_unknown_count%{$txtrst%} $([ $? -ne 0 ] && echo -e "%{$bldred%}\U2718" || echo -e "%{$bldgrn%}\U2714")%{$txtrst%} $ '
@@ -6,7 +12,6 @@ export RPROMPT='$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_
 # aliases
 alias ll='ls -AlhF'
 alias treee='tree -halFpugD'
-alias vim='nvim'
 
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
@@ -39,7 +44,6 @@ zstyle ':autocomplete:*' fzf-completion yes
 # source "$(brew --prefix poetry)/etc/bash_completion.d/poetry"
 source "$(brew --prefix fzf)/shell/completion.zsh"
 source <(pip3 completion --zsh)
-source <(pip completion --zsh)
 source <(npm completion)
 source <(kubectl completion zsh)
 source <(helm completion zsh)
@@ -56,8 +60,8 @@ source <(_MOLECULE_COMPLETE=zsh_source molecule)
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 
-# end
+# =====================================================================
 
-if [ -f "${ZDOTDIR}/.zshrc.override" ]; then
-	source "${ZDOTDIR}/.zshrc.override"
+if [ -f "${ZDOTDIR}/.zshrc.after" ]; then
+	source "${ZDOTDIR}/.zshrc.after"
 fi

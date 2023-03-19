@@ -1,3 +1,9 @@
+if [ -f "${ZDOTDIR}/.zshenv.before" ]; then
+	source "${ZDOTDIR}/.zshenv.before"
+fi
+
+# =====================================================================
+
 export SHELL=/bin/zsh
 # shell colors
 export CLICOLOR=1
@@ -44,7 +50,7 @@ export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"
 export TF_HOME_DIR="${XDG_CONFIG_HOME}/terraform"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraform.tfrc"
 # set vault configs
-export VAULT_TOKEN=`cat "${XDG_CONFIG_HOME}/vault/.vault-token"`
+export VAULT_TOKEN=`FILE="${XDG_CONFIG_HOME}/vault/.vault-token"; [[ -f $FILE ]] && cat $FILE || echo ""`
 # set gnupg configs
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 export GPG_TTY=$(tty)
@@ -127,8 +133,8 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=3"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=3"
 
-# end
+# =====================================================================
 
-if [ -f "${ZDOTDIR}/.zshenv.override" ]; then
-	source "${ZDOTDIR}/.zshenv.override"
+if [ -f "${ZDOTDIR}/.zshenv.after" ]; then
+	source "${ZDOTDIR}/.zshenv.after"
 fi

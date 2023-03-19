@@ -2,4 +2,5 @@
 .zcompcache/
 .zsh_history
 .zsh_sessions/
-.z*.override
+.z*.before
+.z*.after
