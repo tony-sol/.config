@@ -28,3 +28,6 @@
 [submodule "tmux/plugins/tmux-resurrect"]
 	path = tmux/plugins/tmux-resurrect
 	url = https://github.com/Tony-Sol/tmux-resurrect.git
+[submodule "tmux/plugins/tmux-jump"]
+	path = tmux/plugins/tmux-jump
+	url = https://github.com/Tony-Sol/tmux-jump.git
