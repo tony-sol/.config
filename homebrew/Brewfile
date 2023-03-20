@@ -96,6 +96,8 @@ brew "podman-compose"
 brew "poetry"
 # Monitor data's progress through a pipe
 brew "pv"
+# GNU Make with improved error handling, tracing, and a debugger
+brew "remake"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # SOcket CAT: netcat on steroids
