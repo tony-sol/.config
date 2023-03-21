@@ -7,3 +7,9 @@ set multiple-cursors
 set commentary
 set textobj-indent
 set vim-paragraph-motion
+set number
+set list
+set relativenumber
+set hlsearch
+
+syntax on
