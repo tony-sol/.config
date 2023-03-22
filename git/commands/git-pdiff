@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+set -e
+
+git_pdiff() {
+	bat_executable=$(whence -p bat)
+	if [[ -x $bat_executable ]]; then
+		git diff --name-only --relative --diff-filter=d "${@}" | xargs $bat_executable --diff
+	else
+		git diff
+	fi
+}
+
+git_pdiff "${@}"
+
+exit 0
+

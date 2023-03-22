@@ -32,7 +32,7 @@ export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 # set ripgrep configs
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # set fzf configs
-export FZF_DEFAULT_OPTS="--multi --cycle --keep-right --height=40% --layout=reverse --border --info=inline --ansi --preview='cat -n -- {}'"
+export FZF_DEFAULT_OPTS="--multi --cycle --keep-right --height=40% --layout=reverse --border --info=inline --ansi --preview='bat --color=always --style=numbers --line-range=:50 {}'"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # set kubernetes configs
@@ -99,7 +99,7 @@ export MUTAGEN_DATA_DIRECTORY="${XDG_DATA_HOME}/mutagen"
 # set code configs
 export VSCODE_EXTENSIONS="${XDG_DATA_HOME}/code/extensions"
 
-# set neovim as default editor
+# set default tools
 export EDITOR=nvim
 export VISUAL=nvim
 

@@ -13,6 +13,32 @@ export RPROMPT='$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_
 alias ll='ls -AlhF'
 alias treee='tree -halFpugD'
 
+# replace commands with "modern" alternatives
+cat() {
+	bat_executable=$(whence -p bat)
+	if [[ -x $bat_executable ]]; then
+		$bat_executable --paging=never $@
+	else
+		$(whence -p cat) $@
+	fi
+}
+less() {
+	bat_executable=$(whence -p bat)
+	if [[ -x $bat_executable ]]; then
+		$bat_executable --paging=always $@
+	else
+		$(whence -p less) $@
+	fi
+}
+vim() {
+	nvim_executable=$(whence -p nvim)
+	if [[ -x $nvim_executable ]]; then
+		$nvim_executable $@
+	else
+		$(whence -p vim) $@
+	fi
+}
+
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 source "$(brew --prefix nvm)/nvm.sh"
