@@ -1,1 +1,3 @@
-.vault-token
+.vault-token*
+.client.hcl
+.server.hcl

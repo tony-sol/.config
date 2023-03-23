@@ -11,7 +11,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "mutagen-io/mutagen"
-tap "puppetlabs/puppet"
 tap "sunscan/repo"
 tap "wez/wezterm"
 # Interpreted, interactive, object-oriented programming language
@@ -38,8 +37,6 @@ brew "fzf"
 brew "gh"
 # Git extension for versioning large files
 brew "git-lfs"
-# Core application library for C
-brew "glib"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
