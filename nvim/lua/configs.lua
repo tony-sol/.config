@@ -63,6 +63,9 @@ return require('packer').startup(function(use)
 		'nvim-lua/plenary.nvim',
 	}
 	use {
+		'MunifTanjim/nui.nvim',
+	}
+	use {
 		'Mofiqul/vscode.nvim',
 		require('vscode').setup {
 			italic_comments     = true,
