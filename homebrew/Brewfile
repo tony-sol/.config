@@ -25,6 +25,8 @@ brew "bat"
 brew "cmake"
 # Test your configuration files using Open Policy Agent
 brew "conftest"
+# Tool for service discovery, monitoring and configuration
+brew "consul"
 # Top-like interface for container metrics
 brew "ctop"
 # Tool for exploring each layer in a docker image
@@ -114,7 +116,7 @@ brew "tree"
 # URL extractor/launcher
 brew "urlview"
 # Secures, stores, and tightly controls access to secrets
-brew "vault"
+brew "vault", restart_service: true
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Tool for managing your YubiKey configuration

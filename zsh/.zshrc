@@ -66,8 +66,8 @@ zstyle ':autocomplete:*' widget-style menu-complete
 zstyle ':autocomplete:*' fzf-completion yes
 
 # other completions
-# source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
-# source "$(brew --prefix poetry)/etc/bash_completion.d/poetry"
+source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
+source "$(brew --prefix poetry)/etc/bash_completion.d/poetry"
 source "$(brew --prefix fzf)/shell/completion.zsh"
 source <(pip3 completion --zsh)
 source <(npm completion)
@@ -85,6 +85,7 @@ source <(octosql completion zsh)
 source <(_MOLECULE_COMPLETE=zsh_source molecule)
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
+complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul
 
 # =====================================================================
 
