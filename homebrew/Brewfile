@@ -116,7 +116,7 @@ brew "tree"
 # URL extractor/launcher
 brew "urlview"
 # Secures, stores, and tightly controls access to secrets
-brew "vault", restart_service: true
+brew "vault"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Tool for managing your YubiKey configuration
