@@ -155,6 +155,8 @@ cask "keycastr"
 cask "macfuse"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Browse, manage, inspect containers and images
 cask "podman-desktop"
 # Command-line shell and scripting language
