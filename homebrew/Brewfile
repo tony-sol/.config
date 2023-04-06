@@ -53,6 +53,8 @@ brew "hey"
 brew "htop"
 # Tool to move from `docker-compose` to Kubernetes
 brew "kompose"
+# Statically typed programming language for the JVM
+brew "kotlin"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Package manager for kubectl plugins
@@ -69,6 +71,8 @@ brew "lazydocker"
 brew "lazygit"
 # Terminal file manager
 brew "lf"
+# Java-based project management
+brew "maven"
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Automated testing for Ansible roles
