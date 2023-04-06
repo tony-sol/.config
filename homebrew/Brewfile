@@ -43,6 +43,8 @@ brew "git-lfs"
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "gradle"
 # Kubernetes package manager
 brew "helm"
 # Deploy Kubernetes Helm Charts

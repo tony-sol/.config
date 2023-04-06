@@ -43,7 +43,6 @@ vim() {
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 source "$(brew --prefix nvm)/nvm.sh"
 alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
-alias mvn="mvn -gs "${XDG_CONFIG_HOME}"/m2/settings.xml"
 
 # keymappings
 bindkey "^[[1;3C" forward-word
