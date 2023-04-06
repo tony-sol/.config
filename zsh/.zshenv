@@ -86,6 +86,7 @@ export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
 export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget"
 export NUGET_PLUGINS_CACHE_PATH="${XDG_CACHE_HOME}/nuget/plugins"
 # set maven configs
+export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep java.home | grep -o '/.*')
 export MAVEN_HOME="${XDG_DATA_HOME}/m2"
 export MAVEN_REPOSITORY="${XDG_DATA_HOME}/m2/repository"
 export M2_HOME="${MAVEN_HOME}"

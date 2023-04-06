@@ -64,6 +64,7 @@ zstyle ':completion:*' rehash true
 zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
 zstyle ':autocomplete:*' fzf-completion yes
+zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
 # other completions
 source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
