@@ -29,6 +29,8 @@ g.loaded_perl_provider = 0
 
 keymap.set({ 'n', 'v' }, ']b', '<plug>(CybuNext)')
 keymap.set({ 'n', 'v' }, '[b', '<plug>(CybuPrev)')
+keymap.set({ 'n' }, '<leader>ga', '<cmd>lua require("cosmic-ui").code_actions()<cr>')
+keymap.set({ 'v' }, '<leader>ga', '<cmd>lua require("cosmic-ui").range_code_actions()<cr>')
 
 cmd([[packadd packer.nvim]])
 cmd([[colorscheme vscode]])
@@ -64,6 +66,16 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'MunifTanjim/nui.nvim',
+	}
+	use {
+		'CosmicNvim/cosmic-ui',
+		requires = {
+			'MunifTanjim/nui.nvim',
+			'nvim-lua/plenary.nvim',
+		},
+		config = function()
+			require('cosmic-ui').setup{}
+		end,
 	}
 	use {
 		'Mofiqul/vscode.nvim',
@@ -118,6 +130,7 @@ return require('packer').startup(function(use)
 				'graphql',
 				'intelephense',
 				'jsonls',
+				'kotlin_language_server',
 				'lua_ls',
 				'marksman',
 				'omnisharp',
@@ -130,21 +143,55 @@ return require('packer').startup(function(use)
 	use {
 		'neovim/nvim-lspconfig',
 		config = function()
-			require('lspconfig').ansiblels.setup {}
-			require('lspconfig').bashls.setup {}
-			require('lspconfig').clangd.setup {}
-			require('lspconfig').dockerls.setup {}
-			require('lspconfig').golangci_lint_ls.setup {}
-			require('lspconfig').gopls.setup {}
-			require('lspconfig').graphql.setup {}
-			require('lspconfig').intelephense.setup {}
-			require('lspconfig').jsonls.setup {}
-			require('lspconfig').lua_ls.setup {}
-			require('lspconfig').marksman.setup {}
-			require('lspconfig').omnisharp.setup {}
-			require('lspconfig').pylsp.setup {}
-			require('lspconfig').terraformls.setup {}
-			require('lspconfig').yamlls.setup {}
+			local capabilities = require('cmp_nvim_lsp').default_capabilities()
+			require('lspconfig').ansiblels.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').bashls.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').clangd.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').dockerls.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').golangci_lint_ls.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').gopls.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').graphql.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').intelephense.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').jsonls.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').kotlin_language_server.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').lua_ls.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').marksman.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').omnisharp.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').pylsp.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').terraformls.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').yamlls.setup {
+				capabilities = capabilities,
+			}
 		end
 	}
 	use {
@@ -152,14 +199,9 @@ return require('packer').startup(function(use)
 		require('which-key').setup {
 		},
 	}
-	use { -- @BREAKING Intro screen
+	use {
 		'folke/todo-comments.nvim',
 		require('todo-comments').setup {
-		},
-	}
-	use {
-		'folke/lsp-colors.nvim',
-		require('lsp-colors').setup {
 		},
 	}
 	use {
@@ -184,7 +226,7 @@ return require('packer').startup(function(use)
 		require('nvim-surround').setup {
 		},
 	}
-	use { -- @BREAKING Intro screen
+	use {
 		'nvim-lualine/lualine.nvim',
 		requires = {
 			'kyazdani42/nvim-web-devicons'
@@ -414,6 +456,10 @@ return require('packer').startup(function(use)
 			'hrsh7th/cmp-buffer',
 		},
 		require('cmp').setup {
+			window  = {
+				completion    = require('cmp').config.window.bordered(),
+				documentation = require('cmp').config.window.bordered(),
+			},
 			mapping = {
 				['<Tab>'] = function(fallback)
 					if require('cmp').visible() then
@@ -435,6 +481,12 @@ return require('packer').startup(function(use)
 				},
 			},
 			sources = {
+				{
+					name = 'nvim_lsp',
+				},
+				{
+					name = 'nvim_lsp_signature_help',
+				},
 				{
 					name   = 'path',
 					option = {
