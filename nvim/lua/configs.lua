@@ -84,6 +84,7 @@ return require('packer').startup(function(use)
 			disable_nvimtree_bg = true,
 			transparent         = true,
 		},
+		require('vscode').load(),
 	}
 	use {
 		'stevearc/dressing.nvim',
@@ -447,6 +448,8 @@ return require('packer').startup(function(use)
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-vsnip',
+		'hrsh7th/vim-vsnip',
 	}
 	use {
 		'hrsh7th/nvim-cmp',
@@ -460,7 +463,16 @@ return require('packer').startup(function(use)
 				completion    = require('cmp').config.window.bordered(),
 				documentation = require('cmp').config.window.bordered(),
 			},
+			snippet = {
+				expand = function(args)
+					vim.fn['vsnip#anonymous'](args.body)
+				end,
+			},
 			mapping = {
+				['<C-Tab>'] = require('cmp').mapping.complete(),
+				['<C-b>'] = require('cmp').mapping.scroll_docs(-4),
+				['<C-f>'] = require('cmp').mapping.scroll_docs(4),
+				['<C-e>'] = require('cmp').mapping.abort(),
 				['<Tab>'] = function(fallback)
 					if require('cmp').visible() then
 						require('cmp').select_next_item()
@@ -476,13 +488,15 @@ return require('packer').startup(function(use)
 					end
 				end,
 				['<CR>'] = require('cmp').mapping.confirm {
-					behavior = require('cmp').ConfirmBehavior.Replace,
 					select   = true,
 				},
 			},
 			sources = {
 				{
 					name = 'nvim_lsp',
+				},
+				{
+					name = 'vsnip'
 				},
 				{
 					name = 'nvim_lsp_signature_help',
