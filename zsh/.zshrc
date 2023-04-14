@@ -43,6 +43,7 @@ vim() {
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 source "$(brew --prefix nvm)/nvm.sh"
+source <(direnv hook zsh)
 alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
 
 # keymappings

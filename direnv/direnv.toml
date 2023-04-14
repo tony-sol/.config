@@ -1,0 +1,11 @@
+[global]
+disable_stdin = true
+load_dotenv = true
+strict_env = true
+
+[whitelist]
+prefix = [
+	"~/.config/",
+	"~/.local/",
+	"~/Projects/",
+]

@@ -29,6 +29,8 @@ brew "conftest"
 brew "consul"
 # Top-like interface for container metrics
 brew "ctop"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Tool for exploring each layer in a docker image
 brew "dive"
 # .NET Core
