@@ -37,6 +37,19 @@
         dest: "~/.zshenv"
         state: link
 
+    - name: Find all files in ~/.config/git/commands
+      find:
+        paths: ~/.config/git/commands
+      register: find
+
+    - name: Create symlinks to /usr/local/bin
+      become: True
+      file:
+        src: "{{ item.path }}"
+        path: "~/.local/bin/{{ item.path | basename }}"
+        state: link
+      with_items: "{{ find.results.files }}"
+
 - name: Install everything
   become: false
   gather_facts: true

@@ -11,6 +11,7 @@ export LSCOLORS=GxFxCxDxBxegedabagacad
 export COLORTERM=truecolor
 # set XDG spec variables
 export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_BIN_HOME="${HOME}/.local/bin"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_RUNTIME_DIR="${HOME}/.local/run"
@@ -41,6 +42,7 @@ export KUBEHOMEDIR="${XDG_CONFIG_HOME}/kube"
 export KUBECONFIG="${KUBEHOMEDIR}/config"
 # set kubernetes krew configs
 export KREW_ROOT="${XDG_DATA_HOME}/krew"
+export KREW_BIN="${KREW_ROOT}/bin"
 # set minikube configs
 export MINIKUBE_HOME="${KUBEHOMEDIR}/.minikube"
 # set vagrant configs

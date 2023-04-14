@@ -6,7 +6,7 @@ fi
 
 # tmux workaround
 if [ -z "${TMUX}" ] ; then
-	export PATH="${KREW_ROOT}/bin:${GEM_BIN}:${GOBIN}:${M2}:${XDG_CONFIG_HOME}/git/commands:${PATH}"
+	export PATH="${XDG_BIN_HOME}:${KREW_BIN}:${GEM_BIN}:${GOBIN}:${M2}:${PATH}"
 fi
 
 # custom functions

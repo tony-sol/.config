@@ -4,6 +4,7 @@ local opt    = vim.opt -- global/buffer/windows-scoped
 local keymap = vim.keymap -- keymaps
 local api    = vim.api -- API
 local fn     = vim.fn -- functions
+local env    = vim.env -- environment variables
 
 opt.listchars:append('space:⋅')
 opt.listchars:append('eol:↴')
@@ -92,7 +93,8 @@ return require('packer').startup(function(use)
 	use {
 		"ellisonleao/glow.nvim",
 		require("glow").setup{
-			border       = "none",
+			border       = "shadow",
+			pager        = true,
 			width_ratio  = 0.8,
 			height_ratio = 0.8,
 		},
