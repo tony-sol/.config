@@ -164,6 +164,17 @@ return require('packer').startup(function(use)
 			}
 			require('lspconfig').gopls.setup {
 				capabilities = capabilities,
+				cmd          = {"gopls", "serve"},
+				filetypes    = {"go", "gomod"},
+				root_dir     = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
+				settings     = {
+					gopls    = {
+						analyses = {
+							unusedparams = true,
+						},
+						staticcheck = true,
+					},
+				},
 			}
 			require('lspconfig').graphql.setup {
 				capabilities = capabilities,
@@ -467,11 +478,11 @@ return require('packer').startup(function(use)
 			},
 			snippet = {
 				expand = function(args)
-					vim.fn['vsnip#anonymous'](args.body)
+					fn['vsnip#anonymous'](args.body)
 				end,
 			},
 			mapping = {
-				['<C-Tab>'] = require('cmp').mapping.complete(),
+				['<C-Space>'] = require('cmp').mapping.complete(),
 				['<C-b>'] = require('cmp').mapping.scroll_docs(-4),
 				['<C-f>'] = require('cmp').mapping.scroll_docs(4),
 				['<C-e>'] = require('cmp').mapping.abort(),
