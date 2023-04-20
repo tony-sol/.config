@@ -70,7 +70,6 @@ zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
 # other completions
 source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
-source "$(brew --prefix poetry)/etc/bash_completion.d/poetry"
 source "$(brew --prefix fzf)/shell/completion.zsh"
 source <(pip3 completion --zsh)
 source <(npm completion)
