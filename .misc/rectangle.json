@@ -77,7 +77,7 @@
       "float" : 0
     },
     "hideMenubarIcon" : {
-      "bool" : true
+      "bool" : false
     },
     "ignoredSnapAreas" : {
       "int" : 0
@@ -190,6 +190,9 @@
     "todoMode" : {
       "bool" : false
     },
+    "todoSidebarSide" : {
+      "int" : 1
+    },
     "todoSidebarWidth" : {
       "float" : 400
     },
@@ -240,6 +243,10 @@
       "keyCode" : 18,
       "modifierFlags" : 1441792
     },
+    "larger" : {
+      "keyCode" : 24,
+      "modifierFlags" : 1310720
+    },
     "lastFourth" : {
       "keyCode" : 21,
       "modifierFlags" : 786432
@@ -280,8 +287,16 @@
       "keyCode" : 19,
       "modifierFlags" : 786432
     },
+    "smaller" : {
+      "keyCode" : 27,
+      "modifierFlags" : 1310720
+    },
     "thirdFourth" : {
       "keyCode" : 20,
+      "modifierFlags" : 786432
+    },
+    "toggleTodo" : {
+      "keyCode" : 11,
       "modifierFlags" : 786432
     },
     "topHalf" : {
@@ -297,5 +312,5 @@
       "modifierFlags" : 1441792
     }
   },
-  "version" : "71"
+  "version" : "74"
 }
