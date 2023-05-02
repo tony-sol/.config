@@ -1,37 +1,7 @@
 local cmd    = vim.cmd -- execute Vim commands
-local g      = vim.g -- global variables
-local opt    = vim.opt -- global/buffer/windows-scoped
-local keymap = vim.keymap -- keymaps
 local api    = vim.api -- API
 local fn     = vim.fn -- functions
 local env    = vim.env -- environment variables
-
-opt.listchars:append('space:⋅')
-opt.listchars:append('eol:↴')
-opt.termguicolors  = true
-opt.signcolumn     = 'yes'
-opt.updatetime     = 100
-opt.list           = true
-opt.cursorline     = true
-opt.number         = true
-opt.relativenumber = true
-opt.tabstop        = 4
-opt.softtabstop    = 0
-opt.shiftwidth     = 4
-opt.smarttab       = true
-opt.smartcase      = true
-opt.smartindent    = true
-opt.hlsearch       = true
-opt.splitright     = true
-
-g.mapleader            = '\\'
-g.maplocalleader       = '\\'
-g.loaded_perl_provider = 0
-
-keymap.set({ 'n', 'v' }, ']b', '<plug>(CybuNext)')
-keymap.set({ 'n', 'v' }, '[b', '<plug>(CybuPrev)')
-keymap.set({ 'n' }, '<leader>ga', '<cmd>lua require("cosmic-ui").code_actions()<cr>')
-keymap.set({ 'v' }, '<leader>ga', '<cmd>lua require("cosmic-ui").range_code_actions()<cr>')
 
 cmd([[packadd packer.nvim]])
 cmd([[colorscheme vscode]])
