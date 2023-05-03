@@ -185,8 +185,13 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'folke/todo-comments.nvim',
-		require('todo-comments').setup {
+		requires = {
+			'nvim-lua/plenary.nvim',
 		},
+		event  = 'VimEnter',
+		config = function ()
+			require('todo-comments').setup()
+		end
 	}
 	use {
 		'folke/trouble.nvim',
