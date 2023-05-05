@@ -1,7 +1,7 @@
-local cmd    = vim.cmd -- execute Vim commands
-local api    = vim.api -- API
-local fn     = vim.fn -- functions
-local env    = vim.env -- environment variables
+local cmd = vim.cmd -- execute Vim commands
+local api = vim.api -- API
+local fn  = vim.fn -- functions
+local env = vim.env -- environment variables
 
 cmd([[packadd packer.nvim]])
 cmd([[colorscheme vscode]])
@@ -175,6 +175,11 @@ return require('packer').startup(function(use)
 			}
 			require('lspconfig').yamlls.setup {
 				capabilities = capabilities,
+				settings     = {
+					yaml     = {
+						keyOrdering = false,
+					},
+				},
 			}
 		end
 	}
