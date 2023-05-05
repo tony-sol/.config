@@ -28,7 +28,7 @@ api.nvim_create_autocmd({ "VimEnter" }, {
 -- 	end
 -- })
 
-return require('packer').startup(function(use)
+require('packer').startup(function(use)
 	use {
 		'wbthomason/packer.nvim',
 	}
@@ -81,6 +81,9 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'rcarriga/nvim-dap-ui',
+		requires = {
+			'mfussenegger/nvim-dap',
+		},
 		require('dapui').setup {
 		},
 	}
@@ -97,6 +100,7 @@ return require('packer').startup(function(use)
 				'ansiblels',
 				'bashls',
 				'clangd',
+				'docker_compose_language_service',
 				'dockerls',
 				'golangci_lint_ls',
 				'gopls',
@@ -124,6 +128,9 @@ return require('packer').startup(function(use)
 				capabilities = capabilities,
 			}
 			require('lspconfig').clangd.setup {
+				capabilities = capabilities,
+			}
+			require('lspconfig').docker_compose_language_service.setup {
 				capabilities = capabilities,
 			}
 			require('lspconfig').dockerls.setup {
@@ -195,7 +202,35 @@ return require('packer').startup(function(use)
 		},
 		event  = 'VimEnter',
 		config = function ()
-			require('todo-comments').setup()
+			require('todo-comments').setup({
+				-- @HACK wait for case-insensitive highlighting
+				keywords  = {
+					FIX  = { alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "fix", "fixme", "bug", "fixit", "issue" } },
+					TODO = { alt = { "todo" } },
+					HACK = { alt = { "hack" } },
+					WARN = { alt = { "WARNING", "XXX", "warn", "warning", "xxx" } },
+					PERF = { alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "perf", "optim", "performance", "optimize" } },
+					NOTE = { alt = { "INFO", "note", "info" } },
+					TEST = { alt = { "TESTING", "PASSED", "FAILED", "test", "testing", "passed", "failed" } },
+				},
+				highlight = {
+					pattern = {
+						[[.*[@\\]{1}<(KEYWORDS)\s*|.*<(KEYWORDS)\s*:]],
+					},
+				},
+				search = {
+					command = "rg",
+					args    = {
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--ignore-case",
+					},
+					pattern = [[[\\\\@]\b(KEYWORDS)(\s|:)]],
+				},
+			})
 		end
 	}
 	use {
@@ -233,57 +268,59 @@ return require('packer').startup(function(use)
 				section_separators   = { left = '', right = '' },
 				disabled_filetypes   = {
 					statusline = { 'packer', 'NvimTree', 'Outline' },
-					winbar     = { 'packer', 'NvimTree', 'Outline' }
+					winbar     = { 'packer', 'NvimTree', 'Outline' },
 				},
 				always_divide_middle = true,
-				globalstatus         = false
+				globalstatus         = false,
 			},
 			sections          = {
 				lualine_a = {
-					{ 'mode' }
+					{ 'mode' },
 				},
 				lualine_b = {
 					{ 'branch' },
 					{ 'diff' },
-					{ 'diagnostics' }
+					{ 'diagnostics' },
 				},
 				lualine_c = {
-					{ 'filename', path = 3 }
+					{ 'filename', path = 3 },
 				},
 				lualine_x = {
 					{ 'encoding' },
 					{ 'fileformat' },
-					{ 'filetype' }
+					{ 'filetype' },
 				},
 				lualine_y = {
-					{ 'progress' }
+					{ 'progress' },
 				},
 				lualine_z = {
-					{ 'location' }
+					{ 'location' },
 				}
 			},
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {
-					{ 'filename' }
+					{ 'filename', path = 3 },
 				},
-				lualine_x = {
-					{ 'location' }
+				lualine_x = {},
+				lualine_y = {
+					{ 'progress' },
 				},
-				lualine_y = {},
-				lualine_z = {}
+				lualine_z = {
+					{ 'location' },
+				}
 			},
 			tabline           = {
 				lualine_a = {
-					{ 'tabs', mode = 2 }
+					{ 'tabs', mode = 2 },
 				},
 				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {
-					{ 'buffers', mode = 4 }
+					{ 'buffers', mode = 4 },
 				}
 			},
 			winbar            = {
@@ -293,7 +330,7 @@ return require('packer').startup(function(use)
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {
-					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } }
+					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } },
 				}
 			},
 			inactive_winbar   = {
@@ -303,10 +340,11 @@ return require('packer').startup(function(use)
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {
-					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } }
+					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } },
 				}
 			},
 			extensions        = {
+				'fzf',
 				'nvim-tree',
 				'nvim-dap-ui',
 				'symbols-outline',
@@ -382,7 +420,7 @@ return require('packer').startup(function(use)
 			width                  = 20,
 			auto_close             = false,
 			show_numbers           = false,
-			show_relative_numbers  = false,
+			show_relative_numbers  = true,
 			show_symbol_details    = true,
 			preview_bg_highlight   = 'Pmenu',
 			keymaps                = { -- These keymaps can be a string or a table for multiple keys
