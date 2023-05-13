@@ -1,34 +1,16 @@
 local cmd = vim.cmd -- execute Vim commands
-local api = vim.api -- API
 local fn  = vim.fn -- functions
-local env = vim.env -- environment variables
 
 cmd([[packadd packer.nvim]])
 cmd([[colorscheme vscode]])
+cmd([[
+augroup lualine_augroup
+    autocmd!
+    autocmd User LspProgressStatusUpdated lua require("lualine").refresh()
+augroup END
+]])
 
-api.nvim_create_autocmd({ "VimEnter" }, {
-	callback = function(data)
-		if fn.isdirectory(data.file) ~= 1 then
-			return
-		end
-		cmd.cd(data.file)
-		require("nvim-tree.api").tree.open()
-	end
-})
--- @todo Fix autoclose - respect opened buffers,tabs and windows
--- api.nvim_create_autocmd({ "BufEnter" }, {
--- 	nested = true,
--- 	callback = function()
--- 		if #api.nvim_list_tabpages() == 1 and
--- 			#api.nvim_list_wins() == 0 and
--- 			require("nvim-tree.utils").is_nvim_tree_buf()
--- 		then
--- 			cmd([[quit]])
--- 		end
--- 	end
--- })
-
-require('packer').startup(function(use)
+require('packer').startup(function (use)
 	use {
 		'wbthomason/packer.nvim',
 	}
@@ -44,7 +26,7 @@ require('packer').startup(function(use)
 			'MunifTanjim/nui.nvim',
 			'nvim-lua/plenary.nvim',
 		},
-		config = function()
+		config = function ()
 			require('cosmic-ui').setup{}
 		end,
 	}
@@ -118,8 +100,14 @@ require('packer').startup(function(use)
 		},
 	}
 	use {
+		"ray-x/lsp_signature.nvim",
+		require("lsp_signature").setup({
+			hint_prefix = "",
+		})
+	}
+	use {
 		'neovim/nvim-lspconfig',
-		config = function()
+		config = function ()
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 			require('lspconfig').ansiblels.setup {
 				capabilities = capabilities,
@@ -245,7 +233,7 @@ require('packer').startup(function(use)
 	}
 	use {
 		'numToStr/Comment.nvim',
-		config = function()
+		config = function ()
 			require('Comment').setup()
 		end
 	}
@@ -258,7 +246,8 @@ require('packer').startup(function(use)
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = {
-			'kyazdani42/nvim-web-devicons'
+			'kyazdani42/nvim-web-devicons',
+			'linrongbin16/lsp-progress.nvim',
 		},
 		require('lualine').setup {
 			options           = {
@@ -356,9 +345,6 @@ require('packer').startup(function(use)
 		run = ':TSUpdate',
 		require('nvim-treesitter.configs').setup {
 			ensure_installed = 'all',
-			ignore_install   = {
-				'phpdoc',
-			},
 			highlight        = {
 				enable = true,
 			},
@@ -370,7 +356,7 @@ require('packer').startup(function(use)
 		requires = {
 			'nvim-treesitter/nvim-treesitter',
 		},
-		config = function()
+		config = function ()
 			require('treesitter-context').setup {
 			}
 		end
@@ -381,7 +367,7 @@ require('packer').startup(function(use)
 		requires = {
 			'nvim-treesitter/nvim-treesitter',
 		},
-		config = function()
+		config = function ()
 			require('nvim-treesitter.configs').setup {
 				refactor = {
 					highlight_definitions   = { enable = true },
@@ -398,7 +384,7 @@ require('packer').startup(function(use)
 		requires = {
 			'nvim-treesitter/nvim-treesitter',
 		},
-		config = function()
+		config = function ()
 			require('nvim-treesitter.configs').setup {
 				textobjects = {
 					select = { enable = true },
@@ -495,7 +481,7 @@ require('packer').startup(function(use)
 				documentation = require('cmp').config.window.bordered(),
 			},
 			snippet = {
-				expand = function(args)
+				expand = function (args)
 					fn['vsnip#anonymous'](args.body)
 				end,
 			},
@@ -504,14 +490,14 @@ require('packer').startup(function(use)
 				['<C-b>'] = require('cmp').mapping.scroll_docs(-4),
 				['<C-f>'] = require('cmp').mapping.scroll_docs(4),
 				['<C-e>'] = require('cmp').mapping.abort(),
-				['<Tab>'] = function(fallback)
+				['<Tab>'] = function (fallback)
 					if require('cmp').visible() then
 						require('cmp').select_next_item()
 					else
 						fallback()
 					end
 				end,
-				['<S-Tab>'] = function(fallback)
+				['<S-Tab>'] = function (fallback)
 					if require('cmp').visible() then
 						require('cmp').select_prev_item()
 					else
@@ -540,6 +526,9 @@ require('packer').startup(function(use)
 				},
 				{
 					name = 'buffer',
+				},
+				{
+					name = 'treesitter',
 				},
 			},
 		},
@@ -635,7 +624,7 @@ require('packer').startup(function(use)
 		requires = {
 			'nvim-lua/plenary.nvim',
 		},
-		config = function()
+		config = function ()
 			require('gitsigns').setup {
 				signs                             = {
 					add          = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
