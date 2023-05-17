@@ -1,14 +1,9 @@
-local cmd = vim.cmd -- execute Vim commands
-local fn  = vim.fn -- functions
+local api = vim.api
+local cmd = vim.cmd
+local fn  = vim.fn
 
 cmd([[packadd packer.nvim]])
 cmd([[colorscheme vscode]])
-cmd([[
-augroup lualine_augroup
-    autocmd!
-    autocmd User LspProgressStatusUpdated lua require("lualine").refresh()
-augroup END
-]])
 
 require('packer').startup(function (use)
 	use {
@@ -31,11 +26,24 @@ require('packer').startup(function (use)
 		end,
 	}
 	use {
+		'f-person/auto-dark-mode.nvim',
+		require('auto-dark-mode').setup{
+			update_interval = 500,
+			set_dark_mode   = function()
+				api.nvim_set_option('background', 'dark')
+			end,
+			set_light_mode  = function()
+				api.nvim_set_option('background', 'light')
+			end,
+		},
+		require('auto-dark-mode').init()
+	}
+	use {
 		'Mofiqul/vscode.nvim',
 		require('vscode').setup {
 			italic_comments     = true,
 			disable_nvimtree_bg = true,
-			transparent         = true,
+			transparent         = false,
 		},
 		require('vscode').load(),
 	}
@@ -247,7 +255,6 @@ require('packer').startup(function (use)
 		'nvim-lualine/lualine.nvim',
 		requires = {
 			'kyazdani42/nvim-web-devicons',
-			'linrongbin16/lsp-progress.nvim',
 		},
 		require('lualine').setup {
 			options           = {
@@ -260,7 +267,7 @@ require('packer').startup(function (use)
 					winbar     = { 'packer', 'NvimTree', 'Outline' },
 				},
 				always_divide_middle = true,
-				globalstatus         = false,
+				globalstatus         = true,
 			},
 			sections          = {
 				lualine_a = {
@@ -315,22 +322,22 @@ require('packer').startup(function (use)
 			winbar            = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = {},
+				lualine_c = {
+					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } },
+				},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {
-					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } },
-				}
+				lualine_z = {}
 			},
 			inactive_winbar   = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = {},
+				lualine_c = {
+					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } },
+				},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {
-					{ 'windows', mode = 2, disabled_buftypes = { 'nofile' } },
-				}
+				lualine_z = {}
 			},
 			extensions        = {
 				'fzf',

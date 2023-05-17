@@ -1,4 +1,4 @@
-local g = vim.g -- global variables
+local g = vim.g
 
 g.mapleader            = '\\'
 g.maplocalleader       = '\\'

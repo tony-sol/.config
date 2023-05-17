@@ -1,10 +1,26 @@
 local wezterm = require "wezterm"
+
+local function get_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return "Dark"
+end
+
+local function scheme_for_appearance(appearance)
+	if appearance:find "Dark" then
+		return "vscode_dark"
+	else
+		return "vscode_light"
+	end
+end
+
 return {
 	term          = "xterm-256color",
 	default_prog  = { "/bin/zsh", "-l", "-c", "tmux attach || tmux" },
-	color_scheme  = "vscode",
+	color_scheme  = scheme_for_appearance(get_appearance()),
 	color_schemes = {
-		vscode = {
+		vscode_dark = {
 			background = "#1e1e1e",
 			foreground = "#cccccc",
 			ansi       = {
@@ -28,6 +44,30 @@ return {
 				"#e5e5e5", -- white
 			},
 		},
+		vscode_light = {
+			background = "#f9f9f9",
+			foreground = "#020202",
+			ansi       = {
+				"#020202", -- black
+				"#cd3232", -- red
+				"#00bc00", -- green
+				"#a5a900", -- yellow
+				"#0752a8", -- blue
+				"#bc05bc", -- magenta
+				"#0598bc", -- cyan
+				"#343434", -- white
+			},
+			brights    = {
+				"#5e5e5e", -- black
+				"#cd3333", -- red
+				"#1bce1a", -- green
+				"#adbb5b", -- yellow
+				"#0752a8", -- blue
+				"#c451ce", -- magenta
+				"#52a8c7", -- cyan
+				"#a6a3a6", -- white
+			},
+		},
 	},
 	force_reverse_video_cursor = true,
 	bold_brightens_ansi_colors = true, --"BrightAndBold" in nightly builds
@@ -36,13 +76,13 @@ return {
 	font                       = wezterm.font_with_fallback {
 		{
 			family                    = "JetBrainsMono Nerd Font",
-			weight                    = "Regular",
+			weight                    = "Medium",
 			harfbuzz_features         = { "calt=1", "clig=1", "liga=1" },
 			assume_emoji_presentation = false,
 		},
 		{
 			family                    = "Menlo",
-			weight                    = "Regular",
+			weight                    = "Medium",
 			harfbuzz_features         = { "calt=1", "clig=1", "liga=1" },
 			assume_emoji_presentation = true,
 		},
