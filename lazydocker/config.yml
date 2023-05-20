@@ -13,7 +13,6 @@ gui:
   wrapMainPanel: true
   expandFocusedSidePanel: true
   showAllContainers: true
-  detailsFormat: yaml
 
 logs:
   timestamps: false
