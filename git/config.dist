@@ -21,6 +21,8 @@
 	rebase = true
 [push]
 	default = current
+[diff]
+	context = 2
 [color]
 	ui = always
 	grep = always
