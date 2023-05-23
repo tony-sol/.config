@@ -298,6 +298,7 @@ require('packer').startup(function (use)
 		config = function ()
 			local comment = require('Comment')
 			comment.setup{
+				ignore = '^(%s*)$',
 			}
 		end
 	}
@@ -383,20 +384,20 @@ require('packer').startup(function (use)
 					}
 				},
 				winbar            = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_c = {},
-					lualine_x = {},
-					lualine_y = {},
-					lualine_z = {}
+					-- lualine_a = {},
+					-- lualine_b = {},
+					-- lualine_c = {},
+					-- lualine_x = {},
+					-- lualine_y = {},
+					-- lualine_z = {}
 				},
 				inactive_winbar   = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_c = {},
-					lualine_x = {},
-					lualine_y = {},
-					lualine_z = {}
+					-- lualine_a = {},
+					-- lualine_b = {},
+					-- lualine_c = {},
+					-- lualine_x = {},
+					-- lualine_y = {},
+					-- lualine_z = {}
 				},
 				extensions        = {
 					'fzf',
@@ -441,27 +442,6 @@ require('packer').startup(function (use)
 			}
 		end
 	}
-	-- use {
-	-- 	"glepnir/lspsaga.nvim",
-	-- 	requires = {
-	-- 	    'nvim-tree/nvim-web-devicons',
-	-- 	    'nvim-treesitter/nvim-treesitter',
-	-- 	},
-	-- 	branch = 'main',
-	-- 	after  = {
-	-- 		'nvim-lspconfig',
-	-- 	},
-	-- 	event  = 'LspAttach',
-	-- 	config = function ()
-	-- 		local lspsaga = require('lspsaga')
-	-- 		lspsaga.setup {
-	-- 			symbol_in_winbar = {
-	-- 				separator = '<|>',
-	-- 				enable    = false,
-	-- 			}
-	-- 		}
-	-- 	end
-	-- }
 	use {
 		'simrat39/symbols-outline.nvim',
 		after = {
@@ -649,22 +629,6 @@ require('packer').startup(function (use)
 		end
 	}
 	use {
-		'ghillb/cybu.nvim',
-		requires = {
-			'kyazdani42/nvim-web-devicons',
-			'nvim-lua/plenary.nvim',
-		},
-		config = function ()
-			local cybu = require('cybu')
-			cybu.setup {
-				display_time = 1000,
-				style        = {
-					hide_buffer_id = false,
-				},
-			}
-		end
-	}
-	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
 			'nvim-lua/plenary.nvim',
@@ -677,7 +641,12 @@ require('packer').startup(function (use)
 			local telescope = require('telescope')
 			telescope.setup {
 				defaults   = {
-					layout_strategy = 'vertical',
+					layout_strategy = 'horizontal',
+					layout_config   = {
+						horizontal = {
+							prompt_position = "top",
+						},
+					},
 				},
 				extensions = {
 					file_browser   = {
