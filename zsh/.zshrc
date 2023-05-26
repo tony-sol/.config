@@ -11,8 +11,10 @@ export RPROMPT='$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_
 export RPROMPT="${RPROMPT} %{$bldcyn%}%D{%Y-%m-%d %H:%M:%S}%{$txtrst%}"
 
 # aliases
-alias ll='ls -AlhF'
-alias treee='tree -halFpugD'
+alias l='ls -AF'
+alias ll='l -hl'
+alias tt='tree -halFpugD'
+alias t='tt -L 1'
 
 # replace commands with "modern" alternatives
 cat() {
