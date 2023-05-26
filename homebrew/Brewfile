@@ -123,8 +123,6 @@ brew "terraform-inventory"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
-# URL extractor/launcher
-brew "urlview"
 # Secures, stores, and tightly controls access to secrets
 brew "vault"
 # Executes a program periodically, showing output fullscreen
