@@ -49,6 +49,8 @@ brew "gnupg"
 brew "go"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
+# Smarter Dockerfile linter to validate best practices
+brew "hadolint"
 # Kubernetes package manager
 brew "helm"
 # Deploy Kubernetes Helm Charts
