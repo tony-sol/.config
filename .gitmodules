@@ -28,3 +28,6 @@
 [submodule "tmux/plugins/tmux-jump"]
 	path = tmux/plugins/tmux-jump
 	url = https://github.com/Tony-Sol/tmux-jump.git
+[submodule "tmux/plugins/tmux-fzf-url"]
+	path = tmux/plugins/tmux-fzf-url
+	url = https://github.com/Tony-Sol/tmux-fzf-url.git
