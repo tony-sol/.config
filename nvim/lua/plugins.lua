@@ -612,6 +612,7 @@ require('packer').startup(function (use)
 					relativenumber              = true,
 				},
 				renderer = {
+					add_trailing           = true,
 					highlight_git          = true,
 					highlight_opened_files = 'all',
 					indent_markers         = {
@@ -623,11 +624,15 @@ require('packer').startup(function (use)
 					update_cwd = true,
 				},
 				git = {
-					ignore = false,
+					ignore  = false,
+					timeout = 1000,
 				},
 				diagnostics = {
 					enable       = true,
 					show_on_dirs = true,
+				},
+				modified = {
+					enable = true,
 				},
 				trash = {
 					cmd = 'trash',
