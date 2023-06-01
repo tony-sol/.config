@@ -1,12 +1,77 @@
 source ~/.config/vim/vimrc
 
+let mapleader='\'
+
+" https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md#vim-paragraph-motion
+Plug 'vim-paragraph-motion'
+
+" https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md#surround
+Plug 'vim-surround'
+" @todo remap to default
+
+" https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md#commentary
+Plug 'vim-commentary'
+nmap gcu <Plug>Commentary<Plug>Commentary
+nmap gcc <Plug>CommentaryLine
+nmap gc  <Plug>Commentary
+xmap gc  <Plug>Commentary
+omap gc  <Plug>Commentary
+
+" https://plugins.jetbrains.com/plugin/7086-acejump/
+" https://plugins.jetbrains.com/plugin/13360-ideavim-easymotion/
+" https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md#easymotion
+Plug 'vim-easymotion'
+map <Leader><leader>   <Plug>(easymotion-prefix)
+map <leader><leader>f  <Plug>(easymotion-f)
+map <leader><leader>F  <Plug>(easymotion-F)
+map <leader><leader>t  <Plug>(easymotion-t)
+map <leader><leader>T  <Plug>(easymotion-T)
+map <leader><leader>w  <Plug>(easymotion-w)
+map <leader><leader>W  <Plug>(easymotion-W)
+map <leader><leader>b  <Plug>(easymotion-b)
+map <leader><leader>B  <Plug>(easymotion-B)
+map <leader><leader>e  <Plug>(easymotion-e)
+map <leader><leader>E  <Plug>(easymotion-E)
+map <leader><leader>ge <Plug>(easymotion-ge)
+map <leader><leader>gE <Plug>(easymotion-gE)
+map <leader><leader>j  <Plug>(easymotion-j)
+map <leader><leader>k  <Plug>(easymotion-k)
+map <leader><leader>n  <Plug>(easymotion-n)
+map <leader><leader>N  <Plug>(easymotion-N)
+map <leader><leader>s  <Plug>(easymotion-s)
+
+" https://plugins.jetbrains.com/plugin/15976-which-key
 set which-key
-set keep-english-in-normal-and-restore-in-insert
-set surround
-set multiple-cursors
-set commentary
-set textobj-indent
-set vim-paragraph-motion
+set notimeout
+let g:WhichKey_ShowVimActions         = "false"
+let g:WhichKey_ProcessUnknownMappings = "false"
+let g:WhichKey_KeyColor               = "keyword"
+let g:WhichKey_PrefixColor            = "keyword"
+let g:WhichKey_CommandColor           = "keyword"
+" @todo add surround Desc
+" let g:WhichKeyDesc_Surround = ""
+let g:WhichKeyDesc_Commentary_gc      = "gc Comment"
+let g:WhichKeyDesc_Commentary_gcc     = "gcc Comment line"
+let g:WhichKeyDesc_Commentary_gcu     = "gcu Uncomment line"
+let g:WhichKeyDesc_EasyMotion         = "<leader><leader>   EasyMotion"
+let g:WhichKeyDesc_EasyMotion_f       = "<leader><leader>f  Find {char} to the right"
+let g:WhichKeyDesc_EasyMotion_F       = "<leader><leader>F  Find {char} to the left"
+let g:WhichKeyDesc_EasyMotion_t       = "<leader><leader>t  Till before the {char} to the right"
+let g:WhichKeyDesc_EasyMotion_T       = "<leader><leader>T  Till after the {char} to the left"
+let g:WhichKeyDesc_EasyMotion_w       = "<leader><leader>w  Beginning of word forward"
+let g:WhichKeyDesc_EasyMotion_W       = "<leader><leader>W  Beginning of WORD (any) forward"
+let g:WhichKeyDesc_EasyMotion_b       = "<leader><leader>b  Beginning of word backward"
+let g:WhichKeyDesc_EasyMotion_B       = "<leader><leader>B  Beginning of WORD (any) backward"
+let g:WhichKeyDesc_EasyMotion_e       = "<leader><leader>e  End of word forward"
+let g:WhichKeyDesc_EasyMotion_E       = "<leader><leader>E  End of WORD (any) forward"
+let g:WhichKeyDesc_EasyMotion_ge      = "<leader><leader>ge End of word backward"
+let g:WhichKeyDesc_EasyMotion_gE      = "<leader><leader>gE End of WORD (any) backward"
+let g:WhichKeyDesc_EasyMotion_j       = "<leader><leader>j  Line downward"
+let g:WhichKeyDesc_EasyMotion_k       = "<leader><leader>k  Line upward"
+let g:WhichKeyDesc_EasyMotion_n       = "<leader><leader>n  Jump to latest '/' or '?' forward"
+let g:WhichKeyDesc_EasyMotion_N       = "<leader><leader>N  Jump to latest '/' or '?' backward"
+let g:WhichKeyDesc_EasyMotion_s       = "<leader><leader>s  Find(Search) {char} forward and backward"
+
 set number
 set list
 set relativenumber
