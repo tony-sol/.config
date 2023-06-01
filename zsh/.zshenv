@@ -45,6 +45,9 @@ export KREW_ROOT="${XDG_DATA_HOME}/krew"
 export KREW_BIN="${KREW_ROOT}/bin"
 # set minikube configs
 export MINIKUBE_HOME="${KUBEHOMEDIR}/.minikube"
+# set werf configs
+export WERF_TMP_DIR="${XDG_CACHE_HOME}/werf"
+export WERF_HOME="${XDG_CONFIG_HOME}/werf"
 # set vagrant configs
 export VAGRANT_HOME="${XDG_CONFIG_HOME}/vagrant"
 export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"

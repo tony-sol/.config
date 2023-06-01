@@ -131,6 +131,8 @@ brew "trivy"
 brew "vault"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
+# Consistent delivery tool for Kubernetes
+brew "werf"
 # Tool for managing your YubiKey configuration
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
