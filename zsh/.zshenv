@@ -86,7 +86,7 @@ export NVM_DIR="${XDG_DATA_HOME}/nvm"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
 # set dotnet configs
-export DOTNET_ROOT="${HOMEBREW_PREFIX}/bin"
+export DOTNET_ROOT="${HOMEBREW_PREFIX}/opt/dotnet/libexec"
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 # set nuget configs
 export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
@@ -142,6 +142,8 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=3"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=3"
+
+export FPATH="${ZDOTDIR}/extensions/zsh-completions/src:${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 
 # =====================================================================
 
