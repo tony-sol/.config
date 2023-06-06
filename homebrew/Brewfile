@@ -33,8 +33,6 @@ brew "ctop"
 brew "direnv"
 # Tool for exploring each layer in a docker image
 brew "dive"
-# .NET Core
-brew "dotnet"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Command-line fuzzy finder written in Go
@@ -155,6 +153,8 @@ brew "mutagen-io/mutagen/mutagen"
 brew "sunscan/repo/sshpass"
 # App to build and share containerized applications and microservices
 cask "docker"
+# Developer platform
+cask "dotnet-sdk"
 # Web browser
 cask "firefox-developer-edition"
 # Developer targeted fonts with a high number of glyphs
