@@ -86,8 +86,9 @@ export NVM_DIR="${XDG_DATA_HOME}/nvm"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
 # set dotnet configs
-export DOTNET_ROOT="${HOMEBREW_PREFIX}/opt/dotnet/libexec"
+export DOTNET_ROOT="/usr/local/share/dotnet"
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
+export DOTNET_CLI_TOOLS="${DOTNET_CLI_HOME}/tools"
 # set nuget configs
 export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
 export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget"
