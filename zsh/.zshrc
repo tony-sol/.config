@@ -49,7 +49,6 @@ source <(direnv hook zsh)
 nvm() {
 	unfunction "$0"
 	source "$(brew --prefix nvm)/nvm.sh"
-	source "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
 	$0 "$@"
 }
 

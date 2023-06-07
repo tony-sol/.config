@@ -81,8 +81,10 @@ export BUNDLE_USER_PLUGIN="${XDG_DATA_HOME}/bundle"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export GEM_BIN="${GEM_HOME}/bin"
 export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
-# set nvm configs
+# set npm/nvm configs
+export NVM_SYMLINK_CURRENT=true
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
+export NVM_BIN="${NVM_DIR}/current/bin"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
 # set dotnet configs
