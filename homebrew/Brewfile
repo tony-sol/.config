@@ -129,6 +129,8 @@ brew "tree"
 brew "trivy"
 # Secures, stores, and tightly controls access to secrets
 brew "vault"
+# JavaScript toolchain manager for reproducible environments
+brew "volta"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Consistent delivery tool for Kubernetes
