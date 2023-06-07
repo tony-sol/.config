@@ -112,6 +112,8 @@ export M2_HOME="${MAVEN_HOME}"
 export M2="${M2_HOME}/bin"
 # set gradle configs
 export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
+# set luarocks configs
+export LUAROCKS_CONFIG="${XDG_CONFIG_HOME}/luarocks/config.lua"
 # set composer configs
 export COMPOSER_HOME="${XDG_CONFIG_HOME}/composer"
 export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
