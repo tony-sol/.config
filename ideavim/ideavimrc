@@ -7,13 +7,25 @@ Plug 'vim-paragraph-motion'
 
 " https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md#surround
 Plug 'vim-surround'
-" @todo remap to default
+let g:surround_no_mappings        = 0
+let g:surround_no_insert_mappings = 0
+nmap ds  <Plug>DSurround  | let g:WhichKeyDesc_Surround_n_ds  = "ds Delete a surrounding"
+nmap cs  <Plug>CSurround  | let g:WhichKeyDesc_Surround_n_cs  = "cs Change a surrounding"
+nmap ys  <Plug>YSurround  | let g:WhichKeyDesc_Surround_n_ys  = "ys Add a surrounding"
+nmap yss <Plug>Yssurround | let g:WhichKeyDesc_Surround_n_yss = "yss Add a surrounding to the whole line"
+xmap gs  <Plug>VSurround  | let g:WhichKeyDesc_Surround_v_gs  = "gs Add a surrounding"
+" @todo remap rest
+" nmap ySS    <Plug>Yssurround | let g:WhichKeyDesc_Surround_n_ySS = "ySS Add a surrounding to the whole line, place it on a new line + indent it"
+" nmap yS     <Plug>YSurround  | let g:WhichKeyDesc_Surround_n_yS  = "yS Add a surrounding and place the surrounded text on a new line + indent it"
+" xmap gS     <Plug>VgSurround | let g:WhichKeyDesc_Surround_v_gS  = "gS In visual mode, add a surrounding but place text on new line + indent it"
+" imap <C-G>s <Plug>Isurround  | let g:WhichKeyDesc_Surround_i_s   = "<C-G>s In insert mode, add a surrounding"
+" imap <C-G>S <Plug>ISurround  | let g:WhichKeyDesc_Surround_i_S   = "<C-G>S In insert mode, add a new line + surrounding + indent"
 
 " https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md#commentary
 Plug 'vim-commentary'
-nmap gcu <Plug>Commentary<Plug>Commentary
-nmap gcc <Plug>CommentaryLine
-nmap gc  <Plug>Commentary
+nmap gcu <Plug>Commentary<Plug>Commentary | let g:WhichKeyDesc_Commentary_gcu = "gcu Uncomment line"
+nmap gcc <Plug>CommentaryLine             | let g:WhichKeyDesc_Commentary_gcc = "gcc Comment line"
+nmap gc  <Plug>Commentary                 | let g:WhichKeyDesc_Commentary_gc  = "gc Comment"
 xmap gc  <Plug>Commentary
 omap gc  <Plug>Commentary
 
@@ -21,24 +33,24 @@ omap gc  <Plug>Commentary
 " https://plugins.jetbrains.com/plugin/13360-ideavim-easymotion/
 " https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md#easymotion
 Plug 'vim-easymotion'
-map <Leader><leader>   <Plug>(easymotion-prefix)
-map <leader><leader>f  <Plug>(easymotion-f)
-map <leader><leader>F  <Plug>(easymotion-F)
-map <leader><leader>t  <Plug>(easymotion-t)
-map <leader><leader>T  <Plug>(easymotion-T)
-map <leader><leader>w  <Plug>(easymotion-w)
-map <leader><leader>W  <Plug>(easymotion-W)
-map <leader><leader>b  <Plug>(easymotion-b)
-map <leader><leader>B  <Plug>(easymotion-B)
-map <leader><leader>e  <Plug>(easymotion-e)
-map <leader><leader>E  <Plug>(easymotion-E)
-map <leader><leader>ge <Plug>(easymotion-ge)
-map <leader><leader>gE <Plug>(easymotion-gE)
-map <leader><leader>j  <Plug>(easymotion-j)
-map <leader><leader>k  <Plug>(easymotion-k)
-map <leader><leader>n  <Plug>(easymotion-n)
-map <leader><leader>N  <Plug>(easymotion-N)
-map <leader><leader>s  <Plug>(easymotion-s)
+map <Leader><leader>   <Plug>(easymotion-prefix) | let g:WhichKeyDesc_EasyMotion    = "<leader><leader>   EasyMotion"
+map <leader><leader>f  <Plug>(easymotion-f)      | let g:WhichKeyDesc_EasyMotion_f  = "<leader><leader>f  Find {char} to the right"
+map <leader><leader>F  <Plug>(easymotion-F)      | let g:WhichKeyDesc_EasyMotion_F  = "<leader><leader>F  Find {char} to the left"
+map <leader><leader>t  <Plug>(easymotion-t)      | let g:WhichKeyDesc_EasyMotion_t  = "<leader><leader>t  Till before the {char} to the right"
+map <leader><leader>T  <Plug>(easymotion-T)      | let g:WhichKeyDesc_EasyMotion_T  = "<leader><leader>T  Till after the {char} to the left"
+map <leader><leader>w  <Plug>(easymotion-w)      | let g:WhichKeyDesc_EasyMotion_w  = "<leader><leader>w  Beginning of word forward"
+map <leader><leader>W  <Plug>(easymotion-W)      | let g:WhichKeyDesc_EasyMotion_W  = "<leader><leader>W  Beginning of WORD (any) forward"
+map <leader><leader>b  <Plug>(easymotion-b)      | let g:WhichKeyDesc_EasyMotion_b  = "<leader><leader>b  Beginning of word backward"
+map <leader><leader>B  <Plug>(easymotion-B)      | let g:WhichKeyDesc_EasyMotion_B  = "<leader><leader>B  Beginning of WORD (any) backward"
+map <leader><leader>e  <Plug>(easymotion-e)      | let g:WhichKeyDesc_EasyMotion_e  = "<leader><leader>e  End of word forward"
+map <leader><leader>E  <Plug>(easymotion-E)      | let g:WhichKeyDesc_EasyMotion_E  = "<leader><leader>E  End of WORD (any) forward"
+map <leader><leader>ge <Plug>(easymotion-ge)     | let g:WhichKeyDesc_EasyMotion_ge = "<leader><leader>ge End of word backward"
+map <leader><leader>gE <Plug>(easymotion-gE)     | let g:WhichKeyDesc_EasyMotion_gE = "<leader><leader>gE End of WORD (any) backward"
+map <leader><leader>j  <Plug>(easymotion-j)      | let g:WhichKeyDesc_EasyMotion_j  = "<leader><leader>j  Line downward"
+map <leader><leader>k  <Plug>(easymotion-k)      | let g:WhichKeyDesc_EasyMotion_k  = "<leader><leader>k  Line upward"
+map <leader><leader>n  <Plug>(easymotion-n)      | let g:WhichKeyDesc_EasyMotion_n  = "<leader><leader>n  Jump to latest '/' or '?' forward"
+map <leader><leader>N  <Plug>(easymotion-N)      | let g:WhichKeyDesc_EasyMotion_N  = "<leader><leader>N  Jump to latest '/' or '?' backward"
+map <leader><leader>s  <Plug>(easymotion-s)      | let g:WhichKeyDesc_EasyMotion_s  = "<leader><leader>s  Find(Search) {char} forward and backward"
 
 " https://plugins.jetbrains.com/plugin/15976-which-key
 set which-key
@@ -48,29 +60,6 @@ let g:WhichKey_ProcessUnknownMappings = "false"
 let g:WhichKey_KeyColor               = "keyword"
 let g:WhichKey_PrefixColor            = "keyword"
 let g:WhichKey_CommandColor           = "keyword"
-" @todo add surround Desc
-" let g:WhichKeyDesc_Surround = ""
-let g:WhichKeyDesc_Commentary_gc      = "gc Comment"
-let g:WhichKeyDesc_Commentary_gcc     = "gcc Comment line"
-let g:WhichKeyDesc_Commentary_gcu     = "gcu Uncomment line"
-let g:WhichKeyDesc_EasyMotion         = "<leader><leader>   EasyMotion"
-let g:WhichKeyDesc_EasyMotion_f       = "<leader><leader>f  Find {char} to the right"
-let g:WhichKeyDesc_EasyMotion_F       = "<leader><leader>F  Find {char} to the left"
-let g:WhichKeyDesc_EasyMotion_t       = "<leader><leader>t  Till before the {char} to the right"
-let g:WhichKeyDesc_EasyMotion_T       = "<leader><leader>T  Till after the {char} to the left"
-let g:WhichKeyDesc_EasyMotion_w       = "<leader><leader>w  Beginning of word forward"
-let g:WhichKeyDesc_EasyMotion_W       = "<leader><leader>W  Beginning of WORD (any) forward"
-let g:WhichKeyDesc_EasyMotion_b       = "<leader><leader>b  Beginning of word backward"
-let g:WhichKeyDesc_EasyMotion_B       = "<leader><leader>B  Beginning of WORD (any) backward"
-let g:WhichKeyDesc_EasyMotion_e       = "<leader><leader>e  End of word forward"
-let g:WhichKeyDesc_EasyMotion_E       = "<leader><leader>E  End of WORD (any) forward"
-let g:WhichKeyDesc_EasyMotion_ge      = "<leader><leader>ge End of word backward"
-let g:WhichKeyDesc_EasyMotion_gE      = "<leader><leader>gE End of WORD (any) backward"
-let g:WhichKeyDesc_EasyMotion_j       = "<leader><leader>j  Line downward"
-let g:WhichKeyDesc_EasyMotion_k       = "<leader><leader>k  Line upward"
-let g:WhichKeyDesc_EasyMotion_n       = "<leader><leader>n  Jump to latest '/' or '?' forward"
-let g:WhichKeyDesc_EasyMotion_N       = "<leader><leader>N  Jump to latest '/' or '?' backward"
-let g:WhichKeyDesc_EasyMotion_s       = "<leader><leader>s  Find(Search) {char} forward and backward"
 
 set number
 set list
