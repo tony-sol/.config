@@ -17,7 +17,7 @@ end
 
 return {
 	term          = "xterm-256color",
-	default_prog  = { "/bin/zsh", "-l", "-c", "tmux attach || tmux" },
+	default_prog  = { "/bin/zsh", "-l", "-c", "tmux list-sessions && exec tmux attach || exec tmux" },
 	color_scheme  = scheme_for_appearance(get_appearance()),
 	color_schemes = {
 		vscode_dark = {
