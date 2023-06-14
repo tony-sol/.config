@@ -5,7 +5,6 @@ tap "hashicorp/tap"
 tap "helmwave/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
@@ -192,6 +191,8 @@ cask "syntax-highlight"
 cask "tageditor"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Unpacks archive files
+cask "the-unarchiver"
 # Development environment
 cask "vagrant"
 # OpenVPN client with AppleScript support
