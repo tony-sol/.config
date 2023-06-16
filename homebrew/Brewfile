@@ -8,6 +8,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
+tap "jesseduffield/horcrux"
 tap "mutagen-io/mutagen"
 tap "sunscan/repo"
 tap "wez/wezterm"
@@ -147,6 +148,8 @@ brew "gromgit/fuse/simple-mtpfs-mac"
 brew "gromgit/fuse/sshfs-mac"
 # HelmWave is like docker-compose for helm
 brew "helmwave/tap/helmwave"
+# A program for splitting your files into encrypted fragments
+brew "jesseduffield/horcrux/horcrux"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
 # Non-interactive ssh password auth
