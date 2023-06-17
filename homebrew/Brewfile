@@ -86,8 +86,6 @@ brew "minikube"
 brew "molecule"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Manage multiple Node.js versions
-brew "nvm"
 # SQL query tool to analyze data from different file formats and databases
 brew "octosql"
 # Open source, general-purpose policy engine

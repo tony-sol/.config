@@ -6,7 +6,7 @@ fi
 
 # tmux workaround
 if [ -z "${TMUX}" ] ; then
-	export PATH="${XDG_BIN_HOME}:${KREW_BIN}:${VOLTA_BIN}:${NVM_BIN}:${GEM_BIN}:${GOBIN}:${DOTNET_CLI_TOOLS}:${M2}:${PATH}"
+	export PATH="${XDG_BIN_HOME}:${KREW_BIN}:${VOLTA_BIN}:${GEM_BIN}:${GOBIN}:${DOTNET_CLI_TOOLS}:${M2}:${PATH}"
 fi
 
 # custom functions

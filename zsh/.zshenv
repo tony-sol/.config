@@ -88,10 +88,6 @@ export NODENV_ROOT="${XDG_DATA_HOME}/nodenv"
 # set volta configs
 export VOLTA_HOME="${XDG_DATA_HOME}/volta"
 export VOLTA_BIN="${VOLTA_HOME}/bin"
-# set nvm configs
-export NVM_SYMLINK_CURRENT=true
-export NVM_DIR="${XDG_DATA_HOME}/nvm"
-export NVM_BIN="${NVM_DIR}/current/bin"
 # set npm/node configs
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"

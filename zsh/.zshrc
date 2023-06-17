@@ -45,15 +45,6 @@ vim() {
 # direnv setup
 source <(direnv hook zsh)
 
-# nvm setup
-# nvm() {
-# 	unfunction "$0"
-# 	local prefix=$(brew --prefix nvm)
-# 	source "${prefix}/nvm.sh"
-# 	source "${prefix}/etc/bash_completion.d/nvm"
-# 	$0 "$@"
-# }
-
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
