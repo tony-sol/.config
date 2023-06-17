@@ -46,11 +46,13 @@ vim() {
 source <(direnv hook zsh)
 
 # nvm setup
-nvm() {
-	unfunction "$0"
-	source "$(brew --prefix nvm)/nvm.sh"
-	$0 "$@"
-}
+# nvm() {
+# 	unfunction "$0"
+# 	local prefix=$(brew --prefix nvm)
+# 	source "${prefix}/nvm.sh"
+# 	source "${prefix}/etc/bash_completion.d/nvm"
+# 	$0 "$@"
+# }
 
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
