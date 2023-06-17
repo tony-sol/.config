@@ -125,12 +125,12 @@ require('packer').startup(function (use)
 	}
 	use {
 		'neovim/nvim-lspconfig',
-		requires = {
-			'hrsh7th/cmp-nvim-lsp',
-		},
 		after = {
 			'mason.nvim',
 			'mason-lspconfig.nvim',
+		},
+		requires = {
+			'hrsh7th/cmp-nvim-lsp',
 		},
 		config = function ()
 			local lsp_config           = require('lspconfig')
@@ -270,7 +270,7 @@ require('packer').startup(function (use)
 		requires = {
 			'nvim-tree/nvim-web-devicons',
 		},
-		config   = function ()
+		config = function ()
 			local trouble = require('trouble')
 			trouble.setup {
 			}
@@ -282,7 +282,7 @@ require('packer').startup(function (use)
 			'MunifTanjim/nui.nvim',
 			'rcarriga/nvim-notify',
 		},
-		config   = function ()
+		config = function ()
 			local noice = require('noice')
 			noice.setup {
 				lsp = {
@@ -459,6 +459,19 @@ require('packer').startup(function (use)
 		end
 	}
 	use {
+		'nvim-orgmode/orgmode',
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
+		},
+		config = function ()
+			local orgmode = require('orgmode')
+			orgmode.setup_ts_grammar {
+			}
+			orgmode.setup {
+			}
+		end
+	}
+	use {
 		'simrat39/symbols-outline.nvim',
 		after = {
 			'nvim-lspconfig',
@@ -534,6 +547,20 @@ require('packer').startup(function (use)
 		end
 	}
 	use {
+		'lukas-reineke/headlines.nvim',
+		after = {
+			'nvim-treesitter',
+		},
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
+		},
+		config = function ()
+			local headlines = require('headlines')
+			headlines.setup {
+			}
+		end
+	}
+	use {
 		'hrsh7th/nvim-cmp',
 		requires = {
 			'hrsh7th/cmp-nvim-lsp',
@@ -600,6 +627,9 @@ require('packer').startup(function (use)
 					{
 						name = 'treesitter',
 					},
+					{
+						name = 'orgmode',
+					}
 				},
 			}
 		end
