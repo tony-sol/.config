@@ -162,6 +162,8 @@ cask "firefox-developer-edition"
 cask "font-jetbrains-mono-nerd-font"
 # Web browser
 cask "google-chrome"
+# Client for the Google Drive storage service
+cask "google-drive"
 # iPhone management application
 cask "imazing"
 # JetBrains tools manager
@@ -206,6 +208,8 @@ cask "vlc"
 cask "wezterm"
 # Network protocol analyzer
 cask "wireshark"
+# Cloud storage
+cask "yandex-disk"
 # Application for configuring any YubiKey
 cask "yubico-yubikey-manager"
 # Video communication and virtual meeting platform
