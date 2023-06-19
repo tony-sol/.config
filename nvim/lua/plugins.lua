@@ -28,14 +28,21 @@ require('packer').startup(function (use)
 		end
 	}
 	use {
-		'ellisonleao/glow.nvim',
+		'0x00-ketsu/markdown-preview.nvim',
+		ft = { 'md', 'markdown', 'mkd', 'mkdn', 'mdwn', 'mdown', 'mdtxt', 'mdtext', 'rmd', 'wiki' },
 		config = function ()
-			local glow = require('glow')
-			glow.setup {
-				border       = 'shadow',
-				pager        = true,
-				width_ratio  = 0.8,
-				height_ratio = 0.8,
+			local markdown_preview = require('markdown-preview')
+			markdown_preview.setup {
+				term = {
+					reload = {
+						enable = true,
+						events = {
+							'BufEnter',
+							'InsertLeave',
+							'TextChanged',
+						},
+					},
+				},
 			}
 		end
 	}
