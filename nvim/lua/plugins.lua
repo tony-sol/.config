@@ -466,6 +466,28 @@ require('packer').startup(function (use)
 		end
 	}
 	use {
+		'nvim-neorg/neorg',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'nvim-neorg/neorg-telescope',
+		},
+		-- run = ':Neorg sync-parsers',
+		after = {
+			'nvim-treesitter',
+		},
+		config = function ()
+			local neorg = require('neorg')
+			neorg.setup {
+				load = {
+					['core.defaults']               = {},
+					['core.concealer']              = {},
+					['core.dirman']                 = {},
+					['core.integrations.telescope'] = {},
+				},
+			}
+		end
+	}
+	use {
 		'nvim-orgmode/orgmode',
 		requires = {
 			'nvim-treesitter/nvim-treesitter',
