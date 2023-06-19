@@ -96,8 +96,6 @@ brew "opensc"
 brew "openvpn"
 # Tool for creating identical machine images for multiple platforms
 brew "packer"
-# Python dependency management tool
-brew "pipenv"
 # Tool for managing OCI containers and pods
 brew "podman"
 # Alternative to docker-compose using podman

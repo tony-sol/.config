@@ -68,8 +68,6 @@ export ANSIBLE_LOCAL_TEMP="${XDG_CACHE_HOME}/ansible"
 export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.keyfile"
 # set poetry configs
 export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
-# set pipenv configs
-export PIPENV_VENV_IN_PROJECT=1
 # set go configs
 export GOPATH="${XDG_DATA_HOME}/go"
 export GOBIN="${GOPATH}/bin"
