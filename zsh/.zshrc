@@ -16,32 +16,6 @@ alias ll='l -hl'
 alias tt='tree -halFpugD'
 alias t='tt -L 1'
 
-# replace commands with "modern" alternatives
-cat() {
-	bat_executable=$(whence -p bat)
-	if [[ -x $bat_executable ]]; then
-		$bat_executable --paging=never $@
-	else
-		$(whence -p cat) $@
-	fi
-}
-less() {
-	bat_executable=$(whence -p bat)
-	if [[ -x $bat_executable ]]; then
-		$bat_executable --paging=always $@
-	else
-		$(whence -p less) $@
-	fi
-}
-vim() {
-	nvim_executable=$(whence -p nvim)
-	if [[ -x $nvim_executable ]]; then
-		$nvim_executable $@
-	else
-		$(whence -p vim) $@
-	fi
-}
-
 # direnv setup
 source <(direnv hook zsh)
 
