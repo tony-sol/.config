@@ -56,8 +56,6 @@ brew "helmfile"
 brew "hey"
 # Improved top (interactive process viewer)
 brew "htop"
-# Tool to move from `docker-compose` to Kubernetes
-brew "kompose"
 # Statically typed programming language for the JVM
 brew "kotlin"
 # Kubernetes command-line interface
@@ -68,8 +66,6 @@ brew "krew"
 brew "kube-linter"
 # FAST Kubernetes manifests validator, with support for Custom Resources!
 brew "kubeconform"
-# Tool that can switch between kubectl contexts easily and create aliases
-brew "kubectx"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
