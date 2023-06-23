@@ -63,7 +63,7 @@ require('packer').startup(function (use)
 		},
 		config = function ()
 			local ufo = require('ufo')
-			ufo.setup{
+			ufo.setup {
 				provider_selector = function(bufnr, filetype, buftype)
 					local main, fallback, parsers = 'lsp', 'treesitter', require('nvim-treesitter.parsers')
 					if parsers.get_parser(bufnr) == nil then
@@ -320,7 +320,7 @@ require('packer').startup(function (use)
 		'numToStr/Comment.nvim',
 		config = function ()
 			local comment = require('Comment')
-			comment.setup{
+			comment.setup {
 				ignore = '^(%s*)$',
 			}
 		end
