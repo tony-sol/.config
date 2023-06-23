@@ -140,9 +140,10 @@ fi
 
 # zsh extensions
 source "${ZDOTDIR}/extensions/git-aware-prompt/main.sh"
-source "${ZDOTDIR}/extensions/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "${ZDOTDIR}/extensions/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "${ZDOTDIR}/extensions/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+source "${ZDOTDIR}/extensions/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 source "${ZDOTDIR}/extensions/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+source "${ZDOTDIR}/extensions/zsh-lazyload/zsh-lazyload.plugin.zsh"
 
 # zsh extensions configs
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)

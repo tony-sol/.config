@@ -31,3 +31,6 @@
 [submodule "tmux/plugins/tmux-fzf-url"]
 	path = tmux/plugins/tmux-fzf-url
 	url = https://github.com/Tony-Sol/tmux-fzf-url.git
+[submodule "zsh/extensions/zsh-lazyload"]
+	path = zsh/extensions/zsh-lazyload
+	url = https://github.com/Tony-Sol/zsh-lazyload.git

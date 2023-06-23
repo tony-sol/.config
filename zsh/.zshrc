@@ -45,85 +45,42 @@ zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
 # other completions
 # source "$(brew --prefix fzf)/shell/completion.zsh"
-if [ $commands[fzf] ]; then
-	fzf() { unfunction "$0"; source "$(brew --prefix fzf)/shell/completion.zsh"; $0 "$@"; }
-fi
+lazyload fzf -- 'source "$(brew --prefix fzf)/shell/completion.zsh"'
 # source <(pip3 completion --zsh)
-if [ $commands[pip3] ]; then
-	pip3() { unfunction "$0"; source <(pip3 completion --zsh); $0 "$@"; }
-fi
+lazyload pip3 -- 'source <(pip3 completion --zsh)'
 # source <(_MOLECULE_COMPLETE=zsh_source molecule)
-if [ $commands[molecule] ]; then
-	molecule() { unfunction "$0"; source <(_MOLECULE_COMPLETE=zsh_source molecule); $0 "$@"; }
-fi
+lazyload molecule -- 'source <(_MOLECULE_COMPLETE=zsh_source molecule)'
 # source <(npm completion)
-if [ $commands[npm] ]; then
-	npm() { unfunction "$0"; source <(npm completion); $0 "$@"; }
-fi
-# source <(gh completion --shell zsh)
-if [ $commands[gh] ]; then
-	gh() { unfunction "$0"; source <(gh completion --shell zsh); $0 "$@"; }
-fi
-# source <(werf completion --shell zsh)
-if [ $commands[werf] ]; then
-	werf() { unfunction "$0"; source <(werf completion --shell zsh); $0 "$@"; }
-fi
+lazyload npm -- 'source <(npm completion)'
+# source <(gh completion --shell=zsh)
+lazyload gh -- 'source <(gh completion --shell=zsh)'
+# source <(werf completion --shell=zsh)
+lazyload werf -- 'source <(werf completion --shell=zsh)'
 # source <(kubectl completion zsh)
-if [ $commands[kubectl] ]; then
-	kubectl() { unfunction "$0"; source <(kubectl completion zsh); $0 "$@"; }
-fi
+lazyload kubectl -- 'source <(kubectl completion zsh)'
+# source <(kubectl-krew completion zsh)
+lazyload kubectl-krew -- 'source <(kubectl-krew completion zsh)'
 # source <(minikube completion zsh)
-if [ $commands[minikube] ]; then
-	minikube() { unfunction "$0"; source <(minikube completion zsh); $0 "$@"; }
-fi
-# source <(kompose completion zsh)
-if [ $commands[kompose] ]; then
-	kompose() { unfunction "$0"; source <(kompose completion zsh); $0 "$@"; }
-fi
+lazyload minikube -- 'source <(minikube completion zsh)'
 # source <(helm completion zsh)
-if [ $commands[helm] ]; then
-	helm() { unfunction "$0"; source <(helm completion zsh); $0 "$@"; }
-fi
+lazyload helm -- 'source <(helm completion zsh)'
 # source <(helmfile completion zsh)
-if [ $commands[helmfile] ]; then
-	helmfile() { unfunction "$0"; source <(helmfile completion zsh); $0 "$@"; }
-fi
+lazyload helmfile -- 'source <(helmfile completion zsh)'
 # source <(helmwave completion zsh)
-if [ $commands[helmwave] ]; then
-	helmwave() { unfunction "$0"; source <(helmwave completion zsh); $0 "$@"; }
-fi
+lazyload helmwave -- 'source <(helmwave completion zsh)'
 # source <(opa completion zsh)
-if [ $commands[opa] ]; then
-	opa() { unfunction "$0"; source <(opa completion zsh); $0 "$@"; }
-fi
+lazyload opa -- 'source <(opa completion zsh)'
 # source <(conftest completion zsh)
-if [ $commands[conftest] ]; then
-	conftest() { unfunction "$0"; source <(conftest completion zsh); $0 "$@"; }
-fi
+lazyload conftest -- 'source <(conftest completion zsh)'
 # source <(kube-linter completion zsh)
-if [ $commands[kube-linter] ]; then
-	kube-linter() { unfunction "$0"; source <(kube-linter completion zsh); $0 "$@"; }
-fi
+lazyload kube-linter -- 'source <(kube-linter completion zsh)'
 # source <(trivy completion zsh)
-if [ $commands[trivy] ]; then
-	trivy() { unfunction "$0"; source <(trivy completion zsh); $0 "$@"; }
-fi
+lazyload trivy -- 'source <(trivy completion zsh)'
 # source <(octosql completion zsh)
-if [ $commands[octosql] ]; then
-	octosql() { unfunction "$0"; source <(octosql completion zsh); $0 "$@"; }
-fi
-# complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
-if [ $commands[terraform] ]; then
-	terraform() { unfunction "$0"; complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform; $0 "$@"; }
-fi
-# complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
-if [ $commands[vault] ]; then
-	vault() { unfunction "$0"; complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault; $0 "$@"; }
-fi
-# complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul
-if [ $commands[consul] ]; then
-	consul() { unfunction "$0"; complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul; $0 "$@"; }
-fi
+lazyload octosql -- 'source <(octosql completion zsh)'
+complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
+complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
+complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul
 
 # =====================================================================
 
