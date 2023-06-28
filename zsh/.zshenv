@@ -66,7 +66,13 @@ export GPG_TTY=$(tty)
 export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
 export ANSIBLE_LOCAL_TEMP="${XDG_CACHE_HOME}/ansible"
 export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.keyfile"
+# set virtualenv configs
+export VIRTUALENV_CONFIG_FILE="${XDG_CONFIG_HOME}/virtualenv/config.toml"
+# set pip configs
+export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
 # set poetry configs
+export POETRY_CONFIG_DIR="${XDG_CONFIG_HOME}/pypoetry"
+export POETRY_DATA_DIR="${XDG_DATA_HOME}/pypoetry"
 export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
 # set go configs
 export GOPATH="${XDG_DATA_HOME}/go"
@@ -151,7 +157,7 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=3"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=3"
 
-export FPATH="${ZDOTDIR}/extensions/zsh-completions/src:${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}:${ZDOTDIR}/extensions/zsh-completions/src"
 
 # =====================================================================
 

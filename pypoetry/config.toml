@@ -1,3 +1,6 @@
 [virtualenvs]
+create = true
 path = "{cache-dir}/virtualenvs"
 in-project = true
+[virtualenvs.options]
+always-copy = true
