@@ -81,6 +81,7 @@ lazyload octosql -- 'source <(octosql completion zsh)'
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul
+complete -o nospace -C "${HOMEBREW_PREFIX}/bin/nomad" nomad
 
 # =====================================================================
 
