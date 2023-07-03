@@ -126,6 +126,8 @@ brew "vault"
 brew "volta"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
+# Tool to build, deploy, and release any application on any platform
+brew "waypoint"
 # Consistent delivery tool for Kubernetes
 brew "werf"
 # Tool for managing your YubiKey configuration
