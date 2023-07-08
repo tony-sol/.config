@@ -3,9 +3,6 @@ require('packer').startup(function (use)
 		'wbthomason/packer.nvim',
 	}
 	use {
-		'stevearc/dressing.nvim',
-	}
-	use {
 		'f-person/auto-dark-mode.nvim',
 		config = function ()
 			local auto_dark_mode = require('auto-dark-mode')
@@ -62,14 +59,22 @@ require('packer').startup(function (use)
 			'kevinhwang91/promise-async',
 		},
 		config = function ()
-			local ufo = require('ufo')
+			local ufo, promise = require('ufo'), require('promise')
+			local function customizeSelector(bufnr)
+				return ufo.getFolds(bufnr, 'lsp')
+					:catch(function (err)
+						return ufo.getFolds(bufnr, 'treesitter')
+					end)
+					:catch(function (err)
+						return ufo.getFolds(bufnr, 'indent')
+					end)
+					:catch(function (err)
+						return promise.reject(err)
+					end)
+			end
 			ufo.setup {
-				provider_selector = function(bufnr, filetype, buftype)
-					local main, fallback, parsers = 'lsp', 'treesitter', require('nvim-treesitter.parsers')
-					if parsers.get_parser(bufnr) == nil then
-						fallback = 'indent'
-					end
-					return { main, fallback }
+				provider_selector = function (bufnr, filetype, buftype)
+					return customizeSelector
 				end
 			}
 		end
@@ -290,6 +295,24 @@ require('packer').startup(function (use)
 			'rcarriga/nvim-notify',
 		},
 		config = function ()
+			local notify = require('notify')
+			notify.setup {
+				background_colour = 'NotifyBackground',
+				fps               = 60,
+				icons             = {
+					DEBUG = '',
+					ERROR = '',
+					INFO  = '',
+					TRACE = '✎',
+					WARN  = '',
+				},
+				level         = 2,
+				minimum_width = 50,
+				render        = 'default',
+				stages        = 'fade_in_slide_out',
+				timeout       = 3000,
+				top_down      = false,
+			}
 			local noice = require('noice')
 			noice.setup {
 				lsp = {
@@ -744,6 +767,27 @@ require('packer').startup(function (use)
 			telescope.load_extension('dap')
 			telescope.load_extension('noice')
 		end,
+	}
+	use {
+		'sindrets/diffview.nvim',
+		config = function ()
+			local diffview = require('diffview')
+			diffview.setup {
+				enhanced_diff_hl = true,
+				view             = {
+					defaults     = {
+						layout = 'diff2_horizontal',
+					},
+					merge_tool   = {
+						layout = 'diff4_mixed',
+					},
+					file_history = {
+						layout = 'diff2_horizontal',
+						winbar_info = true,
+					},
+				}
+			}
+		end
 	}
 	use {
 		'lewis6991/gitsigns.nvim',
