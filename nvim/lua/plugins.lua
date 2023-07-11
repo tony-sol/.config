@@ -56,7 +56,7 @@ require('packer').startup(function (use)
 	use {
 		'kevinhwang91/nvim-ufo',
 		requires = {
-			'kevinhwang91/promise-async',
+			{ 'kevinhwang91/promise-async' },
 		},
 		config = function ()
 			local ufo, promise = require('ufo'), require('promise')
@@ -85,7 +85,7 @@ require('packer').startup(function (use)
 	use {
 		'rcarriga/nvim-dap-ui',
 		requires = {
-			'mfussenegger/nvim-dap',
+			{ 'mfussenegger/nvim-dap' },
 		},
 		config = function ()
 			local dap_ui = require('dapui')
@@ -107,7 +107,7 @@ require('packer').startup(function (use)
 			'mason.nvim',
 		},
 		requires = {
-			'williamboman/mason.nvim',
+			{ 'williamboman/mason.nvim' },
 		},
 		config = function ()
 			local mason_lspconfig = require('mason-lspconfig')
@@ -142,7 +142,7 @@ require('packer').startup(function (use)
 			'mason-lspconfig.nvim',
 		},
 		requires = {
-			'hrsh7th/cmp-nvim-lsp',
+			{ 'hrsh7th/cmp-nvim-lsp' },
 		},
 		config = function ()
 			local lsp_config           = require('lspconfig')
@@ -232,7 +232,7 @@ require('packer').startup(function (use)
 	use {
 		'folke/todo-comments.nvim',
 		requires = {
-			'nvim-lua/plenary.nvim',
+			{ 'nvim-lua/plenary.nvim' },
 		},
 		event  = 'VimEnter',
 		config = function ()
@@ -280,7 +280,7 @@ require('packer').startup(function (use)
 	use {
 		'folke/trouble.nvim',
 		requires = {
-			'nvim-tree/nvim-web-devicons',
+			{ 'nvim-tree/nvim-web-devicons' },
 		},
 		config = function ()
 			local trouble = require('trouble')
@@ -291,8 +291,8 @@ require('packer').startup(function (use)
 	use {
 		'folke/noice.nvim',
 		requires = {
-			'MunifTanjim/nui.nvim',
-			'rcarriga/nvim-notify',
+			{ 'MunifTanjim/nui.nvim' },
+			{ 'rcarriga/nvim-notify' },
 		},
 		config = function ()
 			local notify = require('notify')
@@ -360,7 +360,7 @@ require('packer').startup(function (use)
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = {
-			'nvim-tree/nvim-web-devicons',
+			{ 'nvim-tree/nvim-web-devicons' },
 		},
 		config = function ()
 			local lualine = require('lualine')
@@ -458,9 +458,9 @@ require('packer').startup(function (use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		requires = {
-			'nvim-treesitter/nvim-treesitter-context',
-			'nvim-treesitter/nvim-treesitter-refactor',
-			'nvim-treesitter/nvim-treesitter-textobjects',
+			{ 'nvim-treesitter/nvim-treesitter-context' },
+			{ 'nvim-treesitter/nvim-treesitter-refactor' },
+			{ 'nvim-treesitter/nvim-treesitter-textobjects' },
 		},
 		run = ':TSUpdate',
 		config = function ()
@@ -491,8 +491,8 @@ require('packer').startup(function (use)
 	use {
 		'nvim-neorg/neorg',
 		requires = {
-			'nvim-lua/plenary.nvim',
-			'nvim-neorg/neorg-telescope',
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-neorg/neorg-telescope' },
 		},
 		-- run = ':Neorg sync-parsers',
 		after = {
@@ -513,7 +513,7 @@ require('packer').startup(function (use)
 	use {
 		'nvim-orgmode/orgmode',
 		requires = {
-			'nvim-treesitter/nvim-treesitter',
+			{ 'nvim-treesitter/nvim-treesitter' },
 		},
 		config = function ()
 			local orgmode = require('orgmode')
@@ -587,7 +587,7 @@ require('packer').startup(function (use)
 	use {
 		'lukas-reineke/indent-blankline.nvim',
 		requires = {
-			'nvim-treesitter/nvim-treesitter',
+			{ 'nvim-treesitter/nvim-treesitter' },
 		},
 		config = function ()
 			local indent_blankline = require('indent_blankline')
@@ -604,7 +604,7 @@ require('packer').startup(function (use)
 			'nvim-treesitter',
 		},
 		requires = {
-			'nvim-treesitter/nvim-treesitter',
+			{ 'nvim-treesitter/nvim-treesitter' },
 		},
 		config = function ()
 			local headlines = require('headlines')
@@ -615,11 +615,11 @@ require('packer').startup(function (use)
 	use {
 		'hrsh7th/nvim-cmp',
 		requires = {
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-path',
-			'hrsh7th/cmp-buffer',
-			'hrsh7th/cmp-vsnip',
-			'hrsh7th/vim-vsnip',
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-path' },
+			{ 'hrsh7th/cmp-buffer' },
+			{ 'hrsh7th/cmp-vsnip' },
+			{ 'hrsh7th/vim-vsnip' },
 		},
 		config = function ()
 			local cmp, fn = require('cmp'), vim.fn
@@ -689,7 +689,7 @@ require('packer').startup(function (use)
 	use {
 		'nvim-tree/nvim-tree.lua',
 		requires = {
-			'nvim-tree/nvim-web-devicons',
+			{ 'nvim-tree/nvim-web-devicons' },
 		},
 		config = function ()
 			local nvim_tree = require('nvim-tree')
@@ -734,11 +734,11 @@ require('packer').startup(function (use)
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
-			'nvim-lua/plenary.nvim',
-			'nvim-telescope/telescope-file-browser.nvim',
-			'nvim-telescope/telescope-live-grep-args.nvim',
-			'nvim-telescope/telescope-packer.nvim',
-			'nvim-telescope/telescope-dap.nvim',
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-telescope/telescope-file-browser.nvim' },
+			{ 'nvim-telescope/telescope-live-grep-args.nvim' },
+			{ 'nvim-telescope/telescope-packer.nvim' },
+			{ 'nvim-telescope/telescope-dap.nvim' },
 		},
 		config = function ()
 			local telescope = require('telescope')
@@ -792,7 +792,7 @@ require('packer').startup(function (use)
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {
-			'nvim-lua/plenary.nvim',
+			{ 'nvim-lua/plenary.nvim' },
 		},
 		config = function ()
 			local gitsigns = require('gitsigns')
