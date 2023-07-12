@@ -62,6 +62,8 @@ lazyload kubectl -- 'source <(kubectl completion zsh)'
 lazyload kubectl-krew -- 'source <(kubectl-krew completion zsh)'
 # source <(minikube completion zsh)
 lazyload minikube -- 'source <(minikube completion zsh)'
+# source <(kind completion zsh)
+lazyload kind -- 'source <(kind completion zsh)'
 # source <(helm completion zsh)
 lazyload helm -- 'source <(helm completion zsh)'
 # source <(helmfile completion zsh)

@@ -56,6 +56,8 @@ brew "helmfile"
 brew "hey"
 # Improved top (interactive process viewer)
 brew "htop"
+# Run local Kubernetes cluster in Docker
+brew "kind"
 # Statically typed programming language for the JVM
 brew "kotlin"
 # Kubernetes command-line interface
