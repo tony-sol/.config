@@ -616,7 +616,10 @@ require('packer').startup(function (use)
 		'hrsh7th/nvim-cmp',
 		requires = {
 			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },
+			{ 'hrsh7th/cmp-nvim-lsp-document-symbol' },
 			{ 'hrsh7th/cmp-path' },
+			{ 'hrsh7th/cmp-cmdline' },
 			{ 'hrsh7th/cmp-buffer' },
 			{ 'hrsh7th/cmp-vsnip' },
 			{ 'hrsh7th/vim-vsnip' },
@@ -662,10 +665,10 @@ require('packer').startup(function (use)
 						name = 'nvim_lsp',
 					},
 					{
-						name = 'vsnip'
+						name = 'nvim_lsp_signature_help',
 					},
 					{
-						name = 'nvim_lsp_signature_help',
+						name = 'nvim_lsp_document_symbol',
 					},
 					{
 						name   = 'path',
@@ -674,14 +677,23 @@ require('packer').startup(function (use)
 						},
 					},
 					{
+						name = 'cmdline',
+					},
+					{
 						name = 'buffer',
+					},
+					{
+						name = 'vsnip'
 					},
 					{
 						name = 'treesitter',
 					},
 					{
 						name = 'orgmode',
-					}
+					},
+					{
+						name = 'neorg',
+					},
 				},
 			}
 		end
@@ -695,7 +707,7 @@ require('packer').startup(function (use)
 			local nvim_tree = require('nvim-tree')
 			nvim_tree.setup {
 				disable_netrw = true,
-				hijack_netrw  = false,
+				hijack_netrw  = true,
 				view          = {
 					adaptive_size               = true,
 					preserve_window_proportions = true,
@@ -747,14 +759,12 @@ require('packer').startup(function (use)
 					layout_strategy = 'horizontal',
 					layout_config   = {
 						horizontal = {
-							prompt_position = "top",
+							prompt_position = 'top',
 						},
 					},
 				},
 				extensions = {
-					file_browser   = {
-						hijack_netrw = false,
-					},
+					file_browser   = {},
 					live_grep_args = {},
 					packer         = {},
 					dap            = {},

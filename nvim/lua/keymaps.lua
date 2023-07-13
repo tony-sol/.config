@@ -61,6 +61,7 @@ api.nvim_create_autocmd({ "LspAttach" }, {
 		keymap.set({ "n" }, "<space>wl",   function()
 			print(inspect(lsp.buf.list_workspace_folders()))
 		end, table_merge(opts, { desc = "Lsp: list workspace folders" }))
+		keymap.set({ "n" }, "<space>a",    lsp.buf.code_action,     table_merge(opts, { desc = "Lsp: code action" }))
 		keymap.set({ "n" }, "<space>d",    lsp.buf.type_definition, table_merge(opts, { desc = "Lsp: type definition" }))
 		keymap.set({ "n" }, "<space>r",    lsp.buf.rename,          table_merge(opts, { desc = "Lsp: rename" }))
 		keymap.set({ "n" }, "<space>f",    function()
