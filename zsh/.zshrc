@@ -4,11 +4,47 @@ fi
 
 # =====================================================================
 
+function unshift_path() {
+	local path=$1
+	shift
+	for value in $@
+	do
+		if [[ ":${path}:" == *:"$value":* ]]
+		then path="${path//$value/}"
+		fi
+		path="${value}${path+:${path//::/:}}"
+	done
+	echo ${${path#:}%:}
+}
+
+# setup FPATH
+export FPATH=$(unshift_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions" "${ZDOTDIR}/extensions/zsh-completions/src" "${ZDOTDIR}/extensions/zsh-autocomplete/Completions")
+
+# setup PATH
+export PATH=$(unshift_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $VOLTA_BIN $KREW_BIN $PYENV_SHIMS $RBENV_SHIMS $XDG_BIN_HOME)
+
+# setup MANPATH
+export MANPATH=$(unshift_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
+
+# setup INFOPATH
+export INFOPATH=$(unshift_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
+
+# ssh agent
+if [ -z "${SSH_AUTH_SOCK}" ] ; then
+	eval `ssh-agent -P "${HOMEBREW_PREFIX}/lib/*"` > /dev/null
+fi
+if ! ps -p ${SSH_AGENT_PID:-0} 2>&1 > /dev/null ; then
+	unset SSH_AGENT_PID
+fi
+export SSH_AGENT_PID=${SSH_AGENT_PID:-`pgrep -x ssh-agent`}
+if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
+	ssh-add "${HOME}/.ssh/id_rsa"
+fi
+
 # U+2714 ✔︎
 # U+2718 ✘
 export PROMPT='%{$bldcyn%}%~%{$txtrst%}%{$txtcyn%}$git_branch%{$bldgrn%}$git_ahead_mark$git_ahead_count%{$bldred%}$git_behind_mark$git_behind_count%{$bldcyn%}$git_stash_mark%{$bldylw%}$git_dirty$git_dirty_count%{$bldblu%}$git_staged_mark$git_staged_count%{$bldpur%}$git_unknown_mark$git_unknown_count%{$txtrst%} $([ $? -ne 0 ] && echo -e "%{$bldred%}\U2718" || echo -e "%{$bldgrn%}\U2714")%{$txtrst%} $ '
-export RPROMPT='$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_code%{$txtrst%})'
-export RPROMPT="${RPROMPT} %{$bldcyn%}%D{%Y-%m-%d %H:%M:%S}%{$txtrst%}"
+export RPROMPT='$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_code%{$txtrst%}) %{$bldcyn%}%D{%Y-%m-%d %H:%M:%S}%{$txtrst%}'
 
 # aliases
 alias l='ls -AF'
@@ -48,38 +84,23 @@ zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 lazyload fzf -- 'source "$(brew --prefix fzf)/shell/completion.zsh"'
 # source <(pip3 completion --zsh)
 lazyload pip3 -- 'source <(pip3 completion --zsh)'
-# source <(_MOLECULE_COMPLETE=zsh_source molecule)
 lazyload molecule -- 'source <(_MOLECULE_COMPLETE=zsh_source molecule)'
-# source <(npm completion)
 lazyload npm -- 'source <(npm completion)'
-# source <(gh completion --shell=zsh)
 lazyload gh -- 'source <(gh completion --shell=zsh)'
-# source <(werf completion --shell=zsh)
 lazyload werf -- 'source <(werf completion --shell=zsh)'
-# source <(kubectl completion zsh)
 lazyload kubectl -- 'source <(kubectl completion zsh)'
-# source <(kubectl-krew completion zsh)
 lazyload kubectl-krew -- 'source <(kubectl-krew completion zsh)'
-# source <(minikube completion zsh)
 lazyload minikube -- 'source <(minikube completion zsh)'
-# source <(kind completion zsh)
 lazyload kind -- 'source <(kind completion zsh)'
-# source <(helm completion zsh)
 lazyload helm -- 'source <(helm completion zsh)'
-# source <(helmfile completion zsh)
 lazyload helmfile -- 'source <(helmfile completion zsh)'
-# source <(helmwave completion zsh)
 lazyload helmwave -- 'source <(helmwave completion zsh)'
-# source <(opa completion zsh)
 lazyload opa -- 'source <(opa completion zsh)'
-# source <(conftest completion zsh)
 lazyload conftest -- 'source <(conftest completion zsh)'
-# source <(kube-linter completion zsh)
 lazyload kube-linter -- 'source <(kube-linter completion zsh)'
-# source <(trivy completion zsh)
 lazyload trivy -- 'source <(trivy completion zsh)'
-# source <(octosql completion zsh)
 lazyload octosql -- 'source <(octosql completion zsh)'
+
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul

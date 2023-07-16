@@ -1,9 +1,3 @@
-if [ -f "${ZDOTDIR}/.zshenv.before" ]; then
-	source "${ZDOTDIR}/.zshenv.before"
-fi
-
-# =====================================================================
-
 export SHELL=/bin/zsh
 # shell colors
 export CLICOLOR=1
@@ -18,6 +12,15 @@ export XDG_RUNTIME_DIR="${HOME}/.local/run"
 export XDG_CACHE_HOME="${HOME}/.local/cache"
 # set zsh home directory
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+
+# =====================================================================
+
+if [ -f "${ZDOTDIR}/.zshenv.before" ]; then
+	source "${ZDOTDIR}/.zshenv.before"
+fi
+
+# =====================================================================
+
 # set brew configs
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX}"
@@ -111,6 +114,7 @@ export GEM_BIN="${GEM_HOME}/bin"
 export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 # set rbenv configs
 export RBENV_ROOT="${XDG_DATA_HOME}/rbenv"
+export RBENV_SHIMS="${RBENV_ROOT}/shims"
 # set nodenv configs
 export NODENV_ROOT="${XDG_DATA_HOME}/nodenv"
 # set volta configs
@@ -153,23 +157,12 @@ export VISUAL=nvim
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
+setopt SH_WORD_SPLIT;
 setopt INTERACTIVE_COMMENTS
 setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt EMACS
-
-# ssh agent
-if [ -z "${SSH_AUTH_SOCK}" ] ; then
-	eval `ssh-agent -P "${HOMEBREW_PREFIX}/lib/*"` > /dev/null
-fi
-if ! ps -p ${SSH_AGENT_PID:-0} 2>&1 > /dev/null ; then
-	unset SSH_AGENT_PID
-fi
-export SSH_AGENT_PID=${SSH_AGENT_PID:-`pgrep -x ssh-agent`}
-if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
-	ssh-add "${HOME}/.ssh/id_rsa"
-fi
 
 # zsh extensions
 source "${ZDOTDIR}/extensions/git-aware-prompt/main.sh"
@@ -183,8 +176,6 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=3"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=3"
-
-export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}:${ZDOTDIR}/extensions/zsh-completions/src"
 
 # =====================================================================
 

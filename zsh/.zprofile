@@ -4,15 +4,7 @@ fi
 
 # =====================================================================
 
-# tmux workaround
-if [ -z "${TMUX}" ] ; then
-	export PATH="${XDG_BIN_HOME}:${KREW_BIN}:${VOLTA_BIN}:${GEM_BIN}:${GOBIN}:${DOTNET_CLI_TOOLS}:${M2}:${PATH}"
-fi
 
-# custom functions
-yml2env() {
-	yq -o p "$1" | awk '{gsub(/\./,"_",$1)}{print toupper($1)$2$3}'
-}
 
 # =====================================================================
 
