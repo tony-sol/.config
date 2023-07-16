@@ -16,10 +16,11 @@ local function scheme_for_appearance(appearance)
 end
 
 return {
-	term          = "xterm-256color",
-	default_prog  = { "/bin/zsh", "-l", "-c", "tmux list-sessions && exec tmux attach || exec tmux" },
-	color_scheme  = scheme_for_appearance(get_appearance()),
-	color_schemes = {
+	term                         = "xterm-256color",
+	default_prog                 = { "/bin/zsh", "--login", "--interactive", "-c", "tmux new -A" },
+	exit_behavior                = "CloseOnCleanExit",
+	color_scheme                 = scheme_for_appearance(get_appearance()),
+	color_schemes                = {
 		vscode_dark = {
 			background = "#1e1e1e",
 			foreground = "#cccccc",
@@ -69,11 +70,11 @@ return {
 			},
 		},
 	},
-	force_reverse_video_cursor = true,
-	bold_brightens_ansi_colors = true, --"BrightAndBold" in nightly builds
-	unicode_version            = 14,
-	custom_block_glyphs        = false,
-	font                       = wezterm.font_with_fallback {
+	force_reverse_video_cursor   = true,
+	bold_brightens_ansi_colors   = true, --"BrightAndBold" in nightly builds
+	unicode_version              = 14,
+	custom_block_glyphs          = false,
+	font                         = wezterm.font_with_fallback {
 		{
 			family                    = "JetBrainsMono Nerd Font",
 			weight                    = "Medium",
@@ -96,19 +97,19 @@ return {
 	native_macos_fullscreen_mode = true,
 	disable_default_key_bindings = true,
 	keys                         = {
-		{ key = 'q',  mods = 'SUPER',      action = wezterm.action.QuitApplication       },
-		{ key = 'h',  mods = 'SUPER',      action = wezterm.action.HideApplication       },
-		{ key = '0',  mods = 'SUPER',      action = wezterm.action.ResetFontSize         },
-		{ key = '-',  mods = 'SUPER',      action = wezterm.action.DecreaseFontSize      },
-		{ key = '=',  mods = 'SUPER',      action = wezterm.action.IncreaseFontSize      },
-		{ key = 'c',  mods = 'SUPER',      action = wezterm.action.CopyTo 'Clipboard'    },
-		{ key = 'v',  mods = 'SUPER',      action = wezterm.action.PasteFrom 'Clipboard' },
-		{ key = ' ',  mods = 'SHIFT|CTRL', action = wezterm.action.QuickSelect           },
-		{ key = '?',  mods = 'SHIFT|CTRL', action = wezterm.action.ShowLauncher          },
-		{ key = '|',  mods = 'SHIFT|CTRL', action = wezterm.action.ShowDebugOverlay      },
-		{ key = 'f',  mods = 'SUPER|CTRL', action = wezterm.action.ToggleFullScreen      },
+		{ key = 'q', mods = 'SUPER',      action = wezterm.action.QuitApplication },
+		{ key = 'h', mods = 'SUPER',      action = wezterm.action.HideApplication },
+		{ key = '0', mods = 'SUPER',      action = wezterm.action.ResetFontSize },
+		{ key = '-', mods = 'SUPER',      action = wezterm.action.DecreaseFontSize },
+		{ key = '=', mods = 'SUPER',      action = wezterm.action.IncreaseFontSize },
+		{ key = 'c', mods = 'SUPER',      action = wezterm.action.CopyTo 'Clipboard' },
+		{ key = 'v', mods = 'SUPER',      action = wezterm.action.PasteFrom 'Clipboard' },
+		{ key = ' ', mods = 'SHIFT|CTRL', action = wezterm.action.QuickSelect },
+		{ key = '?', mods = 'SHIFT|CTRL', action = wezterm.action.ShowLauncher },
+		{ key = '|', mods = 'SHIFT|CTRL', action = wezterm.action.ShowDebugOverlay },
+		{ key = 'f', mods = 'SUPER|CTRL', action = wezterm.action.ToggleFullScreen },
 	},
-	quick_select_patterns = {
+	quick_select_patterns        = {
 		'[\\w,]+',
 	},
 }
