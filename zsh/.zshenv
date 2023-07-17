@@ -26,6 +26,8 @@ export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX}"
 export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
 
+# set tmux configs
+export TMUX_CONF="${XDG_CONFIG_HOME}/tmux/tmux.conf"
 # set vim/nvim initial script
 export VIMINIT='let $VIMINIT = has("nvim") ? "${XDG_CONFIG_HOME}/nvim/init.lua" : "${XDG_CONFIG_HOME}/vim/vimrc" | source $VIMINIT'
 # set ncurses configs
