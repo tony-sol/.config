@@ -52,6 +52,8 @@ alias ll='l -hl'
 alias tt='tree -halFpugD'
 alias t='tt -L 1'
 
+# commands replacements
+alias vim='nvim'
 # direnv setup
 source <(direnv hook zsh)
 
