@@ -1,5 +1,12 @@
 {
   "auths": {
+    "registry.hub.docker.com": {}
   },
-  "credsStore": "desktop"
+  "credsStore": "desktop",
+  "currentContext": "default",
+  "plugins": {
+    "-x-cli-hints": {
+      "enabled": "true"
+    }
+  }
 }
