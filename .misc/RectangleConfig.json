@@ -83,7 +83,7 @@
       "int" : 0
     },
     "landscapeSnapAreas" : {
-
+      "string" : "[4,{\"compound\":-2},6,{\"action\":13},1,{\"action\":15},2,{\"action\":2},7,{\"compound\":-4},5,{\"compound\":-3},3,{\"action\":16},8,{\"action\":14}]"
     },
     "launchOnLogin" : {
       "bool" : true
@@ -182,10 +182,10 @@
       "bool" : true
     },
     "todo" : {
-      "int" : 2
+      "int" : 1
     },
     "todoApplication" : {
-      "string" : "io.alacritty"
+
     },
     "todoMode" : {
       "bool" : false
@@ -275,6 +275,18 @@
       "keyCode" : 38,
       "modifierFlags" : 786432
     },
+    "nextDisplay" : {
+      "keyCode" : 30,
+      "modifierFlags" : 1310720
+    },
+    "previousDisplay" : {
+      "keyCode" : 33,
+      "modifierFlags" : 1310720
+    },
+    "reflowTodo" : {
+      "keyCode" : 15,
+      "modifierFlags" : 786432
+    },
     "restore" : {
       "keyCode" : 53,
       "modifierFlags" : 1310720
@@ -296,7 +308,7 @@
       "modifierFlags" : 786432
     },
     "toggleTodo" : {
-      "keyCode" : 11,
+      "keyCode" : 17,
       "modifierFlags" : 786432
     },
     "topHalf" : {
