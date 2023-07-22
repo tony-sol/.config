@@ -56,6 +56,8 @@ brew "helmfile"
 brew "hey"
 # Improved top (interactive process viewer)
 brew "htop"
+# Command-line benchmarking tool
+brew "hyperfine"
 # Run local Kubernetes cluster in Docker
 brew "kind"
 # Statically typed programming language for the JVM
