@@ -1,0 +1,9 @@
+[tools]
+node = 'latest'
+
+[settings]
+asdf_compat = false
+missing_runtime_behavior = 'autoinstall'
+trusted_config_paths = [
+	'~/Projects',
+]

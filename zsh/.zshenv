@@ -114,17 +114,15 @@ export BUNDLE_USER_PLUGIN="${XDG_DATA_HOME}/bundler"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export GEM_BIN="${GEM_HOME}/bin"
 export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
-# set rbenv configs
-export RBENV_ROOT="${XDG_DATA_HOME}/rbenv"
-export RBENV_SHIMS="${RBENV_ROOT}/shims"
-# set nodenv configs
-export NODENV_ROOT="${XDG_DATA_HOME}/nodenv"
-# set volta configs
-export VOLTA_HOME="${XDG_DATA_HOME}/volta"
-export VOLTA_BIN="${VOLTA_HOME}/bin"
 # set npm/node configs
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
+# set rtx configs
+export RTX_CONFIG_FILE="${XDG_CONFIG_HOME}/rtx/config.toml"
+export RTX_SHORTHANDS_FILE="${XDG_CONFIG_HOME}/rtx/shorthands.toml"
+export RTX_CACHE_DIR="${XDG_CACHE_HOME}/rtx"
+export RTX_DATA_DIR="${XDG_DATA_HOME}/rtx"
+export RTX_SHIMS="${XDG_DATA_HOME}/rtx/shims"
 # set dotnet configs
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"

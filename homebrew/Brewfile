@@ -110,6 +110,8 @@ brew "pv"
 brew "remake"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Polyglot runtime manager (asdf rust clone)
+brew "rtx"
 # SOcket CAT: netcat on steroids
 brew "socat"
 # User interface to the TELNET protocol
@@ -126,8 +128,6 @@ brew "tree"
 brew "trivy"
 # Secures, stores, and tightly controls access to secrets
 brew "vault"
-# JavaScript toolchain manager for reproducible environments
-brew "volta"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Tool to build, deploy, and release any application on any platform

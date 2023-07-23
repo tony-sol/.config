@@ -21,7 +21,7 @@ function unshift_path() {
 export FPATH=$(unshift_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions" "${ZDOTDIR}/extensions/zsh-completions/src" "${ZDOTDIR}/extensions/zsh-autocomplete/Completions")
 
 # setup PATH
-export PATH=$(unshift_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $VOLTA_BIN $KREW_BIN $PYENV_SHIMS $RBENV_SHIMS $XDG_BIN_HOME)
+export PATH=$(unshift_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $RTX_SHIMS $KREW_BIN $XDG_BIN_HOME)
 
 # setup MANPATH
 export MANPATH=$(unshift_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
@@ -55,7 +55,8 @@ alias t='tt -L 1'
 # commands replacements
 alias vim='nvim'
 # direnv setup
-source <(direnv hook zsh)
+# source <(direnv hook zsh)
+eval "$(rtx activate)"
 
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
