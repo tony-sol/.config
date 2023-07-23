@@ -153,6 +153,7 @@ export VSCODE_EXTENSIONS="${XDG_DATA_HOME}/code/extensions"
 # set default tools
 export EDITOR=nvim
 export VISUAL=nvim
+export MANPAGER="sh -c 'col -bx | bat --style plain --language man'"
 
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST

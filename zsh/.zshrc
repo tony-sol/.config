@@ -54,6 +54,9 @@ alias t='tt -L 1'
 
 # commands replacements
 alias vim='nvim'
+alias cat='bat --paging=never'
+alias less='bat --paging=always'
+
 # direnv setup
 # source <(direnv hook zsh)
 eval "$(rtx activate)"
