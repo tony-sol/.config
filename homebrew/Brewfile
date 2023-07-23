@@ -52,6 +52,8 @@ brew "hadolint"
 brew "helm"
 # Deploy Kubernetes Helm Charts
 brew "helmfile"
+# Command-line hex viewer
+brew "hexyl"
 # HTTP load generator, ApacheBench (ab) replacement
 brew "hey"
 # Improved top (interactive process viewer)
