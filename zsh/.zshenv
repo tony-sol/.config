@@ -123,6 +123,9 @@ export RTX_SHORTHANDS_FILE="${XDG_CONFIG_HOME}/rtx/shorthands.toml"
 export RTX_CACHE_DIR="${XDG_CACHE_HOME}/rtx"
 export RTX_DATA_DIR="${XDG_DATA_HOME}/rtx"
 export RTX_SHIMS="${XDG_DATA_HOME}/rtx/shims"
+# set asdf configs (for rtx)
+export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
+export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
 # set dotnet configs
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
