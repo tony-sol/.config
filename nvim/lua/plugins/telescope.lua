@@ -55,5 +55,5 @@ return {
 		telescope.load_extension('dap')
 		telescope.load_extension('noice')
 		telescope.load_extension('notify')
-	end,
+	end
 }

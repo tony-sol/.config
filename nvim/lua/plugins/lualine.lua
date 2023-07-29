@@ -17,8 +17,8 @@ return {
 				component_separators = { left = '', right = '' },
 				section_separators   = { left = '', right = '' },
 				disabled_filetypes   = {
-					statusline = { 'NvimTree', 'Outline' },
-					winbar     = { 'NvimTree', 'Outline' },
+					statusline = { '', 'NvimTree', 'Outline' },
+					winbar     = { '', 'NvimTree', 'Outline' },
 				},
 				always_divide_middle = true,
 				globalstatus         = true,
@@ -51,11 +51,13 @@ return {
 				lualine_a = {
 					{ 'mode' },
 				},
-				lualine_b = {},
+				lualine_b = {
+				},
 				lualine_c = {
 					{ 'filename', path = 3 },
 				},
-				lualine_x = {},
+				lualine_x = {
+				},
 				lualine_y = {
 					{ 'progress' },
 				},
@@ -65,31 +67,47 @@ return {
 			},
 			tabline           = {
 				lualine_a = {
-					{ 'tabs', mode = 2 },
-				},
-				lualine_b = {},
-				lualine_c = {},
-				lualine_x = {},
-				lualine_y = {},
-				lualine_z = {
 					{ 'buffers', mode = 4 },
+				},
+				lualine_b = {
+				},
+				lualine_c = {
+				},
+				lualine_x = {
+				},
+				lualine_y = {
+				},
+				lualine_z = {
+					{ 'tabs', mode = 2 },
 				}
 			},
 			winbar            = {
-				-- lualine_a = {},
-				-- lualine_b = {},
-				-- lualine_c = {},
-				-- lualine_x = {},
-				-- lualine_y = {},
-				-- lualine_z = {}
+				lualine_a = {
+				},
+				lualine_b = {
+				},
+				lualine_c = {
+				},
+				lualine_x = {
+				},
+				lualine_y = {
+				},
+				lualine_z = {
+				}
 			},
 			inactive_winbar   = {
-				-- lualine_a = {},
-				-- lualine_b = {},
-				-- lualine_c = {},
-				-- lualine_x = {},
-				-- lualine_y = {},
-				-- lualine_z = {}
+				lualine_a = {
+				},
+				lualine_b = {
+				},
+				lualine_c = {
+				},
+				lualine_x = {
+				},
+				lualine_y = {
+				},
+				lualine_z = {
+				}
 			},
 			extensions        = {
 				'fzf',

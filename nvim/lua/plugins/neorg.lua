@@ -8,7 +8,7 @@ return {
 			'nvim-neorg/neorg-telescope',
 		},
 	},
-	-- build = ':Neorg sync-parsers',
+	build = ':Neorg sync-parsers',
 	config = function ()
 		local neorg = require('neorg')
 		neorg.setup {
