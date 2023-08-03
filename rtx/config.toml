@@ -7,3 +7,16 @@ missing_runtime_behavior = 'autoinstall'
 trusted_config_paths = [
 	'~/Projects',
 ]
+
+# direnv config dump
+# [global]
+# disable_stdin = true
+# load_dotenv = true
+# strict_env = true
+
+# [whitelist]
+# prefix = [
+# 	"~/.config/",
+# 	"~/.local/",
+# 	"~/Projects/",
+# ]

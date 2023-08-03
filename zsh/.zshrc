@@ -57,8 +57,6 @@ alias vim='nvim'
 alias cat='bat --paging=never'
 alias less='bat --paging=always'
 
-# direnv setup
-# source <(direnv hook zsh)
 eval "$(rtx activate)"
 
 # hacks
@@ -88,8 +86,7 @@ zstyle ':autocomplete:*' fzf-completion yes
 zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
 # other completions
-[[ $- == *i* ]] && source "$(brew --prefix fzf)/shell/completion.zsh"
-# lazyload fzf -- 'source "$(brew --prefix fzf)/shell/completion.zsh"'
+lazyload fzf -- 'source "$(brew --prefix fzf)/shell/completion.zsh"'
 lazyload pip3 -- 'source <(pip3 completion --zsh)'
 lazyload molecule -- 'source <(_MOLECULE_COMPLETE=zsh_source molecule)'
 lazyload npm -- 'source <(npm completion)'
