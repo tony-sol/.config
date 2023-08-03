@@ -69,6 +69,7 @@ alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
 # keymappings
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
+source "$(brew --prefix fzf)/shell/key-bindings.zsh"
 
 # auto completion
 autoload -U +X bashcompinit && bashcompinit
@@ -87,9 +88,8 @@ zstyle ':autocomplete:*' fzf-completion yes
 zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
 # other completions
-# source "$(brew --prefix fzf)/shell/completion.zsh"
-lazyload fzf -- 'source "$(brew --prefix fzf)/shell/completion.zsh"'
-# source <(pip3 completion --zsh)
+[[ $- == *i* ]] && source "$(brew --prefix fzf)/shell/completion.zsh"
+# lazyload fzf -- 'source "$(brew --prefix fzf)/shell/completion.zsh"'
 lazyload pip3 -- 'source <(pip3 completion --zsh)'
 lazyload molecule -- 'source <(_MOLECULE_COMPLETE=zsh_source molecule)'
 lazyload npm -- 'source <(npm completion)'
