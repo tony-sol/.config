@@ -8,40 +8,57 @@ return {
 	config = function ()
 		local nvim_tree = require('nvim-tree')
 		nvim_tree.setup {
-			disable_netrw = false,
-			hijack_netrw  = true,
-			view          = {
-				adaptive_size               = true,
+			view                = {
 				preserve_window_proportions = true,
 				number                      = true,
 				relativenumber              = true,
+				width                       = {
+					min     = 30,
+					max     = -1,
+					padding = 1,
+				},
 			},
-			renderer = {
+			renderer            = {
 				add_trailing           = true,
 				highlight_git          = true,
 				highlight_opened_files = 'all',
+				highlight_modified     = 'all',
 				indent_markers         = {
 					enable = true,
 				},
+				special_files          = { 'Makefile', 'README.md', 'readme.md' },
+			},
+			hijack_directories  = {
+				enable    = true,
+				auto_open = true,
 			},
 			update_focused_file = {
-				enable     = true,
-				update_cwd = true,
+				enable      = true,
+				update_root = true,
+				ignore_list = {},
 			},
-			git = {
-				ignore  = false,
-				timeout = 1000,
+			diagnostics         = {
+				enable            = true,
+				show_on_dirs      = true,
+				show_on_open_dirs = true,
 			},
-			diagnostics = {
-				enable       = true,
-				show_on_dirs = true,
+			filters             = {
+				git_ignored = false,
+				dotfiles    = false,
+				git_clean   = false,
+				no_buffer   = false,
+				custom      = {},
+				exclude     = {},
 			},
-			modified = {
-				enable = true,
+			modified            = {
+				enable            = true,
+				show_on_dirs      = true,
+				show_on_open_dirs = true,
 			},
-			trash = {
+			trash               = {
 				cmd = 'trash',
 			},
+			experimental        = {},
 		}
 	end
 }

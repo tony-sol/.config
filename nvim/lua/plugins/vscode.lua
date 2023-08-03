@@ -1,7 +1,6 @@
 return {
 	'Mofiqul/vscode.nvim',
-	priority = 1000,
-	build = 'colorscheme vscode',
+	priority = 9000,
 	config = function ()
 		local vscode = require('vscode')
 		vscode.setup {

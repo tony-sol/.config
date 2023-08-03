@@ -26,5 +26,4 @@ require('lazy').setup('plugins', {
 		cmd = 'diffview.nvim',
 	},
 })
-require('plugins')
 require('keymaps')
