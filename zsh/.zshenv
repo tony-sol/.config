@@ -152,6 +152,10 @@ export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
 export MUTAGEN_DATA_DIRECTORY="${XDG_DATA_HOME}/mutagen"
 # set code configs
 export VSCODE_EXTENSIONS="${XDG_DATA_HOME}/code/extensions"
+# set teleport configs
+export TELEPORT_CONFIG_FILE="${XDG_CONFIG_HOME}/teleport/tctl.yaml"
+export TELEPORT_HOME="${XDG_DATA_HOME}/tsh"
+export TELEPORT_GLOBAL_TSH_CONFIG="${XDG_CONFIG_HOME}/teleport/tsh.yaml"
 
 # set default tools
 export EDITOR=nvim

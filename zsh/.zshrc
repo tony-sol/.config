@@ -104,6 +104,7 @@ lazyload conftest -- 'source <(conftest completion zsh)'
 lazyload kube-linter -- 'source <(kube-linter completion zsh)'
 lazyload trivy -- 'source <(trivy completion zsh)'
 lazyload octosql -- 'source <(octosql completion zsh)'
+lazyload tsh -- 'source <(tsh --completion-script-zsh)'
 
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault

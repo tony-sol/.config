@@ -146,7 +146,7 @@ brew "goodwithtech/r/dockle"
 brew "gromgit/fuse/simple-mtpfs-mac"
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac"
-# HelmWave is like docker-compose for helm
+# True release manager for Kubernetes
 brew "helmwave/tap/helmwave"
 # A program for splitting your files into encrypted fragments
 brew "jesseduffield/horcrux/horcrux"
@@ -194,6 +194,8 @@ cask "syntax-highlight"
 cask "tageditor"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Developer-friendly browser for cloud infrastructure
+cask "teleport-connect"
 # Unpacks archive files
 cask "the-unarchiver"
 # Development environment
