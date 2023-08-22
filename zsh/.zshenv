@@ -165,7 +165,7 @@ export MANPAGER="sh -c 'col -bx | bat --style plain --language man'"
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
-setopt SH_WORD_SPLIT;
+setopt SH_WORD_SPLIT
 setopt INTERACTIVE_COMMENTS
 setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
