@@ -1,7 +1,7 @@
 return {
 	'Mofiqul/vscode.nvim',
 	priority = 9000,
-	config = function ()
+	config = function()
 		local vscode = require('vscode')
 		vscode.setup {
 			italic_comments     = true,

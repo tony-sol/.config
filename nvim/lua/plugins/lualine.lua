@@ -8,7 +8,7 @@ return {
 			'Mofiqul/vscode.nvim',
 		},
 	},
-	config = function ()
+	config = function()
 		local lualine = require('lualine')
 		lualine.setup {
 			options           = {

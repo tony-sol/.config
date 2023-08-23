@@ -18,7 +18,7 @@ return {
 		},
 	},
 	build = ':TSUpdate',
-	config = function ()
+	config = function()
 		local treesitter_configs = require('nvim-treesitter.configs')
 		treesitter_configs.setup {
 			auto_install     = true,
@@ -26,13 +26,13 @@ return {
 			highlight        = {
 				enable = true,
 			},
-			refactor = {
+			refactor         = {
 				highlight_definitions   = { enable = true },
 				highlight_current_scope = { enable = true },
 				smart_rename            = { enable = true },
 				navigation              = { enable = true },
 			},
-			textobjects = {
+			textobjects      = {
 				select = { enable = true },
 				swap   = { enable = false },
 				move   = { enable = true },

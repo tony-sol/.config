@@ -5,10 +5,10 @@ return {
 			'nvim-lua/plenary.nvim',
 		},
 	},
-	config = function ()
+	config = function()
 		local gitsigns = require('gitsigns')
 		gitsigns.setup {
-			signs = {
+			signs                        = {
 				add          = { text = '│' },
 				change       = { text = '│' },
 				delete       = { text = '_' },
@@ -16,11 +16,11 @@ return {
 				changedelete = { text = '~' },
 				untracked    = { text = '┆' },
 			},
-			signcolumn   = true,
-			numhl        = true,
-			linehl       = false,
-			word_diff    = true,
-			watch_gitdir = {
+			signcolumn                   = true,
+			numhl                        = true,
+			linehl                       = false,
+			word_diff                    = true,
+			watch_gitdir                 = {
 				interval     = 1000,
 				follow_files = true,
 			},
@@ -33,18 +33,18 @@ return {
 				delay             = 1000,
 				ignore_whitespace = false,
 			},
-			sign_priority    = 6,
-			update_debounce  = 100,
-			status_formatter = nil, -- Use default
-			max_file_length  = 40000,
-			preview_config   = {
+			sign_priority                = 6,
+			update_debounce              = 100,
+			status_formatter             = nil, -- Use default
+			max_file_length              = 40000,
+			preview_config               = {
 				border   = 'single',
 				style    = 'minimal',
 				relative = 'cursor',
 				row      = 0,
 				col      = 1,
 			},
-			yadm = {
+			yadm                         = {
 				enable = false,
 			},
 		}

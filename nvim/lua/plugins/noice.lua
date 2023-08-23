@@ -8,7 +8,7 @@ return {
 			'rcarriga/nvim-notify',
 		},
 	},
-	config = function ()
+	config = function()
 		local notify = require('notify')
 		notify.setup {
 			background_colour = 'NotifyBackground',
@@ -20,12 +20,12 @@ return {
 				TRACE = '✎',
 				WARN  = '',
 			},
-			level         = 2,
-			minimum_width = 50,
-			render        = 'default',
-			stages        = 'fade_in_slide_out',
-			timeout       = 3000,
-			top_down      = false,
+			level             = 2,
+			minimum_width     = 50,
+			render            = 'default',
+			stages            = 'fade_in_slide_out',
+			timeout           = 3000,
+			top_down          = false,
 		}
 		local noice = require('noice')
 		noice.setup {

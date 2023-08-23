@@ -8,6 +8,8 @@ return {
 	config = function ()
 		local nvim_tree = require('nvim-tree')
 		nvim_tree.setup {
+			disable_netrw       = true,
+			hijack_netrw        = true,
 			view                = {
 				preserve_window_proportions = true,
 				number                      = true,

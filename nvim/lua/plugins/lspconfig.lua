@@ -11,10 +11,10 @@ return {
 			'williamboman/mason-lspconfig.nvim',
 		},
 	},
-	config = function ()
-		local lsp_config           = require('lspconfig')
-		local capabilities         = require('cmp_nvim_lsp')
-		local default_capabilities = capabilities.default_capabilities()
+	config = function()
+		local lsp_config                               = require('lspconfig')
+		local capabilities                             = require('cmp_nvim_lsp')
+		local default_capabilities                     = capabilities.default_capabilities()
 		default_capabilities.textDocument.foldingRange = {
 			dynamicRegistration = false,
 			lineFoldingOnly     = true,
@@ -39,11 +39,11 @@ return {
 		}
 		lsp_config.gopls.setup {
 			capabilities = default_capabilities,
-			cmd          = {'gopls', 'serve'},
-			filetypes    = {'go', 'gomod'},
+			cmd          = { 'gopls', 'serve' },
+			filetypes    = { 'go', 'gomod' },
 			root_dir     = require('lspconfig/util').root_pattern('go.work', 'go.mod', '.git'),
 			settings     = {
-				gopls    = {
+				gopls = {
 					analyses = {
 						unusedparams = true,
 					},
@@ -88,7 +88,7 @@ return {
 		lsp_config.yamlls.setup {
 			capabilities = default_capabilities,
 			settings     = {
-				yaml     = {
+				yaml = {
 					keyOrdering = false,
 				},
 			},

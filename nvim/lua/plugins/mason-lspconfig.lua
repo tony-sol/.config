@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		{
 			'williamboman/mason.nvim',
-			config = function ()
+			config = function()
 				local mason = require('mason')
 				mason.setup {
 					ui = merge(defaultModalSize(), {
@@ -17,7 +17,7 @@ return {
 			'neovim/nvim-lspconfig',
 		},
 	},
-	config = function ()
+	config       = function()
 		local mason_lspconfig = require('mason-lspconfig')
 		mason_lspconfig.setup {
 			automatic_installation = true,

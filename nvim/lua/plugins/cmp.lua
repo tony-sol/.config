@@ -29,7 +29,7 @@ return {
 			'onsails/lspkind.nvim',
 		},
 	},
-	config = function ()
+	config = function()
 		local cmp, lspkind, fn = require('cmp'), require('lspkind'), vim.fn
 		cmp.setup {
 			experimental = {
@@ -53,14 +53,14 @@ return {
 				['<C-b>']     = cmp.mapping.scroll_docs(-4),
 				['<C-f>']     = cmp.mapping.scroll_docs(4),
 				['<C-e>']     = cmp.mapping.abort(),
-				['<Tab>']     = function (fallback)
+				['<Tab>']     = function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
 					else
 						fallback()
 					end
 				end,
-				['<S-Tab>']   = function (fallback)
+				['<S-Tab>']   = function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
 					else

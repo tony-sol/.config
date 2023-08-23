@@ -9,7 +9,7 @@ return {
 		},
 	},
 	build = ':Neorg sync-parsers',
-	config = function ()
+	config = function()
 		local neorg = require('neorg')
 		neorg.setup {
 			load = {

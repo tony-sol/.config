@@ -5,21 +5,50 @@ return {
 			'nvim-lua/plenary.nvim',
 		},
 	},
-	event  = 'VimEnter',
-	config = function ()
+	event        = 'VimEnter',
+	config       = function()
 		local todo_comments = require('todo-comments')
 		todo_comments.setup {
 			-- @HACK wait for case-insensitive highlighting
 			keywords  = {
-				URL  = { icon = ' ', alt = { 'LINK', 'url', 'link' }, color = 'hint' },
-				DOC  = { icon = ' ', alt = { 'DOCS', 'doc', 'docs', 'see' }, color = 'info' },
-				FIX  = { icon = ' ', alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE', 'fix', 'fixme', 'bug', 'fixit', 'issue' } },
-				TODO = { icon = ' ', alt = { 'todo' } },
-				HACK = { icon = ' ', alt = { 'hack' } },
-				WARN = { icon = ' ', alt = { 'WARNING', 'XXX', 'warn', 'warning', 'xxx' } },
-				PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE', 'perf', 'optim', 'performance', 'optimize' } },
-				NOTE = { icon = ' ', alt = { 'INFO', 'note', 'info' } },
-				TEST = { icon = ' ⏲', alt = { 'TESTING', 'PASSED', 'FAILED', 'test', 'testing', 'passed', 'failed' } },
+				URL  = {
+					icon = ' ',
+					alt = { 'LINK', 'url', 'link' },
+					color = 'hint'
+				},
+				DOC  = {
+					icon = ' ',
+					alt = { 'DOCS', 'doc', 'docs', 'see' },
+					color = 'info'
+				},
+				FIX  = {
+					icon = ' ',
+					alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE', 'fix', 'fixme', 'bug', 'fixit', 'issue' }
+				},
+				TODO = {
+					icon = ' ',
+					alt = { 'todo' }
+				},
+				HACK = {
+					icon = ' ',
+					alt = { 'hack' }
+				},
+				WARN = {
+					icon = ' ',
+					alt = { 'WARNING', 'XXX', 'warn', 'warning', 'xxx' }
+				},
+				PERF = {
+					icon = ' ',
+					alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE', 'perf', 'optim', 'performance', 'optimize' }
+				},
+				NOTE = {
+					icon = ' ',
+					alt = { 'INFO', 'note', 'info' }
+				},
+				TEST = {
+					icon = ' ⏲',
+					alt = { 'TESTING', 'PASSED', 'FAILED', 'test', 'testing', 'passed', 'failed' }
+				},
 			},
 			highlight = {
 				before  = '',
@@ -31,7 +60,7 @@ return {
 					[[.*\\(KEYWORDS)\s*]],
 				},
 			},
-			search = {
+			search    = {
 				command = 'rg',
 				args    = {
 					'--color=never',

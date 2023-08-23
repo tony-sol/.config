@@ -17,7 +17,7 @@ return {
 			'nvim-neorg/neorg-telescope',
 		},
 	},
-	config = function ()
+	config = function()
 		local telescope = require('telescope')
 		telescope.setup {
 			defaults   = {
