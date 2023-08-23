@@ -114,6 +114,8 @@ brew "ripgrep"
 brew "rtx"
 # SOcket CAT: netcat on steroids
 brew "socat"
+# Editor of encrypted files
+brew "sops"
 # User interface to the TELNET protocol
 brew "telnet"
 # Tool to build, change, and version infrastructure
