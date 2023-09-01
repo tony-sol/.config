@@ -1,5 +1,5 @@
-require('helpers')
 require('globals')
+require('helpers')
 require('options')
 
 local fn     = vim.fn
