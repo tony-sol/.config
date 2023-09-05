@@ -5,7 +5,7 @@ return {
 			'nvim-tree/nvim-web-devicons',
 		},
 	},
-	config = function ()
+	config = function()
 		local nvim_tree = require('nvim-tree')
 		nvim_tree.setup {
 			disable_netrw       = true,

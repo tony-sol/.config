@@ -67,7 +67,7 @@ return {
 			},
 			tabline           = {
 				lualine_a = {
-					{ 'buffers', mode = 4 },
+					{ 'buffers', mode = 4, use_mode_colors = true },
 				},
 				lualine_b = {
 				},
@@ -78,7 +78,7 @@ return {
 				lualine_y = {
 				},
 				lualine_z = {
-					{ 'tabs', mode = 2 },
+					{ 'tabs', mode = 0, use_mode_colors = true },
 				}
 			},
 			winbar            = {
@@ -111,6 +111,7 @@ return {
 			},
 			extensions        = {
 				'fzf',
+				'nvim-tree',
 				'nvim-dap-ui',
 				'trouble',
 			},
