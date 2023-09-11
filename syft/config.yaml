@@ -1,0 +1,280 @@
+# the output format(s) of the SBOM report (options: table, text, json, spdx, ...)
+# same as -o, --output, and SYFT_OUTPUT env var
+# to specify multiple output files in differing formats, use a list:
+# output:
+#   - "json=<syft-json-output-file>"
+#   - "spdx-json=<spdx-json-output-file>"
+output: "table"
+
+# suppress all output (except for the SBOM report)
+# same as -q ; SYFT_QUIET env var
+quiet: false
+
+# same as --file; write output report to a file (default is to write to stdout)
+file: ""
+
+# enable/disable checking for application updates on startup
+# same as SYFT_CHECK_FOR_APP_UPDATE env var
+check-for-app-update: true
+
+# allows users to specify which image source should be used to generate the sbom
+# valid values are: registry, docker, podman
+default-image-pull-source: ""
+
+# a list of globs to exclude from scanning. same as --exclude ; for example:
+# exclude:
+#   - "/etc/**"
+#   - "./out/**/*.json"
+exclude: []
+
+# allows users to exclude synthetic binary packages from the sbom
+# these packages are removed if an overlap with a non-synthetic package is found
+exclude-binary-overlap-by-ownership: true
+
+# os and/or architecture to use when referencing container images (e.g. "windows/armv6" or "arm64")
+# same as --platform; SYFT_PLATFORM env var
+platform: ""
+
+# set the list of package catalogers to use when generating the SBOM
+# default = empty (cataloger set determined automatically by the source type [image or file/directory])
+# catalogers:
+#   - alpmdb-cataloger
+#   - apkdb-cataloger
+#   - binary-cataloger
+#   - cargo-auditable-binary-cataloger
+#   - cocoapods-cataloger
+#   - conan-cataloger
+#   - dartlang-lock-cataloger
+#   - dotnet-deps-cataloger
+#   - dpkgdb-cataloger
+#   - elixir-mix-lock-cataloger
+#   - erlang-rebar-lock-cataloger
+#   - go-mod-file-cataloger
+#   - go-module-binary-cataloger
+#   - graalvm-native-image-cataloger
+#   - haskell-cataloger
+#   - java-cataloger
+#   - java-gradle-lockfile-cataloger
+#   - java-pom-cataloger
+#   - javascript-lock-cataloger
+#   - javascript-package-cataloger
+#   - linux-kernel-cataloger
+#   - nix-store-cataloger
+#   - php-composer-installed-cataloger
+#   - php-composer-lock-cataloger
+#   - portage-cataloger
+#   - python-index-cataloger
+#   - python-package-cataloger
+#   - rpm-db-cataloger
+#   - rpm-file-cataloger
+#   - ruby-gemfile-cataloger
+#   - ruby-gemspec-cataloger
+#   - rust-cargo-lock-cataloger
+#   - sbom-cataloger
+#   - spm-cataloger
+catalogers:
+
+# cataloging packages is exposed through the packages and power-user subcommands
+package:
+
+  # search within archives that do contain a file index to search against (zip)
+  # note: for now this only applies to the java package cataloger
+  # SYFT_PACKAGE_SEARCH_INDEXED_ARCHIVES env var
+  search-indexed-archives: true
+
+  # search within archives that do not contain a file index to search against (tar, tar.gz, tar.bz2, etc)
+  # note: enabling this may result in a performance impact since all discovered compressed tars will be decompressed
+  # note: for now this only applies to the java package cataloger
+  # SYFT_PACKAGE_SEARCH_UNINDEXED_ARCHIVES env var
+  search-unindexed-archives: false
+
+  cataloger:
+    # enable/disable cataloging of packages
+    # SYFT_PACKAGE_CATALOGER_ENABLED env var
+    enabled: true
+
+    # the search space to look for packages (options: all-layers, squashed)
+    # same as -s ; SYFT_PACKAGE_CATALOGER_SCOPE env var
+    scope: "squashed"
+
+golang:
+   # search for go package licences in the GOPATH of the system running Syft, note that this is outside the
+   # container filesystem and potentially outside the root of a local directory scan
+   # SYFT_GOLANG_SEARCH_LOCAL_MOD_CACHE_LICENSES env var
+   search-local-mod-cache-licenses: false
+
+   # specify an explicit go mod cache directory, if unset this defaults to $GOPATH/pkg/mod or $HOME/go/pkg/mod
+   # SYFT_GOLANG_LOCAL_MOD_CACHE_DIR env var
+   local-mod-cache-dir: ""
+
+   # search for go package licences by retrieving the package from a network proxy
+   # SYFT_GOLANG_SEARCH_REMOTE_LICENSES env var
+   search-remote-licenses: false
+
+   # remote proxy to use when retrieving go packages from the network,
+   # if unset this defaults to $GOPROXY followed by https://proxy.golang.org
+   # SYFT_GOLANG_PROXY env var
+   proxy: ""
+
+   # specifies packages which should not be fetched by proxy
+   # if unset this defaults to $GONOPROXY
+   # SYFT_GOLANG_NOPROXY env var
+   no-proxy: ""
+
+linux-kernel:
+   # whether to catalog linux kernel modules found within lib/modules/** directories
+   # SYFT_LINUX_KERNEL_CATALOG_MODULES env var
+   catalog-modules: true
+
+python:
+   # when running across entries in requirements.txt that do not specify a specific version 
+   # (e.g. "sqlalchemy >= 1.0.0, <= 2.0.0, != 3.0.0, <= 3.0.0"), attempt to guess what the version could
+   # be based on the version requirements specified (e.g. "1.0.0"). When enabled the lowest expressible version 
+   # when given an arbitrary constraint will be used (even if that version may not be available/published).
+   guess-unpinned-requirements: false
+
+# cataloging file contents is exposed through the power-user subcommand
+file-contents:
+  cataloger:
+    # enable/disable cataloging of secrets
+    # SYFT_FILE_CONTENTS_CATALOGER_ENABLED env var
+    enabled: true
+
+    # the search space to look for secrets (options: all-layers, squashed)
+    # SYFT_FILE_CONTENTS_CATALOGER_SCOPE env var
+    scope: "squashed"
+
+  # skip searching a file entirely if it is above the given size (default = 1MB; unit = bytes)
+  # SYFT_FILE_CONTENTS_SKIP_FILES_ABOVE_SIZE env var
+  skip-files-above-size: 1048576
+
+  # file globs for the cataloger to match on
+  # SYFT_FILE_CONTENTS_GLOBS env var
+  globs: []
+
+# cataloging file metadata is exposed through the power-user subcommand
+file-metadata:
+  cataloger:
+    # enable/disable cataloging of file metadata
+    # SYFT_FILE_METADATA_CATALOGER_ENABLED env var
+    enabled: true
+
+    # the search space to look for file metadata (options: all-layers, squashed)
+    # SYFT_FILE_METADATA_CATALOGER_SCOPE env var
+    scope: "squashed"
+
+  # the file digest algorithms to use when cataloging files (options: "md5", "sha1", "sha224", "sha256", "sha384", "sha512")
+  # SYFT_FILE_METADATA_DIGESTS env var
+  digests: ["sha256"]
+
+# maximum number of workers used to process the list of package catalogers in parallel
+parallelism: 1
+
+# cataloging secrets is exposed through the power-user subcommand
+secrets:
+  cataloger:
+    # enable/disable cataloging of secrets
+    # SYFT_SECRETS_CATALOGER_ENABLED env var
+    enabled: true
+
+    # the search space to look for secrets (options: all-layers, squashed)
+    # SYFT_SECRETS_CATALOGER_SCOPE env var
+    scope: "all-layers"
+
+  # show extracted secret values in the final JSON report
+  # SYFT_SECRETS_REVEAL_VALUES env var
+  reveal-values: false
+
+  # skip searching a file entirely if it is above the given size (default = 1MB; unit = bytes)
+  # SYFT_SECRETS_SKIP_FILES_ABOVE_SIZE env var
+  skip-files-above-size: 1048576
+
+  # name-regex pairs to consider when searching files for secrets. Note: the regex must match single line patterns
+  # but may also have OPTIONAL multiline capture groups. Regexes with a named capture group of "value" will
+  # use the entire regex to match, but the secret value will be assumed to be entirely contained within the
+  # "value" named capture group.
+  additional-patterns: {}
+
+  # names to exclude from the secrets search, valid values are: "aws-access-key", "aws-secret-key", "pem-private-key",
+  # "docker-config-auth", and "generic-api-key". Note: this does not consider any names introduced in the
+  # "secrets.additional-patterns" config option.
+  # SYFT_SECRETS_EXCLUDE_PATTERN_NAMES env var
+  exclude-pattern-names: []
+
+# options that apply to all scan sources
+source:
+  # alias name for the source
+  # SYFT_SOURCE_NAME env var; --source-name flag
+  name: ""
+
+  # alias version for the source
+  # SYFT_SOURCE_VERSION env var; --source-version flag
+  version: ""
+
+  # options affecting the file source type
+  file:
+    # the file digest algorithms to use on the scanned file (options: "md5", "sha1", "sha224", "sha256", "sha384", "sha512")
+    digests: ["sha256"]
+
+# options when pulling directly from a registry via the "registry:" scheme
+registry:
+  # skip TLS verification when communicating with the registry
+  # SYFT_REGISTRY_INSECURE_SKIP_TLS_VERIFY env var
+  insecure-skip-tls-verify: false
+
+  # use http instead of https when connecting to the registry
+  # SYFT_REGISTRY_INSECURE_USE_HTTP env var
+  insecure-use-http: false
+
+  # filepath to a CA certificate (or directory containing *.crt, *.cert, *.pem) used to generate the client certificate
+  # SYFT_REGISTRY_CA_CERT env var
+  ca-cert: ""
+
+  # credentials for specific registries
+  auth:
+      # the URL to the registry (e.g. "docker.io", "localhost:5000", etc.)
+      # SYFT_REGISTRY_AUTH_AUTHORITY env var
+    - authority: ""
+
+      # SYFT_REGISTRY_AUTH_USERNAME env var
+      username: ""
+
+      # SYFT_REGISTRY_AUTH_PASSWORD env var
+      password: ""
+
+      # note: token and username/password are mutually exclusive
+      # SYFT_REGISTRY_AUTH_TOKEN env var
+      token: ""
+
+      # filepath to the client certificate used for TLS authentication to the registry
+      # SYFT_REGISTRY_AUTH_TLS_CERT env var
+      tls-cert: ""
+
+      # filepath to the client key used for TLS authentication to the registry
+      # SYFT_REGISTRY_AUTH_TLS_KEY env var
+      tls-key: ""
+
+    # - ... # note, more credentials can be provided via config file only (not env vars)
+
+# generate an attested SBOM
+attest:
+  # path to the private key file to use for attestation
+  # SYFT_ATTEST_KEY env var
+  key: "cosign.key"
+
+  # password to decrypt to given private key
+  # SYFT_ATTEST_PASSWORD env var, additionally responds to COSIGN_PASSWORD
+  password: ""
+
+log:
+  # use structured logging
+  # same as SYFT_LOG_STRUCTURED env var
+  structured: false
+
+  # the log level; note: detailed logging suppress the ETUI
+  # same as SYFT_LOG_LEVEL env var
+  level: "error"
+
+  # location to write the log file (default is not to have a log file)
+  # same as SYFT_LOG_FILE env var
+  file: ""

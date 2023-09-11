@@ -116,6 +116,8 @@ brew "rtx"
 brew "socat"
 # Editor of encrypted files
 brew "sops"
+# CLI for generating a Software Bill of Materials from container images
+brew "syft"
 # User interface to the TELNET protocol
 brew "telnet"
 # Tool to build, change, and version infrastructure

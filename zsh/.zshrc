@@ -103,6 +103,7 @@ lazyload opa -- 'source <(opa completion zsh)'
 lazyload conftest -- 'source <(conftest completion zsh)'
 lazyload kube-linter -- 'source <(kube-linter completion zsh)'
 lazyload trivy -- 'source <(trivy completion zsh)'
+lazyload syft -- 'source <(syft completion zsh)'
 lazyload octosql -- 'source <(octosql completion zsh)'
 lazyload tsh -- 'source <(tsh --completion-script-zsh)'
 
