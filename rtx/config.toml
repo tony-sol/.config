@@ -1,5 +1,6 @@
 [tools]
 node = 'latest'
+python = 'system'
 
 [settings]
 asdf_compat = false
