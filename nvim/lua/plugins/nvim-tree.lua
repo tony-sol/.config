@@ -1,11 +1,12 @@
 return {
 	'nvim-tree/nvim-tree.lua',
+	lazy         = false,
 	dependencies = {
 		{
 			'nvim-tree/nvim-web-devicons',
 		},
 	},
-	config = function()
+	config       = function()
 		local nvim_tree = require('nvim-tree')
 		nvim_tree.setup {
 			disable_netrw       = true,

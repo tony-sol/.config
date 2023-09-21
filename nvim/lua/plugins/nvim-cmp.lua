@@ -29,7 +29,7 @@ return {
 			'onsails/lspkind.nvim',
 		},
 	},
-	config = function()
+	config       = function()
 		local cmp, lspkind, fn = require('cmp'), require('lspkind'), vim.fn
 		cmp.setup {
 			experimental = {
@@ -95,12 +95,6 @@ return {
 				},
 				{
 					name = 'treesitter',
-				},
-				{
-					name = 'orgmode',
-				},
-				{
-					name = 'neorg',
 				},
 			},
 		}

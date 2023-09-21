@@ -11,7 +11,7 @@ return {
 			'williamboman/mason-lspconfig.nvim',
 		},
 	},
-	config = function()
+	config       = function()
 		local lsp_config                               = require('lspconfig')
 		local capabilities                             = require('cmp_nvim_lsp')
 		local default_capabilities                     = capabilities.default_capabilities()

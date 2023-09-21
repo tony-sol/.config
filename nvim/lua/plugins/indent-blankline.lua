@@ -5,7 +5,7 @@ return {
 			'nvim-treesitter/nvim-treesitter',
 		},
 	},
-	config = function()
+	config       = function()
 		local indent_blankline = require('indent_blankline')
 		indent_blankline.setup {
 			use_treesitter                        = true,

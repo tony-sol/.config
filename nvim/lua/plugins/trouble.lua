@@ -5,7 +5,7 @@ return {
 			'nvim-tree/nvim-web-devicons',
 		},
 	},
-	config = function()
+	config       = function()
 		local trouble = require('trouble')
 		trouble.setup {
 		}

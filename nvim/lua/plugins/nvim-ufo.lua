@@ -5,7 +5,7 @@ return {
 			'kevinhwang91/promise-async',
 		},
 	},
-	config = function()
+	config       = function()
 		local ufo, promise = require('ufo'), require('promise')
 		local function customizeSelector(bufnr)
 			return ufo.getFolds(bufnr, 'lsp')

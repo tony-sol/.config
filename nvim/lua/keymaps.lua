@@ -171,13 +171,25 @@ keymap.set(
 	{ 'n' },
 	']b',
 	':bnext<cr>',
-	merge({}, { desc = 'Buffer: next' })
+	merge({}, { desc = 'Buffers: next' })
 )
 keymap.set(
 	{ 'n' },
 	'[b',
 	':bprevious<cr>',
-	merge({}, { desc = 'Buffer: previous' })
+	merge({}, { desc = 'Buffers: previous' })
+)
+keymap.set(
+	{ 'n' },
+	']t',
+	':tabnext<cr>',
+	merge({}, { desc = 'Tabs: next' })
+)
+keymap.set(
+	{ 'n' },
+	'[t',
+	':tabprevious<cr>',
+	merge({}, { desc = 'Tabs: previous' })
 )
 
 -- Use LspAttach autocommand to only map the following keys after the language server attaches to the current buffer

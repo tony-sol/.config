@@ -25,11 +25,11 @@ require('lazy').setup('plugins', {
 	install = {
 		colorscheme = { 'vscode' },
 	},
-	ui = {
+	ui      = {
 		border = 'rounded',
 		size   = defaultModalSize(),
 	},
-	diff = {
+	diff    = {
 		cmd = 'diffview.nvim',
 	},
 })

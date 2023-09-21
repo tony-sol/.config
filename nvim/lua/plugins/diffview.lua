@@ -1,5 +1,6 @@
 return {
 	'sindrets/diffview.nvim',
+	event  = 'VeryLazy',
 	config = function()
 		local diffview = require('diffview')
 		diffview.setup {
@@ -12,7 +13,7 @@ return {
 					layout = 'diff4_mixed',
 				},
 				file_history = {
-					layout = 'diff2_horizontal',
+					layout      = 'diff2_horizontal',
 					winbar_info = true,
 				},
 			}

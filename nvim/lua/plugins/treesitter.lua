@@ -11,14 +11,11 @@ return {
 			'nvim-treesitter/nvim-treesitter-textobjects',
 		},
 		{
-			'nvim-neorg/neorg',
-		},
-		{
 			'lukas-reineke/headlines.nvim',
 		},
 	},
-	build = ':TSUpdate',
-	config = function()
+	build        = ':TSUpdate',
+	config       = function()
 		local treesitter_configs = require('nvim-treesitter.configs')
 		treesitter_configs.setup {
 			auto_install     = true,

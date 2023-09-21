@@ -5,7 +5,7 @@ return {
 			'nvim-lua/plenary.nvim',
 		},
 	},
-	config = function()
+	config       = function()
 		local gitsigns = require('gitsigns')
 		gitsigns.setup {
 			signs                        = {

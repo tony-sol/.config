@@ -4,20 +4,16 @@ return {
 		{
 			'nvim-tree/nvim-web-devicons',
 		},
-		{
-			'Mofiqul/vscode.nvim',
-		},
 	},
-	config = function()
+	config       = function()
 		local lualine = require('lualine')
 		lualine.setup {
 			options           = {
 				icons_enabled        = true,
-				theme                = 'vscode',
 				component_separators = { left = '', right = '' },
 				section_separators   = { left = '', right = '' },
 				disabled_filetypes   = {
-					statusline = { '' },
+					statusline = {},
 					winbar     = { '', 'NvimTree', 'Outline' },
 				},
 				always_divide_middle = true,
