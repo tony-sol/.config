@@ -12,14 +12,10 @@ return {
 			disable_netrw       = true,
 			hijack_netrw        = true,
 			view                = {
+				centralize_selection        = true,
 				preserve_window_proportions = true,
 				number                      = true,
 				relativenumber              = true,
-				width                       = {
-					min     = 30,
-					max     = -1,
-					padding = 1,
-				},
 			},
 			renderer            = {
 				add_trailing           = true,
