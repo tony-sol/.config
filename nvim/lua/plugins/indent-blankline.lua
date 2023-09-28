@@ -6,18 +6,15 @@ return {
 		},
 	},
 	config       = function()
-		local indent_blankline = require('indent_blankline')
-		indent_blankline.setup {
-			use_treesitter                        = true,
-			use_treesitter_scope                  = false,
-			show_first_indent_level               = true,
-			show_current_context                  = true,
-			show_current_context_start            = true,
-			current_context_start_on_current_line = true,
-			show_end_of_line                      = true,
-			space_char_blankline                  = '',
-			char                                  = '│',
-			char_blankline                        = '',
+		local ibl, hooks = require('ibl'), require('ibl.hooks')
+		hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+		hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
+		hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+		ibl.setup {
+			indent = {
+				char     = '│',
+				tab_char = '│',
+			},
 		}
 	end
 }
