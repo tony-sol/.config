@@ -31,6 +31,12 @@ return {
 					}),
 				},
 			},
+			pickers    = {
+				find_files = {
+					follow = true,
+					hidden = true,
+				},
+			},
 			extensions = {
 				file_browser   = {
 					prompt_path       = true,

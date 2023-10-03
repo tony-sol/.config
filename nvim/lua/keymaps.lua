@@ -31,6 +31,48 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
+	'<leader>tf',
+	':Telescope current_buffer_fuzzy_find<cr>',
+	merge({}, { desc = 'Telescope: current buffer fuzzy find' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tlr',
+	':Telescope lsp_references<cr>',
+	merge({}, { desc = 'Telescope: LSP references' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tld',
+	':Telescope lsp_definitions<cr>',
+	merge({}, { desc = 'Telescope: LSP definitions' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tli',
+	':Telescope lsp_implementations<cr>',
+	merge({}, { desc = 'Telescope: LSP implementations' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tlci',
+	':Telescope lsp_incoming_calls<cr>',
+	merge({}, { desc = 'Telescope: LSP incoming calls' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tlco',
+	':Telescope lsp_outgoing_calls<cr>',
+	merge({}, { desc = 'Telescope: LSP outgoing calls' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tls',
+	':Telescope lsp_document_symbols<cr>',
+	merge({}, { desc = 'Telescope: LSP document symbols' })
+)
+keymap.set(
+	{ 'n' },
 	'f',
 	':HopPattern<cr>',
 	merge({}, { desc = 'Hop: by pattern' })
