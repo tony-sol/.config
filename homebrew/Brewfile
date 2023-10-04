@@ -138,6 +138,8 @@ brew "watch"
 brew "waypoint"
 # Consistent delivery tool for Kubernetes
 brew "werf"
+# Internet file retriever
+brew "wget"
 # Tool for managing your YubiKey configuration
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
