@@ -62,7 +62,7 @@
       "int" : 1
     },
     "footprintAlpha" : {
-      "float" : 0.30000001192092896
+      "float" : 0.3
     },
     "footprintAnimationDurationMultiplier" : {
       "float" : 0
@@ -189,6 +189,9 @@
     },
     "SUEnableAutomaticChecks" : {
       "bool" : true
+    },
+    "systemWideMouseDown" : {
+      "int" : 0
     },
     "todo" : {
       "int" : 1
@@ -333,5 +336,5 @@
       "modifierFlags" : 1441792
     }
   },
-  "version" : "78"
+  "version" : "79"
 }
