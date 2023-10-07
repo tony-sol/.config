@@ -16,6 +16,7 @@ return {
 				preserve_window_proportions = true,
 				number                      = true,
 				relativenumber              = true,
+				width                       = defaultSidebarSize(),
 			},
 			renderer            = {
 				add_trailing           = true,
@@ -26,6 +27,22 @@ return {
 					enable = true,
 				},
 				special_files          = { 'Makefile', 'README.md', 'readme.md' },
+				icons                  = {
+					git_placement      = 'before',
+					modified_placement = 'before',
+					glyphs             = {
+						modified = '●',
+						git      = {
+							unmerged  = '',
+							deleted   = '',
+							renamed   = '󰁕',
+							untracked = '',
+							ignored   = '',
+							unstaged  = '󰄱',
+							staged    = '',
+						},
+					},
+				},
 			},
 			hijack_directories  = {
 				enable    = true,

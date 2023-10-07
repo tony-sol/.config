@@ -9,6 +9,7 @@ end
 opt.background     = scheme_for_appearance(appearance())
 opt.termguicolors  = true
 opt.cursorline     = true
+opt.laststatus     = 3
 
 -- Fill chars
 opt.fillchars      = {
@@ -52,7 +53,7 @@ opt.hlsearch       = true
 
 -- Columns settings
 opt.relativenumber = true
-opt.number         = false
+opt.number         = true
 opt.signcolumn     = 'yes'
 opt.statuscolumn   = ''
 

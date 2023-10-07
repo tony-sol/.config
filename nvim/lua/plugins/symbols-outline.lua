@@ -8,7 +8,7 @@ return {
 			auto_preview           = false,
 			position               = 'right',
 			relative_width         = true,
-			width                  = 20,
+			width                  = defaultSidebarSize(),
 			auto_close             = false,
 			show_numbers           = true,
 			show_relative_numbers  = true,

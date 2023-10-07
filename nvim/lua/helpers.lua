@@ -9,6 +9,10 @@ defaultModalSize = function()
 	}
 end
 
+defaultSidebarSize = function()
+	return 40
+end
+
 merge = function(table1, table2)
 	return vim.tbl_deep_extend('force', table1, table2)
 end
