@@ -73,15 +73,51 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
-	'f',
+	'<leader>hp',
 	':HopPattern<cr>',
 	merge({}, { desc = 'Hop: by pattern' })
 )
 keymap.set(
 	{ 'n' },
-	'F',
+	'<leader>hP',
+	':HopPatternMW<cr>',
+	merge({}, { desc = 'Hop: by pattern mutli-windows' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>hw',
 	':HopWord<cr>',
 	merge({}, { desc = 'Hop: by word' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>hW',
+	':HopWordMW<cr>',
+	merge({}, { desc = 'Hop: by word mutli-windows' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>hl',
+	':HopLine<cr>',
+	merge({}, { desc = 'Hop: by line' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>hL',
+	':HopLineMW<cr>',
+	merge({}, { desc = 'Hop: by line mutli-windows' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>hs',
+	':HopLineStart<cr>',
+	merge({}, { desc = 'Hop: by line start' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>hS',
+	':HopLineStartMW<cr>',
+	merge({}, { desc = 'Hop: by line start mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
