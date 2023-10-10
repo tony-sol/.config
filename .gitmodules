@@ -1,9 +1,3 @@
-[submodule "tmux/plugins/tmux-current-pane-hostname"]
-	path = tmux/plugins/tmux-current-pane-hostname
-	url = https://github.com/Tony-Sol/tmux-current-pane-hostname.git
-[submodule "tmux/plugins/tmux-mode-indicator"]
-	path = tmux/plugins/tmux-mode-indicator
-	url = https://github.com/Tony-Sol/tmux-mode-indicator.git
 [submodule "zsh/extensions/git-aware-prompt"]
 	path = zsh/extensions/git-aware-prompt
 	url = https://github.com/Tony-Sol/git-aware-prompt.git
@@ -19,18 +13,9 @@
 [submodule "zsh/extensions/zsh-completions"]
 	path = zsh/extensions/zsh-completions
 	url = https://github.com/Tony-Sol/zsh-completions.git
-[submodule "tmux/plugins/tmux-menus"]
-	path = tmux/plugins/tmux-menus
-	url = https://github.com/Tony-Sol/tmux-menus.git
-[submodule "tmux/plugins/tmux-resurrect"]
-	path = tmux/plugins/tmux-resurrect
-	url = https://github.com/Tony-Sol/tmux-resurrect.git
-[submodule "tmux/plugins/tmux-jump"]
-	path = tmux/plugins/tmux-jump
-	url = https://github.com/Tony-Sol/tmux-jump.git
-[submodule "tmux/plugins/tmux-fzf-url"]
-	path = tmux/plugins/tmux-fzf-url
-	url = https://github.com/Tony-Sol/tmux-fzf-url.git
 [submodule "zsh/extensions/zsh-lazyload"]
 	path = zsh/extensions/zsh-lazyload
 	url = https://github.com/Tony-Sol/zsh-lazyload.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/Tony-Sol/tpm.git
