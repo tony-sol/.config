@@ -63,7 +63,6 @@ eval "$(rtx activate)"
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 export ASDF_DIR="$(brew --prefix asdf)/libexec"
 alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
-alias wget="wget --hsts-file ${XDG_STATE_HOME}/wget/wget-hsts"
 
 # keymappings
 bindkey "^[[1;3C" forward-word
