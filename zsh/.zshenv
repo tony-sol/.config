@@ -21,11 +21,13 @@ fi
 
 # =====================================================================
 
+# set zsh configs
+export TERM="xterm-256color"
+export WORDCHARS='*?[]~=&!#$%^(){}<>'
 # set brew configs
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX}"
 export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
-
 # set tmux configs
 export TMUX_CONF="${XDG_CONFIG_HOME}/tmux/tmux.conf"
 # set vim/nvim initial script
@@ -74,29 +76,6 @@ export ANSIBLE_HOME="${XDG_DATA_HOME}/ansible"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible"
 export ANSIBLE_LOCAL_TEMP="${XDG_CACHE_HOME}/ansible"
 export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.vault-password"
-export ANSIBLE_COLLECTIONS_PATH="${ANSIBLE_HOME}/collections"
-export ANSIBLE_ROLES_PATH="${ANSIBLE_HOME}/roles"
-export ANSIBLE_SSH_CONTROL_PATH_DIR="${ANSIBLE_HOME}/cp"
-export ANSIBLE_PERSISTENT_CONTROL_PATH_DIR="${ANSIBLE_HOME}/pc"
-export ANSIBLE_PLUGINS="${ANSIBLE_HOME}/plugins"
-export ANSIBLE_LIBRARY="${ANSIBLE_PLUGINS}/modules"
-export ANSIBLE_ACTION_PLUGINS="${ANSIBLE_PLUGINS}/action"
-export ANSIBLE_BECOME_PLUGINS="${ANSIBLE_PLUGINS}/become"
-export ANSIBLE_CACHE_PLUGINS="${ANSIBLE_PLUGINS}/cache"
-export ANSIBLE_CALLBACK_PLUGINS="${ANSIBLE_PLUGINS}/callback"
-export ANSIBLE_CLICONF_PLUGINS="${ANSIBLE_PLUGINS}/cliconf"
-export ANSIBLE_CONNECTION_PLUGINS="${ANSIBLE_PLUGINS}/connection"
-export ANSIBLE_DOC_FRAGMENT_PLUGINS="${ANSIBLE_PLUGINS}/doc_fragments"
-export ANSIBLE_FILTER_PLUGINS="${ANSIBLE_PLUGINS}/filter"
-export ANSIBLE_HTTPAPI_PLUGINS="${ANSIBLE_PLUGINS}/httpapi"
-export ANSIBLE_INVENTORY_PLUGINS="${ANSIBLE_PLUGINS}/inventory"
-export ANSIBLE_LOOKUP_PLUGINS="${ANSIBLE_PLUGINS}/lookup"
-export ANSIBLE_MODULE_UTILS="${ANSIBLE_PLUGINS}/module_utils"
-export ANSIBLE_NETCONF_PLUGINS="${ANSIBLE_PLUGINS}/netconf"
-export ANSIBLE_STRATEGY_PLUGINS="${ANSIBLE_PLUGINS}/strategy"
-export ANSIBLE_TERMINAL_PLUGINS="${ANSIBLE_PLUGINS}/terminal"
-export ANSIBLE_TEST_PLUGINS="${ANSIBLE_PLUGINS}/test"
-export ANSIBLE_VARS_PLUGINS="${ANSIBLE_PLUGINS}/vars"
 # set virtualenv configs
 export VIRTUALENV_CONFIG_FILE="${XDG_CONFIG_HOME}/virtualenv/config.toml"
 # set pip configs
