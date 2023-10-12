@@ -141,7 +141,7 @@ export TELEPORT_GLOBAL_TSH_CONFIG="${XDG_CONFIG_HOME}/teleport/tsh.yaml"
 # set default tools
 export EDITOR=nvim
 export VISUAL=nvim
-export MANPAGER="sh -c 'col -bx | bat --style plain --language man'"
+export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
 
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
