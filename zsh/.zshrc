@@ -69,6 +69,8 @@ alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
 # keymappings
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
+bindkey "\t" menu-select "${terminfo}[kcbt]" menu-select
+bindkey -M menuselect "\t" menu-complete "${terminfo}[kcbt]" reverse-menu-complete
 source "$(brew --prefix fzf)/shell/key-bindings.zsh"
 
 # auto completion
