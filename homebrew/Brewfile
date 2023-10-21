@@ -158,6 +158,8 @@ brew "jesseduffield/horcrux/horcrux"
 brew "mutagen-io/mutagen/mutagen"
 # Non-interactive ssh password auth
 brew "sunscan/repo/sshpass"
+# Remotely access another computer through the Google Chrome browser
+cask "chrome-remote-desktop-host"
 # App to build and share containerized applications and microservices
 cask "docker"
 # Developer platform
