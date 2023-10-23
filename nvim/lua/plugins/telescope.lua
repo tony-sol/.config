@@ -15,6 +15,7 @@ return {
 		},
 	},
 	config       = function()
+		local utils     = require('utils')
 		local telescope = require('telescope')
 		telescope.setup {
 			defaults   = {
@@ -22,10 +23,10 @@ return {
 				sorting_strategy = 'ascending',
 				layout_strategy  = 'vertical',
 				layout_config    = {
-					horizontal = merge(defaultModalSize(), {
+					horizontal = utils.merge(utils.defaultModalSize(), {
 						prompt_position = 'top',
 					}),
-					vertical   = merge(defaultModalSize(), {
+					vertical   = utils.merge(utils.defaultModalSize(), {
 						prompt_position = 'top',
 						mirror          = true,
 					}),

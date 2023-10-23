@@ -30,7 +30,9 @@ return {
 		},
 	},
 	config       = function()
-		local cmp, lspkind, fn = require('cmp'), require('lspkind'), vim.fn
+		local cmp     = require('cmp')
+		local lspkind = require('lspkind')
+		local fn      = vim.fn
 		cmp.setup {
 			experimental = {
 				ghost_text = true,

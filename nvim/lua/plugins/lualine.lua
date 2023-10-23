@@ -6,6 +6,7 @@ return {
 		},
 	},
 	config       = function()
+		local utils   = require('utils')
 		local lualine = require('lualine')
 		local section = {
 			lualine_a = {
@@ -51,7 +52,7 @@ return {
 				},
 			},
 			sections          = section,
-			inactive_sections = merge(
+			inactive_sections = utils.merge(
 				section,
 				{
 					lualine_b = {},

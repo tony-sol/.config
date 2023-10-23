@@ -1,12 +1,13 @@
 return {
 	'nvim-tree/nvim-tree.lua',
-	lazy         = false,
 	dependencies = {
 		{
 			'nvim-tree/nvim-web-devicons',
 		},
 	},
+	lazy         = false,
 	config       = function()
+		local utils     = require('utils')
 		local nvim_tree = require('nvim-tree')
 		nvim_tree.setup {
 			disable_netrw       = true,
@@ -16,7 +17,7 @@ return {
 				preserve_window_proportions = true,
 				number                      = true,
 				relativenumber              = true,
-				width                       = defaultSidebarSize(),
+				width                       = utils.defaultSidebarSize(),
 			},
 			renderer            = {
 				add_trailing           = true,

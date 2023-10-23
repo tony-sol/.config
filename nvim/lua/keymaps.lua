@@ -4,270 +4,271 @@ local diagnostic = vim.diagnostic
 local lsp        = vim.lsp
 local keymap     = vim.keymap
 local inspect    = vim.inspect
+local utils      = require('utils')
 
 keymap.set(
 	{ 'n' },
 	'<leader>tb',
 	':Telescope buffers<cr>',
-	merge({}, { desc = 'Telescope: buffers' })
+	utils.merge({}, { desc = 'Telescope: buffers' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>td',
 	':Telescope diagnostics<cr>',
-	merge({}, { desc = 'Telescope: diagnostics' })
+	utils.merge({}, { desc = 'Telescope: diagnostics' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tg',
 	':Telescope live_grep_args<cr>',
-	merge({}, { desc = 'Telescope: live grep args' })
+	utils.merge({}, { desc = 'Telescope: live grep args' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tm',
 	':Telescope marks<cr>',
-	merge({}, { desc = 'Telescope: marks' })
+	utils.merge({}, { desc = 'Telescope: marks' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tf',
 	':Telescope current_buffer_fuzzy_find<cr>',
-	merge({}, { desc = 'Telescope: current buffer fuzzy find' })
+	utils.merge({}, { desc = 'Telescope: current buffer fuzzy find' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tlr',
 	':Telescope lsp_references<cr>',
-	merge({}, { desc = 'Telescope: LSP references' })
+	utils.merge({}, { desc = 'Telescope: LSP references' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tld',
 	':Telescope lsp_definitions<cr>',
-	merge({}, { desc = 'Telescope: LSP definitions' })
+	utils.merge({}, { desc = 'Telescope: LSP definitions' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tli',
 	':Telescope lsp_implementations<cr>',
-	merge({}, { desc = 'Telescope: LSP implementations' })
+	utils.merge({}, { desc = 'Telescope: LSP implementations' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tlci',
 	':Telescope lsp_incoming_calls<cr>',
-	merge({}, { desc = 'Telescope: LSP incoming calls' })
+	utils.merge({}, { desc = 'Telescope: LSP incoming calls' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tlco',
 	':Telescope lsp_outgoing_calls<cr>',
-	merge({}, { desc = 'Telescope: LSP outgoing calls' })
+	utils.merge({}, { desc = 'Telescope: LSP outgoing calls' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tls',
 	':Telescope lsp_document_symbols<cr>',
-	merge({}, { desc = 'Telescope: LSP document symbols' })
+	utils.merge({}, { desc = 'Telescope: LSP document symbols' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hp',
 	':HopPattern<cr>',
-	merge({}, { desc = 'Hop: by pattern' })
+	utils.merge({}, { desc = 'Hop: by pattern' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hP',
 	':HopPatternMW<cr>',
-	merge({}, { desc = 'Hop: by pattern mutli-windows' })
+	utils.merge({}, { desc = 'Hop: by pattern mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hw',
 	':HopWord<cr>',
-	merge({}, { desc = 'Hop: by word' })
+	utils.merge({}, { desc = 'Hop: by word' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hW',
 	':HopWordMW<cr>',
-	merge({}, { desc = 'Hop: by word mutli-windows' })
+	utils.merge({}, { desc = 'Hop: by word mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hl',
 	':HopLine<cr>',
-	merge({}, { desc = 'Hop: by line' })
+	utils.merge({}, { desc = 'Hop: by line' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hL',
 	':HopLineMW<cr>',
-	merge({}, { desc = 'Hop: by line mutli-windows' })
+	utils.merge({}, { desc = 'Hop: by line mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hs',
 	':HopLineStart<cr>',
-	merge({}, { desc = 'Hop: by line start' })
+	utils.merge({}, { desc = 'Hop: by line start' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hS',
 	':HopLineStartMW<cr>',
-	merge({}, { desc = 'Hop: by line start mutli-windows' })
+	utils.merge({}, { desc = 'Hop: by line start mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
 	']c',
 	':Gitsigns next_hunk<cr>',
-	merge({}, { desc = 'Gitsigns: next hunk' })
+	utils.merge({}, { desc = 'Gitsigns: next hunk' })
 )
 keymap.set(
 	{ 'n' },
 	'[c',
 	':Gitsigns prev_hunk<cr>',
-	merge({}, { desc = 'Gitsigns: previous hunk' })
+	utils.merge({}, { desc = 'Gitsigns: previous hunk' })
 )
 keymap.set(
 	{ 'o', 'x' },
 	'ih',
 	':Gitsigns select_hunk<cr>',
-	merge({}, { desc = 'Gitsigns: select hunk' })
+	utils.merge({}, { desc = 'Gitsigns: select hunk' })
 )
 keymap.set(
 	{ 'n', 'v' },
 	'<leader>ghr',
 	':Gitsigns reset_hunk<cr>',
-	merge({}, { desc = 'Gitsigns: reset hunk' })
+	utils.merge({}, { desc = 'Gitsigns: reset hunk' })
 )
 keymap.set(
 	{ 'n', 'v' },
 	'<leader>ghs',
 	':Gitsigns stage_hunk<cr>',
-	merge({}, { desc = 'Gitsigns: stage hunk' })
+	utils.merge({}, { desc = 'Gitsigns: stage hunk' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>ghu',
 	':Gitsigns undo_stage_hunk<cr>',
-	merge({}, { desc = 'Gitsigns: undo stage hunk' })
+	utils.merge({}, { desc = 'Gitsigns: undo stage hunk' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>ghp',
 	':Gitsigns preview_hunk<cr>',
-	merge({}, { desc = 'Gitsigns: preview hunk' })
+	utils.merge({}, { desc = 'Gitsigns: preview hunk' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gbS',
 	':Gitsigns stage_buffer<cr>',
-	merge({}, { desc = 'Gitsigns: stage buffer' })
+	utils.merge({}, { desc = 'Gitsigns: stage buffer' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gbR',
 	':Gitsigns reset_buffer<cr>',
-	merge({}, { desc = 'Gitsigns: reset buffer' })
+	utils.merge({}, { desc = 'Gitsigns: reset buffer' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gb',
 	':Gitsigns blame_line<cr>',
-	merge({}, { desc = 'Gitsigns: blame line' })
+	utils.merge({}, { desc = 'Gitsigns: blame line' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gB',
 	"<cmd>lua require('gitsigns').blame_line{full=true}<cr>",
-	merge({}, { desc = 'Gitsigns: blame line full' })
+	utils.merge({}, { desc = 'Gitsigns: blame line full' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gd',
 	':Gitsigns diffthis<cr>',
-	merge({}, { desc = 'Gitsigns: diff this' })
+	utils.merge({}, { desc = 'Gitsigns: diff this' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gD',
 	"<cmd>lua require('gitsigns').diffthis('~')<cr>",
-	merge({}, { desc = 'Gitsigns: diff this ~' })
+	utils.merge({}, { desc = 'Gitsigns: diff this ~' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gtb',
 	':Gitsigns toggle_current_line_blame<cr>',
-	merge({}, { desc = 'Gitsigns: toggle current line blame' })
+	utils.merge({}, { desc = 'Gitsigns: toggle current line blame' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gtd',
 	':Gitsigns toggle_deleted<cr>',
-	merge({}, { desc = 'Gitsigns: toggle deleted' })
+	utils.merge({}, { desc = 'Gitsigns: toggle deleted' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gtw',
 	':Gitsigns toggle_word_diff<cr>',
-	merge({}, { desc = 'Gitsigns: toggle word diff' })
+	utils.merge({}, { desc = 'Gitsigns: toggle word diff' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gtl',
 	':Gitsigns toggle_linehl<cr>',
-	merge({}, { desc = 'Gitsigns: toggle line highlight' })
+	utils.merge({}, { desc = 'Gitsigns: toggle line highlight' })
 )
 keymap.set(
 	{ 'n' },
 	'<space>q',
 	diagnostic.setloclist,
-	merge({}, { desc = 'Diagnostic: setloclist' })
+	utils.merge({}, { desc = 'Diagnostic: setloclist' })
 )
 keymap.set(
 	{ 'n' },
 	'<space>e',
 	diagnostic.open_float,
-	merge({}, { desc = 'Diagnostic: open float' })
+	utils.merge({}, { desc = 'Diagnostic: open float' })
 )
 keymap.set(
 	{ 'n' },
 	'[d',
 	diagnostic.goto_prev,
-	merge({}, { desc = 'Diagnostic: go to previous' })
+	utils.merge({}, { desc = 'Diagnostic: go to previous' })
 )
 keymap.set(
 	{ 'n' },
 	']d',
 	diagnostic.goto_next,
-	merge({}, { desc = 'Diagnostic: go to next' })
+	utils.merge({}, { desc = 'Diagnostic: go to next' })
 )
 keymap.set(
 	{ 'n' },
 	']b',
 	':bnext<cr>',
-	merge({}, { desc = 'Buffers: next' })
+	utils.merge({}, { desc = 'Buffers: next' })
 )
 keymap.set(
 	{ 'n' },
 	'[b',
 	':bprevious<cr>',
-	merge({}, { desc = 'Buffers: previous' })
+	utils.merge({}, { desc = 'Buffers: previous' })
 )
 keymap.set(
 	{ 'n' },
 	']t',
 	':tabnext<cr>',
-	merge({}, { desc = 'Tabs: next' })
+	utils.merge({}, { desc = 'Tabs: next' })
 )
 keymap.set(
 	{ 'n' },
 	'[t',
 	':tabprevious<cr>',
-	merge({}, { desc = 'Tabs: previous' })
+	utils.merge({}, { desc = 'Tabs: previous' })
 )
 
 -- Use LspAttach autocommand to only map the following keys after the language server attaches to the current buffer
@@ -286,49 +287,49 @@ api.nvim_create_autocmd({ 'LspAttach' },
 				{ 'n' },
 				'<leader>lgD',
 				lsp.buf.declaration,
-				merge(opts, { desc = 'Lsp: go to declaration' })
+				utils.merge(opts, { desc = 'Lsp: go to declaration' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<leader>lgd',
 				lsp.buf.definition,
-				merge(opts, { desc = 'Lsp: go to definition' })
+				utils.merge(opts, { desc = 'Lsp: go to definition' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<leader>lgi',
 				lsp.buf.implementation,
-				merge(opts, { desc = 'Lsp: go to implementation' })
+				utils.merge(opts, { desc = 'Lsp: go to implementation' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<leader>lgr',
 				lsp.buf.references,
-				merge(opts, { desc = 'Lsp: go to references' })
+				utils.merge(opts, { desc = 'Lsp: go to references' })
 			)
 			keymap.set(
 				{ 'n' },
 				'K',
 				lsp.buf.hover,
-				merge(opts, { desc = 'Lsp: hover' })
+				utils.merge(opts, { desc = 'Lsp: hover' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<C-k>',
 				lsp.buf.signature_help,
-				merge(opts, { desc = 'Lsp: signature help' })
+				utils.merge(opts, { desc = 'Lsp: signature help' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<space>wa',
 				lsp.buf.add_workspace_folder,
-				merge(opts, { desc = 'Lsp: add workspace folder' })
+				utils.merge(opts, { desc = 'Lsp: add workspace folder' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<space>wr',
 				lsp.buf.remove_workspace_folder,
-				merge(opts, { desc = 'Lsp: remove workspace folder' })
+				utils.merge(opts, { desc = 'Lsp: remove workspace folder' })
 			)
 			keymap.set(
 				{ 'n' },
@@ -336,25 +337,25 @@ api.nvim_create_autocmd({ 'LspAttach' },
 				function()
 					print(inspect(lsp.buf.list_workspace_folders()))
 				end,
-				merge(opts, { desc = 'Lsp: list workspace folders' })
+				utils.merge(opts, { desc = 'Lsp: list workspace folders' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<space>a',
 				lsp.buf.code_action,
-				merge(opts, { desc = 'Lsp: code action' })
+				utils.merge(opts, { desc = 'Lsp: code action' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<space>d',
 				lsp.buf.type_definition,
-				merge(opts, { desc = 'Lsp: type definition' })
+				utils.merge(opts, { desc = 'Lsp: type definition' })
 			)
 			keymap.set(
 				{ 'n' },
 				'<space>r',
 				lsp.buf.rename,
-				merge(opts, { desc = 'Lsp: rename' })
+				utils.merge(opts, { desc = 'Lsp: rename' })
 			)
 			keymap.set(
 				{ 'n' },
@@ -362,7 +363,7 @@ api.nvim_create_autocmd({ 'LspAttach' },
 				function()
 					lsp.buf.format { async = true }
 				end,
-				merge(opts, { desc = 'Lsp: format' })
+				utils.merge(opts, { desc = 'Lsp: format' })
 			)
 		end,
 	})

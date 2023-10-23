@@ -1,12 +1,8 @@
-local opt = vim.opt
-
-local function scheme_for_appearance(appearance)
-	local style = 'Dark'
-	return string.lower(appearance:find(style) and style or 'Light')
-end
+local opt   = vim.opt
+local utils = require('utils')
 
 -- Appearance settings
-opt.background     = scheme_for_appearance(appearance())
+opt.background     = utils.appearance()
 opt.termguicolors  = true
 opt.cursorline     = true
 opt.laststatus     = 3

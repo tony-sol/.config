@@ -1,11 +1,11 @@
 require('globals')
-require('helpers')
 require('options')
 
 local fn     = vim.fn
 local loader = vim.loader
 local loop   = vim.loop
 local opt    = vim.opt
+local utils  = require('utils')
 
 loader.enable()
 local lazypath = fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -27,7 +27,7 @@ require('lazy').setup('plugins', {
 	},
 	ui      = {
 		border = 'rounded',
-		size   = defaultModalSize(),
+		size   = utils.defaultModalSize(),
 	},
 	diff    = {
 		cmd = 'diffview.nvim',

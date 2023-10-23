@@ -1,6 +1,7 @@
 return {
 	'simrat39/symbols-outline.nvim',
 	config = function()
+		local utils   = require('utils')
 		local symbols = require('symbols-outline')
 		symbols.setup {
 			highlight_hovered_item = true,
@@ -8,7 +9,7 @@ return {
 			auto_preview           = false,
 			position               = 'right',
 			relative_width         = true,
-			width                  = defaultSidebarSize(),
+			width                  = utils.defaultSidebarSize(),
 			auto_close             = false,
 			show_numbers           = true,
 			show_relative_numbers  = true,

@@ -6,7 +6,8 @@ return {
 		},
 	},
 	config       = function()
-		local ufo, promise = require('ufo'), require('promise')
+		local promise = require('promise')
+		local ufo     = require('ufo')
 		local function customizeSelector(bufnr)
 			return ufo.getFolds(bufnr, 'lsp')
 				:catch(function(err)
@@ -26,3 +27,4 @@ return {
 		}
 	end
 }
+
