@@ -60,6 +60,7 @@ alias -g -- -h='-h 2>&1 | bat --paging=never --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --paging=never --language=help --style=plain'
 
 eval "$(rtx activate)"
+eval "$(thefuck --alias fuck)"
 
 # hacks
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"

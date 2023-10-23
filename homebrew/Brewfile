@@ -122,6 +122,8 @@ brew "telnet"
 brew "terraform"
 # Terraform State → Ansible Dynamic Inventory
 brew "terraform-inventory"
+# Programmatically correct mistyped console commands
+brew "thefuck"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
