@@ -1,72 +1,68 @@
-local wezterm = require "wezterm"
+local wezterm = require('wezterm')
 
+---@return 'Dark' | 'Light'
 local function get_appearance()
-	if wezterm.gui then
-		return wezterm.gui.get_appearance()
-	end
-	return "Dark"
+	return wezterm.gui and wezterm.gui.get_appearance() or 'Dark'
 end
 
+---@param appearance string
+---@return 'vscode_dark' | 'vscode_light'
 local function scheme_for_appearance(appearance)
-	if appearance:find "Dark" then
-		return "vscode_dark"
-	else
-		return "vscode_light"
-	end
+	return appearance:find('Dark') and 'vscode_dark' or 'vscode_light'
 end
 
 return {
-	term                         = "xterm-256color",
-	default_prog                 = { "/bin/zsh", "--login", "--interactive", "-c", "tmux new -A" },
-	exit_behavior                = "CloseOnCleanExit",
+	term                         = 'xterm-256color',
+	default_prog                 = { '/bin/zsh', '--login', '--interactive', '-c', 'tmux new -A' },
+	exit_behavior                = 'CloseOnCleanExit',
 	color_scheme                 = scheme_for_appearance(get_appearance()),
 	color_schemes                = {
 		vscode_dark = {
-			background = "#1e1e1e",
-			foreground = "#cccccc",
+			background = '#1E1E1E',
+			foreground = '#CCCCCC',
 			ansi       = {
-				"#000000", -- black
-				"#cd3131", -- red
-				"#0dbc79", -- green
-				"#e5e510", -- yellow
-				"#2472c8", -- blue
-				"#bc3fbc", -- magenta
-				"#11a8cd", -- cyan
-				"#e5e5e5", -- white
+				'#000000', -- black
+				'#CD3131', -- red
+				'#0DBC79', -- green
+				'#E5E510', -- yellow
+				'#2472C8', -- blue
+				'#BC3FBC', -- magenta
+				'#11A8CD', -- cyan
+				'#E5E5E5', -- white
 			},
 			brights    = {
-				"#666666", -- black
-				"#f14c4c", -- red
-				"#23d18b", -- green
-				"#f5f543", -- yellow
-				"#3b8eea", -- blue
-				"#d670d6", -- magenta
-				"#29b8db", -- cyan
-				"#e5e5e5", -- white
+				'#666666', -- black
+				'#F14C4C', -- red
+				'#23D18B', -- green
+				'#F5F543', -- yellow
+				'#3B8EEA', -- blue
+				'#D670D6', -- magenta
+				'#29B8DB', -- cyan
+				'#E5E5E5', -- white
 			},
 		},
 		vscode_light = {
-			background = "#f9f9f9",
-			foreground = "#020202",
+			background = '#F9F9F9',
+			foreground = '#020202',
 			ansi       = {
-				"#020202", -- black
-				"#cd3232", -- red
-				"#00bc00", -- green
-				"#a5a900", -- yellow
-				"#0752a8", -- blue
-				"#bc05bc", -- magenta
-				"#0598bc", -- cyan
-				"#343434", -- white
+				'#020202', -- black
+				'#CD3232', -- red
+				'#00BC00', -- green
+				'#A5A900', -- yellow
+				'#0752A8', -- blue
+				'#BC05BC', -- magenta
+				'#0598BC', -- cyan
+				'#343434', -- white
 			},
 			brights    = {
-				"#5e5e5e", -- black
-				"#cd3333", -- red
-				"#1bce1a", -- green
-				"#adbb5b", -- yellow
-				"#0752a8", -- blue
-				"#c451ce", -- magenta
-				"#52a8c7", -- cyan
-				"#a6a3a6", -- white
+				'#5E5E5E', -- black
+				'#CD3333', -- red
+				'#1BCE1A', -- green
+				'#ADBB5B', -- yellow
+				'#0752A8', -- blue
+				'#C451CE', -- magenta
+				'#52A8C7', -- cyan
+				'#A6A3A6', -- white
 			},
 		},
 	},
@@ -76,15 +72,15 @@ return {
 	custom_block_glyphs          = false,
 	font                         = wezterm.font_with_fallback {
 		{
-			family                    = "JetBrainsMono Nerd Font",
-			weight                    = "Medium",
-			harfbuzz_features         = { "calt=1", "clig=1", "liga=1" },
+			family                    = 'JetBrainsMono Nerd Font',
+			weight                    = 'Medium',
+			harfbuzz_features         = { 'calt=1', 'clig=1', 'liga=1' },
 			assume_emoji_presentation = false,
 		},
 		{
-			family                    = "Menlo",
-			weight                    = "Medium",
-			harfbuzz_features         = { "calt=1", "clig=1", "liga=1" },
+			family                    = 'Menlo',
+			weight                    = 'Medium',
+			harfbuzz_features         = { 'calt=1', 'clig=1', 'liga=1' },
 			assume_emoji_presentation = true,
 		},
 	},
