@@ -182,6 +182,8 @@ cask "jetbrains-toolbox"
 cask "keycastr"
 # File system integration
 cask "macfuse"
+# Penetration testing framework
+cask "metasploit"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
 # Knowledge base that works on top of a local folder of plain text Markdown files
