@@ -96,6 +96,8 @@ brew "opensc"
 brew "openvpn"
 # Tool for creating identical machine images for multiple platforms
 brew "packer"
+# PAM module for reattaching to the user's GUI (Aqua) session
+brew "pam-reattach"
 # Tool for managing OCI containers and pods
 brew "podman"
 # Alternative to docker-compose using podman
@@ -120,7 +122,7 @@ brew "syft"
 brew "telnet"
 # Tool to build, change, and version infrastructure
 brew "terraform"
-# Terraform State → Ansible Dynamic Inventory
+# Go app which generates a dynamic Ansible inventory from a Terraform state file
 brew "terraform-inventory"
 # Programmatically correct mistyped console commands
 brew "thefuck"
