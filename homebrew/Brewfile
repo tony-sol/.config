@@ -1,6 +1,6 @@
 tap "go-task/tap"
 tap "goodwithtech/r"
-tap "gromgit/fuse"
+tap "gromgit/fuse" if OS.mac?
 tap "hashicorp/tap"
 tap "helmwave/tap"
 tap "homebrew/bundle"
@@ -151,9 +151,9 @@ brew "go-task/tap/go-task"
 # Simple security auditing, helping build the Best Docker Images
 brew "goodwithtech/r/dockle"
 # Simple MTP fuse filesystem driver
-brew "gromgit/fuse/simple-mtpfs-mac"
+brew "gromgit/fuse/simple-mtpfs-mac" if OS.mac?
 # File system client based on SSH File Transfer Protocol
-brew "gromgit/fuse/sshfs-mac"
+brew "gromgit/fuse/sshfs-mac" if OS.mac?
 # True release manager for Kubernetes
 brew "helmwave/tap/helmwave"
 # A program for splitting your files into encrypted fragments
