@@ -1,3 +1,4 @@
+tap "esolitos/ipa"
 tap "go-task/tap"
 tap "goodwithtech/r"
 tap "gromgit/fuse" if OS.mac?
@@ -10,7 +11,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "jesseduffield/horcrux"
 tap "mutagen-io/mutagen"
-tap "sunscan/repo"
 tap "wez/wezterm"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
@@ -146,6 +146,8 @@ brew "wget"
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# Non-interactive ssh password auth Files
+brew "esolitos/ipa/sshpass"
 # Task runner / simpler Make alternative written in Go
 brew "go-task/tap/go-task"
 # Simple security auditing, helping build the Best Docker Images
@@ -160,8 +162,6 @@ brew "helmwave/tap/helmwave"
 brew "jesseduffield/horcrux/horcrux"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
-# Non-interactive ssh password auth
-brew "sunscan/repo/sshpass"
 # Remotely access another computer through the Google Chrome browser
 cask "chrome-remote-desktop-host"
 # App to build and share containerized applications and microservices
