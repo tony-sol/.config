@@ -10,8 +10,9 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_RUNTIME_DIR="${HOME}/.local/run"
 export XDG_CACHE_HOME="${HOME}/.local/cache"
-# set zsh home directory
+# set zsh configs
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export ZLE_RPROMPT_INDENT=0
 
 # =====================================================================
 
