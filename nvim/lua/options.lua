@@ -10,9 +10,9 @@ opt.laststatus     = 3
 -- Fill chars
 opt.fillchars      = {
 	vert      = '│',
-	foldopen  = '-',
+	foldopen  = '', -- '-'
 	foldsep   = '│',
-	foldclose = '+',
+	foldclose = '', -- '+'
 }
 
 -- List settings

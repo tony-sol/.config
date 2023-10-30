@@ -21,10 +21,21 @@ return {
 				end)
 		end
 		ufo.setup {
+			preview = {
+				win_config = {
+					border   = { '', '─', '', '', '', '─', '', '' },
+					winblend = 0,
+				},
+				mappings   = {
+					scrollU = '<C-u>',
+					scrollD = '<C-d>',
+					jumpTop = '[',
+					jumpBot = ']',
+				}
+			},
 			provider_selector = function(bufnr, filetype, buftype)
 				return customizeSelector
-			end
+			end,
 		}
 	end
 }
-
