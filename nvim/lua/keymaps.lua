@@ -1,5 +1,6 @@
 local api        = vim.api
 local bufferOpts = vim.bo
+local command    = vim.cmd
 local diagnostic = vim.diagnostic
 local lsp        = vim.lsp
 local keymap     = vim.keymap
@@ -8,218 +9,306 @@ local utils      = require('utils')
 
 keymap.set(
 	{ 'n' },
+	'zp',
+	function()
+		require('ufo.preview'):peekFoldedLinesUnderCursor()
+	end,
+	utils.merge({}, { desc = 'Fold preview' })
+)
+keymap.set(
+	{ 'n' },
 	'<leader>tb',
-	':Telescope buffers<cr>',
+	function()
+		require('telescope.builtin').buffers()
+	end,
 	utils.merge({}, { desc = 'Telescope: buffers' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>td',
-	':Telescope diagnostics<cr>',
+	function()
+		require('telescope.builtin').diagnostics()
+	end,
 	utils.merge({}, { desc = 'Telescope: diagnostics' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tg',
-	':Telescope live_grep_args<cr>',
+	function()
+		require('telescope').extensions.live_grep_args.live_grep_args()
+	end,
 	utils.merge({}, { desc = 'Telescope: live grep args' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tm',
-	':Telescope marks<cr>',
+	function()
+		require('telescope.builtin').marks()
+	end,
 	utils.merge({}, { desc = 'Telescope: marks' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tf',
-	':Telescope current_buffer_fuzzy_find<cr>',
+	function()
+		require('telescope.builtin').current_buffer_fuzzy_find()
+	end,
 	utils.merge({}, { desc = 'Telescope: current buffer fuzzy find' })
 )
 keymap.set(
 	{ 'n' },
+	'<leader>tt',
+	function()
+		require('telescope.builtin').current_buffer_tags()
+	end,
+	utils.merge({}, { desc = 'Telescope: current buffer tags' })
+)
+keymap.set(
+	{ 'n' },
 	'<leader>tlr',
-	':Telescope lsp_references<cr>',
+	function()
+		require('telescope.builtin').lsp_references()
+	end,
 	utils.merge({}, { desc = 'Telescope: LSP references' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tld',
-	':Telescope lsp_definitions<cr>',
+	function()
+		require('telescope.builtin').lsp_definitions()
+	end,
 	utils.merge({}, { desc = 'Telescope: LSP definitions' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tli',
-	':Telescope lsp_implementations<cr>',
+	function()
+		require('telescope.builtin').lsp_definitions()
+	end,
 	utils.merge({}, { desc = 'Telescope: LSP implementations' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tlci',
-	':Telescope lsp_incoming_calls<cr>',
+	function()
+		require('telescope.builtin').lsp_incoming_calls()
+	end,
 	utils.merge({}, { desc = 'Telescope: LSP incoming calls' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tlco',
-	':Telescope lsp_outgoing_calls<cr>',
+	function()
+		require('telescope.builtin').lsp_outgoing_calls()
+	end,
 	utils.merge({}, { desc = 'Telescope: LSP outgoing calls' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>tls',
-	':Telescope lsp_document_symbols<cr>',
+	function()
+		require('telescope.builtin').lsp_document_symbols()
+	end,
 	utils.merge({}, { desc = 'Telescope: LSP document symbols' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hp',
-	':HopPattern<cr>',
+	function()
+		require('hop').hint_patterns()
+	end,
 	utils.merge({}, { desc = 'Hop: by pattern' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hP',
-	':HopPatternMW<cr>',
+	function()
+		require('hop').hint_patterns({ multi_windows = true })
+	end,
 	utils.merge({}, { desc = 'Hop: by pattern mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hw',
-	':HopWord<cr>',
+	function()
+		require('hop').hint_words()
+	end,
 	utils.merge({}, { desc = 'Hop: by word' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hW',
-	':HopWordMW<cr>',
+	function()
+		require('hop').hint_words({ multi_windows = true })
+	end,
 	utils.merge({}, { desc = 'Hop: by word mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hl',
-	':HopLine<cr>',
+	function()
+		require('hop').hint_lines()
+	end,
 	utils.merge({}, { desc = 'Hop: by line' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hL',
-	':HopLineMW<cr>',
+	function()
+		require('hop').hint_lines({ multi_windows = true })
+	end,
 	utils.merge({}, { desc = 'Hop: by line mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hs',
-	':HopLineStart<cr>',
+	function()
+		require('hop').hint_lines_skip_whitespace()
+	end,
 	utils.merge({}, { desc = 'Hop: by line start' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>hS',
-	':HopLineStartMW<cr>',
+	function()
+		require('hop').hint_lines_skip_whitespace({ multi_windows = true })
+	end,
 	utils.merge({}, { desc = 'Hop: by line start mutli-windows' })
 )
 keymap.set(
 	{ 'n' },
 	']c',
-	':Gitsigns next_hunk<cr>',
+	function()
+		require('gitsigns').next_hunk()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: next hunk' })
 )
 keymap.set(
 	{ 'n' },
 	'[c',
-	':Gitsigns prev_hunk<cr>',
+	function()
+		require('gitsigns').prev_hunk()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: previous hunk' })
 )
 keymap.set(
 	{ 'o', 'x' },
 	'ih',
-	':Gitsigns select_hunk<cr>',
+	function()
+		require('gitsigns').select_hunk()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: select hunk' })
 )
 keymap.set(
 	{ 'n', 'v' },
 	'<leader>ghr',
-	':Gitsigns reset_hunk<cr>',
+	function()
+		require('gitsigns').reset_hunk()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: reset hunk' })
 )
 keymap.set(
 	{ 'n', 'v' },
 	'<leader>ghs',
-	':Gitsigns stage_hunk<cr>',
+	function()
+		require('gitsigns').stage_hunk()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: stage hunk' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>ghu',
-	':Gitsigns undo_stage_hunk<cr>',
+	function()
+		require('gitsigns').stage_hunk()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: undo stage hunk' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>ghp',
-	':Gitsigns preview_hunk<cr>',
+	function()
+		require('gitsigns').preview_hunk()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: preview hunk' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gbS',
-	':Gitsigns stage_buffer<cr>',
+	function()
+		require('gitsigns').stage_buffer()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: stage buffer' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gbR',
-	':Gitsigns reset_buffer<cr>',
+	function()
+		require('gitsigns').reset_buffer()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: reset buffer' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gb',
-	':Gitsigns blame_line<cr>',
+	function()
+		require('gitsigns').blame_line()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: blame line' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gB',
-	"<cmd>lua require('gitsigns').blame_line{full=true}<cr>",
+	function()
+		require('gitsigns').blame_line({ full = true })
+	end,
 	utils.merge({}, { desc = 'Gitsigns: blame line full' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gd',
-	':Gitsigns diffthis<cr>',
+	function()
+		require('gitsigns').diffthis()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: diff this' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gD',
-	"<cmd>lua require('gitsigns').diffthis('~')<cr>",
+	function()
+		require('gitsigns').diffthis('~')
+	end,
 	utils.merge({}, { desc = 'Gitsigns: diff this ~' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gtb',
-	':Gitsigns toggle_current_line_blame<cr>',
+	function()
+		require('gitsigns').toggle_current_line_blame()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: toggle current line blame' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gtd',
-	':Gitsigns toggle_deleted<cr>',
+	function()
+		require('gitsigns').toggle_deleted()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: toggle deleted' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gtw',
-	':Gitsigns toggle_word_diff<cr>',
+	function()
+		require('gitsigns').toggle_word_diff()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: toggle word diff' })
 )
 keymap.set(
 	{ 'n' },
 	'<leader>gtl',
-	':Gitsigns toggle_linehl<cr>',
+	function()
+		require('gitsigns').toggle_linehl()
+	end,
 	utils.merge({}, { desc = 'Gitsigns: toggle line highlight' })
 )
 keymap.set(
@@ -249,25 +338,57 @@ keymap.set(
 keymap.set(
 	{ 'n' },
 	']b',
-	':bnext<cr>',
+	function()
+		command.bnext()
+	end,
 	utils.merge({}, { desc = 'Buffers: next' })
 )
 keymap.set(
 	{ 'n' },
 	'[b',
-	':bprevious<cr>',
+	function()
+		command.bprevious()
+	end,
 	utils.merge({}, { desc = 'Buffers: previous' })
 )
 keymap.set(
 	{ 'n' },
+	'<leader>b]',
+	function()
+		command.sbnext()
+	end,
+	utils.merge({}, { desc = 'Buffers: split and open next' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>b[',
+	function()
+		command.sbprevious()
+	end,
+	utils.merge({}, { desc = 'Buffers: split and open previous' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>bd',
+	function()
+		command.bdelete()
+	end,
+	utils.merge({}, { desc = 'Buffers: close' })
+)
+keymap.set(
+	{ 'n' },
 	']t',
-	':tabnext<cr>',
+	function()
+		command.tabnext()
+	end,
 	utils.merge({}, { desc = 'Tabs: next' })
 )
 keymap.set(
 	{ 'n' },
 	'[t',
-	':tabprevious<cr>',
+	function()
+		command.tabprevious()
+	end,
 	utils.merge({}, { desc = 'Tabs: previous' })
 )
 
@@ -285,37 +406,37 @@ api.nvim_create_autocmd({ 'LspAttach' },
 			}
 			keymap.set(
 				{ 'n' },
-				'<leader>lgD',
+				'<space>D',
 				lsp.buf.declaration,
 				utils.merge(opts, { desc = 'Lsp: go to declaration' })
 			)
 			keymap.set(
 				{ 'n' },
-				'<leader>lgd',
+				'<space>d',
 				lsp.buf.definition,
 				utils.merge(opts, { desc = 'Lsp: go to definition' })
 			)
 			keymap.set(
 				{ 'n' },
-				'<leader>lgi',
+				'<space>i',
 				lsp.buf.implementation,
 				utils.merge(opts, { desc = 'Lsp: go to implementation' })
 			)
 			keymap.set(
 				{ 'n' },
-				'<leader>lgr',
+				'<space>r',
 				lsp.buf.references,
 				utils.merge(opts, { desc = 'Lsp: go to references' })
 			)
 			keymap.set(
 				{ 'n' },
-				'K',
+				'<space>h',
 				lsp.buf.hover,
 				utils.merge(opts, { desc = 'Lsp: hover' })
 			)
 			keymap.set(
 				{ 'n' },
-				'<C-k>',
+				'<space>s',
 				lsp.buf.signature_help,
 				utils.merge(opts, { desc = 'Lsp: signature help' })
 			)
@@ -347,13 +468,13 @@ api.nvim_create_autocmd({ 'LspAttach' },
 			)
 			keymap.set(
 				{ 'n' },
-				'<space>d',
+				'<space>t',
 				lsp.buf.type_definition,
 				utils.merge(opts, { desc = 'Lsp: type definition' })
 			)
 			keymap.set(
 				{ 'n' },
-				'<space>r',
+				'<space>R',
 				lsp.buf.rename,
 				utils.merge(opts, { desc = 'Lsp: rename' })
 			)
