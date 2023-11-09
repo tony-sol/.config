@@ -106,6 +106,8 @@ brew "podman-compose"
 brew "poetry"
 # Monitor data's progress through a pipe
 brew "pv"
+# Run a command when files change
+brew "reflex"
 # GNU Make with improved error handling, tracing, and a debugger
 brew "remake"
 # Search tool like grep and The Silver Searcher
