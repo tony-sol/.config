@@ -33,7 +33,7 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
-	'<leader>tg',
+	'<leader>tG',
 	function()
 		require('telescope').extensions.live_grep_args.live_grep_args()
 	end,
@@ -57,11 +57,67 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
+	'<leader>tF',
+	function()
+		require('telescope.builtin').find_files()
+	end,
+	utils.merge({}, { desc = 'Telescope: find files' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>to',
+	function()
+		require('telescope.builtin').oldfiles()
+	end,
+	utils.merge({}, { desc = 'Telescope: old (recent) files' })
+)
+keymap.set(
+	{ 'n' },
 	'<leader>tt',
 	function()
 		require('telescope.builtin').current_buffer_tags()
 	end,
 	utils.merge({}, { desc = 'Telescope: current buffer tags' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tgc',
+	function()
+		require('telescope.builtin').git_commits()
+	end,
+	utils.merge({}, { desc = 'Telescope: git commits' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tgC',
+	function()
+		require('telescope.builtin').git_bcommits()
+	end,
+	utils.merge({}, { desc = 'Telescope: git buffer commits' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tgb',
+	function()
+		require('telescope.builtin').git_branches()
+	end,
+	utils.merge({}, { desc = 'Telescope: git branches' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tgs',
+	function()
+		require('telescope.builtin').git_status()
+	end,
+	utils.merge({}, { desc = 'Telescope: git status' })
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tgS',
+	function()
+		require('telescope.builtin').git_stash()
+	end,
+	utils.merge({}, { desc = 'Telescope: git stash' })
 )
 keymap.set(
 	{ 'n' },
