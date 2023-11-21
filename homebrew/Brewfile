@@ -226,6 +226,8 @@ cask "vlc"
 cask "wezterm"
 # Network protocol analyzer
 cask "wireshark"
+# All-in-one office suite
+cask "wpsoffice"
 # Cloud storage
 cask "yandex-disk"
 # Application for configuring any YubiKey
