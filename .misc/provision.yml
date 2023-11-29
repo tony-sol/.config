@@ -2,7 +2,8 @@
 - name: Clone configs
   become: false
   gather_facts: true
-  hosts: all
+  hosts: localhost
+  connection: local
   tags:
     - configs
   vars:
@@ -16,15 +17,19 @@
 
     - name: Clone configs from Github
       git:
+        recursive: true
         repo: "https://github.com/Tony-Sol/.config.git"
-        dest: "~"
+        dest: "~/.config"
+      register: repo_clone
+      failed_when:
+        - repo_clone.failed
+        - not 'Local modifications exist in the destination' in repo_clone.msg
 
     - name: Remove existing configs
       file:
         path: "~/{{ item }}"
         state: absent
       loop:
-        - .zshenv
         - .zshrc
         - .zprofile
         - .bashrc
@@ -33,27 +38,42 @@
 
     - name: Link config to shell
       file:
-        src: "~/.config/zsh/.zshenv"
+        src: ".config/zsh/.zshenv"
         dest: "~/.zshenv"
         state: link
 
     - name: Find all files in ~/.config/git/commands
       find:
-        paths: ~/.config/git/commands
+        paths: "~/.config/git/commands"
       register: find
 
     - name: Create symlinks to /usr/local/bin
-      become: True
       file:
         src: "{{ item.path }}"
         path: "~/.local/bin/{{ item.path | basename }}"
         state: link
-      with_items: "{{ find.results.files }}"
+      with_items: "{{ find.files }}"
+
+    - name: Enable TouchId in terminal
+      become: True
+      lineinfile:
+        path: "/etc/pam.d/sudo"
+        line: "auth  sufficient  pam_tid.so"
+        insertbefore: BOF
+
+    - name: Enable TouchId in tmux
+      become: True
+      lineinfile:
+        path: "/etc/pam.d/sudo"
+        insertbefore: BOF
+        # @todo remove hardcoded path to .so lib
+        line: "auth  optional  /opt/homebrew/lib/pam/pam_reattach.so"
 
 - name: Install everything
   become: false
   gather_facts: true
-  hosts: all
+  hosts: localhost
+  connection: local
   tags:
     - packages
   tasks:
