@@ -198,6 +198,7 @@ cask "podman-desktop"
 cask "powershell"
 # Peer to peer Bitorrent client
 cask "qbittorrent"
+cask "qcma"
 # Companion app for Flipper Zero devices
 cask "qflipper"
 # Move and resize windows using keyboard shortcuts or snap areas
