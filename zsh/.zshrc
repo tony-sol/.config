@@ -112,6 +112,7 @@ lazyload syft -- 'source <(syft completion zsh)'
 lazyload octosql -- 'source <(octosql completion zsh)'
 lazyload tsh -- 'source <(tsh --completion-script-zsh)'
 
+complete -o nospace -C "${HOMEBREW_PREFIX}/bin/tofu" tofu
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul

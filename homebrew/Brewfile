@@ -92,6 +92,8 @@ brew "octosql"
 brew "opa"
 # Tools and libraries for smart cards
 brew "opensc"
+# Drop-in replacement for Terraform. Infrastructure as Code Tool
+brew "opentofu"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
 brew "openvpn"
 # Tool for creating identical machine images for multiple platforms
