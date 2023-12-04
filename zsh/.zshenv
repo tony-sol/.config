@@ -141,6 +141,8 @@ export VSCODE_EXTENSIONS="${XDG_DATA_HOME}/code/extensions"
 export TELEPORT_CONFIG_FILE="${XDG_CONFIG_HOME}/teleport/tctl.yaml"
 export TELEPORT_HOME="${XDG_DATA_HOME}/tsh"
 export TELEPORT_GLOBAL_TSH_CONFIG="${XDG_CONFIG_HOME}/teleport/tsh.yaml"
+# set tart configs
+export TART_HOME="${XDG_DATA_HOME}/tart"
 
 # set default tools
 export EDITOR=nvim

@@ -1,3 +1,4 @@
+tap "cirruslabs/cli"
 tap "esolitos/ipa"
 tap "go-task/tap"
 tap "goodwithtech/r"
@@ -150,6 +151,8 @@ brew "wget"
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# Run macOS VMs on Apple Silicon
+brew "cirruslabs/cli/tart"
 # Non-interactive ssh password auth Files
 brew "esolitos/ipa/sshpass"
 # Task runner / simpler Make alternative written in Go
