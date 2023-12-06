@@ -59,7 +59,7 @@ alias less='bat --paging=always'
 alias -g -- -h='-h 2>&1 | bat --paging=never --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --paging=never --language=help --style=plain'
 
-eval "$(rtx activate)"
+eval "$(rtx activate $(basename -- ${SHELL}))"
 eval "$(thefuck --alias fuck)"
 
 # hacks
@@ -111,6 +111,7 @@ lazyload trivy -- 'source <(trivy completion zsh)'
 lazyload syft -- 'source <(syft completion zsh)'
 lazyload octosql -- 'source <(octosql completion zsh)'
 lazyload tsh -- 'source <(tsh --completion-script-zsh)'
+lazyload rtx -- 'source <(rtx completion zsh)'
 
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/tofu" tofu
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform

@@ -1,10 +1,13 @@
 [tools]
-node = 'latest'
-python = 'system'
+node = "latest"
+python = "system"
+python3 = "system"
 
 [settings]
+verbose = true
+raw = true
+yes = true
 asdf_compat = false
-missing_runtime_behavior = 'autoinstall'
 trusted_config_paths = [
 	'~/Projects',
 ]
