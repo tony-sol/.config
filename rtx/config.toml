@@ -1,7 +1,6 @@
 [tools]
-node = "latest"
+node = "16.17.0"
 python = "system"
-python3 = "system"
 
 [settings]
 verbose = true
