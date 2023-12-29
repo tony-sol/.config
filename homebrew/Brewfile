@@ -171,6 +171,8 @@ brew "helmwave/tap/helmwave"
 brew "jesseduffield/horcrux/horcrux"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
+# Transfer files from and to an Android smartphone
+cask "android-file-transfer"
 # Remotely access another computer through the Google Chrome browser
 cask "chrome-remote-desktop-host"
 # App to build and share containerized applications and microservices
