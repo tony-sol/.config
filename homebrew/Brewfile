@@ -85,6 +85,8 @@ brew "minikube"
 brew "molecule"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Port scanning utility for large networks
+brew "nmap"
 # Distributed, Highly Available, Datacenter-Aware Scheduler
 brew "nomad"
 # SQL query tool to analyze data from different file formats and databases
