@@ -216,6 +216,8 @@ cask "skype"
 cask "surfshark"
 # Quicklook extension for source files
 cask "syntax-highlight"
+# Spreadsheet style tag editor for audio files
+cask "tageditor"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Developer-friendly browser for cloud infrastructure
