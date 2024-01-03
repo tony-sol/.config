@@ -102,13 +102,15 @@ export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 # set npm/node configs
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
-# set rtx configs
-export RTX_CONFIG_FILE="${XDG_CONFIG_HOME}/rtx/config.toml"
-export RTX_SHORTHANDS_FILE="${XDG_CONFIG_HOME}/rtx/shorthands.toml"
-export RTX_CACHE_DIR="${XDG_CACHE_HOME}/rtx"
-export RTX_DATA_DIR="${XDG_DATA_HOME}/rtx"
-export RTX_SHIMS="${XDG_DATA_HOME}/rtx/shims"
-# set asdf configs (for rtx)
+# set mise configs
+export MISE_CONFIG_DIR="${XDG_CONFIG_HOME}/mise"
+export MISE_CACHE_DIR="${XDG_CACHE_HOME}/mise"
+export MISE_DATA_DIR="${XDG_DATA_HOME}/mise"
+export MISE_SHIMS="${MISE_DATA_DIR}/shims"
+export MISE_GLOBAL_CONFIG_FILE="${MISE_CONFIG_DIR}/config.toml"
+export MISE_SETTINGS_FILE="${MISE_CONFIG_DIR}/settings.toml"
+export MISE_SHORTHANDS_FILE="${MISE_CONFIG_DIR}/shorthands.toml"
+# set asdf configs (for mise)
 export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
 export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
 # set dotnet configs

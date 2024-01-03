@@ -1,0 +1,20 @@
+legacy_version_file = true
+
+trusted_config_paths = [
+	"~/.config/",
+	"~/.local/",
+	'~/Projects',
+]
+
+verbose = false
+asdf_compat = false
+raw = true
+yes = true
+
+env_file = ".env"
+
+# direnv config dump
+# [global]
+# disable_stdin = true
+# load_dotenv = true
+# strict_env = true

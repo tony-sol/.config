@@ -81,6 +81,8 @@ brew "luarocks"
 brew "maven"
 # Run a Kubernetes cluster locally
 brew "minikube"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Automated testing for Ansible roles
 brew "molecule"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -117,8 +119,6 @@ brew "reflex"
 brew "remake"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Polyglot runtime manager (asdf rust clone)
-brew "rtx"
 # SOcket CAT: netcat on steroids
 brew "socat"
 # Editor of encrypted files
@@ -205,6 +205,7 @@ cask "podman-desktop"
 cask "powershell"
 # Peer to peer Bitorrent client
 cask "qbittorrent"
+# Cross-platform content manager assistant for the PS Vita
 cask "qcma"
 # Companion app for Flipper Zero devices
 cask "qflipper"

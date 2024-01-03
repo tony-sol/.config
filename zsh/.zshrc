@@ -21,7 +21,7 @@ function unshift_path() {
 export FPATH=$(unshift_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions" "${ZDOTDIR}/extensions/zsh-completions/src" "${ZDOTDIR}/extensions/zsh-autocomplete/Completions")
 
 # setup PATH
-export PATH=$(unshift_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $RTX_SHIMS $KREW_BIN $XDG_BIN_HOME "${XDG_DATA_HOME}/nvim/mason/bin")
+export PATH=$(unshift_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $MISE_SHIMS $KREW_BIN $XDG_BIN_HOME)
 
 # setup MANPATH
 export MANPATH=$(unshift_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
@@ -59,7 +59,7 @@ alias less='bat --paging=always'
 alias -g -- -h='-h 2>&1 | bat --paging=never --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --paging=never --language=help --style=plain'
 
-eval "$(rtx activate $(basename -- ${SHELL}))"
+eval "$(mise activate $(basename -- ${SHELL}))"
 eval "$(thefuck --alias fuck)"
 
 # hacks
@@ -111,7 +111,7 @@ lazyload trivy -- 'source <(trivy completion zsh)'
 lazyload syft -- 'source <(syft completion zsh)'
 lazyload octosql -- 'source <(octosql completion zsh)'
 lazyload tsh -- 'source <(tsh --completion-script-zsh)'
-lazyload rtx -- 'source <(rtx completion zsh)'
+lazyload mise -- 'source <(mise completion zsh)'
 
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/tofu" tofu
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
