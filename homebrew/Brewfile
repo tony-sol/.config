@@ -125,6 +125,8 @@ brew "socat"
 brew "sops"
 # CLI for generating a Software Bill of Materials from container images
 brew "syft"
+# Command-line packet analyzer
+brew "tcpdump"
 # User interface to the TELNET protocol
 brew "telnet"
 # Tool to build, change, and version infrastructure
