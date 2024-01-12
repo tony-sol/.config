@@ -147,6 +147,8 @@ brew "waypoint"
 brew "werf"
 # Internet file retriever
 brew "wget"
+# Graphical network analyzer and capture tool
+brew "wireshark", link: false
 # Tool for managing your YubiKey configuration
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
