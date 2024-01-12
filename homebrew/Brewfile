@@ -105,7 +105,7 @@ brew "openvpn"
 # Tool for creating identical machine images for multiple platforms
 brew "packer"
 # PAM module for reattaching to the user's GUI (Aqua) session
-brew "pam-reattach"
+brew "pam-reattach" if OS.mac?
 # Tool for managing OCI containers and pods
 brew "podman"
 # Alternative to docker-compose using podman
@@ -157,7 +157,7 @@ brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # Run macOS VMs on Apple Silicon
-brew "cirruslabs/cli/tart"
+brew "cirruslabs/cli/tart" if OS.mac? && Hardware::CPU.arm?
 # Non-interactive ssh password auth Files
 brew "esolitos/ipa/sshpass"
 # Task runner / simpler Make alternative written in Go
