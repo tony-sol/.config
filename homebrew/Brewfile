@@ -11,7 +11,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
 tap "homebrew/services"
-tap "jesseduffield/horcrux"
 tap "mutagen-io/mutagen"
 tap "wez/wezterm"
 # GNU compiler collection
@@ -176,8 +175,6 @@ brew "gromgit/fuse/simple-mtpfs-mac" if OS.mac?
 brew "gromgit/fuse/sshfs-mac" if OS.mac?
 # True release manager for Kubernetes
 brew "helmwave/tap/helmwave"
-# A program for splitting your files into encrypted fragments
-brew "jesseduffield/horcrux/horcrux"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
 # Transfer files from and to an Android smartphone
