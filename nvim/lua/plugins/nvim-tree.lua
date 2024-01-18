@@ -26,6 +26,13 @@ return {
 				highlight_modified     = 'all',
 				indent_markers         = {
 					enable = true,
+					icons  = {
+						corner = utils.extraFillchars().upright,
+						edge   = utils.defaultFillchars().vert,
+						item   = utils.defaultFillchars().vert,
+						bottom = utils.defaultFillchars().horiz,
+						none   = utils.defaultFillchars().wbr,
+					},
 				},
 				special_files          = { 'Makefile', 'README.md', 'readme.md' },
 				icons                  = {

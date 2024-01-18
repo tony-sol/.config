@@ -9,12 +9,24 @@ return {
 				},
 			},
 			symbol_folding = {
-				autofold_depth    = nil,
+				autofold_depth    = 1,
+				auto_unfold       = {
+					only = 2,
+				},
 				auto_unfold_hover = true,
-				markers           = { '', '' },
+				markers           = {
+					utils.defaultFillchars().foldclose,
+					utils.defaultFillchars().foldopen,
+				},
 			},
 			guides         = {
 				enabled = true,
+				markers = {
+					bottom     = utils.extraFillchars().upright,
+					middle     = utils.defaultFillchars().vertright,
+					vertical   = utils.defaultFillchars().vert,
+					horizontal = utils.defaultFillchars().horiz,
+				},
 			},
 			preview_window = {
 				auto_preview = false,
@@ -31,10 +43,10 @@ return {
 			},
 			outline_items  = {
 				show_symbol_details    = true,
+				show_symbol_lineno     = false,
 				highlight_hovered_item = true,
 			},
 			provider       = {
-
 			},
 		}
 	end

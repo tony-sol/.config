@@ -8,52 +8,54 @@ return {
 	event        = 'VimEnter',
 	config       = function()
 		local todo_comments = require('todo-comments')
+		local keywords      = {
+			URL  = {
+				icon = ' ', color = 'hint', alt = { 'LINK' }
+			},
+			DOC  = {
+				icon = ' ', color = 'info', alt = { 'DOCS', 'SEE' }
+			},
+			FIX  = {
+				icon = ' ', color = 'error', alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' }
+			},
+			TODO = {
+				icon = ' ', color = 'info', alt = {}
+			},
+			HACK = {
+				icon = ' ', color = 'warning', alt = {}
+			},
+			WARN = {
+				icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' }
+			},
+			PERF = {
+				icon = ' ', color = 'default', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' }
+			},
+			NOTE = {
+				icon = ' ', color = 'hint', alt = { 'INFO' }
+			},
+			TEST = {
+				icon = ' ⏲', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' },
+			},
+		}
+		for key, val in pairs(keywords) do
+			local alt_lower = { key:lower() }
+			for _, alt in pairs(val.alt) do
+				table.insert(alt_lower, alt:lower())
+			end
+			for _, alt in pairs(alt_lower) do
+				table.insert(val.alt, alt)
+			end
+		end
 		todo_comments.setup {
-			-- @HACK wait for case-insensitive highlighting
-			keywords  = {
-				URL  = {
-					icon = ' ',
-					alt = { 'LINK', 'url', 'link' },
-					color = 'hint'
-				},
-				DOC  = {
-					icon = ' ',
-					alt = { 'DOCS', 'doc', 'docs', 'see' },
-					color = 'info'
-				},
-				FIX  = {
-					icon = ' ',
-					alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE', 'fix', 'fixme', 'bug', 'fixit', 'issue' }
-				},
-				TODO = {
-					icon = ' ',
-					alt = { 'todo' }
-				},
-				HACK = {
-					icon = ' ',
-					alt = { 'hack' }
-				},
-				WARN = {
-					icon = ' ',
-					alt = { 'WARNING', 'XXX', 'warn', 'warning', 'xxx' }
-				},
-				PERF = {
-					icon = ' ',
-					alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE', 'perf', 'optim', 'performance', 'optimize' }
-				},
-				NOTE = {
-					icon = ' ',
-					alt = { 'INFO', 'note', 'info' }
-				},
-				TEST = {
-					icon = ' ⏲',
-					alt = { 'TESTING', 'PASSED', 'FAILED', 'test', 'testing', 'passed', 'failed' }
-				},
+			keywords  = keywords,
+			gui_style = {
+				fg = 'bold',
+				bg = 'bold',
 			},
 			highlight = {
 				before  = '',
 				after   = 'fg',
-				keyword = 'wide',
+				keyword = 'wide_fg',
 				pattern = {
 					[[.*<(KEYWORDS)\s*:]], -- default
 					[[.*\@(KEYWORDS)\s*]], -- default

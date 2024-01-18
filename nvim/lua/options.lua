@@ -8,12 +8,7 @@ opt.cursorline     = true
 opt.laststatus     = 3
 
 -- Fill chars
-opt.fillchars      = {
-	vert      = '│',
-	foldopen  = '', -- '-'
-	foldsep   = '│',
-	foldclose = '', -- '+'
-}
+opt.fillchars      =  utils.defaultFillchars()
 
 -- List settings
 opt.list           = true

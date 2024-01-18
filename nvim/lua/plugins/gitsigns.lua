@@ -7,14 +7,15 @@ return {
 	},
 	config       = function()
 		local gitsigns = require('gitsigns')
+		local utils    = require('utils')
 		gitsigns.setup {
 			signs                        = {
-				add          = { text = '│' },
-				change       = { text = '│' },
-				delete       = { text = '_' },
-				topdelete    = { text = '‾' },
-				changedelete = { text = '~' },
-				untracked    = { text = '┆' },
+				add          = { text = utils.defaultFillchars().vert },
+				change       = { text = utils.defaultFillchars().vert },
+				delete       = { text = utils.extraFillchars().bottom },
+				topdelete    = { text = utils.extraFillchars().top },
+				changedelete = { text = utils.defaultFillchars().eob },
+				untracked    = { text = utils.extraFillchars().vertdashed },
 			},
 			signcolumn                   = true,
 			numhl                        = true,

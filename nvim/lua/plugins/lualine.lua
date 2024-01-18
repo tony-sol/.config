@@ -6,8 +6,8 @@ return {
 		},
 	},
 	config       = function()
-		local utils   = require('utils')
 		local lualine = require('lualine')
+		local utils   = require('utils')
 		local section = {
 			lualine_a = {
 				'mode',

@@ -22,6 +22,40 @@ function M.defaultSidebarSize()
 	return 40
 end
 
+---@return {wbr: string, vert: string, vertleft: string, vertright: string, verthoriz: string, horiz: string, horizup: string, horizdown: string, foldopen: string, foldclose: string, foldsep: string, diff: string, msgsep: string, eob: string, lastline: string}
+function M.defaultFillchars()
+	return {
+		wbr       = ' ',
+		vert      = '│',
+		vertleft  = '┤',
+		vertright = '├',
+		verthoriz = '┼',
+		horiz     = '─',
+		horizup   = '┴',
+		horizdown = '┬',
+		foldopen  = '',
+		foldclose = '',
+		foldsep   = '│',
+		diff      = '-',
+		msgsep    = ' ',
+		eob       = '~',
+		lastline  = '@',
+	}
+end
+
+---@return {upright: string, upleft: string, downright: string, downleft: string, vertdashed: string, top: string, bottom: string}
+function M.extraFillchars()
+	return {
+		upright    = '└',
+		upleft     = '┘',
+		downright  = '┌',
+		downleft   = '┐',
+		vertdashed = '┆',
+		top        = '‾',
+		bottom     = '_',
+	}
+end
+
 ---@param table1 table
 ---@param table2 table
 ---@return table
