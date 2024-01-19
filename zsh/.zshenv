@@ -87,6 +87,7 @@ export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible"
 export ANSIBLE_LOCAL_TEMP="${XDG_CACHE_HOME}/ansible"
 export ANSIBLE_VAULT_PASSWORD_FILE="${ANSIBLE_HOME}/.vault-password"
 # set python configs
+export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history"
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 # set virtualenv configs
