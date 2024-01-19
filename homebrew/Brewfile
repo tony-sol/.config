@@ -47,8 +47,6 @@ brew "glibc" if OS.linux?
 brew "glow"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
 # Smarter Dockerfile linter to validate best practices
@@ -65,8 +63,6 @@ brew "hey"
 brew "htop"
 # Run local Kubernetes cluster in Docker
 brew "kind"
-# Statically typed programming language for the JVM
-brew "kotlin"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Package manager for kubectl plugins
@@ -81,8 +77,6 @@ brew "lazydocker"
 brew "lazygit"
 # Terminal file manager
 brew "lf"
-# Package manager for the Lua programming language
-brew "luarocks"
 # Java-based project management
 brew "maven"
 # Run a Kubernetes cluster locally

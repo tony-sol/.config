@@ -1,4 +1,7 @@
 [tools]
 node = "16.17.0"
 python = "system"
-ruby = "3.3.0"
+ruby = "latest"
+lua = "latest"
+go = "latest"
+kotlin = "latest"
