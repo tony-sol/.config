@@ -56,6 +56,7 @@
 
     - name: Enable TouchId in terminal
       become: True
+      when: ansible_facts['os_family'] == "Darwin"
       lineinfile:
         path: "/etc/pam.d/sudo"
         line: "auth  sufficient  pam_tid.so"
@@ -63,6 +64,7 @@
 
     - name: Enable TouchId in tmux
       become: True
+      when: ansible_facts['os_family'] == "Darwin"
       lineinfile:
         path: "/etc/pam.d/sudo"
         insertbefore: BOF
