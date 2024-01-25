@@ -189,6 +189,8 @@ cask "google-drive"
 cask "jetbrains-toolbox"
 # Open-source keystroke visualizer
 cask "keycastr"
+# Clipboard manager
+cask "maccy"
 # File system integration
 cask "macfuse"
 # Penetration testing framework
