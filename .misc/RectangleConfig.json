@@ -52,6 +52,9 @@
     "doubleClickTitleBar" : {
       "int" : 3
     },
+    "doubleClickTitleBarIgnoredApps" : {
+
+    },
     "doubleClickTitleBarRestore" : {
       "int" : 0
     },
@@ -219,6 +222,10 @@
     }
   },
   "shortcuts" : {
+    "bottomCenterSixth" : {
+      "keyCode" : 23,
+      "modifierFlags" : 393216
+    },
     "bottomHalf" : {
       "keyCode" : 38,
       "modifierFlags" : 1310720
@@ -227,9 +234,17 @@
       "keyCode" : 4,
       "modifierFlags" : 1835008
     },
+    "bottomLeftSixth" : {
+      "keyCode" : 21,
+      "modifierFlags" : 393216
+    },
     "bottomRight" : {
       "keyCode" : 37,
       "modifierFlags" : 1835008
+    },
+    "bottomRightSixth" : {
+      "keyCode" : 22,
+      "modifierFlags" : 393216
     },
     "centerHalf" : {
       "keyCode" : 46,
@@ -280,11 +295,23 @@
       "modifierFlags" : 1310720
     },
     "maximize" : {
-      "keyCode" : 40,
+      "keyCode" : 3,
       "modifierFlags" : 786432
     },
-    "maximizeHeight" : {
+    "moveDown" : {
       "keyCode" : 38,
+      "modifierFlags" : 786432
+    },
+    "moveLeft" : {
+      "keyCode" : 4,
+      "modifierFlags" : 786432
+    },
+    "moveRight" : {
+      "keyCode" : 37,
+      "modifierFlags" : 786432
+    },
+    "moveUp" : {
+      "keyCode" : 40,
       "modifierFlags" : 786432
     },
     "nextDisplay" : {
@@ -323,6 +350,10 @@
       "keyCode" : 17,
       "modifierFlags" : 786432
     },
+    "topCenterSixth" : {
+      "keyCode" : 19,
+      "modifierFlags" : 393216
+    },
     "topHalf" : {
       "keyCode" : 40,
       "modifierFlags" : 1310720
@@ -331,10 +362,18 @@
       "keyCode" : 4,
       "modifierFlags" : 1441792
     },
+    "topLeftSixth" : {
+      "keyCode" : 18,
+      "modifierFlags" : 393216
+    },
     "topRight" : {
       "keyCode" : 37,
       "modifierFlags" : 1441792
+    },
+    "topRightSixth" : {
+      "keyCode" : 20,
+      "modifierFlags" : 393216
     }
   },
-  "version" : "79"
+  "version" : "81"
 }
