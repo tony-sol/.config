@@ -298,6 +298,10 @@
       "keyCode" : 3,
       "modifierFlags" : 786432
     },
+    "maximizeHeight" : {
+      "keyCode" : 3,
+      "modifierFlags" : 917504
+    },
     "moveDown" : {
       "keyCode" : 38,
       "modifierFlags" : 786432
