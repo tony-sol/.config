@@ -9,7 +9,7 @@ export XDG_BIN_HOME="${HOME}/.local/bin"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_RUNTIME_DIR="${HOME}/.local/run"
-export XDG_CACHE_HOME="${HOME}/.local/cache"
+export XDG_CACHE_HOME="${HOME}/.cache"
 # set XDG User Directories Specification
 export XDG_DESKTOP_DIR="${HOME}/Desktop"
 export XDG_DOCUMENTS_DIR="${HOME}/Documents"
