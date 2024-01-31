@@ -127,9 +127,6 @@ export MISE_SHIMS="${MISE_DATA_DIR}/shims"
 export MISE_GLOBAL_CONFIG_FILE="${MISE_CONFIG_DIR}/config.toml"
 export MISE_SETTINGS_FILE="${MISE_CONFIG_DIR}/settings.toml"
 export MISE_SHORTHANDS_FILE="${MISE_CONFIG_DIR}/shorthands.toml"
-# set asdf configs (for mise)
-export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
-export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
 # set dotnet configs
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
