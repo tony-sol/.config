@@ -81,15 +81,13 @@ _complete_alias() {
 }
 zstyle ':completion:*' completer _complete _ignored _complete_alias
 zstyle ':completion:*' rehash true
-
-# zsh extensions completion
 zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
 zstyle ':autocomplete:*' fzf-completion yes
 zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
+source "$(brew --prefix fzf)/shell/completion.zsh"
 
-# other completions
-lazyload fzf -- 'source "$(brew --prefix fzf)/shell/completion.zsh"'
+# lazyload completions
 lazyload pip3 -- 'source <(pip3 completion --zsh)'
 lazyload molecule -- 'source <(_MOLECULE_COMPLETE=zsh_source molecule)'
 lazyload npm -- 'source <(npm completion)'
