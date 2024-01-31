@@ -34,9 +34,16 @@ fi
 # set zsh configs
 export TERM="xterm-256color"
 export WORDCHARS='*?[]~=&!#$%^(){}<>'
-# set brew configs
-export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
-export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX}"
+# set homebrew configs
+case $(uname -s) in
+	"Darwin" | "darwin" )
+		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
+		;;
+	"Linux" | "linux" )
+		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
+		;;
+esac
+export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX/Homebrew}"
 export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
 # set tmux configs
 export TMUX_CONF="${XDG_CONFIG_HOME}/tmux/tmux.conf"
