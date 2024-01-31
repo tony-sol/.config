@@ -47,8 +47,6 @@ brew "glibc" if OS.linux?
 brew "glow"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Open-source build automation tool based on the Groovy and Kotlin DSL
-brew "gradle"
 # Smarter Dockerfile linter to validate best practices
 brew "hadolint"
 # Kubernetes package manager
