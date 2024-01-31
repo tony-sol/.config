@@ -1,5 +1,5 @@
 [tools]
-node = "16.17.0"
+node = "18.17.0"
 python = "system"
 ruby = "latest"
 lua = "latest"
