@@ -12,12 +12,16 @@ return {
 		},
 	},
 	config       = function()
-		local lsp_config                               = require('lspconfig')
-		local capabilities                             = require('cmp_nvim_lsp')
-		local default_capabilities                     = capabilities.default_capabilities()
-		default_capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly     = true,
+		local lsp_config           = require('lspconfig')
+		local capabilities         = require('cmp_nvim_lsp')
+		local default_capabilities = capabilities.default_capabilities()
+		default_capabilities       = {
+			textDocument = {
+				foldingRange = {
+					dynamicRegistration = false,
+					lineFoldingOnly     = true,
+				}
+			}
 		}
 		lsp_config.ansiblels.setup {
 			capabilities = default_capabilities,

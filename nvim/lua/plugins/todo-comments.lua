@@ -54,7 +54,7 @@ return {
 			},
 			highlight = {
 				before  = '',
-				after   = 'fg',
+				after   = '',
 				keyword = 'wide_fg',
 				pattern = {
 					[[.*<(KEYWORDS)\s*:]], -- default

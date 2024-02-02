@@ -27,6 +27,9 @@ opt.shiftwidth     = 4
 opt.smarttab       = true
 opt.smartindent    = true
 
+-- Wrap settings
+opt.linebreak      = false
+
 -- Fold settings
 opt.foldcolumn     = 'auto'
 opt.foldlevel      = 99

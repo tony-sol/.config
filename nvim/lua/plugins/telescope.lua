@@ -39,7 +39,7 @@ return {
 				},
 			},
 			extensions = {
-				file_browser   = {
+				['file_browser']   = {
 					prompt_path       = true,
 					grouped           = true,
 					hidden            = {
@@ -48,10 +48,11 @@ return {
 					},
 					respect_gitignore = false,
 				},
-				live_grep_args = {},
-				dap            = {},
-				noice          = {},
-				notify         = {},
+				['live_grep_args'] = {},
+				['dap']            = {},
+				['noice']          = {},
+				['notify']         = {},
+				['todo-comments']  = {},
 			},
 		}
 		telescope.load_extension('file_browser')
@@ -59,5 +60,6 @@ return {
 		telescope.load_extension('dap')
 		telescope.load_extension('noice')
 		telescope.load_extension('notify')
+		telescope.load_extension('todo-comments')
 	end
 }
