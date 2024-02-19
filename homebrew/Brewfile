@@ -151,8 +151,8 @@ brew "wireshark", link: false
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
-# Run macOS VMs on Apple Silicon
 brew "cirruslabs/cli/tart" if OS.mac? && Hardware::CPU.arm?
+# Run macOS and Linux VMs on Apple Hardware
 # Non-interactive ssh password auth Files
 brew "esolitos/ipa/sshpass"
 # Task runner / simpler Make alternative written in Go
@@ -171,7 +171,7 @@ brew "mutagen-io/mutagen/mutagen"
 cask "android-file-transfer"
 # Remotely access another computer through the Google Chrome browser
 cask "chrome-remote-desktop-host"
-# App to build and share containerized applications and microservices
+# App to build and share containerised applications and microservices
 cask "docker"
 # Developer platform
 cask "dotnet-sdk"
@@ -185,7 +185,7 @@ cask "google-chrome"
 cask "google-drive"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
-# Open-source keystroke visualizer
+# Open-source keystroke visualiser
 cask "keycastr"
 # Clipboard manager
 cask "maccy"
