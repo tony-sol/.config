@@ -5,9 +5,10 @@
   hosts: localhost
   connection: local
   tags:
-    - configs
+    - environment
   vars:
     the_user: "{{ ansible_user_id }}"
+    ansible_remote_tmp: /tmp
   tasks:
     - name: Ensure zsh is default shell
       become: true
@@ -25,7 +26,7 @@
         - repo_clone.failed
         - not 'Local modifications exist in the destination' in repo_clone.msg
 
-    - name: Remove existing configs
+    - name: Remove existing shell files
       file:
         path: "~/{{ item }}"
         state: absent
@@ -36,7 +37,7 @@
         - .bash_profile
         - .profile
 
-    - name: Link config to shell
+    - name: Link env to shell
       file:
         src: ".config/zsh/.zshenv"
         dest: "~/.zshenv"
@@ -54,6 +55,17 @@
         state: link
       with_items: "{{ find.files }}"
 
+- name:
+  become: false
+  gather_facts: true
+  hosts: localhost
+  connection: local
+  tags:
+    - settings
+  vars:
+    the_user: "{{ ansible_user_id }}"
+    ansible_remote_tmp: /tmp
+  tasks:
     - name: Enable TouchId in terminal
       become: True
       when: ansible_facts['os_family'] == "Darwin"
