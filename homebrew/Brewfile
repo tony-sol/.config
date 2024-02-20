@@ -19,6 +19,8 @@ brew "gcc" if OS.linux?
 brew "act"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
+# Code searching, linting, rewriting
+brew "ast-grep"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
