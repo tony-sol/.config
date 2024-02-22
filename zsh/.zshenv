@@ -140,10 +140,12 @@ export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep java.home
 export MAVEN_HOME="${XDG_DATA_HOME}/m2"
 export MAVEN_REPOSITORY="${XDG_DATA_HOME}/m2/repository"
 export MAVEN_ARGS="-gs ${XDG_CONFIG_HOME}/m2/settings.xml"
+export M3_HOME="${MAVEN_HOME}"
 export M2_HOME="${MAVEN_HOME}"
 export M2="${M2_HOME}/bin"
 # set gradle configs
-export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
+export GRADLE_HOME="${XDG_DATA_HOME}/gradle"
+export GRADLE_USER_HOME="${GRADLE_HOME}"
 # set luarocks configs
 export LUAROCKS_CONFIG="${XDG_CONFIG_HOME}/luarocks/config.lua"
 # set composer configs
