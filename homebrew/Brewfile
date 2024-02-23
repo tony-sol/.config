@@ -10,6 +10,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
+tap "homebrew/core"
 tap "homebrew/services"
 tap "mutagen-io/mutagen"
 tap "wez/wezterm"
@@ -153,8 +154,8 @@ brew "wireshark", link: false
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
-brew "cirruslabs/cli/tart" if OS.mac? && Hardware::CPU.arm?
 # Run macOS and Linux VMs on Apple Hardware
+brew "cirruslabs/cli/tart" if OS.mac? && Hardware::CPU.arm?
 # Non-interactive ssh password auth Files
 brew "esolitos/ipa/sshpass"
 # Task runner / simpler Make alternative written in Go
