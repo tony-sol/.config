@@ -108,6 +108,8 @@ brew "pam-reattach" if OS.mac?
 brew "podman"
 # Alternative to docker-compose using podman
 brew "podman-compose"
+# Podman Terminal User Interface
+brew "podman-tui"
 # Python package management tool
 brew "poetry"
 # Monitor data's progress through a pipe
