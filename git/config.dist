@@ -11,25 +11,24 @@
 [core]
 	autocrlf = input
 	editor = nvim
-	pager = less -i
 	quotepath = true
 [fetch]
+	recurseSubmodules = true
 	prune = true
+	pruneTags = true
 [rebase]
 	autoStash = true
 [pull]
 	rebase = true
 [push]
 	default = current
-[diff]
-	context = 2
 [color]
 	ui = always
 	grep = always
 	interactive = always
+	diff = auto
 	branch = always
 	status = always
-	diff = auto
 [color "branch"]
 	current = magenta
 	local = green
