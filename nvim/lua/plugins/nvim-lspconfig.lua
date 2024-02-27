@@ -14,7 +14,9 @@ return {
 	config       = function()
 		local lsp_config           = require('lspconfig')
 		local capabilities         = require('cmp_nvim_lsp')
-		local default_capabilities = capabilities.default_capabilities()
+		local default_capabilities = capabilities.default_capabilities({
+			dynamicRegistration = true,
+		})
 		default_capabilities       = {
 			textDocument = {
 				foldingRange = {
