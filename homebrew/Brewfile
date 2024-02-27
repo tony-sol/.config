@@ -78,6 +78,8 @@ brew "lazydocker"
 brew "lazygit"
 # Terminal file manager
 brew "lf"
+# Linux virtual machines
+brew "lima"
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Polyglot runtime manager (asdf rust clone)
