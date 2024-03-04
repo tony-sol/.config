@@ -6,16 +6,12 @@ tap "gromgit/fuse" if OS.mac?
 tap "hashicorp/tap"
 tap "helmwave/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "mutagen-io/mutagen"
 tap "wez/wezterm"
-# GNU compiler collection
-brew "gcc" if OS.linux?
 # Run your GitHub Actions locally
 brew "act"
 # Automate deployment, configuration, and upgrading
@@ -40,6 +36,8 @@ brew "dive"
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU compiler collection
+brew "gcc" if OS.linux?
 # GitHub command-line tool
 brew "gh"
 # Git extension for versioning large files
@@ -126,6 +124,8 @@ brew "ripgrep"
 brew "socat"
 # Editor of encrypted files
 brew "sops"
+# Non-interactive SSH password auth
+brew "sshpass"
 # CLI for generating a Software Bill of Materials from container images
 brew "syft"
 # Command-line packet analyzer
@@ -152,16 +152,12 @@ brew "waypoint"
 brew "werf"
 # Internet file retriever
 brew "wget"
-# Graphical network analyzer and capture tool
-brew "wireshark", link: false
 # Tool for managing your YubiKey configuration
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # Run macOS and Linux VMs on Apple Hardware
 brew "cirruslabs/cli/tart" if OS.mac? && Hardware::CPU.arm?
-# Non-interactive ssh password auth Files
-brew "esolitos/ipa/sshpass"
 # Task runner / simpler Make alternative written in Go
 brew "go-task/tap/go-task"
 # Simple security auditing, helping build the Best Docker Images
