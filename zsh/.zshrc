@@ -45,6 +45,15 @@ fi
 export PROMPT='%{$bldcyn%}%~%{$txtrst%} $([ $? -ne 0 ] && echo -e "%{$bldred%}\U2718" || echo -e "%{$bldgrn%}\U2714")%{$txtrst%} $ '
 export RPROMPT='%{$bldgrn%}$git_ahead_mark$git_ahead_count%{$bldred%}$git_behind_mark$git_behind_count%{$bldcyn%}$git_stash_mark%{$bldylw%}$git_dirty$git_dirty_count%{$bldblu%}$git_staged_mark$git_staged_count%{$bldpur%}$git_unknown_mark$git_unknown_count%{$txtrst%}%{$txtcyn%}$git_branch $(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_code)%{$txtrst%}'
 
+# hacks
+export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
+alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
+case $(uname -s | tr "[:upper:]" "[:lower:]") in
+	"darwin" )
+		export __BAT_THEME="\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo vs-dark || echo vs-light)"
+		;;
+esac
+
 # aliases
 alias l='ls -AF'
 alias ll='l -hl'
@@ -53,15 +62,12 @@ alias t='tt -L 1'
 
 # commands replacements
 alias vim='nvim'
-alias cat='bat --paging=never'
-alias less='bat --paging=always'
-alias -g -- --help='--help 2>&1 | bat --paging=never --language=help --style=plain'
+alias cat="bat --paging=never ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
+alias less="bat --paging=always ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
+alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 
+# hooks
 eval "$(mise activate $(basename -- ${SHELL}))"
-
-# hacks
-export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
-alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
 
 # keymappings
 bindkey "^[[1;3C" forward-word

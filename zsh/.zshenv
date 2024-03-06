@@ -35,11 +35,11 @@ fi
 export TERM="xterm-256color"
 export WORDCHARS='*?[]~=&!#$%^(){}<>'
 # set homebrew configs
-case $(uname -s) in
-	"Darwin" | "darwin" )
+case $(uname -s | tr "[:upper:]" "[:lower:]") in
+	"darwin" )
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 		;;
-	"Linux" | "linux" )
+	"linux" )
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
 		;;
 esac
