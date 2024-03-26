@@ -44,6 +44,7 @@ case $(uname -s | tr "[:upper:]" "[:lower:]") in
 		;;
 esac
 export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX/Homebrew}"
+export HOMEBREW_LIBRARY="${HOMEBREW_LIBRARY:-$HOMEBREW_REPOSITORY/Library}"
 export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
 # set tmux configs
 export TMUX_CONF="${XDG_CONFIG_HOME}/tmux/tmux.conf"

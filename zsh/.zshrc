@@ -68,6 +68,7 @@ alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=pla
 
 # hooks
 eval "$(mise activate $(basename -- ${SHELL}))"
+source "${HOMEBREW_LIBRARY}/Taps/homebrew/homebrew-command-not-found/handler.sh" || true
 
 # keymappings
 bindkey "^[[1;3C" forward-word
