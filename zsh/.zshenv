@@ -20,8 +20,11 @@ export XDG_PUBLICSHARE_DIR="${XDG_PUBLICSHARE_DIR:-${HOME}/Public}"
 export XDG_TEMPLATES_DIR="${XDG_TEMPLATES_DIR:-${HOME}/Templates}"
 export XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-${HOME}/Videos}"
 # set zsh configs
-export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZLE_RPROMPT_INDENT=0
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export HISTFILE="${ZDOTDIR}/.zsh_history"
+export HISTSIZE=200000
+export SAVEHIST=200000
 
 # =====================================================================
 
@@ -169,14 +172,23 @@ export VISUAL=nvim
 export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
 
 unsetopt MULTIOS
+setopt EMACS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
 setopt SH_WORD_SPLIT
 setopt INTERACTIVE_COMMENTS
 setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
+setopt HIST_NO_STORE
+setopt HIST_REDUCE_BLANKS
 setopt SHARE_HISTORY
-setopt EMACS
+setopt EXTENDED_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
 
 # zsh extensions
 source "${ZDOTDIR}/extensions/git-aware-prompt/main.sh"
