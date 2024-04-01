@@ -37,7 +37,7 @@ if ! ps -p ${SSH_AGENT_PID:-0} 2>&1 > /dev/null ; then
 fi
 export SSH_AGENT_PID=${SSH_AGENT_PID:-`pgrep -x ssh-agent`}
 if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
-	ssh-add "${HOME}/.ssh/id_rsa"
+	ssh-add "${HOME}/.ssh/id_ed25519"
 fi
 
 # U+2714 ✔︎

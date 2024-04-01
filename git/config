@@ -1,7 +1,11 @@
 [user]
 	name = Tony-Sol
 	email = tony.kent.nar.earth@gmail.com
-	signingKey = tony.kent.nar.earth@gmail.com
+	signingkey = ~/.ssh/id_ed25519.pub
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
 [commit]
 	gpgsign = true
 [tag]
@@ -11,6 +15,7 @@
 [core]
 	autocrlf = input
 	editor = nvim
+	pager = less -i
 	quotepath = true
 [fetch]
 	recurseSubmodules = true
@@ -22,13 +27,15 @@
 	rebase = true
 [push]
 	default = current
+[diff]
+	context = 2
 [color]
 	ui = always
 	grep = always
 	interactive = always
-	diff = auto
 	branch = always
 	status = always
+	diff = auto
 [color "branch"]
 	current = magenta
 	local = green
@@ -46,3 +53,13 @@
 	pretty = format:%C(cyan bold)%H%C(reset) %ci %C(italic)(%cr)%C(reset) %C(blue)%cn%C(reset) %C(auto,bold)%G?%C(reset) %C(green)%s%C(magenta)%d%C(reset) %C(red)(%an)%C(reset) %C(yellow)[%p]%C(reset) %b
 [i18n]
 	logOutputEncoding = utf-8
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+#
+# include work overrides
+#
+[includeIf "gitdir/i:~/Projects/work/"]
+	path = ~/Projects/work/.gitconfig

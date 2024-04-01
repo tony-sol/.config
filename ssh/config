@@ -1,0 +1,8 @@
+Host *
+	AddKeysToAgent yes
+	UseKeychain yes
+	HostkeyAlgorithms +ssh-ed25519
+	PubkeyAcceptedAlgorithms +ssh-ed25519
+	IdentityFile ~/.ssh/id_ed25519
+	ControlMaster auto
+	ControlPath /tmp/ssh-%r@%h:%p
