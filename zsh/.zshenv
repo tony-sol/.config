@@ -69,14 +69,14 @@ export FZF_DEFAULT_OPTS="--multi --cycle --keep-right --height=40% --layout=reve
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # set kubernetes configs
-export KUBECACHEDIR="${XDG_CACHE_HOME}/kube"
-export KUBEHOMEDIR="${XDG_CONFIG_HOME}/kube"
-export KUBECONFIG="${KUBEHOMEDIR}/config"
+export KUBEHOME="${XDG_DATA_HOME}/kube"
+export KUBECONFIG="${KUBEHOME}/config"
+export KUBECACHEDIR="${KUBEHOME}/cache"
 # set kubernetes krew configs
 export KREW_ROOT="${XDG_DATA_HOME}/krew"
 export KREW_BIN="${KREW_ROOT}/bin"
 # set minikube configs
-export MINIKUBE_HOME="${KUBEHOMEDIR}/.minikube"
+export MINIKUBE_HOME="${XDG_DATA_HOME}/minikube"
 # set werf configs
 export WERF_TMP_DIR="${XDG_CACHE_HOME}/werf"
 export WERF_HOME="${XDG_CONFIG_HOME}/werf"
