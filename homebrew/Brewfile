@@ -26,8 +26,6 @@ brew "bat"
 brew "cmake"
 # Test your configuration files using Open Policy Agent
 brew "conftest"
-# Tool for service discovery, monitoring and configuration
-brew "consul"
 # Top-like interface for container metrics
 brew "ctop"
 # Tool for exploring each layer in a docker image
@@ -88,8 +86,6 @@ brew "molecule"
 brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
-# Distributed, Highly Available, Datacenter-Aware Scheduler
-brew "nomad"
 # SQL query tool to analyze data from different file formats and databases
 brew "octosql"
 # Open source, general-purpose policy engine
@@ -100,8 +96,6 @@ brew "opensc"
 brew "opentofu"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
 brew "openvpn"
-# Tool for creating identical machine images for multiple platforms
-brew "packer"
 # PAM module for reattaching to the user's GUI (Aqua) session
 brew "pam-reattach" if OS.mac?
 # Tool for managing OCI containers and pods
@@ -132,8 +126,6 @@ brew "syft"
 brew "tcpdump"
 # User interface to the TELNET protocol
 brew "telnet"
-# Tool to build, change, and version infrastructure
-brew "terraform"
 # Go app which generates a dynamic Ansible inventory from a Terraform state file
 brew "terraform-inventory"
 # Terminal multiplexer
@@ -142,12 +134,8 @@ brew "tmux"
 brew "tree"
 # Vulnerability scanner for container images, file systems, and Git repos
 brew "trivy"
-# Secures, stores, and tightly controls access to secrets
-brew "vault"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
-# Tool to build, deploy, and release any application on any platform
-brew "waypoint"
 # Consistent delivery tool for Kubernetes
 brew "werf"
 # Internet file retriever
@@ -166,6 +154,18 @@ brew "goodwithtech/r/dockle"
 brew "gromgit/fuse/simple-mtpfs-mac" if OS.mac?
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac" if OS.mac?
+# Consul
+brew "hashicorp/tap/consul"
+# Nomad
+brew "hashicorp/tap/nomad"
+# Packer
+brew "hashicorp/tap/packer"
+# Terraform
+brew "hashicorp/tap/terraform"
+# Vault
+brew "hashicorp/tap/vault"
+# Waypoint
+brew "hashicorp/tap/waypoint"
 # True release manager for Kubernetes
 brew "helmwave/tap/helmwave"
 # Fast file synchronization and network forwarding for remote development
