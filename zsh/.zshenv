@@ -84,8 +84,8 @@ export WERF_HOME="${XDG_CONFIG_HOME}/werf"
 export VAGRANT_HOME="${XDG_CONFIG_HOME}/vagrant"
 export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"
 # set terraform configs
-export TF_HOME_DIR="${XDG_CONFIG_HOME}/terraform"
-export TF_CLI_CONFIG_FILE="${TF_HOME_DIR}/terraform.tfrc"
+export TF_HOME_DIR="${XDG_DATA_HOME}/terraform"
+export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraform.tfrc"
 # set vault configs
 export VAULT_CONFIG_PATH="${XDG_CONFIG_HOME}/vault/.client.hcl"
 export VAULT_ADDR="http://127.0.0.1:8200"
