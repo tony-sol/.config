@@ -22,7 +22,7 @@ end
 
 return {
 	term                         = 'xterm-256color',
-	default_prog                 = { '/bin/zsh', '--login', '--interactive', '-c', 'tmux new -A' },
+	default_prog                 = { '/opt/homebrew/bin/zsh', '--login', '--interactive', '-c', 'tmux new -A' },
 	exit_behavior                = 'CloseOnCleanExit',
 	color_scheme                 = scheme_for_appearance('vscode', get_appearance()),
 	color_schemes                = require('color-schemes'),
