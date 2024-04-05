@@ -19,8 +19,8 @@
     - name: Clone configs from Github
       git:
         recursive: true
-        repo: "https://github.com/Tony-Sol/.config.git"
-        dest: "~/.config"
+        repo: https://github.com/Tony-Sol/.config.git
+        dest: ~/.config
       register: repo_clone
       failed_when:
         - repo_clone.failed
@@ -39,49 +39,9 @@
 
     - name: Link env to shell
       file:
-        src: ".config/zsh/.zshenv"
-        dest: "~/.zshenv"
+        src: .config/zsh/.zshenv
+        dest: ~/.zshenv
         state: link
-
-    - name: Find all files in ~/.config/git/commands
-      find:
-        paths: "~/.config/git/commands"
-      register: find
-
-    - name: Create symlinks to /usr/local/bin
-      file:
-        src: "{{ item.path }}"
-        path: "~/.local/bin/{{ item.path | basename }}"
-        state: link
-      with_items: "{{ find.files }}"
-
-- name:
-  become: false
-  gather_facts: true
-  hosts: localhost
-  connection: local
-  tags:
-    - settings
-  vars:
-    the_user: "{{ ansible_user_id }}"
-    ansible_remote_tmp: /tmp
-  tasks:
-    - name: Enable TouchId in terminal
-      become: True
-      when: ansible_facts['os_family'] == "Darwin"
-      lineinfile:
-        path: "/etc/pam.d/sudo"
-        line: "auth  sufficient  pam_tid.so"
-        insertbefore: BOF
-
-    - name: Enable TouchId in tmux
-      become: True
-      when: ansible_facts['os_family'] == "Darwin"
-      lineinfile:
-        path: "/etc/pam.d/sudo"
-        insertbefore: BOF
-        # @todo remove hardcoded path to .so lib
-        line: "auth  optional  /opt/homebrew/lib/pam/pam_reattach.so"
 
 - name: Install everything
   become: false
@@ -107,3 +67,43 @@
 
     - name: Install everything
       shell: brew bundle --file ~/.config/homebrew/Brewfile --no-lock
+
+- name:
+  become: false
+  gather_facts: true
+  hosts: localhost
+  connection: local
+  tags:
+    - settings
+  vars:
+    the_user: "{{ ansible_user_id }}"
+    ansible_remote_tmp: /tmp
+  tasks:
+    - name: Enable TouchId in terminal
+      become: True
+      when: ansible_facts['os_family'] == "Darwin"
+      lineinfile:
+        state: present
+        path: /etc/pam.d/sudo_local
+        create: True
+        insertafter: EOF
+        line: |
+          auth    optional    /opt/homebrew/lib/pam/pam_reattach.so
+          auth    sufficient  pam_tid.so
+
+    - name: Enable homebrew zsh for chsh
+      become: True
+      when: ansible_facts['os_family'] == "Darwin"
+      lineinfile:
+        state: present
+        path: /etc/shells
+        insertafter: EOF
+        line: >-
+          /opt/homebrew/bin/zsh
+
+    - name: Enable homebrew zsh as default shell
+      become: true
+      when: ansible_facts['os_family'] == "Darwin"
+      user:
+        name: "{{ the_user }}"
+        shell: /opt/homebrew/bin/zsh
