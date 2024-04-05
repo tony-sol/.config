@@ -67,7 +67,8 @@ alias less="bat --paging=always ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 
 # hooks
-eval "$(mise activate $(basename -- ${SHELL}))"
+eval "$(fzf --zsh)"
+eval "$(mise activate zsh)"
 source "${HOMEBREW_LIBRARY}/Taps/homebrew/homebrew-command-not-found/handler.sh" || true
 
 # keymappings
@@ -75,7 +76,6 @@ bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 bindkey "\t" menu-select "${terminfo}[kcbt]" menu-select
 bindkey -M menuselect "\t" menu-complete "${terminfo}[kcbt]" reverse-menu-complete
-source "$(brew --prefix fzf)/shell/key-bindings.zsh"
 
 # auto completion
 autoload -U +X bashcompinit && bashcompinit
@@ -90,7 +90,6 @@ zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
 zstyle ':autocomplete:*' fzf-completion yes
 zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
-source "$(brew --prefix fzf)/shell/completion.zsh"
 
 # lazyload completions
 lazyload pip3 -- 'source <(pip3 completion --zsh)'

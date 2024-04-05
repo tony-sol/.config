@@ -63,9 +63,13 @@ export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 # set ripgrep configs
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # set fzf configs
-export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden"
-export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-export FZF_DEFAULT_OPTS="--multi --cycle --keep-right --height=40% --layout=reverse --border --info=inline --ansi --preview='bat --color=always --style=numbers --line-range=:50 {}'"
+export FZF_TMUX_OPTS="-p60%,80%"
+export FZF_DEFAULT_COMMAND="fd --follow --hidden"
+export FZF_DEFAULT_OPTS="--multi --cycle --keep-right --height=40% --layout=reverse --border --info=inline --ansi --preview='[[ -f {} ]] && [[ \$(file --brief --dereference --mime-type {}) =~ text ]] && bat --color=always --style=numbers --line-range=:200 {}'"
+export FZF_CTRL_T_COMMAND="fd --type file --type symlink --type socket --follow --hidden"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:100 {} | head -200'"
+export FZF_ALT_C_COMMAND="fd --type directory --follow --hidden"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # set kubernetes configs
