@@ -61,6 +61,7 @@ alias tt='tree -halFpugD'
 alias t='tt -L 1'
 
 # commands replacements
+alias krew='kubectl krew'
 alias vim='nvim'
 alias cat="bat --paging=never ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 alias less="bat --paging=always ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
@@ -86,6 +87,7 @@ _complete_alias() {
 }
 zstyle ':completion:*' completer _complete _ignored _complete_alias
 zstyle ':completion:*' rehash true
+zstyle ':completion:*' verbose yes
 zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
 zstyle ':autocomplete:*' fzf-completion yes
@@ -99,7 +101,6 @@ lazyload gh -- 'source <(gh completion --shell=zsh)'
 lazyload werf -- 'source <(werf completion --shell=zsh)'
 lazyload limactl -- 'source <(limactl completion zsh)'
 lazyload kubectl -- 'source <(kubectl completion zsh)'
-lazyload kubectl-krew -- 'source <(kubectl-krew completion zsh)'
 lazyload minikube -- 'source <(minikube completion zsh)'
 lazyload kind -- 'source <(kind completion zsh)'
 lazyload helm -- 'source <(helm completion zsh)'
