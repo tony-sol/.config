@@ -69,6 +69,8 @@ export FZF_CTRL_T_COMMAND="fd --type file --type symlink --type socket --follow 
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:100 {} | head -200'"
 export FZF_ALT_C_COMMAND="fd --type directory --follow --hidden"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+# set lima configs
+export LIMA_HOME="${XDG_DATA_HOME}/lima"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # set kubernetes configs
