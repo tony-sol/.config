@@ -1,5 +1,0 @@
-[services]
-  [services.localhost]
-    default = true
-    uri = "unix://${XDG_DATA_HOME}/containers/podman/machine/qemu/podman.sock"
-
