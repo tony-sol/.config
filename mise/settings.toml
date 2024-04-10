@@ -6,6 +6,8 @@ trusted_config_paths = [
 	'~/Projects',
 ]
 
+shorthands_file = "~/.config/mise/shorthands.toml"
+
 verbose = false
 asdf_compat = false
 raw = true
