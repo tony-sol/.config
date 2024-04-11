@@ -124,6 +124,8 @@ brew "sops"
 brew "sshpass"
 # CLI for generating a Software Bill of Materials from container images
 brew "syft"
+# Easiest, most secure way to use WireGuard and 2FA
+brew "tailscale"
 # Command-line packet analyzer
 brew "tcpdump"
 # User interface to the TELNET protocol
