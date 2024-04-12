@@ -73,6 +73,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export LIMA_HOME="${XDG_DATA_HOME}/lima"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+export DOCKER_CLI_PLUGINS="${DOCKER_CONFIG}/cli-plugins"
 # set kubernetes configs
 export KUBEHOME="${XDG_DATA_HOME}/kube"
 export KUBECONFIG="${KUBEHOME}/config"
