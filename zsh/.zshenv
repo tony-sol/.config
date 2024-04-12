@@ -165,6 +165,9 @@ export TELEPORT_HOME="${XDG_DATA_HOME}/tsh"
 export TELEPORT_GLOBAL_TSH_CONFIG="${XDG_CONFIG_HOME}/teleport/tsh.yaml"
 # set tart configs
 export TART_HOME="${XDG_DATA_HOME}/tart"
+# set glab configs
+export GLAB_CONFIG_DIR="${XDG_CONFIG_HOME}/glab-cli"
+export GH_CONFIG_DIR="${XDG_CONFIG_HOME}/gh"
 
 # set default tools
 export EDITOR=nvim

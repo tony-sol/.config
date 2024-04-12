@@ -1,0 +1,11 @@
+---
+git_protocol: ssh
+glamour_style: dark
+check_update: true
+display_hyperlinks: true
+host: gitlab.com
+no_prompt: false
+hosts:
+    gitlab.com:
+        api_protocol: https
+        api_host: gitlab.com

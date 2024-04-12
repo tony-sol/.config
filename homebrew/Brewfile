@@ -42,6 +42,8 @@ brew "gh"
 brew "git-lfs"
 # GNU C Library
 brew "glibc" if OS.linux?
+# Open-source GitLab command-line tool
+brew "glab"
 # Render markdown on the CLI
 brew "glow"
 # GNU Pretty Good Privacy (PGP) package
