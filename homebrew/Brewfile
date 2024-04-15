@@ -250,6 +250,8 @@ cask "wezterm"
 cask "wireshark"
 # All-in-one office suite
 cask "wpsoffice"
+# CLI for Yandex Cloud
+cask "yandex-cloud-cli"
 # Cloud storage
 cask "yandex-disk"
 # Application for configuring any YubiKey
