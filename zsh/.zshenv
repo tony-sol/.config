@@ -119,9 +119,10 @@ export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
 export GOPATH="${XDG_DATA_HOME}/go"
 export GOBIN="${GOPATH}/bin"
 # set bundler configs
-export BUNDLE_USER_CONFIG="${XDG_CONFIG_HOME}/bundler"
-export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundler"
-export BUNDLE_USER_PLUGIN="${XDG_DATA_HOME}/bundler"
+export BUNDLE_USER_HOME="${XDG_DATA_HOME}/bundle"
+export BUNDLE_USER_CACHE="${BUNDLE_USER_HOME}/cache"
+export BUNDLE_USER_CONFIG="${BUNDLE_USER_HOME}/config"
+export BUNDLE_USER_PLUGIN="${BUNDLE_USER_HOME}/plugin"
 # set ruby configs
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export GEM_BIN="${GEM_HOME}/bin"
