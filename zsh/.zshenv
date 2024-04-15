@@ -61,6 +61,8 @@ export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 # set ripgrep configs
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
+# set sqlite configs
+export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite/history"
 # set fzf configs
 export FZF_TMUX_OPTS="-p60%,80%"
 export FZF_DEFAULT_COMMAND="fd --follow --hidden"
