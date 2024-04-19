@@ -65,7 +65,9 @@ alias krew='kubectl krew'
 alias vim='nvim'
 alias cat="bat --paging=never ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 alias less="bat --paging=always ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
+alias -g -- -h="-h 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
+alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 
 # hooks
 eval "$(fzf --zsh)"
