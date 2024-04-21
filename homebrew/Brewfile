@@ -220,8 +220,6 @@ cask "qcma"
 cask "qflipper"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-# Video chat, voice call and instant messaging application
-cask "skype"
 # VPN client for secure internet access and private browsing
 cask "surfshark"
 # Quicklook extension for source files
