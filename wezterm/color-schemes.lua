@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.color_schemes = {
 	vscode_dark = {
 		background = '#1E1E1E',
 		foreground = '#CCCCCC',
@@ -78,37 +80,6 @@ return {
 			'#3760BF', -- white
 		},
 	},
-	tokyonight_moon = {
-		foreground     = '#C8D3F5',
-		background     = '#222436',
-		cursor_bg      = '#C8D3F5',
-		cursor_border  = '#C8D3F5',
-		cursor_fg      = '#222436',
-		selection_bg   = '#2D3F76',
-		selection_fg   = '#C8D3F5',
-		split          = '#82AAFF',
-		compose_cursor = '#FF966C',
-		ansi           = {
-			'#1B1D2B', -- black
-			'#FF757F', -- red
-			'#C3E88D', -- green
-			'#FFC777', -- yellow
-			'#82AAFF', -- blue
-			'#C099FF', -- magenta
-			'#86E1FC', -- cyan
-			'#828BB8', -- white
-		},
-		brights        = {
-			'#444A73', -- black
-			'#FF757F', -- red
-			'#C3E88D', -- green
-			'#FFC777', -- yellow
-			'#82AAFF', -- blue
-			'#C099FF', -- magenta
-			'#86E1FC', -- cyan
-			'#C8D3F5', -- white
-		},
-	},
 	tokyonight_night = {
 		foreground     = '#C0CAF5',
 		background     = '#1A1B26',
@@ -140,35 +111,21 @@ return {
 			'#C0CAF5', -- white
 		},
 	},
-	tokyonight_storm = {
-		foreground     = '#C0CAF5',
-		background     = '#24283B',
-		cursor_bg      = '#C0CAF5',
-		cursor_border  = '#C0CAF5',
-		cursor_fg      = '#24283B',
-		selection_bg   = '#2E3C64',
-		selection_fg   = '#C0CAF5',
-		split          = '#7AA2F7',
-		compose_cursor = '#FF9E64',
-		ansi           = {
-			'#1D202F', -- black
-			'#F7768E', -- red
-			'#9ECE6A', -- green
-			'#E0AF68', -- yellow
-			'#7AA2F7', -- blue
-			'#BB9AF7', -- magenta
-			'#7DCFFF', -- cyan
-			'#A9B1D6', -- white
-		},
-		brights        = {
-			'#414868', -- black
-			'#F7768E', -- red
-			'#9ECE6A', -- green
-			'#E0AF68', -- yellow
-			'#7AA2F7', -- blue
-			'#BB9AF7', -- magenta
-			'#7DCFFF', -- cyan
-			'#C0CAF5', -- white
-		},
-	},
 }
+
+---@param family 'vscode' | 'tokyonight'
+---@return string
+function M.get_scheme(family)
+	local wezterm = require('wezterm')
+	local switch = {
+		['vscode'] = function(_appearance)
+			return _appearance:find('Dark') and 'vscode_dark' or 'vscode_light'
+		end,
+		['tokyonight'] = function(_appearance)
+			return _appearance:find('Dark') and 'tokyonight_night' or 'tokyonight_day'
+		end,
+	}
+	return switch[family](wezterm.gui and wezterm.gui.get_appearance() or 'Dark')
+end
+
+return M

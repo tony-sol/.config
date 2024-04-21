@@ -1,33 +1,15 @@
 local wezterm = require('wezterm')
-
----@return 'Dark' | 'Light'
-local function get_appearance()
-	return wezterm.gui and wezterm.gui.get_appearance() or 'Dark'
-end
-
----@param family string
----@param appearance string
----@return string
-local function scheme_for_appearance(family, appearance)
-	local switch = {
-		['vscode'] = function(_appearance)
-			return _appearance:find('Dark') and 'vscode_dark' or 'vscode_light'
-		end,
-		['tokyonight'] = function(_appearance)
-			return _appearance:find('Dark') and 'tokyonight_night' or 'tokyonight_day'
-		end,
-	}
-	return switch[family](appearance)
-end
+local schemes = require('color-schemes')
+local keymaps = require('keymaps')
 
 return {
 	term                         = 'xterm-256color',
 	default_prog                 = { '/opt/homebrew/bin/zsh', '--login', '--interactive', '-c', 'tmux new -A' },
 	exit_behavior                = 'CloseOnCleanExit',
-	color_scheme                 = scheme_for_appearance('vscode', get_appearance()),
-	color_schemes                = require('color-schemes'),
+	color_schemes                = schemes.color_schemes,
+	color_scheme                 = schemes.get_scheme('vscode'),
 	force_reverse_video_cursor   = true,
-	bold_brightens_ansi_colors   = true, --"BrightAndBold" in nightly builds
+	bold_brightens_ansi_colors   = 'BrightAndBold',
 	unicode_version              = 14,
 	custom_block_glyphs          = false,
 	font                         = wezterm.font_with_fallback {
@@ -52,7 +34,7 @@ return {
 	scrollback_lines             = 1000000,
 	native_macos_fullscreen_mode = true,
 	disable_default_key_bindings = true,
-	keys                         = require('keys'),
+	keys                         = keymaps,
 	quick_select_patterns        = {
 		'[\\w,]+',
 	},
