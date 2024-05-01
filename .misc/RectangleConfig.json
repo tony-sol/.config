@@ -85,6 +85,9 @@
     "gapSize" : {
       "float" : 0
     },
+    "hapticFeedbackOnSnap" : {
+      "int" : 2
+    },
     "hideMenubarIcon" : {
       "bool" : false
     },
@@ -196,6 +199,9 @@
     "systemWideMouseDown" : {
       "int" : 0
     },
+    "systemWideMouseDownApps" : {
+
+    },
     "todo" : {
       "int" : 1
     },
@@ -245,6 +251,10 @@
     "bottomRightSixth" : {
       "keyCode" : 22,
       "modifierFlags" : 393216
+    },
+    "center" : {
+      "keyCode" : 8,
+      "modifierFlags" : 786432
     },
     "centerHalf" : {
       "keyCode" : 46,
@@ -379,5 +389,5 @@
       "modifierFlags" : 393216
     }
   },
-  "version" : "81"
+  "version" : "83"
 }
