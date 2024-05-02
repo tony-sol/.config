@@ -48,6 +48,8 @@ brew "glab"
 brew "glow"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Like cURL, but for gRPC
+brew "grpcurl"
 # Smarter Dockerfile linter to validate best practices
 brew "hadolint"
 # Kubernetes package manager
