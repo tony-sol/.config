@@ -1,6 +1,8 @@
 Host *
 	AddKeysToAgent yes
 	UseKeychain yes
+	# PKCS11Provider /opt/homebrew/lib/opensc-pkcs11.so
+	# PKCS11Provider /Library/OpenSC/lib/opensc-pkcs11.so
 	HostkeyAlgorithms +ssh-ed25519
 	PubkeyAcceptedAlgorithms +ssh-ed25519
 	IdentityFile ~/.ssh/id_ed25519

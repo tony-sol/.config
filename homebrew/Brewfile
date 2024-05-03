@@ -97,13 +97,15 @@ brew "octosql"
 # Open source, general-purpose policy engine
 brew "opa"
 # Tools and libraries for smart cards
-brew "opensc"
+brew "opensc" unless OS.mac?
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
 brew "opentofu"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
 brew "openvpn"
 # PAM module for reattaching to the user's GUI (Aqua) session
 brew "pam-reattach" if OS.mac?
+# Provides an easy way to use U2F-compliant authenticators with PAM
+brew "pam-u2f"
 # Tool for managing OCI containers and pods
 brew "podman"
 # Alternative to docker-compose using podman
@@ -152,6 +154,8 @@ brew "wget"
 brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# Command-line tool for the YubiKey PIV application
+brew "yubico-piv-tool"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Run macOS and Linux VMs on Apple Hardware
@@ -210,6 +214,8 @@ cask "metasploit"
 cask "mos"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Smart card libraries and utilities
+cask "opensc"
 # Browse, manage, inspect containers and images
 cask "podman-desktop"
 # Command-line shell and scripting language
@@ -254,5 +260,5 @@ cask "wpsoffice"
 cask "yandex-cloud-cli"
 # Cloud storage
 cask "yandex-disk"
-# Application for configuring any YubiKey
-cask "yubico-yubikey-manager"
+# Application for generating TOTP and HOTP codes
+cask "yubico-authenticator"

@@ -89,6 +89,7 @@
         insertafter: EOF
         line: |
           auth    optional    /opt/homebrew/lib/pam/pam_reattach.so
+          auth    sufficient  /opt/homebrew/lib/pam/pam_u2f.so
           auth    sufficient  pam_tid.so
 
     - name: Enable homebrew zsh for chsh
