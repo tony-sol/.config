@@ -22,7 +22,7 @@ function __prepend_path() {
 }
 
 export FPATH=$(__prepend_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions" "${ZDOTDIR}/extensions/zsh-completions/src" "${ZDOTDIR}/extensions/zsh-autocomplete/Completions")
-export PATH=$(__prepend_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $MISE_SHIMS $KREW_BIN $XDG_BIN_HOME)
+export PATH=$(__prepend_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $MISE_SHIMS $KREW_BIN $MASON_BIN $XDG_BIN_HOME)
 export MANPATH=$(__prepend_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
 export INFOPATH=$(__prepend_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
 
@@ -46,13 +46,14 @@ export PROMPT='%{$bldcyn%}%~%{$txtrst%} $([ $? -ne 0 ] && echo -e "%{$bldred%}\U
 export RPROMPT='%{$bldgrn%}$git_ahead_mark$git_ahead_count%{$bldred%}$git_behind_mark$git_behind_count%{$bldcyn%}$git_stash_mark%{$bldylw%}$git_dirty$git_dirty_count%{$bldblu%}$git_staged_mark$git_staged_count%{$bldpur%}$git_unknown_mark$git_unknown_count%{$txtrst%}%{$txtcyn%}$git_branch $(exit_code=$?; [[ $exit_code -ne 0 ]] && echo %{$bldred%}$exit_code)%{$txtrst%}'
 
 # hacks
-export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
-alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
-case $(uname -s | tr "[:upper:]" "[:lower:]") in
-	"darwin" )
+case $(uname -s) in
+	[Dd]arwin )
 		export __BAT_THEME="\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo vs-dark || echo vs-light)"
 		;;
 esac
+alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
+export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
+export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}'"
 
 # aliases
 alias l='ls -AF'
@@ -61,7 +62,6 @@ alias tt='tree -halFpugD'
 alias t='tt -L 1'
 
 # commands replacements
-alias krew='kubectl krew'
 alias vim='nvim'
 alias cat="bat --paging=never ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 alias less="bat --paging=always ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"

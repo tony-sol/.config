@@ -34,14 +34,16 @@ export ZLE_RPROMPT_INDENT=0
 export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=200000
 export SAVEHIST=200000
-export TERM="xterm-256color"
+export TERM="tmux-256color" # "xterm-256color"
+export TERMINFO="${XDG_DATA_HOME}/terminfo"
+export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo:${TERMINFO_DIRS}"
 export WORDCHARS='*?[]~=&!#$%^(){}<>'
 # set homebrew configs
-case $(uname -s | tr "[:upper:]" "[:lower:]") in
-	"darwin" )
+case $(uname -s) in
+	[Dd]arwin )
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 		;;
-	"linux" )
+	[Ll]inux )
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
 		;;
 esac
@@ -52,9 +54,7 @@ export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
 export TMUX_CONF="${XDG_CONFIG_HOME}/tmux/tmux.conf"
 # set vim/nvim initial script
 export VIMINIT='let $VIMINIT = has("nvim") ? "${XDG_CONFIG_HOME}/nvim/init.lua" : "${XDG_CONFIG_HOME}/vim/vimrc" | source $VIMINIT'
-# set ncurses configs
-export TERMINFO="${XDG_DATA_HOME}/terminfo"
-export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo"
+export MASON_BIN="${XDG_DATA_HOME}/nvim/mason/bin"
 # set wget configs
 export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 # set less history file location
@@ -176,7 +176,6 @@ export GH_CONFIG_DIR="${XDG_CONFIG_HOME}/gh"
 # set default tools
 export EDITOR=nvim
 export VISUAL=nvim
-export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
 
 unsetopt MULTIOS
 setopt EMACS
