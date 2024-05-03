@@ -63,6 +63,17 @@ function M.merge(table1, table2)
 	return vim.tbl_deep_extend('force', table1, table2)
 end
 
+---@param data table
+---@param ... any
+---@return table
+function M.push(data, ...)
+	local copy = vim.deepcopy(data)
+	for _, value in pairs({ ... }) do
+		table.insert(copy, value)
+	end
+	return copy
+end
+
 ---@return number
 function M.getWidth()
 	return vim.api.nvim_get_option('columns')

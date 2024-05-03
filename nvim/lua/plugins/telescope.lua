@@ -11,31 +11,48 @@ return {
 			'nvim-telescope/telescope-dap.nvim',
 		},
 		{
+			'nvim-telescope/telescope-ui-select.nvim',
+		},
+		{
+			'Marskey/telescope-sg',
+		},
+		{
 			'nvim-lua/plenary.nvim',
 		},
 	},
 	config       = function()
-		local utils     = require('utils')
-		local telescope = require('telescope')
+		local utils              = require('utils')
+		local telescope          = require('telescope')
+		local telescope_confing  = require('telescope.config')
+		local default_modal_size = utils.defaultModalSize()
 		telescope.setup {
 			defaults   = {
-				scroll_strategy  = 'cycle',
-				sorting_strategy = 'ascending',
-				layout_strategy  = 'vertical',
-				layout_config    = {
-					horizontal = utils.merge(utils.defaultModalSize(), {
+				scroll_strategy   = 'cycle',
+				sorting_strategy  = 'ascending',
+				layout_strategy   = 'horizontal',
+				layout_config     = {
+					horizontal = utils.merge(default_modal_size, {
 						prompt_position = 'top',
+						preview_width   = default_modal_size.width,
 					}),
-					vertical   = utils.merge(utils.defaultModalSize(), {
+					vertical   = utils.merge(default_modal_size, {
 						prompt_position = 'top',
+						preview_height  = default_modal_size.width,
 						mirror          = true,
 					}),
 				},
+				vimgrep_arguments = utils.push(telescope_confing.values.vimgrep_arguments,
+					'--hidden',
+					'--no-ignore'
+				),
 			},
 			pickers    = {
 				find_files = {
-					follow = true,
-					hidden = true,
+					find_command     = { 'fd' },
+					follow           = true,
+					hidden           = true,
+					no_ignore        = true,
+					no_ignore_parent = true,
 				},
 			},
 			extensions = {
@@ -53,6 +70,12 @@ return {
 				['noice']          = {},
 				['notify']         = {},
 				['todo-comments']  = {},
+				['ui-select']      = {},
+				['ast_grep']       = {
+					command         = { 'sg', '--json=stream' },
+					grep_open_files = false,
+					lang            = nil,
+				}
 			},
 		}
 		telescope.load_extension('file_browser')
@@ -61,5 +84,7 @@ return {
 		telescope.load_extension('noice')
 		telescope.load_extension('notify')
 		telescope.load_extension('todo-comments')
+		telescope.load_extension('ui-select')
+		telescope.load_extension('ast_grep')
 	end
 }

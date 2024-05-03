@@ -56,7 +56,7 @@ keymap.set(
 	function()
 		outline.toggle({ focus_outline = false })
 	end,
-	{ desc = 'Outline: toggle' }
+	{ desc = 'Outline' }
 )
 keymap.set(
 	{ 'n' },
@@ -64,7 +64,7 @@ keymap.set(
 	function()
 		tree_api.tree.toggle()
 	end,
-	{ desc = 'NvimTree: toggle' }
+	{ desc = 'NvimTree' }
 )
 keymap.set(
 	{ 'n' },
@@ -80,7 +80,7 @@ keymap.set(
 	function()
 		telescope_command.load_command()
 	end,
-	{ desc = 'Telescope: command palette' }
+	{ desc = 'Telescope' }
 )
 keymap.set(
 	{ 'n' },
@@ -174,9 +174,9 @@ keymap.set(
 	{ 'n' },
 	'<leader>tt',
 	function()
-		telescope_builtin.current_buffer_tags()
+		telescope_builtin.treesitter()
 	end,
-	{ desc = 'Telescope: current buffer tags' }
+	{ desc = 'Telescope: treesitter' }
 )
 keymap.set(
 	{ 'n' },
@@ -268,6 +268,38 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
+	'<leader>tj',
+	function()
+		telescope_builtin.jumplist()
+	end,
+	{ desc = 'Telescope: jumplist' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>th',
+	function()
+		telescope_builtin.command_history()
+	end,
+	{ desc = 'Telescope: history' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tc',
+	function()
+		telescope_builtin.commands()
+	end,
+	{ desc = 'Telescope: commands' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>tA',
+	function()
+		telescope_extensions['ast_grep'].ast_grep()
+	end,
+	{ desc = 'Telescope: AST-grep' }
+)
+keymap.set(
+	{ 'n' },
 	'<leader>hp',
 	function()
 		hop.hint_patterns()
@@ -334,7 +366,7 @@ keymap.set(
 	{ 'n' },
 	']c',
 	function()
-		gitsigns.next_hunk()
+		gitsigns.nav_hunk('next')
 	end,
 	{ desc = 'Gitsigns: next hunk' }
 )
@@ -342,7 +374,7 @@ keymap.set(
 	{ 'n' },
 	'[c',
 	function()
-		gitsigns.prev_hunk()
+		gitsigns.nav_hunk('prev')
 	end,
 	{ desc = 'Gitsigns: previous hunk' }
 )
@@ -356,15 +388,39 @@ keymap.set(
 )
 keymap.set(
 	{ 'n', 'v' },
-	'<leader>ghr',
+	'<leader>G',
+	function()
+		require('gitsigns.cli').run({ args = '' })
+	end,
+	{ desc = 'Gitsigns' }
+)
+keymap.set(
+	{ 'n', 'v' },
+	'<leader>gq',
+	function()
+		gitsigns.setloclist()
+	end,
+	{ desc = 'Gitsigns: setloclist' }
+)
+keymap.set(
+	{ 'n', 'v' },
+	'<leader>gr',
 	function()
 		gitsigns.reset_hunk()
 	end,
 	{ desc = 'Gitsigns: reset hunk' }
 )
 keymap.set(
+	{ 'n' },
+	'<leader>gR',
+	function()
+		gitsigns.reset_buffer()
+	end,
+	{ desc = 'Gitsigns: reset buffer' }
+)
+keymap.set(
 	{ 'n', 'v' },
-	'<leader>ghs',
+	'<leader>gs',
 	function()
 		gitsigns.stage_hunk()
 	end,
@@ -372,23 +428,7 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
-	'<leader>ghu',
-	function()
-		gitsigns.stage_hunk()
-	end,
-	{ desc = 'Gitsigns: undo stage hunk' }
-)
-keymap.set(
-	{ 'n' },
-	'<leader>ghp',
-	function()
-		gitsigns.preview_hunk()
-	end,
-	{ desc = 'Gitsigns: preview hunk' }
-)
-keymap.set(
-	{ 'n' },
-	'<leader>gbS',
+	'<leader>gS',
 	function()
 		gitsigns.stage_buffer()
 	end,
@@ -396,11 +436,27 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
-	'<leader>gbR',
+	'<leader>gu',
 	function()
-		gitsigns.reset_buffer()
+		gitsigns.undo_stage_hunk()
 	end,
-	{ desc = 'Gitsigns: reset buffer' }
+	{ desc = 'Gitsigns: undo stage hunk' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>gp',
+	function()
+		gitsigns.preview_hunk()
+	end,
+	{ desc = 'Gitsigns: preview hunk' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>gP',
+	function()
+		gitsigns.preview_hunk_inline()
+	end,
+	{ desc = 'Gitsigns: preview hunk inline' }
 )
 keymap.set(
 	{ 'n' },
@@ -464,7 +520,23 @@ keymap.set(
 	function()
 		gitsigns.toggle_linehl()
 	end,
+	{ desc = 'Gitsigns: toggle line number highlight' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>gtn',
+	function()
+		gitsigns.toggle_numhl()
+	end,
 	{ desc = 'Gitsigns: toggle line highlight' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>gts',
+	function()
+		gitsigns.toggle_signs()
+	end,
+	{ desc = 'Gitsigns: toggle signs' }
 )
 keymap.set(
 	{ 'n' },
