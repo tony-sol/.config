@@ -34,6 +34,8 @@ brew "dive"
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Interactive git commands in the terminal
+brew "forgit"
 # GNU compiler collection
 brew "gcc" unless OS.mac?
 # GitHub command-line tool
