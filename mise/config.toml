@@ -1,4 +1,5 @@
 [tools]
+usage = "latest"
 node = "18.17.0"
 python = "system"
 ruby = "latest"
