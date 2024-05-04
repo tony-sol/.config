@@ -35,13 +35,13 @@ brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU compiler collection
-brew "gcc" if OS.linux?
+brew "gcc" unless OS.mac?
 # GitHub command-line tool
 brew "gh"
 # Git extension for versioning large files
 brew "git-lfs"
 # GNU C Library
-brew "glibc" if OS.linux?
+brew "glibc" unless OS.mac?
 # Open-source GitLab command-line tool
 brew "glab"
 # Render markdown on the CLI
@@ -193,7 +193,7 @@ cask "docker"
 # Developer platform
 cask "dotnet-sdk"
 # Web browser
-cask "firefox-developer-edition"
+cask "firefox@developer-edition"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Web browser
