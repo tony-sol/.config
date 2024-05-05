@@ -27,6 +27,9 @@ opt.shiftwidth     = 4
 opt.smarttab       = true
 opt.smartindent    = true
 
+-- Scroll settings
+opt.scrolloff      = 10
+
 -- Wrap settings
 opt.linebreak      = false
 
