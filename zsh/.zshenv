@@ -27,7 +27,6 @@ export XDG_TEMPLATES_DIR="${XDG_TEMPLATES_DIR:-${HOME}/Templates}"
 export XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-${HOME}/Videos}"
 # shell colors
 export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagacad
 export COLORTERM=truecolor
 # set zsh configs
 export ZLE_RPROMPT_INDENT=0
@@ -38,15 +37,18 @@ export TERM="tmux-256color" # "xterm-256color"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo:${TERMINFO_DIRS}"
 export WORDCHARS='*?[]~=&!#$%^(){}<>'
-# set homebrew configs
+# set system dependent configs
 case $(uname -s) in
 	[Dd]arwin )
+		export LSCOLORS=GxFxCxDxBxegedabagacad
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 		;;
 	[Ll]inux )
+		export LS_COLORS="di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
 		;;
 esac
+# set homebrew configs
 export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX/Homebrew}"
 export HOMEBREW_LIBRARY="${HOMEBREW_LIBRARY:-$HOMEBREW_REPOSITORY/Library}"
 export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
@@ -89,8 +91,8 @@ export MINIKUBE_HOME="${XDG_DATA_HOME}/minikube"
 export WERF_TMP_DIR="${XDG_CACHE_HOME}/werf"
 export WERF_HOME="${XDG_CONFIG_HOME}/werf"
 # set vagrant configs
-export VAGRANT_HOME="${XDG_CONFIG_HOME}/vagrant"
-export VAGRANT_ALIAS_FILE="${XDG_CONFIG_HOME}/vagrant/aliases"
+export VAGRANT_HOME="${XDG_DATA_HOME}/vagrant"
+export VAGRANT_ALIAS_FILE="${VAGRANT_HOME}/aliases"
 # set terraform configs
 export TF_HOME_DIR="${XDG_DATA_HOME}/terraform"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraform.tfrc"

@@ -50,6 +50,8 @@ case $(uname -s) in
 	[Dd]arwin )
 		export __BAT_THEME="\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo vs-dark || echo vs-light)"
 		;;
+	[Ll]inux )
+		;;
 esac
 alias yarn="yarn --use-yarnrc ${XDG_CONFIG_HOME}/yarn/yarnrc"
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"

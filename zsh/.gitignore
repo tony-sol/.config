@@ -1,6 +1,15 @@
-.zcompdump*
-.zcompcache/
-.zsh_history
-.zsh_sessions/
-.z*.before
-.z*.after
+*
+!*/
+!.gitignore
+!extensions/**
+
+# always
+!.zshenv
+# login && (interactive || non-interactive)
+!.zprofile
+# (login || non-login) && interactive
+!.zshrc
+# login && (interactive || non-interactive)
+!.zlogin
+# login && (interactive || non-interactive)
+!.zlogout
