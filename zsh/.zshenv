@@ -28,6 +28,10 @@ export XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-${HOME}/Videos}"
 # shell colors
 export CLICOLOR=1
 export COLORTERM=truecolor
+export __BLOCK_CURSOR='\033[2 q'
+export __LINE_CURSOR='\033[6 q'
+export __SUCCESS_MARK='\U2714' # ✔︎
+export __ERROR_MARK='\U2718'   # ✘
 # set zsh configs
 export ZLE_RPROMPT_INDENT=0
 export HISTFILE="${ZDOTDIR}/.zsh_history"
@@ -37,6 +41,7 @@ export TERM="tmux-256color" # "xterm-256color"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo:${TERMINFO_DIRS}"
 export WORDCHARS='*?[]~=&!#$%^(){}<>'
+export KEYTIMEOUT=1
 # set system dependent configs
 case $(uname -s) in
 	[Dd]arwin )
@@ -179,8 +184,8 @@ export GH_CONFIG_DIR="${XDG_CONFIG_HOME}/gh"
 export EDITOR=nvim
 export VISUAL=nvim
 
+# common options
 unsetopt MULTIOS
-setopt EMACS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
 setopt SH_WORD_SPLIT
@@ -190,6 +195,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
 setopt HIST_VERIFY
 setopt HIST_NO_STORE
 setopt HIST_REDUCE_BLANKS
@@ -209,6 +215,29 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=3"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=3"
+
+# zsh vi mode with cursor style
+setopt VI
+function zle-keymap-select zle-line-init {
+	case "${KEYMAP}" in
+		vicmd)
+			print -n -- "${__BLOCK_CURSOR}"
+			;;
+		viins|main)
+			print -n -- "${__LINE_CURSOR}"
+			;;
+	esac
+	zle reset-prompt
+	zle -R
+}
+
+function zle-line-finish {
+	print -n -- "${__BLOCK_CURSOR}"
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
 
 # =====================================================================
 
