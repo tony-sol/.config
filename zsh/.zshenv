@@ -239,6 +239,20 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 
+# *PATH builder
+function __prepend_path() {
+	local path=$1
+	shift
+	for value in $@
+	do
+		if [[ ":${path}:" == *:"$value":* ]]; then
+			path="${path//$value/}"
+		fi
+		path="${value}${path+:${path//::/:}}"
+	done
+	echo ${${path#:}%:}
+}
+
 # =====================================================================
 
 if [ -f "${ZDOTDIR}/.zshenv.after" ]; then
