@@ -11,6 +11,9 @@ return {
 			'hrsh7th/cmp-nvim-lsp-document-symbol',
 		},
 		{
+			'hrsh7th/cmp-emoji',
+		},
+		{
 			'hrsh7th/cmp-path',
 		},
 		{
@@ -27,6 +30,9 @@ return {
 		},
 		{
 			'onsails/lspkind.nvim',
+		},
+		{
+			'lukas-reineke/cmp-rg',
 		},
 	},
 	config       = function()
@@ -97,6 +103,9 @@ return {
 				},
 				{
 					name = 'treesitter',
+				},
+				{
+					name = 'emoji',
 				},
 			},
 		}
