@@ -43,16 +43,32 @@ function M.defaultFillchars()
 	}
 end
 
----@return {upright: string, upleft: string, downright: string, downleft: string, vertdashed: string, top: string, bottom: string}
-function M.extraFillchars()
+---@return {corner: {upright: string, upleft: string, downright: string, downleft: string}, dashed:{vert: string, horiz: string}, top: string, bottom: string}
+function M.specialChars()
 	return {
-		upright    = '└',
-		upleft     = '┘',
-		downright  = '┌',
-		downleft   = '┐',
-		vertdashed = '┆',
+		corner = {
+			upright   = '└',
+			upleft    = '┘',
+			downright = '┌',
+			downleft  = '┐',
+		},
+		dashed = {
+			vert  = '┆',
+			horiz = '┄',
+		},
 		top        = '‾',
 		bottom     = '_',
+	}
+end
+
+---@return {tab: string, trail: string, nbsp: string, space: string, eol:string}
+function M.defaultListchars()
+	return {
+		tab   = ' ',
+		trail = '-',
+		nbsp  = '+',
+		space = '·',
+		eol   = '↴',
 	}
 end
 

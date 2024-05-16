@@ -27,7 +27,7 @@ return {
 				indent_markers         = {
 					enable = true,
 					icons  = {
-						corner = utils.extraFillchars().upright,
+						corner = utils.specialChars().corner.upright,
 						edge   = utils.defaultFillchars().vert,
 						item   = utils.defaultFillchars().vert,
 						bottom = utils.defaultFillchars().horiz,

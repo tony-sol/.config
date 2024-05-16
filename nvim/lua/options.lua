@@ -8,17 +8,11 @@ opt.cursorline     = true
 opt.laststatus     = 3
 
 -- Fill chars
-opt.fillchars      =  utils.defaultFillchars()
+opt.fillchars      = utils.defaultFillchars()
 
 -- List settings
 opt.list           = true
-opt.listchars      = {
-	tab   = ' ',
-	trail = '-',
-	nbsp  = '+',
-	space = '·',
-	eol   = '↴',
-}
+opt.listchars      = utils.defaultListchars()
 
 -- Indent settings
 opt.tabstop        = 4

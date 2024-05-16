@@ -22,7 +22,7 @@ return {
 			guides         = {
 				enabled = true,
 				markers = {
-					bottom     = utils.extraFillchars().upright,
+					bottom     = utils.specialChars().corner.upright,
 					middle     = utils.defaultFillchars().vertright,
 					vertical   = utils.defaultFillchars().vert,
 					horizontal = utils.defaultFillchars().horiz,

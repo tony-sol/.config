@@ -12,10 +12,10 @@ return {
 			signs                        = {
 				add          = { text = utils.defaultFillchars().vert },
 				change       = { text = utils.defaultFillchars().vert },
-				delete       = { text = utils.extraFillchars().bottom },
-				topdelete    = { text = utils.extraFillchars().top },
 				changedelete = { text = utils.defaultFillchars().eob },
-				untracked    = { text = utils.extraFillchars().vertdashed },
+				delete       = { text = utils.specialChars().bottom },
+				topdelete    = { text = utils.specialChars().top },
+				untracked    = { text = utils.specialChars().dashed.vert },
 			},
 			signcolumn                   = true,
 			numhl                        = true,
