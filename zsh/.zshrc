@@ -56,11 +56,6 @@ alias -g -- -h="-h 2>&1 | bat --paging=never --language=help --style=plain ${__B
 alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
 
-# hooks
-eval "$(fzf --zsh)"
-eval "$(mise activate zsh)"
-source "${HOMEBREW_LIBRARY}/Taps/homebrew/homebrew-command-not-found/handler.sh" || true
-
 # keymappings
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
@@ -112,6 +107,11 @@ complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/nomad" nomad
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/waypoint" waypoint
+
+# hooks
+source <(fzf --zsh)
+source <(mise activate zsh)
+source "${HOMEBREW_LIBRARY}/Taps/homebrew/homebrew-command-not-found/handler.sh" || true
 
 # =====================================================================
 
