@@ -6,8 +6,6 @@ tap "gromgit/fuse" if OS.mac?
 tap "hashicorp/tap"
 tap "helmwave/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
 tap "homebrew/services"
 tap "mutagen-io/mutagen"
