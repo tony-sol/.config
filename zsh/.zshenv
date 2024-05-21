@@ -204,13 +204,13 @@ setopt EXTENDED_HISTORY
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 
-# zsh extensions
-source "${ZDOTDIR}/extensions/git-aware-prompt/main.sh"
-source "${ZDOTDIR}/extensions/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-source "${ZDOTDIR}/extensions/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
-source "${ZDOTDIR}/extensions/zsh-lazyload/zsh-lazyload.plugin.zsh"
+# zsh plugins
+source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh"
+source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+source "${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+source "${ZDOTDIR}/plugins/zsh-lazyload/zsh-lazyload.plugin.zsh"
 
-# zsh extensions configs
+# zsh plugins configs
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=3"

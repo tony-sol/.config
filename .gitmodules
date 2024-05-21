@@ -1,21 +1,21 @@
-[submodule "zsh/extensions/git-aware-prompt"]
-	path = zsh/extensions/git-aware-prompt
-	url = https://github.com/Tony-Sol/git-aware-prompt.git
-[submodule "zsh/extensions/zsh-autosuggestions"]
-	path = zsh/extensions/zsh-autosuggestions
-	url = https://github.com/Tony-Sol/zsh-autosuggestions.git
-[submodule "zsh/extensions/zsh-syntax-highlighting"]
-	path = zsh/extensions/zsh-syntax-highlighting
-	url = https://github.com/Tony-Sol/zsh-syntax-highlighting.git
-[submodule "zsh/extensions/zsh-autocomplete"]
-	path = zsh/extensions/zsh-autocomplete
-	url = https://github.com/Tony-Sol/zsh-autocomplete.git
-[submodule "zsh/extensions/zsh-completions"]
-	path = zsh/extensions/zsh-completions
-	url = https://github.com/Tony-Sol/zsh-completions.git
-[submodule "zsh/extensions/zsh-lazyload"]
-	path = zsh/extensions/zsh-lazyload
-	url = https://github.com/Tony-Sol/zsh-lazyload.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/Tony-Sol/tpm.git
+[submodule "zsh/plugins/git-aware-prompt"]
+	path = zsh/plugins/git-aware-prompt
+	url = https://github.com/Tony-Sol/git-aware-prompt.git
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = https://github.com/Tony-Sol/zsh-autosuggestions.git
+[submodule "zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/Tony-Sol/zsh-syntax-highlighting.git
+[submodule "zsh/plugins/zsh-autocomplete"]
+	path = zsh/plugins/zsh-autocomplete
+	url = https://github.com/Tony-Sol/zsh-autocomplete.git
+[submodule "zsh/plugins/zsh-completions"]
+	path = zsh/plugins/zsh-completions
+	url = https://github.com/Tony-Sol/zsh-completions.git
+[submodule "zsh/plugins/zsh-lazyload"]
+	path = zsh/plugins/zsh-lazyload
+	url = https://github.com/Tony-Sol/zsh-lazyload.git
