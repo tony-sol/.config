@@ -76,8 +76,6 @@ brew "kubeconform"
 brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
-# Terminal file manager
-brew "lf"
 # Provides library functionality for FIDO U2F & FIDO 2.0, including USB
 brew "libfido2"
 # Linux virtual machines
