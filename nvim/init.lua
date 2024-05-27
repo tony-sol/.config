@@ -1,4 +1,3 @@
-require('globals')
 require('options')
 
 ---@diagnostic disable: undefined-global

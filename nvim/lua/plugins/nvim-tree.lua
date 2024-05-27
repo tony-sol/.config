@@ -10,7 +10,7 @@ return {
 		local utils     = require('utils')
 		local nvim_tree = require('nvim-tree')
 		nvim_tree.setup {
-			disable_netrw       = true,
+			disable_netrw       = false,
 			hijack_netrw        = true,
 			view                = {
 				centralize_selection        = true,

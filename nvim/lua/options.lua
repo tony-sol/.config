@@ -1,6 +1,12 @@
----@diagnostic disable-next-line: undefined-global
-local opt   = vim.opt
-local utils = require('utils')
+---@diagnostic disable: undefined-global
+local g            = vim.g
+local opt          = vim.opt
+---@diagnostic enable: undefined-global
+local utils        = require('utils')
+
+-- Setup <leader> key
+g.mapleader         = '\\'
+g.maplocalleader    = '\\'
 
 -- Appearance settings
 opt.background     = utils.appearance()
