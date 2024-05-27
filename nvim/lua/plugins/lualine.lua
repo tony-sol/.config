@@ -4,6 +4,9 @@ return {
 		{
 			'nvim-tree/nvim-web-devicons',
 		},
+		{
+			'Bekaboo/dropbar.nvim',
+		},
 	},
 	config       = function()
 		local lualine = require('lualine')
@@ -20,7 +23,8 @@ return {
 			lualine_c = {
 				{
 					'filename',
-					path = 3,
+					path           = 3,
+					newfile_status = true,
 				},
 			},
 			lualine_x = {
@@ -36,6 +40,11 @@ return {
 				'selectioncount',
 			}
 		}
+		local function breadcrumbs()
+			-- '%{%v:lua.dropbar.get_dropbar_str()%}'
+			---@diagnostic disable-next-line:undefined-global
+			return dropbar.get_dropbar_str()
+		end
 		lualine.setup {
 			options           = {
 				icons_enabled        = true,
@@ -48,6 +57,7 @@ return {
 						'',
 						'NvimTree',
 						'Outline',
+						'Trouble',
 					},
 				},
 			},
@@ -78,7 +88,7 @@ return {
 				lualine_z = {
 					{
 						'tabs',
-						mode            = 0,
+						mode            = 2,
 						use_mode_colors = true,
 					},
 				}
@@ -89,6 +99,7 @@ return {
 				lualine_b = {
 				},
 				lualine_c = {
+					breadcrumbs,
 				},
 				lualine_x = {
 				},
@@ -103,6 +114,7 @@ return {
 				lualine_b = {
 				},
 				lualine_c = {
+					breadcrumbs,
 				},
 				lualine_x = {
 				},
@@ -113,10 +125,12 @@ return {
 			},
 			extensions        = {
 				'fzf',
+				'lazy',
+				'mason',
 				'nvim-tree',
 				'nvim-dap-ui',
-				'trouble',
 				'symbols-outline',
+				'trouble',
 			},
 		}
 	end
