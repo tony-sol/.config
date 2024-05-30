@@ -1,7 +1,5 @@
 *
 */
 !.gitignore
-!*.dist
-!*.json
-!devenvironments
-config.json
+!example.*.json
+!features.json
