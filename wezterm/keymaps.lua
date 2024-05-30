@@ -3,6 +3,7 @@ local actions = require('wezterm').action
 return {
 	{ key = 'q', mods = 'SUPER',      action = actions.QuitApplication },
 	{ key = 'h', mods = 'SUPER',      action = actions.HideApplication },
+	{ key = 'p', mods = 'SUPER',      action = actions.ActivateCommandPalette },
 	{ key = '0', mods = 'SUPER',      action = actions.ResetFontSize },
 	{ key = '-', mods = 'SUPER',      action = actions.DecreaseFontSize },
 	{ key = '=', mods = 'SUPER',      action = actions.IncreaseFontSize },

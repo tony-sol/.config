@@ -1,41 +1,30 @@
-local wezterm = require('wezterm')
-local schemes = require('color-schemes')
-local keymaps = require('keymaps')
+local appearance = require('appearance')
+local font       = require('font')
+local keymaps    = require('keymaps')
 
 return {
 	term                         = 'xterm-256color',
-	default_prog                 = { '/opt/homebrew/bin/zsh', '--login', '--interactive', '-c', 'tmux new -A' },
+	default_prog                 = { 'zsh', '--login', '--interactive', '-c', 'tmux new -A' },
 	exit_behavior                = 'CloseOnCleanExit',
-	color_schemes                = schemes.color_schemes,
-	color_scheme                 = schemes.get_scheme('vscode'),
-	force_reverse_video_cursor   = true,
-	bold_brightens_ansi_colors   = 'BrightAndBold',
-	unicode_version              = 14,
-	custom_block_glyphs          = false,
-	font                         = wezterm.font_with_fallback {
-		{
-			family                    = 'JetBrainsMono Nerd Font',
-			weight                    = 'Medium',
-			harfbuzz_features         = { 'calt=1', 'clig=1', 'liga=1' },
-			assume_emoji_presentation = false,
-		},
-		{
-			family                    = 'Menlo',
-			weight                    = 'Medium',
-			harfbuzz_features         = { 'calt=1', 'clig=1', 'liga=1' },
-			assume_emoji_presentation = true,
-		},
-	},
-	font_size                    = 14.0,
+	scrollback_lines             = 1000000,
+	-- Appearance - window
+	window_padding               = { left = 1, right = 1, top = 1, bottom = 1 },
+	window_decorations           = 'RESIZE',
 	initial_cols                 = 120,
 	initial_rows                 = 40,
-	window_padding               = { left = 4, right = 4, top = 1, bottom = 1 },
-	enable_tab_bar               = false,
-	scrollback_lines             = 1000000,
+	hide_tab_bar_if_only_one_tab = true,
 	native_macos_fullscreen_mode = true,
+	-- Appearance - colors
+	color_scheme                 = appearance('vscode'),
+	force_reverse_video_cursor   = true,
+	bold_brightens_ansi_colors   = 'BrightAndBold',
+	-- Font
+	unicode_version              = 14,
+	custom_block_glyphs          = false,
+	font                         = font,
+	font_size                    = 14.0,
+	command_palette_font_size    = 14.0,
+	-- Keymap
 	disable_default_key_bindings = true,
 	keys                         = keymaps,
-	quick_select_patterns        = {
-		'[\\w,]+',
-	},
 }
