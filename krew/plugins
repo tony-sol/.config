@@ -1,4 +1,8 @@
 ctx
+exec-as
 krew
 ns
+resource-capacity
+tail
 tree
+view-secret
