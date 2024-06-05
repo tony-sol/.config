@@ -60,3 +60,4 @@ opt.mouse          = 'a'
 opt.mousemodel     = 'popup_setpos'
 
 opt.updatetime     = 100
+opt.showmode       = false

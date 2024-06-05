@@ -28,7 +28,7 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
-	'QQ',
+	'qQ',
 	function()
 		command.quitall()
 	end,

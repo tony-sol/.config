@@ -10,10 +10,21 @@ return {
 	},
 	config       = function()
 		local lualine = require('lualine')
+		local noice   = require("noice")
 		local utils   = require('utils')
+		---@return string
+		local function breadcrumbs()
+			-- '%{%v:lua.dropbar.get_dropbar_str()%}'
+			---@diagnostic disable-next-line:undefined-global
+			return dropbar.get_dropbar_str()
+		end
 		local section = {
 			lualine_a = {
 				'mode',
+				{
+					noice.api.status.mode.get,
+					cond = noice.api.status.mode.has
+				}
 			},
 			lualine_b = {
 				'branch',
@@ -40,11 +51,47 @@ return {
 				'selectioncount',
 			}
 		}
-		local function breadcrumbs()
-			-- '%{%v:lua.dropbar.get_dropbar_str()%}'
-			---@diagnostic disable-next-line:undefined-global
-			return dropbar.get_dropbar_str()
-		end
+		local winbar  = {
+			lualine_a = {
+			},
+			lualine_b = {
+			},
+			lualine_c = {
+				breadcrumbs,
+			},
+			lualine_x = {
+			},
+			lualine_y = {
+			},
+			lualine_z = {
+				{
+					noice.api.status.search.get,
+					cond = noice.api.status.search.has,
+				},
+			}
+		}
+		local tabline = {
+			lualine_a = {
+				{
+					'buffers',
+					mode = 4,
+				},
+			},
+			lualine_b = {
+			},
+			lualine_c = {
+			},
+			lualine_x = {
+			},
+			lualine_y = {
+			},
+			lualine_z = {
+				{
+					'tabs',
+					mode = 2,
+				},
+			}
+		}
 		lualine.setup {
 			options           = {
 				icons_enabled        = true,
@@ -62,67 +109,14 @@ return {
 				},
 			},
 			sections          = section,
-			inactive_sections = utils.merge(
-				section,
-				{
-					lualine_b = {},
-					lualine_x = {},
-				}
-			),
-			tabline           = {
-				lualine_a = {
-					{
-						'buffers',
-						mode            = 4,
-						use_mode_colors = true,
-					},
-				},
-				lualine_b = {
-				},
-				lualine_c = {
-				},
-				lualine_x = {
-				},
-				lualine_y = {
-				},
-				lualine_z = {
-					{
-						'tabs',
-						mode            = 2,
-						use_mode_colors = true,
-					},
-				}
-			},
-			winbar            = {
-				lualine_a = {
-				},
-				lualine_b = {
-				},
-				lualine_c = {
-					breadcrumbs,
-				},
-				lualine_x = {
-				},
-				lualine_y = {
-				},
-				lualine_z = {
-				}
-			},
-			inactive_winbar   = {
-				lualine_a = {
-				},
-				lualine_b = {
-				},
-				lualine_c = {
-					breadcrumbs,
-				},
-				lualine_x = {
-				},
-				lualine_y = {
-				},
-				lualine_z = {
-				}
-			},
+			inactive_sections = utils.merge(section, {
+				lualine_b = {},
+				lualine_x = {},
+			}),
+			winbar            = winbar,
+			inactive_winbar   = utils.merge(winbar, {
+			}),
+			tabline           = tabline,
 			extensions        = {
 				'fzf',
 				'lazy',
