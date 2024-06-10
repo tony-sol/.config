@@ -12,6 +12,7 @@ g.maplocalleader    = '\\'
 opt.background     = utils.appearance()
 opt.termguicolors  = true
 opt.cursorline     = true
+opt.cursorcolumn   = true
 opt.laststatus     = 3
 
 -- Fill chars
@@ -35,7 +36,7 @@ opt.scrolloff      = 10
 opt.linebreak      = false
 
 -- Fold settings
-opt.foldcolumn     = 'auto'
+opt.foldcolumn     = '1'
 opt.foldlevel      = 99
 opt.foldlevelstart = 99
 opt.foldenable     = true
@@ -50,9 +51,10 @@ opt.smartcase      = true
 opt.hlsearch       = true
 
 -- Columns settings
+opt.numberwidth    = 1
 opt.relativenumber = true
 opt.number         = true
-opt.signcolumn     = 'yes'
+opt.signcolumn     = 'auto:1-9'
 opt.statuscolumn   = ''
 
 -- Mouse settings

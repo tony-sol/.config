@@ -10,31 +10,31 @@ return {
 		local todo_comments = require('todo-comments')
 		local keywords      = {
 			URL  = {
-				icon = ' ', color = 'hint', alt = { 'LINK' }
+				icon = '', color = 'hint', alt = { 'LINK' }
 			},
 			DOC  = {
-				icon = ' ', color = 'info', alt = { 'DOCS', 'SEE' }
+				icon = '', color = 'info', alt = { 'DOCS', 'SEE' }
 			},
 			FIX  = {
-				icon = ' ', color = 'error', alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' }
+				icon = '', color = 'error', alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' }
 			},
 			TODO = {
-				icon = ' ', color = 'info', alt = {}
+				icon = '', color = 'info', alt = {}
 			},
 			HACK = {
-				icon = ' ', color = 'warning', alt = {}
+				icon = '', color = 'warning', alt = {}
 			},
 			WARN = {
-				icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' }
+				icon = '', color = 'warning', alt = { 'WARNING', 'XXX' }
 			},
 			PERF = {
-				icon = ' ', color = 'default', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' }
+				icon = '', color = 'default', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' }
 			},
 			NOTE = {
-				icon = ' ', color = 'hint', alt = { 'INFO' }
+				icon = '', color = 'hint', alt = { 'INFO' }
 			},
 			TEST = {
-				icon = ' ⏲', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' },
+				icon = '', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' },
 			},
 		}
 		for key, val in pairs(keywords) do
