@@ -2,6 +2,15 @@ return {
 	'hrsh7th/nvim-cmp',
 	dependencies = {
 		{
+			'hrsh7th/cmp-buffer',
+		},
+		{
+			'hrsh7th/cmp-cmdline',
+		},
+		{
+			'hrsh7th/cmp-emoji',
+		},
+		{
 			'hrsh7th/cmp-nvim-lsp',
 		},
 		{
@@ -11,22 +20,7 @@ return {
 			'hrsh7th/cmp-nvim-lsp-document-symbol',
 		},
 		{
-			'hrsh7th/cmp-emoji',
-		},
-		{
 			'hrsh7th/cmp-path',
-		},
-		{
-			'hrsh7th/cmp-cmdline',
-		},
-		{
-			'hrsh7th/cmp-buffer',
-		},
-		{
-			'hrsh7th/cmp-vsnip',
-		},
-		{
-			'hrsh7th/vim-vsnip',
 		},
 		{
 			'onsails/lspkind.nvim',
@@ -36,9 +30,10 @@ return {
 		},
 	},
 	config       = function()
+		---@diagnostic disable-next-line: undefined-global
+		local snippet = vim.snippet
 		local cmp     = require('cmp')
 		local lspkind = require('lspkind')
-		local fn      = vim.fn
 		cmp.setup {
 			experimental = {
 				ghost_text = true,
@@ -52,7 +47,7 @@ return {
 			},
 			snippet      = {
 				expand = function(args)
-					fn['vsnip#anonymous'](args.body)
+					snippet.expand(args.body)
 				end,
 			},
 			mapping      = {
@@ -78,6 +73,15 @@ return {
 			},
 			sources      = {
 				{
+					name = 'cmdline',
+				},
+				{
+					name = 'buffer',
+				},
+				{
+					name = 'emoji',
+				},
+				{
 					name = 'nvim_lsp',
 				},
 				{
@@ -93,19 +97,10 @@ return {
 					},
 				},
 				{
-					name = 'cmdline',
-				},
-				{
-					name = 'buffer',
-				},
-				{
-					name = 'vsnip'
+					name = 'rg',
 				},
 				{
 					name = 'treesitter',
-				},
-				{
-					name = 'emoji',
 				},
 			},
 		}
