@@ -1,10 +1,12 @@
 require('globals')
 require('options')
 
+---@diagnostic disable: undefined-global
 local fn     = vim.fn
 local loader = vim.loader
 local loop   = vim.loop
 local opt    = vim.opt
+---@diagnostic enable: undefined-global
 local utils  = require('utils')
 
 loader.enable()

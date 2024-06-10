@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: undefined-global
 local filetype = vim.filetype
 
 filetype.add {

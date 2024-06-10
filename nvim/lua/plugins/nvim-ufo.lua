@@ -6,6 +6,7 @@ return {
 		},
 	},
 	config       = function()
+		---@diagnostic disable-next-line: undefined-global
 		local fn      = vim.fn
 		local promise = require('promise')
 		local ufo     = require('ufo')
@@ -22,6 +23,7 @@ return {
 					jumpBot = ']',
 				}
 			},
+			---@diagnostic disable: unused-local
 			provider_selector = function(bufnr, filetype, buftype)
 				return function(_bufnr)
 					return ufo.getFolds(_bufnr, 'lsp')
@@ -36,6 +38,7 @@ return {
 						end)
 				end
 			end,
+			---@diagnostic enable: unused-local
 			fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
 				local newVirtText = {}
 				local suffix      = (' 󰁂 %d '):format(endLnum - lnum)

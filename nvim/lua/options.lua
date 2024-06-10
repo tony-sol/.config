@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: undefined-global
 local opt   = vim.opt
 local utils = require('utils')
 

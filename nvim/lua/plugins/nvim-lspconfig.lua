@@ -13,6 +13,7 @@ return {
 	},
 	config       = function()
 		local lsp_config           = require('lspconfig')
+		local lsp_config_util      = require('lspconfig/util')
 		local capabilities         = require('cmp_nvim_lsp')
 		local default_capabilities = capabilities.default_capabilities({
 			dynamicRegistration = true,
@@ -47,7 +48,7 @@ return {
 			capabilities = default_capabilities,
 			cmd          = { 'gopls', 'serve' },
 			filetypes    = { 'go', 'gomod' },
-			root_dir     = require('lspconfig/util').root_pattern('go.work', 'go.mod', '.git'),
+			root_dir     = lsp_config_util.root_pattern('go.work', 'go.mod', '.git'),
 			settings     = {
 				gopls = {
 					analyses = {
@@ -71,13 +72,6 @@ return {
 		}
 		lsp_config.lua_ls.setup {
 			capabilities = default_capabilities,
-			settings     = {
-				Lua = {
-					diagnostics = {
-						globals = { 'vim' },
-					},
-				}
-			},
 		}
 		lsp_config.marksman.setup {
 			capabilities = default_capabilities,

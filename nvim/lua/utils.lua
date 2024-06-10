@@ -2,8 +2,10 @@ local M = {}
 
 ---@return 'dark' | 'light'
 function M.appearance()
+	---@diagnostic disable-next-line: undefined-global
 	local style, os_uname = 'Dark', vim.loop.os_uname()
 	if os_uname.sysname == 'Darwin' then
+		---@diagnostic disable-next-line: undefined-global
 		style = vim.fn.system({ 'defaults', 'read', '-g', 'AppleInterfaceStyle' }):find(style) and style or 'Light'
 	end
 	return string.lower(style)
@@ -76,6 +78,7 @@ end
 ---@param table2 table
 ---@return table
 function M.merge(table1, table2)
+	---@diagnostic disable-next-line: undefined-global
 	return vim.tbl_deep_extend('force', table1, table2)
 end
 
@@ -83,6 +86,7 @@ end
 ---@param ... any
 ---@return table
 function M.push(data, ...)
+	---@diagnostic disable-next-line: undefined-global
 	local copy = vim.deepcopy(data)
 	for _, value in pairs({ ... }) do
 		table.insert(copy, value)
@@ -92,11 +96,13 @@ end
 
 ---@return number
 function M.getWidth()
+	---@diagnostic disable-next-line: undefined-global
 	return vim.api.nvim_get_option('columns')
 end
 
 ---@return number
 function M.getHeight()
+	---@diagnostic disable-next-line: undefined-global
 	return vim.api.nvim_get_option('lines')
 end
 

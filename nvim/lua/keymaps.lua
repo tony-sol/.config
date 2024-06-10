@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local api                  = vim.api
 local bufferOpts           = vim.bo
 local command              = vim.cmd
@@ -6,6 +7,7 @@ local lsp                  = vim.lsp
 local keymap               = vim.keymap
 local inspect              = vim.inspect
 local options              = vim.opt
+---@diagnostic enable: undefined-global
 local utils                = require('utils')
 local ufo_preview          = require('ufo.preview')
 local outline              = require('outline')
