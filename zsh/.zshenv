@@ -138,6 +138,8 @@ export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 # set npm/node configs
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
+# set yarn configs
+export YARN_GLOBAL_FOLDER="${XDG_DATA_HOME}/yarn"
 # set mise configs
 export MISE_CONFIG_DIR="${XDG_CONFIG_HOME}/mise"
 export MISE_CACHE_DIR="${XDG_CACHE_HOME}/mise"

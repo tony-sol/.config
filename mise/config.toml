@@ -1,6 +1,7 @@
 [tools]
 usage = "latest"
-node = "18.17.0"
+node = "latest"
+yarn = "latest"
 python = "system"
 ruby = "latest"
 lua = "latest"
