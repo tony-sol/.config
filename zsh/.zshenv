@@ -81,9 +81,13 @@ export FZF_ALT_C_COMMAND="fd --type directory --follow --hidden"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # set lima configs
 export LIMA_HOME="${XDG_DATA_HOME}/lima"
+# set podman configs
+export CONTAINERS_CONF="${XDG_CONFIG_HOME}/containers/containers.conf"
+export CONTAINERS_CONF_OVERRIDE="${XDG_CONFIG_HOME}/containers/containers.override.conf"
+export CONTAINERS_REGISTRIES_CONF="${XDG_CONFIG_HOME}/containers/registries.conf"
+export CONTAINERS_STORAGE_CONF="${XDG_CONFIG_HOME}/containers/storage.conf"
 # set docker configs
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
-export DOCKER_CLI_PLUGINS="${DOCKER_CONFIG}/cli-plugins"
 # set kubernetes configs
 export KUBEHOME="${XDG_DATA_HOME}/kube"
 export KUBECONFIG="${KUBEHOME}/config"

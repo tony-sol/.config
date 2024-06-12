@@ -1,0 +1,5 @@
+podman/
+registries.conf.d/
+auth.json
+podman-connections.*
+containers.override.conf

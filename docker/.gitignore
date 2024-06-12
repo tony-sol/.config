@@ -1,5 +1,4 @@
 *
 */
 !.gitignore
-!example.*.json
-!features.json
+!README.md

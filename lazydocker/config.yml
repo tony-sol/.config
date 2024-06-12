@@ -35,9 +35,9 @@ commandTemplates:
 
 customCommands:
   containers:
-    - name: bash
+    - name: shell
       attach: true
-      command: 'docker exec -it {{ .Container.ID }} bash'
+      command: 'docker exec -it {{ .Container.ID }} sh'
     - name: kill
       attach: false
       command: 'docker kill {{ .Container.ID }}'

@@ -28,6 +28,10 @@ brew "conftest"
 brew "ctop"
 # Tool for exploring each layer in a docker image
 brew "dive"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Isolated development environments using Docker
+brew "docker-compose"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Command-line fuzzy finder written in Go
@@ -108,8 +112,6 @@ brew "pam-reattach" if OS.mac?
 brew "pam-u2f"
 # Tool for managing OCI containers and pods
 brew "podman"
-# Alternative to docker-compose using podman
-brew "podman-compose"
 # Podman Terminal User Interface
 brew "podman-tui"
 # Python package management tool
@@ -188,8 +190,6 @@ brew "mutagen-io/mutagen/mutagen"
 cask "android-file-transfer"
 # Remotely access another computer through the Google Chrome browser
 cask "chrome-remote-desktop-host"
-# App to build and share containerised applications and microservices
-cask "docker"
 # Developer platform
 cask "dotnet-sdk"
 # Web browser
