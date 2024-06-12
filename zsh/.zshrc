@@ -40,11 +40,12 @@ case $(uname -s) in
 esac
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
 export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}'"
+alias ctop='TERM="${TERM/tmux/xterm}" ctop'
 
 # aliases
 alias l='ls -AF'
 alias ll='l -hl'
-alias tt='tree -halFpugD'
+alias tt='tree -halFpugND'
 alias t='tt -L 1'
 
 # commands replacements
