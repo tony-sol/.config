@@ -1,12 +1,13 @@
 tap "cirruslabs/cli"
-tap "esolitos/ipa"
 tap "go-task/tap"
 tap "goodwithtech/r"
 tap "gromgit/fuse" if OS.mac?
 tap "hashicorp/tap"
 tap "helmwave/tap"
 tap "homebrew/bundle"
+tap "homebrew/cask"
 tap "homebrew/command-not-found"
+tap "homebrew/core"
 tap "homebrew/services"
 tap "mutagen-io/mutagen"
 tap "wez/wezterm"
@@ -194,7 +195,6 @@ cask "chrome-remote-desktop-host"
 cask "dotnet-sdk"
 # Web browser
 cask "firefox@developer-edition"
-# Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Web browser
 cask "google-chrome"
