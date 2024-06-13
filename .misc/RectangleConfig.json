@@ -98,7 +98,7 @@
       "int" : 0
     },
     "landscapeSnapAreas" : {
-      "string" : "[4,{\"compound\":-2},6,{\"action\":13},1,{\"action\":15},2,{\"action\":2},7,{\"compound\":-4},5,{\"compound\":-3},3,{\"action\":16},8,{\"action\":14}]"
+      "string" : "[3,{\"action\":16},5,{\"compound\":-3},8,{\"action\":14},4,{\"compound\":-2},7,{\"action\":10},1,{\"action\":15},6,{\"action\":13},2,{\"action\":2}]"
     },
     "launchOnLogin" : {
       "bool" : true
@@ -154,6 +154,9 @@
     "screenEdgeGapTop" : {
       "float" : 0
     },
+    "screenEdgeGapTopNotch" : {
+      "float" : 0
+    },
     "shortEdgeSnapAreaSize" : {
       "float" : 145
     },
@@ -191,7 +194,7 @@
       "float" : 190
     },
     "subsequentExecutionMode" : {
-      "int" : 2
+      "int" : 0
     },
     "SUEnableAutomaticChecks" : {
       "bool" : true
@@ -203,7 +206,7 @@
 
     },
     "todo" : {
-      "int" : 1
+      "int" : 2
     },
     "todoApplication" : {
 
@@ -389,5 +392,5 @@
       "modifierFlags" : 393216
     }
   },
-  "version" : "83"
+  "version" : "86"
 }
