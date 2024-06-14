@@ -8,4 +8,4 @@ This repo contains configuration from XDG_CONFIG_HOME.
 * `.misc/provision.yml` - Ansible playbook to restore shell configuration and install application
 * `.misc/rectangle.json` - Configuration backup of [Rectangle.app](https://rectangleapp.com/)
 * `.misc/vimium.json` - Configuration backup of [Vimium](https://github.com/philc/vimium)
-* `LaunchAgents/` - Patched `.plist` files for macos `launchctl`
+* `.misc/macos/` - macos specific `defaults` setting and patched `.plist` files for `launchctl`
