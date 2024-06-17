@@ -77,6 +77,8 @@ brew "krew"
 brew "kube-linter"
 # FAST Kubernetes manifests validator, with support for Custom Resources!
 brew "kubeconform"
+# Easily check your clusters for use of deprecated APIs
+brew "kubent"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
