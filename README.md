@@ -9,3 +9,10 @@ This repo contains configuration from XDG_CONFIG_HOME.
 * `.misc/rectangle.json` - Configuration backup of [Rectangle.app](https://rectangleapp.com/)
 * `.misc/vimium.json` - Configuration backup of [Vimium](https://github.com/philc/vimium)
 * `.misc/macos/` - macos specific `defaults` setting and patched `.plist` files for `launchctl`
+
+## Noticeable tricks
+
+* Ignore changes in indexed file
+```shell
+git update-index --skip-worktree <FILE>
+```
