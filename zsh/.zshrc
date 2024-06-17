@@ -27,19 +27,21 @@ fi
 
 # prompt
 autoload -U colors && colors
-export PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%} $([ $? -ne 0 ] && echo -e "%{$fg_bold[red]%}$__ERROR_MARK" || echo -e "%{$fg_bold[green]%}$__SUCCESS_MARK")%{$reset_color%} $ '
+export PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%} $([ $? -ne 0 ] && echo -e "%{$fg_bold[red]%}$__MARK_ERROR" || echo -e "%{$fg_bold[green]%}$__MARK_SUCCESS")%{$reset_color%} $ '
 export RPROMPT='%{$fg_bold[green]%}$git_ahead_mark$git_ahead_count%{$fg_bold[red]%}$git_behind_mark$git_behind_count%{$fg_bold[cyan]%}$git_stash_mark$git_stash_count%{$fg_bold[yellow]%}$git_dirty_mark$git_dirty_count%{$fg_bold[blue]%}$git_staged_mark$git_staged_count%{$fg_bold[magenta]%}$git_unknown_mark$git_unknown_count%{$reset_color%}%{$fg[cyan]%}$git_branch$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo -e " %{$fg_bold[red]%}$exit_code")%{$reset_color%}'
 
 # hacks
 case $(uname -s) in
 	[Dd]arwin )
-		export __BAT_THEME="\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo vs-dark || echo vs-light)"
+		export __BAT_THEME="--theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo vs-dark || echo vs-light)"
+		del() { mv "$@" ~/.Trash }
 		;;
 	[Ll]inux )
+		del() { mv "$@" "${XDG_DATA_HOME}/Trash" }
 		;;
 esac
-export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo:${TERMINFO_DIRS:-}"
-export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}'"
+export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo${TERMINFO_DIRS:+:$TERMINFO_DIRS}"
+export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man ${__BAT_THEME}'"
 alias ctop='TERM="${TERM/tmux/xterm}" ctop'
 
 # aliases
@@ -50,11 +52,11 @@ alias t='tt -L 1'
 
 # commands replacements
 alias vim='nvim'
-alias cat="bat --paging=never ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
-alias less="bat --paging=always ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
-alias -g -- -h="-h 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
-alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
-alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME:+--theme=\"$__BAT_THEME\"}"
+alias cat="bat --paging=never ${__BAT_THEME}"
+alias less="bat --paging=always ${__BAT_THEME}"
+alias -g -- -h="-h 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME}"
+alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME}"
+alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME}"
 
 # keymappings
 bindkey "^[[1;3C" forward-word

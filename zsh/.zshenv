@@ -28,10 +28,10 @@ export XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-${HOME}/Videos}"
 # shell colors
 export CLICOLOR=1
 export COLORTERM=truecolor
-export __BLOCK_CURSOR='\033[2 q'
-export __LINE_CURSOR='\033[6 q'
-export __SUCCESS_MARK='\U2714' # ✔︎
-export __ERROR_MARK='\U2718'   # ✘
+export __CURSOR_BLOCK='\033[2 q'
+export __CURSOR_LINE='\033[6 q'
+export __MARK_SUCCESS='\U2714' # ✔︎
+export __MARK_ERROR='\U2718'   # ✘
 # set zsh configs
 export ZLE_RPROMPT_INDENT=0
 export HISTFILE="${ZDOTDIR}/.zsh_history"
@@ -228,10 +228,10 @@ setopt VI
 function zle-keymap-select zle-line-init {
 	case "${KEYMAP}" in
 		vicmd)
-			print -n -- "${__BLOCK_CURSOR}"
+			print -n -- "${__CURSOR_BLOCK}"
 			;;
 		viins|main)
-			print -n -- "${__LINE_CURSOR}"
+			print -n -- "${__CURSOR_LINE}"
 			;;
 	esac
 	zle reset-prompt
@@ -239,7 +239,7 @@ function zle-keymap-select zle-line-init {
 }
 
 function zle-line-finish {
-	print -n -- "${__BLOCK_CURSOR}"
+	print -n -- "${__CURSOR_BLOCK}"
 }
 
 zle -N zle-line-init
