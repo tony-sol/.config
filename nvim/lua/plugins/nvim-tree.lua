@@ -7,6 +7,8 @@ return {
 	},
 	lazy         = false,
 	config       = function()
+		local fchars    = require('utils').defaultFillchars()
+		local schars    = require('utils').specialChars()
 		local utils     = require('utils')
 		local nvim_tree = require('nvim-tree')
 		nvim_tree.setup {
@@ -27,11 +29,11 @@ return {
 				indent_markers         = {
 					enable = true,
 					icons  = {
-						corner = utils.specialChars().corner.upright,
-						edge   = utils.defaultFillchars().vert,
-						item   = utils.defaultFillchars().vert,
-						bottom = utils.defaultFillchars().horiz,
-						none   = utils.defaultFillchars().wbr,
+						corner = schars.corner.upright,
+						edge   = fchars.vert,
+						item   = fchars.vert,
+						bottom = fchars.horiz,
+						none   = fchars.wbr,
 					},
 				},
 				special_files          = { 'Makefile', 'README.md', 'readme.md' },

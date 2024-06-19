@@ -8,12 +8,23 @@ return {
 	config       = function()
 		---@diagnostic disable-next-line: undefined-global
 		local fn      = vim.fn
+		local fchars  = require('utils').defaultFillchars()
+		local schars  = require('utils').specialChars()
 		local promise = require('promise')
 		local ufo     = require('ufo')
 		ufo.setup {
 			preview = {
 				win_config = {
-					border   = { '', '─', '', '', '', '─', '', '' },
+					border   = {
+						'',
+						fchars.horiz,
+						'',
+						'',
+						'',
+						fchars.horiz,
+						'',
+						'',
+					},
 					winblend = 0,
 				},
 				mappings   = {
@@ -41,7 +52,7 @@ return {
 			---@diagnostic enable: unused-local
 			fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
 				local newVirtText = {}
-				local suffix      = (' 󰁂 %d '):format(endLnum - lnum)
+				local suffix      = (' %s %d '):format(schars.arrow_ext.bottomleft, endLnum - lnum)
 				local sufWidth    = fn.strdisplaywidth(suffix)
 				local targetWidth = width - sufWidth
 				local curWidth    = 0

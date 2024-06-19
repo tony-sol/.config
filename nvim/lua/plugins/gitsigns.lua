@@ -6,16 +6,17 @@ return {
 		},
 	},
 	config       = function()
+		local fchars   = require('utils').defaultFillchars()
+		local schars   = require('utils').specialChars()
 		local gitsigns = require('gitsigns')
-		local utils    = require('utils')
 		gitsigns.setup {
 			signs                        = {
-				add          = { text = utils.defaultFillchars().vert },
-				change       = { text = utils.defaultFillchars().vert },
-				changedelete = { text = utils.defaultFillchars().eob },
-				delete       = { text = utils.specialChars().bottom },
-				topdelete    = { text = utils.specialChars().top },
-				untracked    = { text = utils.specialChars().dashed.vert },
+				add          = { text = fchars.vert },
+				change       = { text = fchars.vert },
+				changedelete = { text = fchars.eob },
+				delete       = { text = schars.bottom },
+				topdelete    = { text = schars.top },
+				untracked    = { text = schars.dashed.vert },
 			},
 			signcolumn                   = true,
 			numhl                        = true,
@@ -44,9 +45,6 @@ return {
 				relative = 'cursor',
 				row      = 0,
 				col      = 1,
-			},
-			yadm                         = {
-				enable = false,
 			},
 		}
 	end

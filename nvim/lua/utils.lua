@@ -21,7 +21,8 @@ end
 
 ---@return number
 function M.defaultSidebarSize()
-	return 40
+	---@diagnostic disable-next-line: undefined-global
+	return math.floor(vim.api.nvim_get_option('columns') / 5)
 end
 
 ---@return {wbr: string, vert: string, vertleft: string, vertright: string, verthoriz: string, horiz: string, horizup: string, horizdown: string, foldopen: string, foldclose: string, foldsep: string, diff: string, msgsep: string, eob: string, lastline: string}
@@ -45,21 +46,33 @@ function M.defaultFillchars()
 	}
 end
 
----@return {corner: {upright: string, upleft: string, downright: string, downleft: string}, dashed:{vert: string, horiz: string}, top: string, bottom: string}
+---@return {arrow: {up: string, right: string, down: string, left: string}, arrow_ext: {topright: string, bottomright: string, bottomleft: string, topleft: string}, corner: {upright: string, upleft: string, downright: string, downleft: string}, dashed:{vert: string, horiz: string}, top: string, bottom: string}
 function M.specialChars()
 	return {
-		corner = {
+		arrow     = {
+			up    = '󰁝',
+			right = '󰁔',
+			down  = '󰁅',
+			left  = '󰁍',
+		},
+		arrow_ext = {
+			topright    = '󰁜',
+			bottomright = '󰁃',
+			bottomleft  = '󰁂',
+			topleft     = '󰁛',
+		},
+		corner    = {
 			upright   = '└',
 			upleft    = '┘',
 			downright = '┌',
 			downleft  = '┐',
 		},
-		dashed = {
+		dashed    = {
 			vert  = '┆',
 			horiz = '┄',
 		},
-		top        = '‾',
-		bottom     = '_',
+		top       = '‾',
+		bottom    = '_',
 	}
 end
 

@@ -1,8 +1,10 @@
 return {
 	'hedyhli/outline.nvim',
 	config = function()
-		local outline = require('outline')
+		local fchars  = require('utils').defaultFillchars()
+		local schars  = require('utils').specialChars()
 		local utils   = require('utils')
+		local outline = require('outline')
 		outline.setup {
 			symbols        = {
 				filter = {
@@ -15,17 +17,17 @@ return {
 				},
 				auto_unfold_hover = true,
 				markers           = {
-					utils.defaultFillchars().foldclose,
-					utils.defaultFillchars().foldopen,
+					fchars.foldclose,
+					fchars.foldopen,
 				},
 			},
 			guides         = {
 				enabled = true,
 				markers = {
-					bottom     = utils.specialChars().corner.upright,
-					middle     = utils.defaultFillchars().vertright,
-					vertical   = utils.defaultFillchars().vert,
-					horizontal = utils.defaultFillchars().horiz,
+					bottom     = schars.corner.upright,
+					middle     = fchars.vertright,
+					vertical   = fchars.vert,
+					horizontal = fchars.horiz,
 				},
 			},
 			preview_window = {
