@@ -204,6 +204,8 @@ cask "google-drive"
 cask "jetbrains-toolbox"
 # Open-source keystroke visualiser
 cask "keycastr"
+# Free and open-source painting and sketching program
+cask "krita"
 # Clipboard manager
 cask "maccy"
 # File system integration
