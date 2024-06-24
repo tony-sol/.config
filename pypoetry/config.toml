@@ -2,6 +2,3 @@
 create = true
 path = "{cache-dir}/virtualenvs"
 in-project = true
-prefer-active-python = true
-[virtualenvs.options]
-always-copy = true

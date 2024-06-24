@@ -117,8 +117,6 @@ brew "pam-u2f"
 brew "podman"
 # Podman Terminal User Interface
 brew "podman-tui"
-# Python package management tool
-brew "poetry"
 # Monitor data's progress through a pipe
 brew "pv"
 # Run a command when files change
