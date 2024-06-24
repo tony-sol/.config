@@ -200,6 +200,8 @@ cask "font-jetbrains-mono-nerd-font"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
+# Vector graphics editor
+cask "inkscape"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
 # Open-source keystroke visualiser
