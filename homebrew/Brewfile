@@ -240,8 +240,6 @@ cask "telegram"
 cask "teleport-connect"
 # Unpacks archive files
 cask "the-unarchiver"
-# Development environment
-cask "vagrant"
 # Keyboard configurator
 cask "via"
 # OpenVPN client with AppleScript support

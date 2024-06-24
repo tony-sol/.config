@@ -105,11 +105,13 @@ lazyload sg -- 'source <(sg completions zsh)'
 lazyload tailscale -- 'source <(tailscale completion zsh)'
 
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/tofu" tofu
+
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/nomad" nomad
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/waypoint" waypoint
+complete -o nospace -C "${HOMEBREW_PREFIX}/bin/packer" packer
 
 # hooks
 source <(fzf --zsh)
