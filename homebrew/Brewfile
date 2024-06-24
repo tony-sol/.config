@@ -193,6 +193,8 @@ cask "android-file-transfer"
 cask "chrome-remote-desktop-host"
 # Developer platform
 cask "dotnet-sdk"
+# System-wide audio equaliser
+cask "eqmac"
 # Web browser
 cask "firefox@developer-edition"
 cask "font-jetbrains-mono-nerd-font"
