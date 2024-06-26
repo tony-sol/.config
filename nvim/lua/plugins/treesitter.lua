@@ -10,9 +10,6 @@ return {
 		{
 			'nvim-treesitter/nvim-treesitter-textobjects',
 		},
-		{
-			'lukas-reineke/headlines.nvim',
-		},
 	},
 	build        = ':TSUpdate',
 	config       = function()

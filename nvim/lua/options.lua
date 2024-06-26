@@ -12,7 +12,7 @@ g.maplocalleader    = '\\'
 opt.background     = utils.appearance()
 opt.termguicolors  = true
 opt.cursorline     = true
-opt.cursorcolumn   = true
+opt.cursorcolumn   = false
 opt.laststatus     = 3
 
 -- Fill chars
