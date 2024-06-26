@@ -1,14 +1,14 @@
 return {
-	'lukas-reineke/headlines.nvim',
+	'OXY2DEV/markview.nvim',
 	dependencies = {
 		{
-			'nvim-treesitter/nvim-treesitter',
+			'nvim-tree/nvim-web-devicons',
 		},
 	},
 	ft           = { 'md', 'markdown', 'mkd', 'mkdn', 'mdwn', 'mdown', 'mdtxt', 'mdtext', 'rmd', 'wiki' },
 	config       = function()
-		local headlines = require('headlines')
-		headlines.setup {
+		local markview = require('markview')
+		markview.setup {
 		}
 	end
 }
