@@ -208,6 +208,8 @@ cask "jetbrains-toolbox"
 cask "keycastr"
 # Free and open-source painting and sketching program
 cask "krita"
+# Support for Logitech G gear
+cask "logitech-g-hub"
 # Clipboard manager
 cask "maccy"
 # File system integration
