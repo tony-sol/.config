@@ -1,6 +1,6 @@
 return {
 	'Mofiqul/vscode.nvim',
-	priority = 9000,
+	priority = 9001,
 	lazy     = false,
 	config   = function()
 		local vscode = require('vscode')

@@ -22,7 +22,7 @@ end
 ---@return number
 function M.defaultSidebarSize()
 	---@diagnostic disable-next-line: undefined-global
-	return math.floor(vim.api.nvim_get_option('columns') / 5)
+	return math.min(math.floor(vim.api.nvim_get_option('columns') / 5), 40)
 end
 
 ---@return {wbr: string, vert: string, vertleft: string, vertright: string, verthoriz: string, horiz: string, horizup: string, horizdown: string, foldopen: string, foldclose: string, foldsep: string, diff: string, msgsep: string, eob: string, lastline: string}
