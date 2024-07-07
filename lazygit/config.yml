@@ -7,27 +7,32 @@ gui:
     mainPanelSplitMode: 'flexible'
     language: 'auto'
     timeFormat: '02 Jan 06 15:04 MST'
+    nerdFontsVersion: '3'
     theme:
       activeBorderColor:
-        - green
+        - '#ff9e64' # green
         - bold
       inactiveBorderColor:
-        - white
+        - '#27a1b9' # white
       searchingActiveBorderColor:
-        - cyan
+        - '#ff9e64' # cyan
         - bold
       optionsTextColor:
-        - blue
+        - '#7aa2f7' # blue
       selectedLineBgColor:
-        - blue
-      cherryPickedCommitBgColor:
-        - cyan
+        - '#283457' # blue
       cherryPickedCommitFgColor:
-        - blue
+        - '#7aa2f7' # blue
+      cherryPickedCommitBgColor:
+        - '#bb9af7' # cyan
+      markedBaseCommitFgColor:
+        - "#7aa2f7"
+      markedBaseCommitBgColor:
+        - "#e0af68"
       unstagedChangesColor:
-        - red
+        - '#db4b4b' # red
       defaultFgColor:
-        - default
+        - '#c0caf5' # default
     commitLength:
         show: true
     mouseEvents: true

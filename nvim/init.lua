@@ -24,7 +24,7 @@ opt.runtimepath:prepend(lazypath)
 
 require('lazy').setup('plugins', {
 	install = {
-		colorscheme = { 'vscode' },
+		colorscheme = { 'tokyonight' },
 	},
 	ui      = {
 		border = 'rounded',

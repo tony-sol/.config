@@ -33,7 +33,10 @@ export RPROMPT='%{$fg_bold[green]%}$git_ahead_mark$git_ahead_count%{$fg_bold[red
 # hacks
 case $(uname -s) in
 	[Dd]arwin )
-		export __BAT_THEME="--theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo vs-dark || echo vs-light)"
+		export __BAT_THEME="--theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyonight-night || echo tokyonight-day)"
+		local __fzf_tokyonight_night='--color=bg+:#283457,bg:#16161e,border:#27a1b9,fg:#c0caf5,gutter:#16161e,header:#ff9e64,hl+:#2ac3de,hl:#2ac3de,info:#545c7e,marker:#ff007c,pointer:#ff007c,prompt:#2ac3de,query:#c0caf5:regular,scrollbar:#27a1b9,separator:#ff9e64,spinner:#ff007c'
+		local __fzf_tokyonight_day='--color=bg+:#b7c1e3,bg:#d0d5e3,border:#4094a3,fg:#3760bf,gutter:#d0d5e3,header:#b15c00,hl+:#188092,hl:#188092,info:#8990b3,marker:#d20065,pointer:#d20065,prompt:#188092,query:#3760bf:regular,scrollbar:#4094a3,separator:#b15c00,spinner:#d20065'
+		export __FZF_THEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo $__fzf_tokyonight_night || echo $__fzf_tokyonight_day)
 		del() { mv "$@" ~/.Trash }
 		;;
 	[Ll]inux )
@@ -42,6 +45,7 @@ case $(uname -s) in
 esac
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo${TERMINFO_DIRS:+:$TERMINFO_DIRS}"
 export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man ${__BAT_THEME}'"
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} ${__FZF_THEME}"
 alias ctop='TERM="${TERM/tmux/xterm}" ctop'
 
 # aliases
