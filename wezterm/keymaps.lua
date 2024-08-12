@@ -3,7 +3,6 @@ local actions = require('wezterm').action
 return {
 	{ key = 'q', mods = 'SUPER',      action = actions.QuitApplication },
 	{ key = 'h', mods = 'SUPER',      action = actions.HideApplication },
-	{ key = 'p', mods = 'SUPER',      action = actions.ActivateCommandPalette },
 	{ key = '0', mods = 'SUPER',      action = actions.ResetFontSize },
 	{ key = '-', mods = 'SUPER',      action = actions.DecreaseFontSize },
 	{ key = '=', mods = 'SUPER',      action = actions.IncreaseFontSize },
@@ -12,5 +11,6 @@ return {
 	{ key = ' ', mods = 'SHIFT|CTRL', action = actions.QuickSelect },
 	{ key = '?', mods = 'SHIFT|CTRL', action = actions.ShowLauncher },
 	{ key = '|', mods = 'SHIFT|CTRL', action = actions.ShowDebugOverlay },
+	{ key = 'p', mods = 'SUPER|CTRL', action = actions.ActivateCommandPalette },
 	{ key = 'f', mods = 'SUPER|CTRL', action = actions.ToggleFullScreen },
 }
