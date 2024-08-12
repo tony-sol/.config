@@ -120,7 +120,6 @@ complete -o nospace -C "${HOMEBREW_PREFIX}/bin/packer" packer
 # hooks
 source <(fzf --zsh)
 source <(mise activate zsh)
-source "${HOMEBREW_LIBRARY}/Taps/homebrew/homebrew-command-not-found/handler.sh" || true
 
 # =====================================================================
 
