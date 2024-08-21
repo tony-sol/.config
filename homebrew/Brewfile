@@ -86,6 +86,8 @@ brew "lazygit"
 brew "libfido2"
 # Linux virtual machines
 brew "lima"
+# Mac App Store command-line interface
+brew "mas" if OS.mac?
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Polyglot runtime manager (asdf rust clone)
@@ -107,7 +109,7 @@ brew "opensc" unless OS.mac?
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
 brew "opentofu"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
-brew "openvpn"
+brew "openvpn", restart_service: true
 # PAM module for reattaching to the user's GUI (Aqua) session
 brew "pam-reattach" if OS.mac?
 # Provides an easy way to use U2F-compliant authenticators with PAM
