@@ -16,6 +16,8 @@ filetype.add {
 		-- vscode jsonc
 		['.*%.code%-workspace']          = 'jsonc',
 		['.*%/.vscode%/.*%.json']        = 'jsonc',
+		-- podman machine ignition
+		['.*%.ign']                      = 'json',
 		-- ssh config
 		-- @todo optimize
 		['.*%/.*%.?ssh%.config']         = 'sshconfig',

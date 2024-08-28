@@ -17,6 +17,9 @@ return {
 			'Marskey/telescope-sg',
 		},
 		{
+			'rest-nvim/rest.nvim',
+		},
+		{
 			'nvim-lua/plenary.nvim',
 		},
 	},
@@ -75,7 +78,8 @@ return {
 					command         = { 'sg', '--json=stream' },
 					grep_open_files = false,
 					lang            = nil,
-				}
+				},
+				['rest']           = {},
 			},
 		}
 		telescope.load_extension('file_browser')
@@ -86,5 +90,6 @@ return {
 		telescope.load_extension('todo-comments')
 		telescope.load_extension('ui-select')
 		telescope.load_extension('ast_grep')
+		telescope.load_extension('rest')
 	end
 }

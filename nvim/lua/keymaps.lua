@@ -154,6 +154,14 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
+	'<leader>tR',
+	function()
+		telescope_extensions['rest'].select_env()
+	end,
+	{ desc = 'Telescope: REST env' }
+)
+keymap.set(
+	{ 'n' },
 	'<leader>tf',
 	function()
 		telescope_builtin.current_buffer_fuzzy_find()

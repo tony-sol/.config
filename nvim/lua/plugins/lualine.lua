@@ -10,7 +10,7 @@ return {
 	},
 	config       = function()
 		local lualine = require('lualine')
-		local noice   = require("noice")
+		local noice   = require('noice')
 		local utils   = require('utils')
 		---@return string
 		local function breadcrumbs()
