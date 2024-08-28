@@ -130,6 +130,8 @@ brew "ripgrep"
 brew "socat"
 # Editor of encrypted files
 brew "sops"
+# Simple and fast anti-censorship tool written in Go
+brew "spoofdpi"
 # Non-interactive SSH password auth
 brew "sshpass"
 # CLI for generating a Software Bill of Materials from container images
