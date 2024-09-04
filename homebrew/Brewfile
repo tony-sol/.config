@@ -186,7 +186,7 @@ brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/vault"
 # Waypoint
 brew "hashicorp/tap/waypoint"
-# True release manager for Kubernetes
+# Helmwave is true release management for helm
 brew "helmwave/tap/helmwave"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
@@ -237,8 +237,6 @@ cask "qcma"
 cask "qflipper"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-# VPN client for secure internet access and private browsing
-cask "surfshark"
 # Quicklook extension for source files
 cask "syntax-highlight"
 # Spreadsheet style tag editor for audio files
