@@ -18,6 +18,8 @@ filetype.add {
 		['.*%/.vscode%/.*%.json']        = 'jsonc',
 		-- podman machine ignition
 		['.*%.ign']                      = 'json',
+		-- vial layout
+		['.*%.vil']                      = 'json',
 		-- ssh config
 		-- @todo optimize
 		['.*%/.*%.?ssh%.config']         = 'sshconfig',

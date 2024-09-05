@@ -247,8 +247,8 @@ cask "telegram"
 cask "teleport-connect"
 # Unpacks archive files
 cask "the-unarchiver"
-# Keyboard configurator
-cask "via"
+# Configurator of compatible keyboards in real time
+cask "vial"
 # OpenVPN client with AppleScript support
 cask "viscosity"
 # Open-source code editor
