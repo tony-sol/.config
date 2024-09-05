@@ -2,6 +2,8 @@ ctx
 exec-as
 krew
 ns
+nsenter
+oidc-login
 resource-capacity
 tail
 tree
