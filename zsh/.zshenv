@@ -70,9 +70,9 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # set sqlite configs
 export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite/history"
 # set fzf configs
+export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_COMMAND="fd --follow --hidden"
-export FZF_DEFAULT_OPTS="--multi --cycle --keep-right --height=40% --layout=reverse --border=rounded --info=inline --ansi --highlight-line"
 # --preview='[[ -f {} ]] && [[ \$(file --brief --dereference --mime-type {}) =~ text ]] && bat --color=always --style=numbers --line-range=:200 {}'
 export FZF_CTRL_T_COMMAND="fd --type file --type symlink --type socket --follow --hidden"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:100 {} | head -200'"
