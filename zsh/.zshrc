@@ -35,18 +35,18 @@ local __fzf_theme_tokyonight_night=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-
 local __fzf_theme_tokyonight_day=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-day")
 case $(uname -s) in
 	[Dd]arwin )
-		export __BAT_THEME="--theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyonight-night || echo tokyonight-day)"
+		alias bat='bat --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyonight-night || echo tokyonight-day)'
 		alias fzf='fzf --color=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo $__fzf_theme_tokyonight_night || echo $__fzf_theme_tokyonight_day)'
 		del() { mv "$@" ~/.Trash }
 		;;
 	[Ll]inux )
-		export __BAT_THEME="--theme=tokyonight-night"
+		alias bat='bat --theme=tokyonight-night'
 		alias fzf='fzf --color=$__fzf_theme_tokyonight_night'
 		del() { mv "$@" "${XDG_DATA_HOME}/Trash" }
 		;;
 esac
 export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo${TERMINFO_DIRS:+:$TERMINFO_DIRS}"
-export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man ${__BAT_THEME}'"
+export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
 alias ctop='TERM="${TERM/tmux/xterm}" ctop'
 
 # aliases
@@ -57,11 +57,11 @@ alias t='tt -L 1'
 
 # commands replacements
 alias vim='nvim'
-alias cat="bat --paging=never ${__BAT_THEME}"
-alias less="bat --paging=always ${__BAT_THEME}"
-alias -g -- -h="-h 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME}"
-alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME}"
-alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain ${__BAT_THEME}"
+alias cat="bat --paging=never"
+alias less="bat --paging=always"
+alias -g -- -h="-h 2>&1 | bat --paging=never --language=help --style=plain"
+alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
+alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
 
 # keymappings
 bindkey "^[[1;3C" forward-word
