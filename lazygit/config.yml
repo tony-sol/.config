@@ -1,4 +1,3 @@
----
 gui:
     scrollHeight: 2
     scrollPastBottom: true
@@ -9,30 +8,30 @@ gui:
     timeFormat: '02 Jan 06 15:04 MST'
     nerdFontsVersion: '3'
     theme:
-      activeBorderColor:
-        - '#ff9e64' # green
-        - bold
-      inactiveBorderColor:
-        - '#27a1b9' # white
-      searchingActiveBorderColor:
-        - '#ff9e64' # cyan
-        - bold
-      optionsTextColor:
-        - '#7aa2f7' # blue
-      selectedLineBgColor:
-        - '#283457' # blue
-      cherryPickedCommitFgColor:
-        - '#7aa2f7' # blue
-      cherryPickedCommitBgColor:
-        - '#bb9af7' # cyan
-      markedBaseCommitFgColor:
-        - "#7aa2f7"
-      markedBaseCommitBgColor:
-        - "#e0af68"
-      unstagedChangesColor:
-        - '#db4b4b' # red
-      defaultFgColor:
-        - '#c0caf5' # default
+        activeBorderColor:
+            - "#ff9e64"
+            - "bold"
+        inactiveBorderColor:
+            - "#27a1b9"
+        searchingActiveBorderColor:
+            - "#ff9e64"
+            - "bold"
+        optionsTextColor:
+            - "#7aa2f7"
+        selectedLineBgColor:
+            - "#283457"
+        cherryPickedCommitFgColor:
+            - "#7aa2f7"
+        cherryPickedCommitBgColor:
+            - "#bb9af7"
+        markedBaseCommitFgColor:
+            - "#7aa2f7"
+        markedBaseCommitBgColor:
+            - "#e0af68"
+        unstagedChangesColor:
+            - "#db4b4b"
+        defaultFgColor:
+            - "#c0caf5"
     commitLength:
         show: true
     mouseEvents: true
@@ -68,8 +67,8 @@ git:
         showWholeGraph: true
     skipHookPrefix: WIP
     mainBranches:
-      - master
-      - main
+        - master
+        - main
     autoFetch: true
     autoRefresh: true
     fetchAll: true
@@ -129,7 +128,7 @@ keybinding:
         scrollDownMain-alt1: 'J'
         scrollUpMain-alt2: '<c-u>'
         scrollDownMain-alt2: '<c-d>'
-        executeCustomCommand: ':'
+        executeShellCommand: ':'
         createRebaseOptionsMenu: 'm'
         pushFiles: 'P'
         pullFiles: 'p'
