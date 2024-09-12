@@ -9,6 +9,9 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "mutagen-io/mutagen"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
+tap "qmk/qmk"
 tap "wez/wezterm"
 # Run your GitHub Actions locally
 brew "act"
@@ -190,6 +193,8 @@ brew "hashicorp/tap/waypoint"
 brew "helmwave/tap/helmwave"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
+# Quantum Mechanical Keyboard (QMK) Firmware
+brew "qmk/qmk/qmk"
 # Transfer files from and to an Android smartphone
 cask "android-file-transfer"
 # Remotely access another computer through the Google Chrome browser
