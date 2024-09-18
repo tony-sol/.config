@@ -43,6 +43,8 @@ brew "fzf"
 brew "forgit"
 # GNU compiler collection
 brew "gcc" unless OS.mac?
+# Terminal JSON viewer
+brew "fx"
 # GitHub command-line tool
 brew "gh"
 # Git extension for versioning large files
