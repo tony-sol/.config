@@ -1,9 +1,11 @@
-local appearance = require('appearance')
-local font       = require('font')
-local keymaps    = require('keymaps')
+local appearance  = require('appearance')
+local font        = require('font')
+local keymaps     = require('keymaps')
+local launch_menu = require('launch_menu')
 
 return {
 	term                         = 'xterm-256color',
+	launch_menu                  = launch_menu,
 	default_prog                 = { 'zsh', '--login', '--interactive', '-c', 'tmux new -A' },
 	exit_behavior                = 'CloseOnCleanExit',
 	scrollback_lines             = 1000000,
@@ -19,7 +21,7 @@ return {
 	force_reverse_video_cursor   = true,
 	bold_brightens_ansi_colors   = 'BrightAndBold',
 	-- Font
-	unicode_version              = 14,
+	unicode_version              = 16,
 	custom_block_glyphs          = false,
 	font                         = font,
 	font_size                    = 14.0,
