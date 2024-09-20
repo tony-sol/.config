@@ -125,6 +125,9 @@ complete -o nospace -C "${HOMEBREW_PREFIX}/bin/packer" packer
 source <(fzf --zsh)
 source <(mise activate zsh)
 
+# zsh plugins
+source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
+
 # =====================================================================
 
 if [ -f "${ZDOTDIR}/.zshrc.after" ]; then
