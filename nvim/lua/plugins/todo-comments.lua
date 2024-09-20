@@ -38,8 +38,9 @@ return {
 			},
 		}
 		for key, val in pairs(keywords) do
-			local alt_lower = { key:lower() }
+			local alt_lower = { key:sub(1, 1):upper() .. key:sub(2):lower(), key:lower() }
 			for _, alt in pairs(val.alt) do
+				table.insert(alt_lower, alt:sub(1, 1):upper() .. alt:sub(2):lower())
 				table.insert(alt_lower, alt:lower())
 			end
 			for _, alt in pairs(alt_lower) do
@@ -53,13 +54,14 @@ return {
 				bg = 'bold',
 			},
 			highlight = {
-				before  = '',
-				after   = '',
-				keyword = 'wide_fg',
-				pattern = {
-					[[.*<(KEYWORDS)\s*:]], -- default
-					[[.*\@(KEYWORDS)\s*]], -- default
-					[[.*\\(KEYWORDS)\s*]],
+				multiline = false,
+				before    = '',
+				after     = 'fg',
+				keyword   = 'wide_fg',
+				pattern   = {
+					[[\@(KEYWORDS)]],
+					[[\@(KEYWORDS)\s*:]],
+					[[\s(KEYWORDS)\s*:]],
 				},
 			},
 			search    = {
@@ -72,9 +74,7 @@ return {
 					'--column',
 					'--ignore-case',
 				},
-				-- pattern = [[\b(KEYWORDS):]],  -- default
-				-- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon.
-				pattern = [[([@|\\](KEYWORDS):?\b)|(\b(KEYWORDS):)]],
+				pattern = [[(@(KEYWORDS)[\s*:]?)|(\s(KEYWORDS)\s*:)]],
 			},
 		}
 	end
