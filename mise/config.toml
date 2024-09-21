@@ -2,6 +2,7 @@
 usage = "latest"
 node = "latest"
 yarn = "latest"
+pnpm = "latest"
 python = "system"
 poetry = "latest"
 ruby = "latest"
