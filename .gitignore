@@ -1,1 +1,8 @@
-*
+# Ignore any auth...
+auth[._-]*
+# ...any config overrides...
+*[._-]override[._-]*
+*[._-]override
+# ...and any locks
+*[._-]lock[._-$]*
+*[._-]lock

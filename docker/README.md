@@ -29,7 +29,7 @@ sudo ln -sf "${LIMA_HOME}/docker-rootful/sock/docker.sock" /var/run/
 ## Update docker/config.json
 
 ```shell
-(yq --unwrapScalar '.cliPluginsExtraDirs.[]' config.json | grep -E "^${HOMEBREW_PREFIX}/lib/docker/cli-plugins$")>/dev/null ||  || yq '("${HOMEBREW_PREFIX}/lib/docker/cli-plugins" | envsubst) as $cli-plugins | .cliPluginsExtraDirs += [$cli-plugins]' "${DOCKER_CONFIG}/config.json"
+(yq --unwrapScalar '.cliPluginsExtraDirs.[]' config.json | grep -E "^${HOMEBREW_PREFIX}/lib/docker/cli-plugins$")>/dev/null || yq '("${HOMEBREW_PREFIX}/lib/docker/cli-plugins" | envsubst) as $cli-plugins | .cliPluginsExtraDirs += [$cli-plugins]' "${DOCKER_CONFIG}/config.json"
 ```
 
 ## Setup docker context
