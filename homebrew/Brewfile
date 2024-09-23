@@ -17,6 +17,8 @@ tap "wez/wezterm"
 brew "act"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
+# GitOps Continuous Delivery for Kubernetes
+brew "argocd"
 # Code searching, linting, rewriting
 brew "ast-grep"
 # Tool for generating GNU Standards-compliant Makefiles

@@ -100,6 +100,8 @@ export MINIKUBE_HOME="${XDG_DATA_HOME}/minikube"
 export HELM_CACHE_HOME="${XDG_CACHE_HOME}/helm"
 export HELM_CONFIG_HOME="${XDG_CONFIG_HOME}/helm"
 export HELM_DATA_HOME="${XDG_DATA_HOME}/helm"
+# set argocd configs
+export ARGOCD_CONFIG_DIR="${XDG_DATA_HOME}/argocd"
 # set werf configs
 export WERF_TMP_DIR="${XDG_CACHE_HOME}/werf"
 export WERF_HOME="${XDG_CONFIG_HOME}/werf"
