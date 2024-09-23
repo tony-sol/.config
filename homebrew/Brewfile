@@ -125,6 +125,8 @@ brew "pam-u2f"
 brew "podman"
 # Podman Terminal User Interface
 brew "podman-tui"
+# Parse HTML at the command-line
+brew "pup"
 # Monitor data's progress through a pipe
 brew "pv"
 # Run a command when files change
