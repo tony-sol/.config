@@ -5,6 +5,15 @@ defaults wirte com.apple.dock 'springboard-rows' -int '5'
 # Set Dock icons size to 36
 defaults wirte com.apple.dock 'tilesize' -int '36'
 
+# Set Dock position to left
+defaults write com.apple.dock 'orientation' -string 'left'
+
+# Set Dock position to autohide
+defaults write com.apple.dock 'autohide' -bool 'true'
+
+# Set Dock autohide animation faster
+defaults write com.apple.dock 'autohide-time-modifier' -float '0.2'
+
 # Set Screencapture to disable shadows
 defaults write com.apple.screencapture 'disable-shadow' -bool 'true'
 
@@ -44,9 +53,6 @@ defaults write com.apple.ActivityMonitor "IconType" -int '6'
 defaults write com.apple.menuextra.clock 'Show24Hour' -bool 'true'
 defaults write com.apple.menuextra.clock 'ShowDate' -bool 'true'
 defaults write com.apple.menuextra.clock 'ShowDayOfWeek' -bool 'true'
-
-# Set trackpad touch-as-click
-defaults write com.apple.AppleMultitouchTrackpad 'Clicking' -bool 'true'
 
 # Set trackpad touch-as-click
 defaults write com.apple.AppleMultitouchTrackpad 'Clicking' -bool 'true'
