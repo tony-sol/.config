@@ -35,6 +35,8 @@ brew "ctop"
 brew "dive"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
 # Isolated development environments using Docker
 brew "docker-compose"
 # Simple, fast and user-friendly alternative to find
