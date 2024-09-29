@@ -125,7 +125,7 @@ complete -o nospace -C "${HOMEBREW_PREFIX}/bin/packer" packer
 
 # hooks
 source <(fzf --zsh)
-source <(mise activate zsh)
+source <(mise activate zsh --shims)
 
 # zsh plugins
 source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
