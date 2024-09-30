@@ -1,0 +1,19 @@
+{
+	"devices": [
+		{
+			"name": "Ergohaven K:03 Pro",
+			"vendorId": "0xE126",
+			"productId": "0x00A0"
+		},
+		{
+			"name": "Vortex Model M SSK",
+			"vendorId": "0xEB88",
+			"productId": "0x0024"
+		}
+	],
+	"layouts": [
+		"ABC",
+		"RussianWin"
+	],
+	"reconnectDelay": 1000
+}
