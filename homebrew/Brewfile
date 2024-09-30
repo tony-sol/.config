@@ -21,16 +21,10 @@ brew "ansible"
 brew "argocd"
 # Code searching, linting, rewriting
 brew "ast-grep"
-# Tool for generating GNU Standards-compliant Makefiles
-brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Cross-platform make
-brew "cmake"
 # Test your configuration files using Open Policy Agent
 brew "conftest"
-# Top-like interface for container metrics
-brew "ctop"
 # Tool for exploring each layer in a docker image
 brew "dive"
 # Pack, ship and run any application as a lightweight container
@@ -47,8 +41,6 @@ brew "fzf"
 brew "forgit"
 # GNU compiler collection
 brew "gcc" unless OS.mac?
-# Terminal JSON viewer
-brew "fx"
 # GitHub command-line tool
 brew "gh"
 # Git extension for versioning large files

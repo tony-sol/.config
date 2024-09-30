@@ -112,7 +112,6 @@ lazyload tsh -- 'source <(tsh --completion-script-zsh)'
 lazyload mise -- 'source <(mise completion zsh)'
 lazyload sg -- 'source <(sg completions zsh)'
 lazyload tailscale -- 'source <(tailscale completion zsh)'
-lazyload fx -- 'source <(fx --comp=zsh)'
 
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/tofu" tofu
 
