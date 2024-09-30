@@ -1,0 +1,9 @@
+{
+	"device": {
+		"name": "Vortex Model M SSK",
+		"vendorId": "0xEB88",
+		"productId": "0x0024",
+		"usage": 97,
+		"usagePage": 65376
+	}
+}

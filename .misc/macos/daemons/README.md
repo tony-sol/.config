@@ -1,5 +1,11 @@
 # macos patched services
 
+> [!TIP]
+> See also:
+>   [launchctl(1)](https://keith.github.io/xcode-man-pages/launchctl.1.html),
+>   [launchd.plist(5)](https://keith.github.io/xcode-man-pages/launchd.plist.5.html),
+>   [launchd(8)](https://keith.github.io/xcode-man-pages/launchd.8.html)
+
 > [!NOTE]
 > ```man
 > FILES

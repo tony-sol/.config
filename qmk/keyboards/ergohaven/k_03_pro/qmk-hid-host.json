@@ -1,0 +1,9 @@
+{
+	"device": {
+		"name": "Ergohaven K:03 Pro",
+		"vendorId": "0xE126",
+		"productId": "0x00A0",
+		"usage": 97,
+		"usagePage": 65376
+	}
+}
