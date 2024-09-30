@@ -17,6 +17,7 @@ local telescope_extensions = require('telescope').extensions
 local hop                  = require('hop')
 local gitsigns             = require('gitsigns')
 local tree_api             = require('nvim-tree.api')
+local kubectl              = require('kubectl')
 
 keymap.set(
 	{ 'n' },
@@ -87,6 +88,14 @@ keymap.set(
 		tree_api.tree.focus()
 	end,
 	{ desc = 'NvimTree: focus' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>K',
+	function()
+		kubectl.toggle()
+	end,
+	{ desc = 'Kubectl' }
 )
 keymap.set(
 	{ 'n' },
