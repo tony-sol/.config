@@ -4,6 +4,9 @@ return {
 		{
 			'nvim-lua/plenary.nvim',
 		},
+		{
+			'ibhagwan/fzf-lua',
+		},
 	},
 	event        = 'VimEnter',
 	config       = function()
@@ -74,7 +77,7 @@ return {
 					'--column',
 					'--ignore-case',
 				},
-				pattern = [[(@(KEYWORDS)[\s*:]?)|(\s(KEYWORDS)\s*:)]],
+				pattern = [[(\@(KEYWORDS)[\s*:]?)|(\s(KEYWORDS)\s*:)]],
 			},
 		}
 	end

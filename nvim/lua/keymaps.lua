@@ -18,6 +18,8 @@ local hop                  = require('hop')
 local gitsigns             = require('gitsigns')
 local tree_api             = require('nvim-tree.api')
 local kubectl              = require('kubectl')
+local fzf_lua              = require('fzf-lua')
+local fzf_lua_cmd          = require('fzf-lua.cmd')
 
 keymap.set(
 	{ 'n' },
@@ -96,6 +98,22 @@ keymap.set(
 		kubectl.toggle()
 	end,
 	{ desc = 'Kubectl' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>F',
+	function()
+		fzf_lua_cmd.run_command()
+	end,
+	{ desc = 'FzfLua' }
+)
+keymap.set(
+	{ 'n' },
+	'<leader>fr',
+	function()
+		fzf_lua.resume()
+	end,
+	{ desc = 'FzfLua: resume' }
 )
 keymap.set(
 	{ 'n' },
