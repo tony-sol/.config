@@ -58,9 +58,6 @@ alias tt='tree -halFpugND'
 alias t='tt -L 1'
 
 # commands replacements
-alias vim='nvim'
-alias cat="bat --paging=never"
-alias less="bat --paging=always"
 alias -g -- -h="-h 2>&1 | bat --paging=never --language=help --style=plain"
 alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
 alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
