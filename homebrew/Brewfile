@@ -65,6 +65,8 @@ brew "helmfile"
 brew "hexyl"
 # HTTP load generator, ApacheBench (ab) replacement
 brew "hey"
+# Uses CSS selectors to extract bits content from HTML files
+brew "htmlq"
 # Improved top (interactive process viewer)
 brew "htop"
 # Run local Kubernetes cluster in Docker
@@ -119,8 +121,6 @@ brew "pam-u2f"
 brew "podman"
 # Podman Terminal User Interface
 brew "podman-tui"
-# Parse HTML at the command-line
-brew "pup"
 # Monitor data's progress through a pipe
 brew "pv"
 # Run a command when files change
