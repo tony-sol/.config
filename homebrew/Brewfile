@@ -252,6 +252,8 @@ cask "telegram"
 cask "teleport-connect"
 # Unpacks archive files
 cask "the-unarchiver"
+# Virtual machines UI using QEMU
+cask "utm"
 # Configurator of compatible keyboards in real time
 cask "vial"
 # OpenVPN client with AppleScript support
