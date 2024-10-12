@@ -240,6 +240,8 @@ cask "qbittorrent"
 cask "qcma"
 # Companion app for Flipper Zero devices
 cask "qflipper"
+# Toolbox companion for QMK Firmware
+cask "qmk-toolbox"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Quicklook extension for source files
