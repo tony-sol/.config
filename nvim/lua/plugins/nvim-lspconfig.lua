@@ -82,6 +82,12 @@ return {
 		lsp_config.pylsp.setup {
 			capabilities = default_capabilities,
 		}
+		lsp_config.rubocop.setup {
+			capabilities = default_capabilities,
+		}
+		lsp_config.rust_analyzer.setup {
+			capabilities = default_capabilities,
+		}
 		lsp_config.terraformls.setup {
 			capabilities = default_capabilities,
 		}
