@@ -31,6 +31,8 @@ return {
 				'marksman',
 				'omnisharp',
 				'pylsp',
+				'rubocop',
+				'rust_analyzer',
 				'terraformls',
 				'tflint',
 				'yamlls',
