@@ -175,6 +175,8 @@ brew "go-task/tap/go-task"
 brew "goodwithtech/r/dockle"
 # Simple MTP fuse filesystem driver
 brew "gromgit/fuse/simple-mtpfs-mac" if OS.mac?
+# FUSE filesystem to mount squashfs archives
+brew "gromgit/fuse/squashfuse-mac" if OS.mac?
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac" if OS.mac?
 # Consul
