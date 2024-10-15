@@ -1,12 +1,5 @@
-# set XDG Base Directory Specification
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
-export XDG_BIN_HOME="${XDG_BIN_HOME:-${HOME}/.local/bin}"
-export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
-export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
-export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
-export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-${HOME}/.local/run}"
-# set zsh config home
-export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+# realpath to .zshenv file directory
+export ZDOTDIR="${${(%):-%x}:P:h}"
 
 # =====================================================================
 
@@ -16,12 +9,20 @@ fi
 
 # =====================================================================
 
+# set XDG Base Directory Specification
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_BIN_HOME="${XDG_BIN_HOME:-${HOME}/.local/bin}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-${HOME}/.local/run}"
 # set XDG User Directories Specification
 export XDG_DESKTOP_DIR="${XDG_DESKTOP_DIR:-${HOME}/Desktop}"
 export XDG_DOCUMENTS_DIR="${XDG_DOCUMENTS_DIR:-${HOME}/Documents}"
 export XDG_DOWNLOAD_DIR="${XDG_DOWNLOAD_DIR:-${HOME}/Downloads}"
 export XDG_MUSIC_DIR="${XDG_MUSIC_DIR:-${HOME}/Music}"
 export XDG_PICTURES_DIR="${XDG_PICTURES_DIR:-${HOME}/Pictures}"
+export XDG_PROJECTS_DIR="${XDG_PROJECTS_DIR:-${HOME}/Projects}"
 export XDG_PUBLICSHARE_DIR="${XDG_PUBLICSHARE_DIR:-${HOME}/Public}"
 export XDG_TEMPLATES_DIR="${XDG_TEMPLATES_DIR:-${HOME}/Templates}"
 export XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-${HOME}/Videos}"
@@ -33,7 +34,7 @@ export __CURSOR_LINE='\033[6 q'
 export __MARK_SUCCESS='\U2714' # ✔︎
 export __MARK_ERROR='\U2718'   # ✘
 # set zsh configs
-export ZLE_RPROMPT_INDENT=0
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=200000
 export SAVEHIST=200000
@@ -42,6 +43,7 @@ export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo:${TERMINFO_DIRS}"
 export WORDCHARS='*?[]~=&!#$%^(){}<>'
 export KEYTIMEOUT=1
+export ZLE_RPROMPT_INDENT=0
 # set system dependent configs
 case $(uname -s) in
 	[Dd]arwin )
