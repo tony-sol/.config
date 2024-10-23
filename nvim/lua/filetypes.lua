@@ -7,6 +7,7 @@ filetype.add {
 		['[bB]rewfile']                  = 'ruby',
 		-- kubernetes config
 		['.*%/kube%/config']             = 'yaml',
+		['.*%/kube%/.*%.config']         = 'yaml',
 		-- terraform | tofu
 		['.*%.tfrc']                     = 'terraform',
 		['.*%.terraformrc']              = 'terraform',
