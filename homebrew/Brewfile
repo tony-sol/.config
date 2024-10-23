@@ -232,6 +232,8 @@ cask "mos"
 cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Cloud storage client
+cask "onedrive"
 # Smart card libraries and utilities
 cask "opensc"
 # Browse, manage, inspect containers and images
