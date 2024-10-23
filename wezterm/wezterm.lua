@@ -14,6 +14,7 @@ return {
 	window_decorations           = 'RESIZE',
 	initial_cols                 = 120,
 	initial_rows                 = 40,
+	tab_bar_at_bottom            = true,
 	hide_tab_bar_if_only_one_tab = true,
 	native_macos_fullscreen_mode = true,
 	-- Appearance - colors
