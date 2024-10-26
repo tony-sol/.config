@@ -167,6 +167,8 @@ brew "yq"
 brew "yubico-piv-tool"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Orchestrator for running Tart Virtual Machines on a cluster of Apple Silicon devices
+brew "cirruslabs/cli/orchard" if OS.mac? && Hardware::CPU.arm?
 # Run macOS and Linux VMs on Apple Hardware
 brew "cirruslabs/cli/tart" if OS.mac? && Hardware::CPU.arm?
 # Task runner / simpler Make alternative written in Go
