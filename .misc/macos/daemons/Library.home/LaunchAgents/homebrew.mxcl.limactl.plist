@@ -15,7 +15,6 @@
 	<array>
 		<string>/opt/homebrew/bin/limactl</string>
 		<string>start</string>
-		<string>docker-rootful</string>
 		<string>--foreground</string>
 	</array>
 	<key>StandardOutPath</key>

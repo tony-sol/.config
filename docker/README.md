@@ -3,40 +3,37 @@
 > [!WARNING]
 > Do this on your own risk
 
+> [!IMPORTANT]
+> ARM macos only
+
 ## Setup VM via limactl
 
-> [!IMPORTANT]
-> macos only
-> ```shell
-> limactl create --cpus=4 --memory=8 --disk=64 --vm-type=vz --mount-type=virtiofs --rosetta --network=vzNAT template://docker-rootful
-> ```
-
 ```shell
-limactl create --cpus=4 --memory=8 --disk=64 --containerd user+system template://docker
+limactl create "${XDG_CONFIG_HOME}/lima/default.yaml"
 ```
 
 ## Start vm
 ```shell
-limactl start docker-rootful
+limactl start
 ```
 
-## Link docker socket
+### Optional: Link docker socket
 
 ```shell
-sudo ln -sf "${LIMA_HOME}/docker-rootful/sock/docker.sock" /var/run/
+socketPath=$(limactl list --format yaml | yq 'select(.instance.name == "default") | .instance.config.portForwards.[].hostSocket') && sudo ln -sf $socketPath /var/run/
 ```
 
 ## Update docker/config.json
 
 ```shell
-(yq --unwrapScalar '.cliPluginsExtraDirs.[]' config.json | grep -E "^${HOMEBREW_PREFIX}/lib/docker/cli-plugins$")>/dev/null || yq '("${HOMEBREW_PREFIX}/lib/docker/cli-plugins" | envsubst) as $cli-plugins | .cliPluginsExtraDirs += [$cli-plugins]' "${DOCKER_CONFIG}/config.json"
+(yq --unwrapScalar '.cliPluginsExtraDirs.[]' "${DOCKER_CONFIG}/config.json" | grep -E "^${HOMEBREW_PREFIX}/lib/docker/cli-plugins$")>/dev/null || yq '("${HOMEBREW_PREFIX}/lib/docker/cli-plugins" | envsubst) as $cli-plugins | .cliPluginsExtraDirs += [$cli-plugins]' "${DOCKER_CONFIG}/config.json"
 ```
 
 ## Setup docker context
 
 
 ```shell
-docker context create --docker host="unix://${LIMA_HOME}/docker-rootful/sock/docker.sock" --description "Docker Engine via lima-vm" limactl
+docker context create --docker host="unix://$(limactl list --format yaml | yq 'select(.instance.name == "default") | .instance.config.portForwards.[].hostSocket')" --description "Docker Engine via lima-vm" limactl
 docker context use limactl
 ```
 
