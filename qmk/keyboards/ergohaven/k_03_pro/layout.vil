@@ -95,9 +95,9 @@
 			],
 			[
 				"KC_HOME",
-				"KC_DELETE",
+				"KC_PGDOWN",
 				"KC_UP",
-				"KC_INSERT",
+				"KC_PGUP",
 				"KC_TRNS",
 				"KC_TRNS"
 			],
@@ -110,10 +110,10 @@
 				"KC_TRNS"
 			],
 			[
-				"KC_KP_ENTER",
+				"KC_PAUSE",
 				"KC_NUMLOCK",
 				"KC_CAPSLOCK",
-				"KC_TRNS",
+				"KC_SCROLLLOCK",
 				"KC_TRNS",
 				"KC_TRNS"
 			],
@@ -134,7 +134,7 @@
 				"KC_F12"
 			],
 			[
-				"KC_PGUP",
+				"KC_INSERT",
 				"KC_KP_7",
 				"KC_KP_8",
 				"KC_KP_9",
@@ -142,7 +142,7 @@
 				"KC_TRNS"
 			],
 			[
-				"KC_PGDOWN",
+				"KC_DELETE",
 				"KC_KP_4",
 				"KC_KP_5",
 				"KC_KP_6",
@@ -159,11 +159,11 @@
 			],
 			[
 				"KC_TRNS",
-				"KC_TRNS",
+				"KC_KP_ENTER",
 				"MO(3)",
 				"KC_TRNS",
 				"KC_KP_0",
-				"KC_TRNS"
+				"KC_KP_DOT"
 			]
 		],
 		[
@@ -266,7 +266,7 @@
 				"KC_TRNS"
 			],
 			[
-				"KC_TRNS",
+				"MAGIC_TOGGLE_ALT_GUI",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
