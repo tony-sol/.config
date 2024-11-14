@@ -47,3 +47,4 @@ set hlsearch
 set relativenumber
 set number
 
+colorscheme habamax
