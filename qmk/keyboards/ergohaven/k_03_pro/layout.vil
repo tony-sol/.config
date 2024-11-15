@@ -110,10 +110,10 @@
 				"KC_TRNS"
 			],
 			[
-				"KC_PAUSE",
-				"KC_NUMLOCK",
-				"KC_CAPSLOCK",
-				"KC_SCROLLLOCK",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS"
 			],
@@ -135,35 +135,35 @@
 			],
 			[
 				"KC_INSERT",
-				"KC_KP_7",
-				"KC_KP_8",
-				"KC_KP_9",
+				"KC_PSCREEN",
+				"KC_SCROLLLOCK",
+				"KC_PAUSE",
 				"KC_TRNS",
 				"KC_TRNS"
 			],
 			[
 				"KC_DELETE",
-				"KC_KP_4",
-				"KC_KP_5",
-				"KC_KP_6",
-				"KC_TRNS",
-				"KC_TRNS"
-			],
-			[
-				"KC_PSCREEN",
-				"KC_KP_1",
-				"KC_KP_2",
-				"KC_KP_3",
+				"KC_CAPSLOCK",
+				"KC_APPLICATION",
+				"KC_NUMLOCK",
 				"KC_TRNS",
 				"KC_TRNS"
 			],
 			[
 				"KC_TRNS",
-				"KC_KP_ENTER",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS"
+			],
+			[
+				"KC_TRNS",
+				"KC_TRNS",
 				"MO(3)",
 				"KC_TRNS",
-				"KC_KP_0",
-				"KC_KP_DOT"
+				"KC_TRNS",
+				"KC_TRNS"
 			]
 		],
 		[
@@ -266,10 +266,18 @@
 				"KC_TRNS"
 			],
 			[
-				"MAGIC_TOGGLE_ALT_GUI",
 				"KC_TRNS",
+				"KC_VOLU",
+				"KC_MUTE",
+				"KC_VOLD",
 				"KC_TRNS",
+				"KC_TRNS"
+			],
+			[
 				"KC_TRNS",
+				"KC_MNXT",
+				"KC_MPLY",
+				"KC_MPRV",
 				"KC_TRNS",
 				"KC_TRNS"
 			],
@@ -283,46 +291,38 @@
 			],
 			[
 				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS"
-			],
-			[
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
+				"KC_KP_7",
+				"KC_KP_8",
+				"KC_KP_9",
 				"KC_TRNS",
 				"KC_TRNS"
 			],
 			[
 				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
+				"KC_KP_4",
+				"KC_KP_5",
+				"KC_KP_6",
 				"DYN_MACRO_PLAY1",
 				"DYN_REC_START1"
 			],
 			[
 				"KC_TRNS",
-				"KC_VOLD",
-				"KC_MUTE",
-				"KC_VOLU",
+				"KC_KP_1",
+				"KC_KP_2",
+				"KC_KP_3",
 				"DYN_MACRO_PLAY2",
 				"DYN_REC_START2"
 			],
 			[
 				"KC_TRNS",
-				"KC_MPRV",
-				"KC_MPLY",
-				"KC_MNXT",
+				"KC_KP_0",
+				"KC_KP_DOT",
+				"KC_KP_ENTER",
 				"KC_TRNS",
 				"DYN_REC_STOP"
 			],
 			[
-				"KC_TRNS",
+				"MAGIC_TOGGLE_ALT_GUI",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
