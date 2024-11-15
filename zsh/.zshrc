@@ -33,9 +33,16 @@ zle -N zle-keymap-select
 autoload -Uz colors && colors
 # '\U2714'='✔︎'; '\U2718'='✘'
 export PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%} $([ $? -ne 0 ] && echo -e "%{$fg_bold[red]%}\U2718" || echo -e "%{$fg_bold[green]%}\U2714")%{$reset_color%} $ '
-export RPROMPT='%{$fg_bold[green]%}$git_ahead_mark$git_ahead_count%{$fg_bold[red]%}$git_behind_mark$git_behind_count%{$fg_bold[cyan]%}$git_stash_mark$git_stash_count%{$fg_bold[yellow]%}$git_dirty_mark$git_dirty_count%{$fg_bold[blue]%}$git_staged_mark$git_staged_count%{$fg_bold[magenta]%}$git_unknown_mark$git_unknown_count%{$reset_color%}%{$fg[cyan]%} $git_branch$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo -e " %{$fg_bold[red]%}$exit_code")%{$reset_color%}'
+export RPROMPT='%{$fg_bold[green]%}$git_ahead_mark$git_ahead_count%{$fg_bold[red]%}$git_behind_mark$git_behind_count%{$fg_bold[cyan]%}$git_stash_mark$git_stash_count%{$fg_bold[yellow]%}$git_dirty_mark$git_dirty_count%{$fg_bold[blue]%}$git_staged_mark$git_staged_count%{$fg_bold[magenta]%}$git_unknown_mark$git_unknown_count%{$reset_color%}%{$fg[cyan]%} $git_branch$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo -e " %{$fg_bold[red]%}$exit_code") %{$fg[cyan]%}%D{%H:%M:%S}%{$reset_color%}'
 # }}}
 # zsh plugins ========================================================= {{{
+source "${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=yellow"
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=yellow"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=blue"
+
 source "${ZDOTDIR}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 bindkey "\t" menu-select "${terminfo}[kcbt]" menu-select
 bindkey -M menuselect "\t" menu-complete "${terminfo}[kcbt]" reverse-menu-complete
@@ -45,13 +52,6 @@ zstyle ':autocomplete:*' fzf-completion yes
 zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
 source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-
-source "${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
-export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=yellow"
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=yellow"
-ZSH_HIGHLIGHT_STYLES[alias]="fg=blue"
 
 source "${ZDOTDIR}/plugins/zsh-lazyload/zsh-lazyload.plugin.zsh"
 
