@@ -1,13 +1,22 @@
 [tools]
+# mise completions
+usage = "latest"
+# node
 node = "latest"
 yarn = "latest"
 pnpm = "latest"
+# python
 python = "system"
 poetry = "latest"
+# ruby
 ruby = "latest"
+# golang
 go = "latest"
+# kotlin
 kotlin = "latest"
 maven = "latest"
-lua = "latest"
 gradle = "latest"
+# lua
+lua = "latest"
+# rust
 rust = "latest"
