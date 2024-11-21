@@ -83,6 +83,7 @@ case $(uname -s) in
 		alias bat='bat --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyonight-night || echo tokyonight-day)'
 		alias fzf='fzf --color=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo $__fzf_theme_tokyonight_night || echo $__fzf_theme_tokyonight_day)'
 		del() { mv "$@" ~/.Trash }
+		get_secret_note() { security find-generic-password -C note -s "$1" -w | xxd -revert -plain | yq --input-format xml --prettyPrint '.plist.dict.string' }
 		;;
 	[Ll]inux )
 		alias bat='bat --theme=tokyonight-night'
