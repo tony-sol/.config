@@ -89,7 +89,7 @@
 
     },
     "gapSize" : {
-      "float" : 4
+      "float" : 2
     },
     "hapticFeedbackOnSnap" : {
       "int" : 2
@@ -398,5 +398,5 @@
       "modifierFlags" : 393216
     }
   },
-  "version" : "89"
+  "version" : "91"
 }

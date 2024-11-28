@@ -1,12 +1,9 @@
 # Set Launchpad size to 9 x 5
-defaults wirte com.apple.dock 'springboard-columns' -int '9'
-defaults wirte com.apple.dock 'springboard-rows' -int '5'
+defaults write com.apple.dock 'springboard-columns' -int '9'
+defaults write com.apple.dock 'springboard-rows' -int '5'
 
 # Set Dock icons size to 36
 defaults wirte com.apple.dock 'tilesize' -int '36'
-
-# Set Dock position to left
-defaults write com.apple.dock 'orientation' -string 'left'
 
 # Set Dock position to autohide
 defaults write com.apple.dock 'autohide' -bool 'true'
