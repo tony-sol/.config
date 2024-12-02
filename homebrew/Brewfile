@@ -88,7 +88,7 @@ brew "lazygit"
 # Provides library functionality for FIDO U2F & FIDO 2.0, including USB
 brew "libfido2"
 # Linux virtual machines
-brew "lima"
+brew "lima" if OS.mac?
 # Mac App Store command-line interface
 brew "mas" if OS.mac?
 # Run a Kubernetes cluster locally
