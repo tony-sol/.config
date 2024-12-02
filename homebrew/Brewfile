@@ -240,6 +240,10 @@ cask "opensc"
 cask "podman-desktop"
 # Command-line shell and scripting language
 cask "powershell"
+# Client for Proton Drive
+cask "proton-drive"
+# Desktop client for Proton Pass
+cask "proton-pass"
 # Peer to peer Bitorrent client
 cask "qbittorrent"
 # Cross-platform content manager assistant for the PS Vita
