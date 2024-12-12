@@ -14,8 +14,6 @@
 	defaultBranch = master
 [core]
 	autocrlf = input
-	editor = nvim
-	pager = less -i
 	quotepath = true
 [fetch]
 	recurseSubmodules = true
