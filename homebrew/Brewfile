@@ -37,16 +37,12 @@ brew "docker-compose"
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GNU compiler collection
-brew "gcc" unless OS.mac?
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
-# GNU C Library
-brew "glibc" unless OS.mac?
 # Open-source GitLab command-line tool
 brew "glab"
 # Render markdown on the CLI
@@ -232,8 +228,6 @@ cask "metasploit"
 cask "mos"
 # Open-source software for live streaming and screen recording
 cask "obs"
-# Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
 # Cloud storage client
 cask "onedrive"
 # Smart card libraries and utilities
@@ -248,8 +242,6 @@ cask "proton-drive"
 cask "proton-pass"
 # Peer to peer Bitorrent client
 cask "qbittorrent"
-# Cross-platform content manager assistant for the PS Vita
-cask "qcma"
 # Companion app for Flipper Zero devices
 cask "qflipper"
 # Toolbox companion for QMK Firmware
@@ -258,8 +250,6 @@ cask "qmk-toolbox"
 cask "rectangle"
 # Quicklook extension for source files
 cask "syntax-highlight"
-# Spreadsheet style tag editor for audio files
-cask "tageditor"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Developer-friendly browser for cloud infrastructure
