@@ -6,6 +6,25 @@ fi
 
 # =====================================================================
 
+# setup PATHs ==================================================== {{{
+function __prepend_path {
+	local path=$1
+	shift
+	for value in $@
+	do
+		if [[ ":${path}:" == *:"$value":* ]]; then
+			path="${path//$value/}"
+		fi
+		path="${value}${path+:${path//::/:}}"
+	done
+	echo ${${path#:}%:}
+}
+export FPATH=$(__prepend_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions" "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
+export PATH=$(__prepend_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $MISE_SHIMS $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
+export MANPATH=$(__prepend_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
+export INFOPATH=$(__prepend_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
+# }}}
+
 # zsh vi mode with cursor style ======================================= {{{
 function zle-keymap-select zle-line-init {
 	case "${KEYMAP}" in
@@ -68,12 +87,14 @@ if ! ps -p ${SSH_AGENT_PID:-0} 2>&1 > /dev/null ; then
 fi
 export SSH_AGENT_PID=${SSH_AGENT_PID:-`pgrep -x ssh-agent`}
 if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
-	ssh-add "${HOME}/.ssh/id_ed25519"
+	for key in $(ls "${HOME}/.ssh/keys/" | grep -v '.pub')
+	do
+		ssh-add $key 2>/dev/null
+	done
 fi
 # }}}
 # hacks =============================================================== {{{
 export LUAROCKS_HOME="$(mise where lua)/luarocks"
-export TERMINFO_DIRS="$(brew --prefix ncurses)/share/terminfo${TERMINFO_DIRS:+:$TERMINFO_DIRS}"
 export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
 # per-system hacks
 local __fzf_theme_tokyonight_night=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-night")

@@ -54,7 +54,7 @@ export HISTSIZE=200000
 export SAVEHIST=200000
 export TERM="tmux-256color" # "xterm-256color"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
-export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo:${TERMINFO_DIRS}"
+export TERMINFO_DIRS="${TERMINFO_DIRS:-${TERMINFO}:/usr/share/terminfo}"
 export WORDCHARS='*?[]~=&!#$%^(){}<>'
 export KEYTIMEOUT=1
 export ZLE_RPROMPT_INDENT=0
@@ -258,29 +258,9 @@ export QMK_HOME="${XDG_DATA_HOME}/qmk_firmware"
 # set ufbt configs ==================================================== {{{
 export UFBT_HOME="${XDG_DATA_HOME}/ufbt"
 # }}}
-# setup PATHs ==================================================== {{{
-function __prepend_path {
-	local path=$1
-	shift
-	for value in $@
-	do
-		if [[ ":${path}:" == *:"$value":* ]]; then
-			path="${path//$value/}"
-		fi
-		path="${value}${path+:${path//::/:}}"
-	done
-	echo ${${path#:}%:}
-}
-export FPATH=$(__prepend_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions" "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
-export PATH=$(__prepend_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin" $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $MISE_SHIMS $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
-export MANPATH=$(__prepend_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
-export INFOPATH=$(__prepend_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
-# }}}
 
 # =====================================================================
 
 if [ -f "${ZDOTDIR}/.zshenv.after" ]; then
 	source "${ZDOTDIR}/.zshenv.after"
 fi
-
-unfunction __prepend_path

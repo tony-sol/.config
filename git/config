@@ -1,7 +1,7 @@
 [user]
 	name = Tony-Sol
 	email = tony.kent.nar.earth@gmail.com
-	signingkey = ~/.ssh/id_ed25519.pub
+	signingkey = ~/.ssh/keys/id_ed25519.pub
 [gpg]
 	format = ssh
 [gpg "ssh"]
@@ -48,7 +48,7 @@
 	changed = green
 	untracked = cyan
 [format]
-	pretty = format:%C(cyan bold)%H%C(reset) %ci %C(italic)(%cr)%C(reset) %C(blue)%cn%C(reset) %C(auto,bold)%G?%C(reset) %C(green)%s%C(magenta)%d%C(reset) %C(red)(%an)%C(reset) %C(yellow)[%p]%C(reset) %b
+	pretty = format:%C(cyan bold)%H%C(reset) %ci %C(italic)(%cr)%C(reset) %C(blue)%cn%C(reset) %C(auto,bold)%G?(%GT)%C(reset) %C(green)%s%C(magenta)%d%C(reset) %C(red)(%an)%C(reset) %C(yellow)[%p]%C(reset) %b
 [i18n]
 	logOutputEncoding = utf-8
 [filter "lfs"]
