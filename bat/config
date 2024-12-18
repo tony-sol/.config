@@ -1,3 +1,2 @@
---theme "tokyonight-night"
 --pager "less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
 --map-syntax ".*ignore:Git Ignore"
