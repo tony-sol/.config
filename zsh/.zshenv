@@ -192,9 +192,11 @@ export YARN_GLOBAL_FOLDER="${XDG_DATA_HOME}/yarn"
 # }}}
 # set cargo configs =================================================== {{{
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export MISE_CARGO_HOME=$CARGO_HOME
 # }}}
 # set rustup configs ================================================== {{{
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
+export MISE_RUSTUP_HOME=$RUSTUP_HOME
 # }}}
 # set mise configs ==================================================== {{{
 export MISE_CONFIG_DIR="${XDG_CONFIG_HOME}/mise"
