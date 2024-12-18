@@ -3,7 +3,7 @@ defaults write com.apple.dock 'springboard-columns' -int '9'
 defaults write com.apple.dock 'springboard-rows' -int '5'
 
 # Set Dock icons size to 36
-defaults wirte com.apple.dock 'tilesize' -int '36'
+defaults write com.apple.dock 'tilesize' -int '36'
 
 # Set Dock position to autohide
 defaults write com.apple.dock 'autohide' -bool 'true'
@@ -55,7 +55,10 @@ defaults write com.apple.menuextra.clock 'ShowDayOfWeek' -bool 'true'
 defaults write com.apple.AppleMultitouchTrackpad 'Clicking' -bool 'true'
 
 # Set keyboard fn-keys as standard function keys
-defaults read NSGlobalDomain com.apple.keyboard.fnState -bool 'true'
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool 'true'
+
+# Set windows 'draggable' in any part of window
+defaults write NSGlobalDomain NSWindowShouldDragOnGesture -bool 'true'
 
 # Restart
 killall Dock
