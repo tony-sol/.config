@@ -53,6 +53,8 @@ brew "glab"
 brew "glow"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Simple vaultless password manager in Go
+brew "gokey"
 # Like cURL, but for gRPC
 brew "grpcurl"
 # Smarter Dockerfile linter to validate best practices
