@@ -4,7 +4,7 @@ legacy_version_file = true
 trusted_config_paths = [
 	"~/.config/",
 	"~/.local/",
-	'~/Projects',
+	'~/Projects/',
 ]
 
 shorthands_file = "~/.config/mise/shorthands.toml"
@@ -15,6 +15,10 @@ raw = true
 yes = true
 
 env_file = ".env"
+
+disable_tools = [
+	"python",
+]
 
 # direnv config dump
 # [global]
