@@ -65,6 +65,8 @@ brew "hey"
 brew "htmlq"
 # Improved top (interactive process viewer)
 brew "htop"
+# Command-line interface for JFrog products
+brew "jfrog-cli"
 # Run local Kubernetes cluster in Docker
 brew "kind"
 # Kubernetes command-line interface
