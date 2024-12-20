@@ -252,6 +252,9 @@ export TART_HOME="${XDG_DATA_HOME}/tart"
 export GLAB_CONFIG_DIR="${XDG_CONFIG_HOME}/glab-cli"
 export GH_CONFIG_DIR="${XDG_CONFIG_HOME}/gh"
 # }}}
+# set jf configs ====================================================== {{{
+export JFROG_CLI_HOME_DIR="${XDG_DATA_HOME}/jfrog"
+# }}}
 # set qmk configs ===================================================== {{{
 export QMK_HOME="${XDG_DATA_HOME}/qmk_firmware"
 # }}}
