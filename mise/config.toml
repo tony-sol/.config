@@ -6,7 +6,6 @@ node = "latest"
 yarn = "latest"
 pnpm = "latest"
 # python
-python = "system"
 poetry = "latest"
 # ruby
 ruby = "latest"
@@ -14,6 +13,8 @@ ruby = "latest"
 go = "latest"
 # kotlin
 kotlin = "latest"
+# java
+java = "latest"
 maven = "latest"
 gradle = "latest"
 # lua
