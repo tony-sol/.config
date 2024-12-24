@@ -14,9 +14,9 @@ return {
 		local utils   = require('utils')
 		---@return string
 		local function breadcrumbs()
-			-- '%{%v:lua.dropbar.get_dropbar_str()%}'
+			-- '%{%v:lua.dropbar()%}'
 			---@diagnostic disable-next-line:undefined-global
-			return dropbar.get_dropbar_str()
+			return dropbar()
 		end
 		local section = {
 			lualine_a = {

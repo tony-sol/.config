@@ -26,7 +26,7 @@ return {
 	config       = function()
 		local utils              = require('utils')
 		local telescope          = require('telescope')
-		local telescope_confing  = require('telescope.config')
+		local telescope_config   = require('telescope.config')
 		local default_modal_size = utils.defaultModalSize()
 		telescope.setup {
 			defaults   = {
@@ -44,7 +44,7 @@ return {
 						mirror          = true,
 					}),
 				},
-				vimgrep_arguments = utils.push(telescope_confing.values.vimgrep_arguments,
+				vimgrep_arguments = utils.push(telescope_config.values.vimgrep_arguments,
 					'--hidden',
 					'--no-ignore'
 				),
