@@ -139,6 +139,8 @@ brew "syft"
 brew "tailscale", restart_service: true
 # Command-line packet analyzer
 brew "tcpdump"
+# Modern SSH server for teams managing distributed infrastructure
+brew "teleport" unless OS.mac?
 # User interface to the TELNET protocol
 brew "telnet"
 # Go app which generates a dynamic Ansible inventory from a Terraform state file
