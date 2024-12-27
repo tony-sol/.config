@@ -1,4 +1,14 @@
-# macos patched services
+# macos
+
+## System-wide preferences
+
+> [!TIP]
+> See also:
+>   [defaults(1)](https://keith.github.io/xcode-man-pages/defaults.1.html),
+>   [macos-defaults](https://macos-defaults.com),
+
+
+## Patched services
 
 > [!TIP]
 > See also:
