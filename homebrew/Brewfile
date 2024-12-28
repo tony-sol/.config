@@ -212,6 +212,8 @@ cask "google-chrome"
 cask "google-drive"
 # Vector graphics editor
 cask "inkscape"
+# Menu bar manager
+cask "jordanbaird-ice"
 # Open-source keystroke visualiser
 cask "keycastr"
 # Free and open-source painting and sketching program
