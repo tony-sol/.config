@@ -1,4 +1,4 @@
-# A template to use custom Docker (rootful) instead of containerd & nerdctl
+# A default template modified to use Docker (rootful) instead of containerd & nerdctl
 
 # ===================================================================== #
 # BASIC CONFIGURATION
@@ -7,39 +7,44 @@
 # Default values in this YAML file are specified by `null` instead of Lima's "builtin default" values,
 # so they can be overridden by the $LIMA_HOME/_config/default.yaml mechanism documented at the end of this file.
 
-# VM type: "qemu" or "vz" (on macOS 13 and later).
+# VM type: "qemu", "vz" (on macOS 13 and later), or "default".
 # The vmType can be specified only on creating the instance.
 # The vmType of existing instances cannot be changed.
-# 🟢 Builtin default: "qemu"
+# 🟢 Builtin default: "vz" (on macOS 13.5 and later), "qemu" (on others)
 # 🔵 This file: Use Apple’s Virtualization.framework (vz) to enable Rosetta, virtiofs, and vzNAT
 vmType: vz
-
-# OS: "Linux".
-# 🟢 Builtin default: "Linux"
-os: null
 
 # Arch: "default", "x86_64", "aarch64".
 # 🟢 Builtin default: "default" (corresponds to the host architecture)
 arch: null
 
-# # OpenStack-compatible disk image.
-# # 🟢 Builtin default: null (must be specified)
-# # 🔵 This file: Ubuntu images
+# OpenStack-compatible disk image.
+# 🟢 Builtin default: none (must be specified)
+# 🔵 This file: Ubuntu images
 images:
-  # Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
-  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20240821/ubuntu-24.04-server-cloudimg-amd64.img"
-    arch: "x86_64"
-    digest: "sha256:0e25ca6ee9f08ec5d4f9910054b66ae7163c6152e81a3e67689d89bd6e4dfa69"
-  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20240821/ubuntu-24.04-server-cloudimg-arm64.img"
-    arch: "aarch64"
-    digest: "sha256:5ecac6447be66a164626744a87a27fd4e6c6606dc683e0a233870af63df4276a"
-  # Fallback to the latest release image.
-  # Hint: run `limactl prune` to invalidate the cache
-  - location: "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-amd64.img"
-    arch: "x86_64"
-  - location: "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-arm64.img"
-    arch: "aarch64"
-
+# Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release-20241212/ubuntu-24.10-server-cloudimg-amd64.img"
+  arch: "x86_64"
+  digest: "sha256:457f02ad36ef64f8f2cbfcc4855a0d401294d9b4727ae239e21c4104cca0bae2"
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release-20241212/ubuntu-24.10-server-cloudimg-arm64.img"
+  arch: "aarch64"
+  digest: "sha256:fb39312ffd2b47b97eaef6ff197912eaa3e0a215eb3eecfbf2a24acd96ee1125"
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release-20241212/ubuntu-24.10-server-cloudimg-riscv64.img"
+  arch: "riscv64"
+  digest: "sha256:c85b26b69b742dca1541293d960e4b87713085567cf8942ade9029860ab0b195"
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release-20241212/ubuntu-24.10-server-cloudimg-armhf.img"
+  arch: "armv7l"
+  digest: "sha256:229e893f4ca5f775fa8fda6d27caf78c86b13cc1b00bb9e002147cd1a04d98fc"
+# Fallback to the latest release image.
+# Hint: run `limactl prune` to invalidate the cache
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release/ubuntu-24.10-server-cloudimg-amd64.img"
+  arch: "x86_64"
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release/ubuntu-24.10-server-cloudimg-arm64.img"
+  arch: "aarch64"
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release/ubuntu-24.10-server-cloudimg-riscv64.img"
+  arch: "riscv64"
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release/ubuntu-24.10-server-cloudimg-armhf.img"
+  arch: "armv7l"
 # CPUs
 # 🟢 Builtin default: min(4, host CPU cores)
 # 🔵 This file: Always 4
@@ -56,59 +61,71 @@ memory: 8GiB
 disk: 64GiB
 
 # Expose host directories to the guest, the mount point might be accessible from all UIDs in the guest
-# 🟢 Builtin default: null (Mount nothing)
-# 🔵 This file: Mount the home as read-only, /tmp/lima ans ~/Projects as writable
+# "location" can use these template variables: {{.Home}}, {{.Dir}}, {{.Name}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+# "mountPoint" can use these template variables: {{.Home}}, {{.Name}}, {{.Hostname}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+# 🟢 Builtin default: [] (Mount nothing)
+# 🔵 this file: Mount the home as read-only, /tmp/lima and ~/Projects as writable
 mounts:
-  - location: "~"
-    # Configure the mountPoint inside the guest.
-    # 🟢 Builtin default: value of location
-    mountPoint: null
-    # CAUTION: `writable` SHOULD be false for the home directory.
-    # Setting `writable` to true is possible, but untested and dangerous.
+- location: "~"
+  # Configure the mountPoint inside the guest.
+  # 🟢 Builtin default: value of location
+  mountPoint: null
+  # Setting `writable` to true is discouraged when mountType is set to "reverse-sshfs".
+  # 🟢 Builtin default: false
+  writable: null
+  sshfs:
+    # Enabling the SSHFS cache will increase performance of the mounted filesystem, at
+    # the cost of potentially not reflecting changes made on the host in a timely manner.
+    # Warning: It looks like PHP filesystem access does not work correctly when
+    # the cache is disabled.
+    # 🟢 Builtin default: true
+    cache: null
+    # SSHFS has an optional flag called 'follow_symlinks'. This allows mounts
+    # to be properly resolved in the guest os and allow for access to the
+    # contents of the symlink. As a result, symlinked files & folders on the Host
+    # system will look and feel like regular files directories in the Guest OS.
     # 🟢 Builtin default: false
-    writable: null
-    sshfs:
-      # Enabling the SSHFS cache will increase performance of the mounted filesystem, at
-      # the cost of potentially not reflecting changes made on the host in a timely manner.
-      # Warning: It looks like PHP filesystem access does not work correctly when
-      # the cache is disabled.
-      # 🟢 Builtin default: true
-      cache: null
-      # SSHFS has an optional flag called 'follow_symlinks'. This allows mounts
-      # to be properly resolved in the guest os and allow for access to the
-      # contents of the symlink. As a result, symlinked files & folders on the Host
-      # system will look and feel like regular files directories in the Guest OS.
-      # 🟢 Builtin default: false
-      followSymlinks: null
-      # SFTP driver, "builtin" or "openssh-sftp-server". "openssh-sftp-server" is recommended.
-      # 🟢 Builtin default: "openssh-sftp-server" if OpenSSH SFTP Server binary is found, otherwise "builtin"
-      sftpDriver: null
-    9p:
-      # Supported security models are "passthrough", "mapped-xattr", "mapped-file" and "none".
-      # "mapped-xattr" and "mapped-file" are useful for persistent chown but incompatible with symlinks.
-      # 🟢 Builtin default: "none" (since Lima v0.13)
-      securityModel: null
-      # Select 9P protocol version. Valid options are: "9p2000" (legacy), "9p2000.u", "9p2000.L".
-      # 🟢 Builtin default: "9p2000.L"
-      protocolVersion: null
-      # The number of bytes to use for 9p packet payload, where 4KiB is the absolute minimum.
-      # 🟢 Builtin default: "128KiB"
-      msize: null
-      # Specifies a caching policy. Valid options are: "none", "loose", "fscache" and "mmap".
-      # Try choosing "mmap" or "none" if you see a stability issue with the default "fscache".
-      # See https://www.kernel.org/doc/Documentation/filesystems/9p.txt
-      # 🟢 Builtin default: "fscache" for non-writable mounts, "mmap" for writable mounts
-      cache: null
-  - location: "/tmp/lima"
-    # 🟢 Builtin default: false
-    # 🔵 This file: true (only for "/tmp/lima")
-    writable: true
-  - location: "~/Projects"
-    writable: true
+    followSymlinks: null
+    # SFTP driver, "builtin" or "openssh-sftp-server". "openssh-sftp-server" is recommended.
+    # 🟢 Builtin default: "openssh-sftp-server" if OpenSSH SFTP Server binary is found, otherwise "builtin"
+    sftpDriver: null
+  9p:
+    # Supported security models are "passthrough", "mapped-xattr", "mapped-file" and "none".
+    # "mapped-xattr" and "mapped-file" are useful for persistent chown but incompatible with symlinks.
+    # 🟢 Builtin default: "none" (since Lima v0.13)
+    securityModel: null
+    # Select 9P protocol version. Valid options are: "9p2000" (legacy), "9p2000.u", "9p2000.L".
+    # 🟢 Builtin default: "9p2000.L"
+    protocolVersion: null
+    # The number of bytes to use for 9p packet payload, where 4KiB is the absolute minimum.
+    # 🟢 Builtin default: "128KiB"
+    msize: null
+    # Specifies a caching policy. Valid options are: "none", "loose", "fscache" and "mmap".
+    # Try choosing "mmap" or "none" if you see a stability issue with the default "fscache".
+    # See https://www.kernel.org/doc/Documentation/filesystems/9p.txt
+    # 🟢 Builtin default: "fscache" for non-writable mounts, "mmap" for writable mounts
+    cache: null
+- location: "/tmp/lima"
+  # 🟢 Builtin default: false
+  # 🔵 This file: true (only for "/tmp/lima")
+  writable: true
+- location: "~/Projects"
+  writable: true
 
-# Mount type for above mounts, such as "reverse-sshfs" (from sshocker), "9p" (EXPERIMENTAL, from QEMU’s virtio-9p-pci, aka virtfs),
-# or "virtiofs" (EXPERIMENTAL, needs `vmType: vz`)
-# 🟢 Builtin default: "reverse-sshfs" (for QEMU), "virtiofs" (for vz)
+# List of mount types not supported by the kernel of this distro.
+# Also used to resolve the default mount type when not explicitly specified.
+#
+# NOTE: 9p is broken in Linux v6.9, v6.10, and v6.11.
+# The issue was fixed in Linux v6.12-rc5 (https://github.com/torvalds/linux/commit/be2ca38).
+#
+# 🟢 Builtin default: []
+# 🔵 This file: ["9p"] (as Ubuntu 24.10 uses kernel 6.11)
+mountTypesUnsupported:
+- "9p"
+
+# Mount type for above mounts, such as "reverse-sshfs" (from sshocker), "9p" (QEMU’s virtio-9p-pci, aka virtfs),
+# or "virtiofs" (experimental on Linux; needs `vmType: vz` on macOS).
+# 🟢 Builtin default: "default" (resolved to be "9p" for QEMU since Lima v1.0, "virtiofs" for vz)
 # 🔵 This file: Use virtiofs
 mountType: virtiofs
 
@@ -116,11 +133,15 @@ mountType: virtiofs
 # 🟢 Builtin default: Disabled by default
 mountInotify: null
 
+# ===================================================================== #
+# ADVANCED CONFIGURATION
+# ===================================================================== #
+
 # Lima disks to attach to the instance. The disks will be accessible from inside the
 # instance, labeled by name. (e.g. if the disk is named "data", it will be labeled
 # "lima-data" inside the instance). The disk will be mounted inside the instance at
 # `/mnt/lima-${VOLUME}`.
-# 🟢 Builtin default: null
+# 🟢 Builtin default: []
 additionalDisks:
 # disks should either be a list of disk name strings, for example:
 # - "data"
@@ -139,7 +160,7 @@ ssh:
   # This option is useful when you want to use other SSH-based
   # applications such as rsync with the Lima instance.
   # If you have an insecure key under ~/.ssh, do not use this option.
-  # 🟢 Builtin default: true
+  # 🟢 Builtin default: false (since Lima v1.0)
   loadDotSSHPubKeys: null
   # Forward ssh agent into the instance.
   # The ssh agent socket can be mounted in a container at the path `/run/host-services/ssh-auth.sock`.
@@ -153,10 +174,6 @@ ssh:
   # Trust forwarded X11 clients
   # 🟢 Builtin default: false
   forwardX11Trusted: null
-
-# ===================================================================== #
-# ADVANCED CONFIGURATION
-# ===================================================================== #
 
 caCerts:
   # If set to `true`, this will remove all the default trusted CA certificates that
@@ -189,9 +206,10 @@ containerd:
   # Note that `nerdctl.lima` only works in rootless mode; you have to use `lima sudo nerdctl ...`
   # to use rootful containerd with nerdctl.
   # 🟢 Builtin default: false
-  system: null
+  # 🔵 This file: containerd is managed by Docker, not by Lima, so value is set to false explicitly
+  system: false
   # Enable user-scoped (aka rootless) containerd and its dependencies
-  # 🟢 Builtin default: true
+  # 🟢 Builtin default: true (for x86_64 and aarch64)
   # 🔵 This file: containerd is managed by Docker, not by Lima, so value is set to false explicitly
   user: false
 #  # Override containerd archive
@@ -203,118 +221,151 @@ containerd:
 
 # Provisioning scripts need to be idempotent because they might be called
 # multiple times, e.g. when the host VM is being restarted.
-# The scripts can use the following template variables: {{.Home}}, {{.UID}}, {{.User}}, and {{.Param.Key}}
-# 🟢 Builtin default: null
+# The scripts can use the following template variables: {{.Home}}, {{.Name}}, {{.Hostname}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+# 🟢 Builtin default: []
 # 🔵 This file: Setup Docker rootfully
 provision:
-  # # `system` is executed with root privileges
-  # - mode: system
-  #   script: |
-  #     #!/bin/bash
-  #     set -eux -o pipefail
-  #     export DEBIAN_FRONTEND=noninteractive
-  #     apt-get install -y vim
-  # # `user` is executed without root privileges
-  # - mode: user
-  #   script: |
-  #     #!/bin/bash
-  #     set -eux -o pipefail
-  #     cat <<EOF > ~/.vimrc
-  #     set number
-  #     EOF
-  # # `boot` is executed directly by /bin/sh as part of cloud-init-local.service's early boot process,
-  # # which is why there is no hash-bang specified in the example
-  # # See cloud-init docs for more info https://docs.cloud-init.io/en/latest/reference/examples.html#run-commands-on-first-boot
-  # - mode: boot
-  #   script: |
-  #     systemctl disable NetworkManager-wait-online.service
-  # # `dependency` is executed before the regular dependency resolution workflow in
-  # # pkg/cidata/cidata.TEMPLATE.d/boot/30-install-packages.sh
-  # # If skipDefaultDependencyResolution is set on at least one `dependency` mode provisioning script, the regular
-  # # dependency resolution workflow in pkg/cidata/cidata.TEMPLATE.d/boot/30-install-packages.sh will be skipped.
-  # - mode: dependency
-  #   skipDefaultDependencyResolution: false
-  #   script: |
-  #     #!/bin/bash
-  #     dnf config-manager --add-repo ...
-  #     dnf install ...
-  # # `ansible` is executed after other scripts are complete
-  # # It requires `ansible-playbook` command to be installed.
-  # # Environment variables such as ANSIBLE_CONFIG can be used, to control the behavior of the playbook execution.
-  # # See ansible docs, and `ansible-config`, for more info https://docs.ansible.com/ansible/latest/playbook_guide/
-  # - mode: ansible
-  #   playbook: playbook.yaml
-  - mode: system
-    script: |
-      #!/bin/bash
-      set -eux -o pipefail
-      command -v docker >/dev/null 2>&1 && exit 0
-      if [ ! -e /etc/systemd/system/docker.socket.d/override.conf ]; then
-        mkdir -p /etc/systemd/system/docker.socket.d
-        # Alternatively we could just add the user to the "docker" group, but that requires restarting the user session
-        cat <<-EOF >/etc/systemd/system/docker.socket.d/override.conf
-        [Socket]
-        SocketUser={{.User}}
-      EOF
-      fi
-      export DEBIAN_FRONTEND=noninteractive
-      curl -fsSL https://get.docker.com | sh
+# # `system` is executed with root privileges
+# - mode: system
+#   script: |
+#     #!/bin/bash
+#     set -eux -o pipefail
+#     export DEBIAN_FRONTEND=noninteractive
+#     apt-get install -y vim
+# # `user` is executed without root privileges
+# - mode: user
+#   script: |
+#     #!/bin/bash
+#     set -eux -o pipefail
+#     cat <<EOF > ~/.vimrc
+#     set number
+#     EOF
+# # `boot` is executed directly by /bin/sh as part of cloud-init-local.service's early boot process,
+# # which is why there is no hash-bang specified in the example
+# # See cloud-init docs for more info https://docs.cloud-init.io/en/latest/reference/examples.html#run-commands-on-first-boot
+# - mode: boot
+#   script: |
+#     systemctl disable NetworkManager-wait-online.service
+# # `dependency` is executed before the regular dependency resolution workflow in
+# # pkg/cidata/cidata.TEMPLATE.d/boot/30-install-packages.sh
+# # If skipDefaultDependencyResolution is set on at least one `dependency` mode provisioning script, the regular
+# # dependency resolution workflow in pkg/cidata/cidata.TEMPLATE.d/boot/30-install-packages.sh will be skipped.
+# - mode: dependency
+#   skipDefaultDependencyResolution: false
+#   script: |
+#     #!/bin/bash
+#     dnf config-manager --add-repo ...
+#     dnf install ...
+# # `ansible` is executed after other scripts are complete
+# # It requires `ansible-playbook` command to be installed.
+# # Environment variables such as ANSIBLE_CONFIG can be used, to control the behavior of the playbook execution.
+# # See ansible docs, and `ansible-config`, for more info https://docs.ansible.com/ansible/latest/playbook_guide/
+# - mode: ansible
+#   playbook: playbook.yaml
+- mode: system
+  script: |
+    #!/bin/bash
+    set -eux -o pipefail
+    command -v docker >/dev/null 2>&1 && exit 0
+    if [ ! -e /etc/systemd/system/docker.socket.d/override.conf ]; then
+      mkdir -p /etc/systemd/system/docker.socket.d
+      # Alternatively we could just add the user to the "docker" group, but that requires restarting the user session
+      cat <<-EOF >/etc/systemd/system/docker.socket.d/override.conf
+      [Socket]
+      SocketUser={{.User}}
+    EOF
+    fi
+    export DEBIAN_FRONTEND=noninteractive
+    curl -fsSL https://get.docker.com | sh
 
 # Probe scripts to check readiness.
-# The scripts can use the following template variables: {{.Home}}, {{.UID}}, {{.User}}, and {{.Param.Key}}
-# 🟢 Builtin default: null
+# The scripts run in user mode. They must start with a '#!' line.
+# The scripts can use the following template variables: {{.Home}}, {{.Name}}, {{.Hostname}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+# 🟢 Builtin default: []
 # 🔵 This file: check Docker installed and dockerd running
 probes:
-  # # Only `readiness` probes are supported right now.
-  # - mode: readiness
-  #   description: vim to be installed
-  #   script: |
-  #      #!/bin/bash
-  #      set -eux -o pipefail
-  #      if ! timeout 30s bash -c "until command -v vim; do sleep 3; done"; then
-  #        echo >&2 "vim is not installed yet"
-  #        exit 1
-  #      fi
-  #   hint: |
-  #     vim was not installed in the guest. Make sure the package system is working correctly.
-  #     Also see "/var/log/cloud-init-output.log" in the guest.
-  - mode: readiness
-    description: docker to be installed
-    script: |
-      #!/bin/bash
-      set -eux -o pipefail
-      if ! timeout 30s bash -c "until command -v docker >/dev/null 2>&1; do sleep 3; done"; then
-        echo >&2 "docker is not installed yet"
-        exit 1
-      fi
-    hint: See "/var/log/cloud-init-output.log". in the guest
-  - mode: readiness
-    description: dockerd to be running
-    script: |
-      #!/bin/bash
-      set -eux -o pipefail
-      if ! timeout 30s bash -c "until pgrep dockerd; do sleep 3; done"; then
-        echo >&2 "dockerd is not running"
-        exit 1
-      fi
-    hint: dockerd not found in pgrep output
+# # Only `readiness` probes are supported right now.
+# - mode: readiness
+#   description: vim to be installed
+#   script: |
+#      #!/bin/bash
+#      set -eux -o pipefail
+#      if ! timeout 30s bash -c "until command -v vim; do sleep 3; done"; then
+#        echo >&2 "vim is not installed yet"
+#        exit 1
+#      fi
+#   hint: |
+#     vim was not installed in the guest. Make sure the package system is working correctly.
+#     Also see "/var/log/cloud-init-output.log" in the guest.
+- mode: readiness
+  description: docker to be installed
+  script: |
+    #!/bin/bash
+    set -eux -o pipefail
+    if ! timeout 30s bash -c "until command -v docker >/dev/null 2>&1; do sleep 3; done"; then
+      echo >&2 "docker is not installed yet"
+      exit 1
+    fi
+  hint: See "/var/log/cloud-init-output.log". in the guest
+- mode: readiness
+  description: dockerd to be running
+  script: |
+    #!/bin/bash
+    set -eux -o pipefail
+    if ! timeout 30s bash -c "until pgrep dockerd; do sleep 3; done"; then
+      echo >&2 "dockerd is not running"
+      exit 1
+    fi
+  hint: dockerd not found in pgrep output
 
 # ===================================================================== #
 # FURTHER ADVANCED CONFIGURATION
 # ===================================================================== #
+
+# A template should specify the minimum Lima version required to parse this template correctly.
+# It should not be set if the minimum version is less than 1.0.0
+# 🟢 Builtin default: not set
+minimumLimaVersion: null
+
+# User to be used inside the VM
+user:
+  # User name. An explicitly specified username is not validated by Lima.
+  # 🟢 Builtin default: same as the host username, if it is a valid Linux username, otherwise "lima"
+  name: null
+  # Full name or display name of the user.
+  # 🟢 Builtin default: user information from the host
+  comment: null
+  # Numeric user id. It is not currently possible to specify a group id.
+  # 🟢 Builtin default: same as the host user id of the current user (NOT a lookup of the specified "username").
+  uid: null
+  # Home directory inside the VM, NOT the mounted home directory of the host.
+  # It can use the following template variables: {{.Name}}, {{.Hostname}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+  # 🟢 Builtin default: "/home/{{.User}}.linux"
+  home: null
+
+vmOpts:
+  qemu:
+    # Minimum version of QEMU required to create an instance of this template.
+    # Will be ignored if the vmType is not "qemu"
+    # 🟢 Builtin default: not set
+    minimumVersion: null
+
+# OS: "Linux".
+# 🟢 Builtin default: "Linux"
+os: null
 
 # Specify desired QEMU CPU type for each arch.
 # You can see what options are available for host emulation with: `qemu-system-$(arch) -cpu help`.
 # Setting of instructions is supported like this: "qemu64,+ssse3".
 # 🟢 Builtin default: hard-coded arch map with type (see the output of `limactl info | jq .defaultTemplate.cpuType`)
 cpuType:
-  # aarch64: "cortex-a72" # (or "host" when running on aarch64 host)
-  # armv7l: "cortex-a7" # (or "host" when running on armv7l host)
-  # riscv64: "rv64" # (or "host" when running on riscv64 host)
-  # x86_64: "qemu64" # (or "host,-pdpe1gb" when running on x86_64 host)
+#   aarch64: "cortex-a72" # (or "host" when running on aarch64 host)
+#   armv7l: "cortex-a7" # (or "host" when running on armv7l host)
+#   riscv64: "rv64" # (or "host" when running on riscv64 host)
+#   x86_64: "qemu64" # (or "host,-pdpe1gb" when running on x86_64 host)
 
 rosetta:
-  # Enable Rosetta for Linux (EXPERIMENTAL).
+  # Enable Rosetta inside the VM; needs `vmType: vz`
   # Hint: try `softwareupdate --install-rosetta` if Lima gets stuck at `Installing rosetta...`
   # 🟢 Builtin default: false
   # 🔵 This file: Enable rosetta
@@ -330,7 +381,7 @@ rosetta:
 timezone: null
 
 firmware:
-  # Use legacy BIOS instead of UEFI. Ignored for aarch64.
+  # Use legacy BIOS instead of UEFI. Ignored for aarch64 and vz.
   # 🟢 Builtin default: false
   legacyBIOS: null
 #  # Override UEFI images
@@ -347,7 +398,7 @@ audio:
   # QEMU audiodev, e.g., "none", "coreaudio", "pa", "alsa", "oss".
   # VZ driver, use "vz" as device name
   # Choosing "none" will mute the audio output, and not play any sound.
-  # Choosing "default" will pick a suitable of: coreudio, pa, dsound, oss.
+  # Choosing "default" will pick a suitable choice of: coreaudio, pa, dsound, oss.
   # As of QEMU v6.2 the default is to create a disconnected sound device
   # that is still visible in the guest but not connected to the host.
   # 🟢 Builtin default: ""
@@ -372,87 +423,88 @@ video:
 
 # The instance can get routable IP addresses from the vmnet framework using
 # https://github.com/lima-vm/socket_vmnet.
-# 🟢 Builtin default: null
+# 🟢 Builtin default: []
 networks:
-  # Lima can manage daemons for networks defined in $LIMA_HOME/_config/networks.yaml
-  # automatically. The socket_vmnet binary must be installed into
-  # secure locations only alterable by the "root" user.
-  # - lima: shared
-  #   # MAC address of the instance; lima will pick one based on the instance name,
-  #   # so DHCP assigned ip addresses should remain constant over instance restarts.
-  #   macAddress: ""
-  #   # Interface name, defaults to "lima0", "lima1", etc.
-  #   interface: ""
-  #
-  # Lima can also connect to "unmanaged" networks addressed by "socket". This
-  # means that the daemons will not be controlled by Lima, but must be started
-  # before the instance.  The interface type (host, shared, or bridged) is
-  # configured in socket_vmnet and not in lima.
-  # - socket: "/var/run/socket_vmnet"
+# Lima can manage daemons for networks defined in $LIMA_HOME/_config/networks.yaml
+# automatically. The socket_vmnet binary must be installed into
+# secure locations only alterable by the "root" user.
+# - lima: shared
+#   # MAC address of the instance; lima will pick one based on the instance name,
+#   # so DHCP assigned ip addresses should remain constant over instance restarts.
+#   macAddress: ""
+#   # Interface name, defaults to "lima0", "lima1", etc.
+#   interface: ""
+#   # Interface metric, lowest metric becomes the preferred route.
+#   # Defaults to 100. Builtin SLIRP network uses 200.
+#   metric: 100
+#
+# Lima can also connect to "unmanaged" networks addressed by "socket". This
+# means that the daemons will not be controlled by Lima, but must be started
+# before the instance.  The interface type (host, shared, or bridged) is
+# configured in socket_vmnet and not in lima.
+# - socket: "/var/run/socket_vmnet"
 
-  # The "vzNAT" IP address is accessible from the host, but not from other guests.
-  # Needs `vmType: vz` (EXPERIMENTAL).
-  # 🟢 Builtin default: null
-  # 🔵 This file: Make the VM reachable from the host by its IP address
-  - vzNAT: true
+
+# The "vzNAT" IP address is accessible from the host, but not from other guests.
+# Needs `vmType: vz`
+# - vzNAT: true
 
 # Port forwarding rules. Forwarding between ports 22 and ssh.localPort cannot be overridden.
 # Rules are checked sequentially until the first one matches.
 # 🟢 Builtin default: null
 # 🔵 This file: Forward guest Docker socket to host
 portForwards:
-  # - guestPort: 443
-  #   hostIP: "0.0.0.0" # overrides the default value "127.0.0.1"; allows privileged port forwarding
-  # # default: hostPort: 443 (same as guestPort)
-  # # default: guestIP: "127.0.0.1" (also matches bind addresses "0.0.0.0", "::", and "::1")
-  # # default: proto: "tcp" (only valid value right now)
-  #
-  # - guestPortRange: [4000, 4999]
-  #   hostIP:  "0.0.0.0" # overrides the default value "127.0.0.1"
-  # # default: hostPortRange: [4000, 4999] (must specify same number of ports as guestPortRange)
-  #
-  # - guestPort: 80
-  #   hostPort: 8080 # overrides the default value 80
-  #
-  # - guestIP: "127.0.0.2" # overrides the default value "127.0.0.1"
-  #   hostIP: "127.0.0.2" # overrides the default value "127.0.0.1"
-  # # default: guestPortRange: [1, 65535]
-  # # default: hostPortRange: [1, 65535]
-  #
-  # - guestPort: 8888
-  #   ignore: true (don't forward this port)
-  #
-  # - guestPort: 7443
-  #   guestIP: "0.0.0.0"       # Will match *any* interface
-  #   guestIPMustBeZero: true  # Restrict matching to 0.0.0.0 binds only
-  #   hostIP: "0.0.0.0"        # Forwards to 0.0.0.0, exposing it externally
-  #
-  # - guestSocket: "/run/user/{{.UID}}/my.sock"
-  #   hostSocket: mysocket
-  # # default: reverse: false
-  # # "guestSocket" can include these template variables: {{.Home}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
-  # # "hostSocket" can include {{.Home}}, {{.Dir}}, {{.Name}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
-  # # "reverse" can only be used for unix sockets right now, not for tcp sockets.
-  # # Put sockets into "{{.Dir}}/sock" to avoid collision with Lima internal sockets!
-  # # Sockets can also be forwarded to ports and vice versa, but not to/from a range of ports.
-  # # Forwarding requires the lima user to have rw access to the "guestsocket",
-  # # and the local user rwx access to the directory of the "hostsocket".
-  #
-  # # Lima internally appends this fallback rule at the end:
-  # - guestIP: "127.0.0.1"
-  #   guestPortRange: [1, 65535]
-  #   hostIP: "127.0.0.1"
-  #   hostPortRange: [1, 65535]
-  # # Any port still not matched by a rule will not be forwarded (ignored)
-  - guestSocket: "/var/run/docker.sock"
-    hostSocket: "{{.Dir}}/sock/docker.sock"
+# - guestPort: 443
+#   hostIP: "0.0.0.0" # overrides the default value "127.0.0.1"; allows privileged port forwarding
+# # default: hostPort: 443 (same as guestPort)
+# # default: guestIP: "127.0.0.1" (also matches bind addresses "0.0.0.0", "::", and "::1")
+# # default: proto: "tcp" (other options: "udp, "any")
+#
+# - guestPortRange: [4000, 4999]
+#   hostIP:  "0.0.0.0" # overrides the default value "127.0.0.1"
+# # default: hostPortRange: [4000, 4999] (must specify same number of ports as guestPortRange)
+#
+# - guestPort: 80
+#   hostPort: 8080 # overrides the default value 80
+#
+# - guestIP: "127.0.0.2" # overrides the default value "127.0.0.1"
+#   hostIP: "127.0.0.2" # overrides the default value "127.0.0.1"
+# # default: guestPortRange: [1, 65535]
+# # default: hostPortRange: [1, 65535]
+#
+# - guestIP: 0.0.0.0 # otherwise defaults to 127.0.0.1
+#   proto: any       # tcp and udp
+#   ignore: true     # don't forward these ports (guestPortRange, in this case 1-65535)
+#
+# - guestPort: 7443
+#   guestIP: "0.0.0.0"       # Will match *any* interface
+#   guestIPMustBeZero: true  # Restrict matching to 0.0.0.0 binds only
+#   hostIP: "0.0.0.0"        # Forwards to 0.0.0.0, exposing it externally
+#
+- guestSocket: "/var/run/docker.sock"
+  hostSocket: "{{.Dir}}/sock/docker.sock"
+# # default: reverse: false
+# # "guestSocket" can include these template variables: {{.Home}}, {{.Name}}, {{.Hostname}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+# # "hostSocket" can include {{.Home}}, {{.Dir}}, {{.Name}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+# # "reverse" can only be used for unix sockets right now, not for tcp sockets.
+# # Put sockets into "{{.Dir}}/sock" to avoid collision with Lima internal sockets!
+# # Sockets can also be forwarded to ports and vice versa, but not to/from a range of ports.
+# # Forwarding requires the lima user to have rw access to the "guestsocket",
+# # and the local user rwx access to the directory of the "hostsocket".
+#
+# # Lima internally appends this fallback rule at the end:
+# - guestIP: "127.0.0.1"
+#   guestPortRange: [1, 65535]
+#   hostIP: "127.0.0.1"
+#   hostPortRange: [1, 65535]
+# # Any port still not matched by a rule will not be forwarded (ignored)
 
 # Copy files from the guest to the host. Copied after provisioning scripts have been completed.
 # copyToHost:
 # - guest: "/etc/myconfig.cfg"
 #   host: "{{.Dir}}/copied-from-guest/myconfig"
 # # deleteOnStop: false
-# # "guest" can include these template variables: {{.Home}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+# # "guest" can include these template variables: {{.Home}}, {{.Name}}, {{.Hostname}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
 # # "host" can include {{.Home}}, {{.Dir}}, {{.Name}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
 # # "deleteOnStop" will delete the file from the host when the instance is stopped.
 
@@ -460,7 +512,7 @@ portForwards:
 # The same template variables as for listing instances can be used, for example {{.Dir}}.
 # You can view the complete list of variables using `limactl list --list-fields` command.
 # It also includes {{.HostOS}} and {{.HostArch}} vars, for the runtime GOOS and GOARCH.
-# 🟢 Builtin default: null
+# 🟢 Builtin default: ""
 # 🔵 This file: A brief how-to use Docker on host with dockerd in VM
 message: |
   To run `docker` on the host (assumes docker-cli is installed), run the following commands:
@@ -475,12 +527,17 @@ message: |
 # to /etc/environment.
 # If you set any of "ftp_proxy", "http_proxy", "https_proxy", or "no_proxy", then
 # Lima will automatically set an uppercase variant to the same value as well.
-# 🟢 Builtin default: null
+# 🟢 Builtin default: {}
 # env:
 #   KEY: value
 
 # Defines variables used for customizing the functionality.
+# Key names must start with an uppercase or lowercase letter followed by
+# any number of letters, digits, and underscores.
+# Values must not contain non-printable characters except for spaces and tabs.
 # These variables can be referenced as {{.Param.Key}} in lima.yaml.
+# In provisioning scripts and probes they are also available as predefined
+# environment variables, prefixed with "PARAM_" (so `Key` → `$PARAM_Key`).
 # param:
 #   Key: value
 
@@ -489,38 +546,38 @@ message: |
 # replace the strings "localhost" and "127.0.0.1" with the host gateway address from inside
 # the VM, so it stays routable. Use of the process environment can be disabled by setting
 # propagateProxyEnv to false.
-# 🟢 Builtn default: true
+# 🟢 Builtin default: true
 propagateProxyEnv: null
 
 # The host agent implements a DNS server that looks up host names on the host
 # using the local system resolver. This means changing VPN and network settings
 # are reflected automatically into the guest, including conditional forward,
-# and mDNS lookup. By default only IPv4 addresses will be returned. IPv6 addresses
+# and mDNS lookup. By default, only IPv4 addresses will be returned. IPv6 addresses
 # can only work when using a vmnet network interface and the host has working
 # IPv6 configured as well.
 hostResolver:
   # 🟢 Builtin default: true
-  enabled: null
+  # 🔵 This file: enable hostResolver explicitly
+  enabled: true
   # 🟢 Builtin default: false
   ipv6: null
   # Static names can be defined here as an alternative to adding them to the hosts /etc/hosts.
   # Values can be either other hostnames, or IP addresses. The host.lima.internal name is
   # predefined to specify the gateway address to the host.
-  # 🟢 Builtin default: null
+  # 🟢 Builtin default: {}
   # 🔵 This file: Alias host.docker.internal to host.lima.internal
   hosts:
+  #   guest.name: 127.1.1.1
     host.docker.internal: host.lima.internal
-    # guest.name: 127.1.1.1
-    # host.name: host.lima.internal
 
 # If hostResolver.enabled is false, then the following rules apply for configuring dns:
-# Explicitly set DNS addresses for qemu user-mode networking. By default qemu picks *one*
+# Explicitly set DNS addresses for qemu user-mode networking. By default, qemu picks *one*
 # nameserver from the host config and forwards all queries to this server. On macOS
 # Lima adds the nameservers configured for the first host interface in service order,
 # that has an IPv4 address, to the list. In case this still doesn't work (e.g. VPN
 # setups), the servers can be specified here explicitly. If nameservers are specified
 # here, then the configuration from network preferences will be ignored.
-# 🟢 Builtin default: null
+# 🟢 Builtin default: []
 # dns:
 # - 1.1.1.1
 # - 1.0.0.1
@@ -536,6 +593,17 @@ guestInstallPrefix: null
 # User-specified provisioning scripts will be still executed.
 # 🟢 Builtin default: false
 plain: null
+
+# When the "nestedVirtualization" feature is enabled:
+# - Allows running a VM inside the guest VM.
+# - The guest VM must configure QEMU with the `-cpu host` parameters to run a nested VM:
+#   qemu-system-aarch64 -accel kvm -cpu host -M virt
+# - Without specifying `-cpu host`, nested virtualization may fail with the error:
+#   qemu-system-aarch64: kvm_init_vcpu: kvm_arch_init_vcpu failed (0): Invalid argument
+# - Only supported on Apple M3 or later with `vmType: vz`.
+# 🟢 Builtin default: false
+nestedVirtualization: null
+
 # ===================================================================== #
 # GLOBAL DEFAULTS AND OVERRIDES
 # ===================================================================== #
@@ -546,7 +614,7 @@ plain: null
 
 # A similar mechanism is $LIMA_HOME/_config/override.yaml, which will take
 # precedence even over the settings in an instances lima.yaml file.
-# It too applies to ALL instances under the same $LIMA_HOME, and is applied
+# It also applies to ALL instances under the same $LIMA_HOME, and is applied
 # on each restart. It can be used to globally override settings, e.g. make
 # the mount of the home directory writable.
 
