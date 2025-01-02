@@ -129,6 +129,8 @@ brew "reflex"
 brew "remake"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Tool for shell commands execution, visualization and alerting
+brew "sampler"
 # SOcket CAT: netcat on steroids
 brew "socat"
 # Editor of encrypted files
