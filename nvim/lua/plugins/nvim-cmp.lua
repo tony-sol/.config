@@ -53,8 +53,8 @@ return {
 			mapping      = {
 				['<CR>']      = cmp.mapping.confirm({ select = true }),
 				['<C-Space>'] = cmp.mapping.complete(),
-				['<C-b>']     = cmp.mapping.scroll_docs(-4),
-				['<C-f>']     = cmp.mapping.scroll_docs(4),
+				['<C-k>']     = cmp.mapping.scroll_docs(-3),
+				['<C-j>']     = cmp.mapping.scroll_docs(3),
 				['<C-e>']     = cmp.mapping.abort(),
 				['<Tab>']     = function(fallback)
 					if cmp.visible() then
@@ -72,9 +72,6 @@ return {
 				end,
 			},
 			sources      = {
-				{
-					name = 'cmdline',
-				},
 				{
 					name = 'buffer',
 				},
@@ -104,5 +101,27 @@ return {
 				},
 			},
 		}
+		cmp.setup.cmdline({ '/', '?' }, {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{
+					name = 'buffer',
+				},
+			},
+		})
+		cmp.setup.cmdline({ ':' }, {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{
+					name = 'path',
+				},
+				{
+					name = 'cmdline',
+				},
+			},
+			matching = {
+				disallow_symbol_nonprefix_matching = false,
+			},
+		})
 	end
 }
