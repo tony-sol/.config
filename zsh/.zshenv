@@ -214,11 +214,14 @@ export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
 export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget"
 export NUGET_PLUGINS_CACHE_PATH="${XDG_CACHE_HOME}/nuget/plugins"
 # }}}
-# set maven configs =================================================== {{{
+# set java configs ==================================================== {{{
 export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep java.home | grep -o '/.*')
+# }}}
+# set maven configs =================================================== {{{
 export MAVEN_HOME="${XDG_DATA_HOME}/m2"
-export MAVEN_REPOSITORY="${XDG_DATA_HOME}/m2/repository"
+export MAVEN_REPOSITORY="${MAVEN_HOME}/repository"
 export MAVEN_ARGS="-gs ${XDG_CONFIG_HOME}/m2/settings.xml"
+export MAVEN_OPTS="-Dmaven.repo.local=${MAVEN_REPOSITORY}"
 export M3_HOME="${MAVEN_HOME}"
 export M2_HOME="${MAVEN_HOME}"
 export M2="${M2_HOME}/bin"
