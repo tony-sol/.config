@@ -21,3 +21,19 @@ gradle = "latest"
 lua = "latest"
 # rust
 rust = "latest"
+
+[settings]
+idiomatic_version_file = true
+trusted_config_paths = [
+	"~/.config/",
+	"~/.local/",
+	"~/Projects/",
+]
+verbose = false
+raw = true
+yes = true
+env_file = ".env"
+experimental = true
+disable_tools = [
+	"python",
+]
