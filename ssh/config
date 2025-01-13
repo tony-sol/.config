@@ -2,9 +2,7 @@ Include external/config
 
 Host *
 	AddKeysToAgent yes
-	UseKeychain yes
 	PKCS11Provider /usr/local/lib/opensc-pkcs11.so
-	HostkeyAlgorithms +ssh-ed25519
-	PubkeyAcceptedAlgorithms +ssh-ed25519
+	PKCS11Provider /usr/local/lib/libykcs11.dylib
 	ControlMaster auto
 	ControlPath /tmp/ssh-%r@%h:%p
