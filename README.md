@@ -14,5 +14,9 @@ This repo contains configuration from XDG_CONFIG_HOME.
 
 * Ignore changes in indexed file
 ```shell
-git update-index --skip-worktree <FILE>
+git update-index --skip-worktree <FILE> # use --no-skip-worktree to bring file back
+```
+* List of ignored indexed files
+```shell
+git ls-files -t | grep -E '^S '
 ```

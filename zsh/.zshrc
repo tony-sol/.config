@@ -121,7 +121,6 @@ alias ll='l -hl'
 alias tt='tree -halFpugND'
 alias t='tt -L 1'
 # commands replacements
-alias -g -- -h="-h 2>&1 | bat --paging=never --language=help --style=plain"
 alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
 alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
 # }}}
