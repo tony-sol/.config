@@ -19,7 +19,7 @@ return {
 	hide_tab_bar_if_only_one_tab               = true,
 	native_macos_fullscreen_mode               = true,
 	-- Appearance - colors
-	color_scheme                               = appearance('tokyonight'),
+	color_scheme                               = appearance(os.getenv('COLORTHEME') or 'tokyonight'),
 	force_reverse_video_cursor                 = true,
 	bold_brightens_ansi_colors                 = 'BrightAndBold',
 	-- Font
