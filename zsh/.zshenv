@@ -60,6 +60,7 @@ export KEYTIMEOUT=1
 export ZLE_RPROMPT_INDENT=0
 export CLICOLOR=1
 export COLORTERM=truecolor
+export COLORTHEME=tokyonight
 export EDITOR=nvim
 export VISUAL=nvim
 # }}}
@@ -98,6 +99,9 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # set sqlite configs ================================================== {{{
 export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite/history"
 # }}}
+# set bat configs ===================================================== {{{
+export BAT_THEME_DARK="${COLORTHEME}-night"
+export BAT_THEME_LIGHT="${COLORTHEME}-day"
 # set fzf configs ===================================================== {{{
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
 export FZF_COMPLETION_TRIGGER='~~'

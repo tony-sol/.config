@@ -103,13 +103,11 @@ local __fzf_theme_tokyonight_night=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-
 local __fzf_theme_tokyonight_day=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-day")
 case $(uname -s) in
 	[Dd]arwin )
-		alias bat='bat --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo tokyonight-night || echo tokyonight-day)'
 		alias fzf='fzf --color=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo $__fzf_theme_tokyonight_night || echo $__fzf_theme_tokyonight_day)'
 		del() { mv "$@" ~/.Trash }
 		get_secret_note() { security find-generic-password -C note -s "$1" -w | xxd -revert -plain | yq --input-format xml --prettyPrint '.plist.dict.string' }
 		;;
 	[Ll]inux )
-		alias bat='bat --theme=tokyonight-night'
 		alias fzf='fzf --color=$__fzf_theme_tokyonight_night'
 		del() { mv "$@" "${XDG_DATA_HOME}/Trash" }
 		;;
