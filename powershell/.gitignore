@@ -1,1 +1,6 @@
 Community
+Modules
+Scripts
+
+*.before.ps1
+*.after.ps1

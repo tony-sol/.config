@@ -1,0 +1,6 @@
+{
+    "ExperimentalFeatures": [
+        "PSFeedbackProvider",
+        "PSCommandNotFoundSuggestion"
+    ]
+}
