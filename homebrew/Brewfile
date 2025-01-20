@@ -256,6 +256,8 @@ cask "qflipper"
 cask "qmk-toolbox"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# System calls and log messages analyzer
+cask "stratoshark"
 # Quicklook extension for source files
 cask "syntax-highlight"
 # Messaging app with a focus on speed and security
@@ -276,7 +278,7 @@ cask "visual-studio-code"
 cask "vlc"
 # Create, manage, and run virtual machines
 cask "vmware-fusion"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
+# A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
 cask "wezterm"
 # Network protocol analyzer
 cask "wireshark"
