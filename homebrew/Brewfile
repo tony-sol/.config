@@ -63,8 +63,6 @@ brew "helm"
 brew "helmfile"
 # Command-line hex viewer
 brew "hexyl"
-# HTTP load generator, ApacheBench (ab) replacement
-brew "hey"
 # Uses CSS selectors to extract bits content from HTML files
 brew "htmlq"
 # Improved top (interactive process viewer)
