@@ -12,6 +12,10 @@ return {
 		},
 	},
 	config       = function()
+		---@diagnostic disable: undefined-global
+		local fn                   = vim.fn
+		local fs                   = vim.fs
+		---@diagnostic enable: undefined-global
 		local lsp_config           = require('lspconfig')
 		local lsp_config_util      = require('lspconfig/util')
 		local capabilities         = require('cmp_nvim_lsp')
@@ -69,6 +73,19 @@ return {
 		}
 		lsp_config.kotlin_language_server.setup {
 			capabilities = default_capabilities,
+			---@diagnostic disable-next-line: unused-local
+			before_init  = function(params, config)
+				-- @todo get workspace hash and join to bases storagePath
+				-- config.init_options.storagePath = fs.joinpath(
+				-- 	config.init_options.storagePath,
+				-- 	'' -- config.root_dir
+				-- )
+				_ = fn.isdirectory(config.init_options.storagePath) ~= 0
+					or fn.mkdir(config.init_options.storagePath, 'p')
+			end,
+			init_options = {
+				storagePath = fs.joinpath(fn.stdpath('state'), '/fwcd.kotlin')
+			},
 		}
 		lsp_config.lua_ls.setup {
 			capabilities = default_capabilities,

@@ -48,8 +48,8 @@ return {
 				show_symbol_lineno     = false,
 				highlight_hovered_item = true,
 			},
-			provider       = {
-			},
+			-- provider       = {
+			-- },
 		}
 	end
 }

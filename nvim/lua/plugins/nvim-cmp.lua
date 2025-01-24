@@ -23,6 +23,9 @@ return {
 			'hrsh7th/cmp-path',
 		},
 		{
+			'hrsh7th/cmp-nvim-lua',
+		},
+		{
 			'onsails/lspkind.nvim',
 		},
 		{
@@ -86,6 +89,9 @@ return {
 				},
 				{
 					name = 'nvim_lsp_document_symbol',
+				},
+				{
+					name = 'nvim_lua',
 				},
 				{
 					name   = 'path',
