@@ -57,6 +57,9 @@ defaults write com.apple.AppleMultitouchTrackpad 'Clicking' -bool 'true'
 # Set keyboard fn-keys as standard function keys
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool 'true'
 
+# Set keyboard to repeat character while key held
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool 'false'
+
 # Set windows 'draggable' in any part of window
 defaults write NSGlobalDomain NSWindowShouldDragOnGesture -bool 'true'
 
