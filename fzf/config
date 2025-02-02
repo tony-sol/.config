@@ -7,3 +7,4 @@
 --height=40%
 --reverse
 --style=full:rounded
+--preview '$ZDOTDIR/plugins/fzf-preview.sh {}'

@@ -106,11 +106,8 @@ export BAT_THEME_LIGHT="${COLORTHEME}-day"
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_COMMAND="fd --follow --hidden"
-# --preview='[[ -f {} ]] && [[ \$(file --brief --dereference --mime-type {}) =~ text ]] && bat --color=always --style=numbers --line-range=:200 {}'
 export FZF_CTRL_T_COMMAND="fd --type file --type symlink --type socket --follow --hidden"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:100 {} | head -200'"
 export FZF_ALT_C_COMMAND="fd --type directory --follow --hidden"
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # }}}
 # set lima configs ==================================================== {{{
 export LIMA_HOME="${XDG_DATA_HOME}/lima"
