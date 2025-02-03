@@ -19,12 +19,17 @@ function __prepend_path {
 	done
 	echo ${${path#:}%:}
 }
-export FPATH=$(__prepend_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions" "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
-export PATH=$(__prepend_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin")
-source <(mise activate zsh) # @hack
+
+if [[ -d "${HOMEBREW_PREFIX}/bin" ]]; then
+	export PATH=$(__prepend_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin")
+	export FPATH=$(__prepend_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions")
+	export MANPATH=$(__prepend_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
+	export INFOPATH=$(__prepend_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
+fi
+export PATH=$(__prepend_path $PATH $XDG_BIN_HOME)
+(( $+commands[mise] )) && source <(mise activate zsh) # @hack
 export PATH=$(__prepend_path $PATH $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
-export MANPATH=$(__prepend_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
-export INFOPATH=$(__prepend_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
+export FPATH=$(__prepend_path $FPATH "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
 # }}}
 
 # zsh vi mode with cursor style ======================================= {{{
@@ -96,8 +101,12 @@ if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
 fi
 # }}}
 # hacks =============================================================== {{{
-export LUAROCKS_HOME="$(mise where lua)/luarocks"
-export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
+(( $+commands[mise] )) && export LUAROCKS_HOME="$(mise where lua)/luarocks"
+if (( $+commands[bat] )); then
+	export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
+	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
+	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
+fi
 # per-system hacks
 local __fzf_theme_tokyonight_night=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-night")
 local __fzf_theme_tokyonight_day=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-day")
@@ -118,9 +127,6 @@ alias l='ls -AF'
 alias ll='l -hl'
 alias tt='tree -halFpugND'
 alias t='tt -L 1'
-# commands replacements
-alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
-alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
 # }}}
 # keymappings ========================================================= {{{
 bindkey "^[[1;3C" forward-word
@@ -176,7 +182,7 @@ complete -o nospace -C "${HOMEBREW_PREFIX}/bin/waypoint" waypoint
 complete -o nospace -C "${HOMEBREW_PREFIX}/bin/packer" packer
 # }}}
 # hooks =============================================================== {{{
-source <(fzf --zsh)
+(( $+commands[fzf] )) && source <(fzf --zsh)
 # }}}
 
 # =====================================================================

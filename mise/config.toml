@@ -1,6 +1,4 @@
 [tools]
-# mise completions
-usage = "latest"
 # node
 node = "latest"
 yarn = "latest"

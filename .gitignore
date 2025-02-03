@@ -3,6 +3,9 @@ auth[._-]*
 # ...any config overrides...
 *[._-]override[._-]*
 *[._-]override
+# ...any local config...
+*[._-]local[._-]*
+*[._-]local
 # ...and any locks
 *[._-]lock[._-$]*
 *[._-]lock
