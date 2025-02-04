@@ -56,8 +56,11 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-#
+
+# include common overrides
+[include]
+	path = config.override
+
 # include work overrides
-#
 [includeIf "gitdir/i:~/Projects/work/"]
 	path = ~/Projects/work/.gitconfig
