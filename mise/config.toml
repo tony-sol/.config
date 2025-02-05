@@ -1,3 +1,11 @@
+[env]
+# poetry
+POETRY_CONFIG_DIR = "{{ env.XDG_CONFIG_HOME }}/pypoetry"
+POETRY_DATA_DIR = "{{ env.XDG_DATA_HOME }}/pypoetry"
+POETRY_CACHE_DIR = "{{ env.XDG_CACHE_HOME }}/pypoetry"
+# yarn
+YARN_GLOBAL_FOLDER = "{{ env.XDG_DATA_HOME }}/yarn"
+
 [tools]
 # node
 node = "latest"

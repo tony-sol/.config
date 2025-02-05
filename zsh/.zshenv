@@ -164,11 +164,6 @@ export VIRTUALENV_CONFIG_FILE="${XDG_CONFIG_HOME}/virtualenv/config.toml"
 # set pip configs ===================================================== {{{
 export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
 # }}}
-# set poetry configs ================================================== {{{
-export POETRY_CONFIG_DIR="${XDG_CONFIG_HOME}/pypoetry"
-export POETRY_DATA_DIR="${XDG_DATA_HOME}/pypoetry"
-export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
-# }}}
 # set go configs ====================================================== {{{
 export GOPATH="${XDG_DATA_HOME}/go"
 export GOBIN="${GOPATH}/bin"
@@ -187,9 +182,6 @@ export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 # set npm/node configs ================================================ {{{
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
-# }}}
-# set yarn configs ==================================================== {{{
-export YARN_GLOBAL_FOLDER="${XDG_DATA_HOME}/yarn"
 # }}}
 # set cargo configs =================================================== {{{
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
