@@ -1,0 +1,15 @@
+/**
+ * Custom Firefox styles
+ *
+ * Place into "{profile folder}/chrome"
+ */
+
+/* Border around full containered tab */
+.tabbrowser-tab .tab-context-line {
+	border: none;
+	background: transparent !important;
+	opacity: 0.0;
+}
+.tabbrowser-tab .tab-background {
+	border: 1px solid var(--identity-icon-color);
+}
