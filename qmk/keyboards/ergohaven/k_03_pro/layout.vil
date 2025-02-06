@@ -39,9 +39,9 @@
 				"KC_LBRACKET",
 				"KC_SPACE",
 				"TT(1)",
-				"KC_LCTRL",
+				"KC_LGUI",
 				"KC_LALT",
-				"KC_LGUI"
+				"KC_LCTRL"
 			],
 			[
 				"KC_6",
@@ -79,9 +79,9 @@
 				"KC_RBRACKET",
 				"KC_ENTER",
 				"TT(2)",
-				"KC_RCTRL",
+				"KC_RGUI",
 				"KC_RALT",
-				"KC_RGUI"
+				"KC_RCTRL"
 			]
 		],
 		[
