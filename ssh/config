@@ -14,7 +14,6 @@ Host *
 	IdentitiesOnly yes
 	AddKeysToAgent yes
 	PKCS11Provider /usr/local/lib/opensc-pkcs11.so
-	PKCS11Provider /usr/local/lib/libykcs11.dylib
 	ControlMaster auto
-	ControlPath /tmp/ssh-%r@%h:%p
+	ControlPath ~/.ssh/control/%r@%h:%p
 	SetEnv TERM=xterm-256color
