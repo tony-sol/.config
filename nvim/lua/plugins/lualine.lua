@@ -18,7 +18,15 @@ return {
 			---@diagnostic disable-next-line:undefined-global
 			return dropbar()
 		end
-		local section = {
+		local ftypes   = {
+			TelescopePrompt = 'Telescope',
+			NvimTree        = 'NvimTree',
+			dashboard       = 'Dashboard',
+			packer          = 'Packer',
+			fzf             = 'FZF',
+			alpha           = 'Alpha',
+		}
+		local sections = {
 			lualine_a = {
 				'mode',
 				{
@@ -51,7 +59,7 @@ return {
 				'selectioncount',
 			}
 		}
-		local winbar  = {
+		local winbar   = {
 			lualine_a = {
 			},
 			lualine_b = {
@@ -70,25 +78,46 @@ return {
 				},
 			}
 		}
-		local tabline = {
+		local tabline  = {
 			lualine_a = {
 				{
-					'buffers',
-					mode = 4,
+					'windows',
+					mode              = 2,
+					filetype_names    = ftypes,
+					disabled_buftypes = {
+						'nofile',
+						'quickfix',
+						'prompt',
+					},
 				},
 			},
 			lualine_b = {
 			},
 			lualine_c = {
+				-- @hack center component
+				{
+					'%=',
+					-- @hack disable separator
+					separator = {},
+				},
+				{
+					'tabs',
+					mode      = 2,
+					path      = 1,
+					-- @hack disable separator
+					separator = {},
+				},
 			},
+			-- @todo implement `lualine_m` - middle component
 			lualine_x = {
 			},
 			lualine_y = {
 			},
 			lualine_z = {
 				{
-					'tabs',
-					mode = 2,
+					'buffers',
+					mode           = 4,
+					filetype_names = ftypes,
 				},
 			}
 		}
@@ -107,18 +136,19 @@ return {
 					},
 				},
 			},
-			sections          = section,
-			inactive_sections = utils.merge(section, {
+			sections          = sections,
+			inactive_sections = utils.merge(sections, {
 				lualine_b = {},
 				lualine_x = {},
 			}),
+			tabline           = tabline,
 			winbar            = winbar,
 			inactive_winbar   = utils.merge(winbar, {
 			}),
-			tabline           = tabline,
 			extensions        = {
 				'fzf',
 				'lazy',
+				'man',
 				'mason',
 				'nvim-tree',
 				'nvim-dap-ui',
