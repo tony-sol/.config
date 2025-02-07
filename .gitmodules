@@ -22,6 +22,6 @@
 [submodule "zsh/plugins/zsh-ssh"]
 	path = zsh/plugins/zsh-ssh
 	url = https://github.com/tony-sol/zsh-ssh.git
-[submodule "qmk/.qmk-hid-host"]
-	path = qmk/.qmk-hid-host
+[submodule "qmk/qmk-hid-host"]
+	path = qmk/qmk-hid-host
 	url = https://github.com/tony-sol/qmk-hid-host.git

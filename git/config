@@ -19,6 +19,7 @@
 	recurseSubmodules = true
 	prune = true
 	pruneTags = true
+	all = true
 [rebase]
 	autoStash = true
 [pull]
