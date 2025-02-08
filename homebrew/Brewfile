@@ -179,6 +179,8 @@ brew "cirruslabs/cli/tart" if OS.mac? && Hardware::CPU.arm?
 brew "go-task/tap/go-task"
 # Simple security auditing, helping build the Best Docker Images
 brew "goodwithtech/r/dockle"
+# Read-only implementation of ext4 for FUSE
+brew "gromgit/fuse/ext4fuse-mac" if OS.mac?
 # Simple MTP fuse filesystem driver
 brew "gromgit/fuse/simple-mtpfs-mac" if OS.mac?
 # FUSE filesystem to mount squashfs archives
