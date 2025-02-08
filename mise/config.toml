@@ -27,6 +27,10 @@ gradle = "latest"
 lua = "latest"
 # rust
 rust = "latest"
+# kubernetes
+kube-linter = "latest"
+kubent = "latest"
+kubeconform = "latest"
 
 [settings]
 idiomatic_version_file = true

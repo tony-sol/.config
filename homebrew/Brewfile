@@ -75,12 +75,6 @@ brew "kind"
 brew "kubernetes-cli"
 # Package manager for kubectl plugins
 brew "krew"
-# Static analysis tool for Kubernetes YAML files and Helm charts
-brew "kube-linter"
-# FAST Kubernetes manifests validator, with support for Custom Resources!
-brew "kubeconform"
-# Easily check your clusters for use of deprecated APIs
-brew "kubent"
 # Automate cluster operations on all your environments
 brew "kubeone"
 # Lazier way to manage everything docker
