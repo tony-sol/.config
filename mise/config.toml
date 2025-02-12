@@ -27,10 +27,13 @@ gradle = "latest"
 lua = "latest"
 # rust
 rust = "latest"
-# kubernetes
+# support tools
+dockle = "latest"
+hadolint = "latest"
 kube-linter = "latest"
 kubent = "latest"
 kubeconform = "latest"
+trivy = "latest"
 
 [settings]
 idiomatic_version_file = true
