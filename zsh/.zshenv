@@ -123,8 +123,8 @@ export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 # }}}
 # set kubernetes configs ============================================== {{{
 export KUBEHOME="${XDG_DATA_HOME}/kube"
-export KUBECONFIG="${KUBEHOME}/config"
-export KUBECACHEDIR="${KUBEHOME}/cache"
+export KUBECONFIG="${XDG_CONFIG_HOME}/kube/config"
+export KUBECACHEDIR="${XDG_CACHE_HOME}/kube"
 # }}}
 # set kubernetes krew configs ========================================= {{{
 export KREW_ROOT="${XDG_DATA_HOME}/krew"
