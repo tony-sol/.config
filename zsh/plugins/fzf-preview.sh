@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 file=$1
 
 case $(file --brief --dereference --mime-type "$file") in
@@ -23,7 +25,7 @@ case $(file --brief --dereference --mime-type "$file") in
 		tree -CalFN "$file" | head -200
 		;;
 	image/*)
-		wezterm imgcat --no-resample --tmux-passthru=detect --height="${FZF_PREVIEW_LINES:-auto}" --width="${FZF_PREVIEW_COLUMNS:-auto}" $file
+		wezterm imgcat --no-resample --tmux-passthru=detect --height="${FZF_PREVIEW_LINES:-auto}" --width="${FZF_PREVIEW_COLUMNS:-auto}" "$file"
 		;;
 	*)
 		bat --color=always --paging=never --style=changes,numbers "$file"

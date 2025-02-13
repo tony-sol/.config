@@ -106,6 +106,7 @@ if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
 	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
 	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
+	view() { for arg in $@; do $ZDOTDIR/plugins/fzf-preview.sh $arg; [[ "$arg" =~ "$@[-1]" ]] || echo; done }
 fi
 # per-system hacks
 local __fzf_theme_tokyonight_night=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-night")
