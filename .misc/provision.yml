@@ -10,16 +10,10 @@
     the_user: "{{ ansible_user_id }}"
     ansible_remote_tmp: /tmp
   tasks:
-    - name: Ensure zsh is default shell
-      become: true
-      user:
-        name: "{{ the_user }}"
-        shell: /bin/zsh
-
     - name: Clone configs from Github
       git:
         recursive: true
-        repo: https://github.com/Tony-Sol/.config.git
+        repo: https://github.com/tony-sol/.config.git
         dest: ~/.config
       register: repo_clone
       failed_when:
@@ -35,6 +29,7 @@
         - .zprofile
         - .bashrc
         - .bash_profile
+        - .bash_history
         - .profile
 
     - name: Link env to shell
@@ -42,6 +37,17 @@
         src: .config/zsh/.zshenv
         dest: ~/.zshenv
         state: link
+
+    - name: Ensure base xdg-spec _HOMEs
+      file:
+        path: "~/{{ item }}"
+        state: directory
+      loop:
+        - .cache
+        - .config
+        - .local/bin
+        - .local/share
+        - .local/state
 
 - name: Install everything
   become: false
@@ -66,7 +72,7 @@
         - brew.results | selectattr("stat.exists") | list | length < 1
 
     - name: Install everything
-      shell: brew bundle --file ~/.config/homebrew/Brewfile --no-lock
+      shell: brew bundle install --file ~/.config/homebrew/Brewfile --no-lock --force
 
 - name:
   become: false
@@ -89,8 +95,8 @@
         insertafter: EOF
         line: |
           auth    optional    /opt/homebrew/lib/pam/pam_reattach.so
-          auth    sufficient  /opt/homebrew/lib/pam/pam_u2f.so
           auth    sufficient  pam_tid.so
+          auth    sufficient  /opt/homebrew/lib/pam/pam_u2f.so cue
 
     - name: Enable homebrew zsh for chsh
       become: True

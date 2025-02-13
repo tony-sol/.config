@@ -50,8 +50,8 @@ export XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-${HOME}/Videos}"
 # set zsh configs ===================================================== {{{
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export HISTFILE="${ZDOTDIR}/.zsh_history"
-export HISTSIZE=200000
-export SAVEHIST=200000
+export HISTSIZE=2000000
+export SAVEHIST=2000000
 export TERM="tmux-256color" # "xterm-256color"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${TERMINFO_DIRS:-${TERMINFO}:/usr/share/terminfo}"

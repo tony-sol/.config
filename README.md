@@ -18,5 +18,5 @@ git update-index --skip-worktree <FILE> # use --no-skip-worktree to bring file b
 ```
 * List of ignored indexed files
 ```shell
-git ls-files -t | grep -E '^S '
+git ls-files -v | grep -E '^S '
 ```

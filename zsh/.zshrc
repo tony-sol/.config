@@ -101,16 +101,19 @@ if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
 fi
 # }}}
 # hacks =============================================================== {{{
+# @note get lua install location as system rocks_tree
 (( $+commands[mise] )) && export LUAROCKS_HOME="$(mise where lua)/luarocks"
+# @note use bat output only if bat installed
 if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
 	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
 	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
 	view() { for arg in $@; do $ZDOTDIR/plugins/fzf-preview.sh $arg; [[ "$arg" =~ "$@[-1]" ]] || echo; done }
 fi
-# per-system hacks
+# @note fzf doesn't support theme files, load them into vars
 local __fzf_theme_tokyonight_night=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-night")
 local __fzf_theme_tokyonight_day=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-day")
+# @note per-system hacks
 case $(uname -s) in
 	[Dd]arwin )
 		alias fzf='fzf --color=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo $__fzf_theme_tokyonight_night || echo $__fzf_theme_tokyonight_day)'

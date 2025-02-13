@@ -6,9 +6,11 @@ Host github.com
 Host gitlab.com
 	Hostname altssh.gitlab.com
 
-Host github.com ssh.github.com gitlab.com altssh.gitlab.com
-	IdentityFile ~/.ssh/keys/id_ed25519
+Match Host ssh.github.com,altssh.gitlab.com
 	Port 443
+
+Match Host github.com,ssh.github.com,gitlab.com,altssh.gitlab.com
+	IdentityFile ~/.ssh/keys/id_ed25519
 
 Host *
 	IdentitiesOnly yes
