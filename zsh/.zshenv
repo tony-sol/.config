@@ -188,6 +188,7 @@ export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
 # }}}
 # set cargo configs =================================================== {{{
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export CARGO_BIN="${CARGO_HOME}/bin"
 export MISE_CARGO_HOME=$CARGO_HOME
 # }}}
 # set rustup configs ================================================== {{{

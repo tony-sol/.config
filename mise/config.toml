@@ -1,52 +1,86 @@
 [env]
-# poetry
+# python:poetry
 POETRY_CONFIG_DIR = "{{ env.XDG_CONFIG_HOME }}/pypoetry"
 POETRY_DATA_DIR = "{{ env.XDG_DATA_HOME }}/pypoetry"
 POETRY_CACHE_DIR = "{{ env.XDG_CACHE_HOME }}/pypoetry"
-# yarn
+# node:yarn
 YARN_GLOBAL_FOLDER = "{{ env.XDG_DATA_HOME }}/yarn"
 
 [tools]
-# node
+# mise completions
+usage = "latest"
+# langs
+go = "latest"
+java = "latest"
+kotlin = "latest"
+lua = "latest"
 node = "latest"
+ruby = "latest"
+rust = "latest"
+# langs package managers
 yarn = "latest"
 pnpm = "latest"
-# python
 poetry = "latest"
-# ruby
-ruby = "latest"
-# golang
-go = "latest"
-# kotlin
-kotlin = "latest"
-# java
-java = "latest"
 maven = "latest"
 gradle = "latest"
-# lua
-lua = "latest"
-# rust
-rust = "latest"
-# support tools
+# cli tools
+act = "latest"
+conftest = "latest"
+bat = "latest"
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+glab = "latest"
+glow = "latest"
+grpcurl = "latest"
+jfrog-cli = "latest"
+opa = "latest"
+rg = "latest"
+sops = "latest"
+task = "latest"
+yq = "latest"
+# container tools
+argocd = "latest"
+dive = "latest"
 dockle = "latest"
+helm = "latest"
+helmfile = "latest"
 hadolint = "latest"
+kind = "latest"
+krew = "latest"
 kube-linter = "latest"
+kubectl = "latest"
 kubent = "latest"
 kubeconform = "latest"
+minikube = "latest"
+syft = "latest"
 trivy = "latest"
+# hashicorp
+consul = "latest"
+nomad = "latest"
+packer = "latest"
+terraform = "latest"
+vault = "latest"
+waypoint = "latest"
 
 [settings]
-idiomatic_version_file = true
-trusted_config_paths = [
-	"~/.config/",
-	"~/.local/",
-	"~/Projects/",
-]
-verbose = false
-raw = true
-yes = true
+# common
+activate_aggressive = false
+always_keep_download = false
+always_keep_install = false
 env_file = ".env"
 experimental = true
-disable_tools = [
-	"python",
-]
+idiomatic_version_file = true
+paranoid = true
+quiet = false
+raw = true
+verbose = false
+yes = true
+# use system python by default
+disable_tools = [ "python" ]
+# don't override GOBIN...
+go_set_gobin = false
+# ...but setup GOROOT
+go_set_goroot = true
+# trust all mise configs in XDG_PROJECTS_DIR
+trusted_config_paths = [ "~/Projects/" ]

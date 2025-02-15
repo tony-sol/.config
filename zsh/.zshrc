@@ -27,8 +27,8 @@ if [[ -d "${HOMEBREW_PREFIX}/bin" ]]; then
 	export INFOPATH=$(__prepend_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
 fi
 export PATH=$(__prepend_path $PATH $XDG_BIN_HOME)
-(( $+commands[mise] )) && source <(mise activate zsh) # @hack
-export PATH=$(__prepend_path $PATH $M2 $DOTNET_CLI_TOOLS $GOBIN $GEM_BIN $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
+(( $+commands[mise] )) && source <(mise activate zsh) || export PATH=$(__prepend_path $PATH $MISE_SHIMS) # @hack
+export PATH=$(__prepend_path $PATH $M2 $DOTNET_CLI_TOOLS $GOBIN $CARGO_BIN $GEM_BIN $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
 export FPATH=$(__prepend_path $FPATH "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
 # }}}
 
@@ -165,7 +165,9 @@ lazyload helmwave -- 'source <(helmwave completion zsh)'
 lazyload argocd -- 'source <(argocd completion zsh)'
 lazyload opa -- 'source <(opa completion zsh)'
 lazyload conftest -- 'source <(conftest completion zsh)'
+lazyload kube-linter -- 'source <(kube-linter completion zsh)'
 lazyload kubeone -- 'source <(kubeone completion zsh)'
+lazyload trivy -- 'source <(trivy completion zsh)'
 lazyload syft -- 'source <(syft completion zsh)'
 lazyload octosql -- 'source <(octosql completion zsh)'
 lazyload tsh -- 'source <(tsh --completion-script-zsh)'
@@ -175,13 +177,12 @@ lazyload tailscale -- 'source <(tailscale completion zsh)'
 lazyload jf -- 'source <(jf completion zsh)'
 
 # other completions
-complete -o nospace -C "${HOMEBREW_PREFIX}/bin/tofu" tofu
-complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
-complete -o nospace -C "${HOMEBREW_PREFIX}/bin/vault" vault
-complete -o nospace -C "${HOMEBREW_PREFIX}/bin/consul" consul
-complete -o nospace -C "${HOMEBREW_PREFIX}/bin/nomad" nomad
-complete -o nospace -C "${HOMEBREW_PREFIX}/bin/waypoint" waypoint
-complete -o nospace -C "${HOMEBREW_PREFIX}/bin/packer" packer
+complete -o nospace -C "${MISE_SHIMS}/terraform" terraform
+complete -o nospace -C "${MISE_SHIMS}/vault" vault
+complete -o nospace -C "${MISE_SHIMS}/consul" consul
+complete -o nospace -C "${MISE_SHIMS}/nomad" nomad
+complete -o nospace -C "${MISE_SHIMS}/waypoint" waypoint
+complete -o nospace -C "${MISE_SHIMS}/packer" packer
 # }}}
 # hooks =============================================================== {{{
 (( $+commands[fzf] )) && source <(fzf --zsh)

@@ -1,7 +1,5 @@
 tap "cirruslabs/cli"
-tap "go-task/tap"
 tap "gromgit/fuse" if OS.mac?
-tap "hashicorp/tap"
 tap "helmwave/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
@@ -10,20 +8,10 @@ tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
 tap "wez/wezterm"
-# Run your GitHub Actions locally
-brew "act"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
-# GitOps Continuous Delivery for Kubernetes
-brew "argocd"
 # Code searching, linting, rewriting
 brew "ast-grep"
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
-# Test your configuration files using Open Policy Agent
-brew "conftest"
-# Tool for exploring each layer in a docker image
-brew "dive"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Docker CLI plugin for extended build capabilities with BuildKit
@@ -34,44 +22,20 @@ brew "docker-compose"
 brew "docker-credential-helper"
 # Command-line DNS Client for Humans
 brew "doggo"
-# Simple, fast and user-friendly alternative to find
-brew "fd"
-# Command-line fuzzy finder written in Go
-brew "fzf"
-# GitHub command-line tool
-brew "gh"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
-# Open-source GitLab command-line tool
-brew "glab"
-# Render markdown on the CLI
-brew "glow"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Simple vaultless password manager in Go
 brew "gokey"
-# Like cURL, but for gRPC
-brew "grpcurl"
-# Kubernetes package manager
-brew "helm"
-# Deploy Kubernetes Helm Charts
-brew "helmfile"
 # Command-line hex viewer
 brew "hexyl"
 # Uses CSS selectors to extract bits content from HTML files
 brew "htmlq"
 # Improved top (interactive process viewer)
 brew "htop"
-# Command-line interface for JFrog products
-brew "jfrog-cli"
-# Run local Kubernetes cluster in Docker
-brew "kind"
-# Kubernetes command-line interface
-brew "kubernetes-cli"
-# Package manager for kubectl plugins
-brew "krew"
 # Automate cluster operations on all your environments
 brew "kubeone"
 # Lazier way to manage everything docker
@@ -84,8 +48,6 @@ brew "libfido2"
 brew "lima" if OS.mac?
 # Mac App Store command-line interface
 brew "mas" if OS.mac?
-# Run a Kubernetes cluster locally
-brew "minikube"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Automated testing for Ansible roles
@@ -98,12 +60,8 @@ brew "neovim"
 brew "nmap"
 # SQL query tool to analyze data from different file formats and databases
 brew "octosql"
-# Open source, general-purpose policy engine
-brew "opa"
 # Tools and libraries for smart cards
 brew "opensc" unless OS.mac?
-# Drop-in replacement for Terraform. Infrastructure as Code Tool
-brew "opentofu"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
 brew "openvpn", restart_service: true
 # PAM module for reattaching to the user's GUI (Aqua) session
@@ -120,18 +78,12 @@ brew "pv"
 brew "reflex"
 # GNU Make with improved error handling, tracing, and a debugger
 brew "remake"
-# Search tool like grep and The Silver Searcher
-brew "ripgrep"
 # Tool for shell commands execution, visualization and alerting
 brew "sampler"
 # SOcket CAT: netcat on steroids
 brew "socat"
-# Editor of encrypted files
-brew "sops"
 # Non-interactive SSH password auth
 brew "sshpass"
-# CLI for generating a Software Bill of Materials from container images
-brew "syft"
 # Easiest, most secure way to use WireGuard and 2FA
 brew "tailscale", restart_service: true
 # Command-line packet analyzer
@@ -154,8 +106,6 @@ brew "werf"
 brew "wget"
 # Tool for managing your YubiKey configuration
 brew "ykman"
-# Process YAML, JSON, XML, CSV and properties documents from the CLI
-brew "yq"
 # Command-line tool for the YubiKey PIV application
 brew "yubico-piv-tool"
 # UNIX shell (command interpreter)
@@ -164,8 +114,6 @@ brew "zsh"
 brew "cirruslabs/cli/orchard" if OS.mac? && Hardware::CPU.arm?
 # Run macOS and Linux VMs on Apple Hardware
 brew "cirruslabs/cli/tart" if OS.mac? && Hardware::CPU.arm?
-# Task runner / simpler Make alternative written in Go
-brew "go-task/tap/go-task"
 # Read-only implementation of ext4 for FUSE
 brew "gromgit/fuse/ext4fuse-mac" if OS.mac?
 # Simple MTP fuse filesystem driver
@@ -174,18 +122,6 @@ brew "gromgit/fuse/simple-mtpfs-mac" if OS.mac?
 brew "gromgit/fuse/squashfuse-mac" if OS.mac?
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac" if OS.mac?
-# Consul
-brew "hashicorp/tap/consul"
-# Nomad
-brew "hashicorp/tap/nomad"
-# Packer
-brew "hashicorp/tap/packer"
-# Terraform
-brew "hashicorp/tap/terraform"
-# Vault
-brew "hashicorp/tap/vault"
-# Waypoint
-brew "hashicorp/tap/waypoint"
 # Helmwave is true release management for helm
 brew "helmwave/tap/helmwave"
 # Fast file synchronization and network forwarding for remote development
