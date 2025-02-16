@@ -85,22 +85,17 @@ source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
 
 source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh" # @todo remove
 # }}}
-# ssh agent =========================================================== {{{
-if [ -z "${SSH_AUTH_SOCK}" ] ; then
-	eval `ssh-agent -P "${HOMEBREW_PREFIX}/lib/*"` > /dev/null
-fi
-if ! ps -p ${SSH_AGENT_PID:-0} 2>&1 > /dev/null ; then
-	unset SSH_AGENT_PID
-fi
-export SSH_AGENT_PID=${SSH_AGENT_PID:-`pgrep -x ssh-agent`}
-if [[ `ssh-add -l` = *"agent has no identities"* ]] ; then
-	for key in $(ls "${HOME}/.ssh/keys/" | grep -v '.pub')
-	do
-		ssh-add $key 2>/dev/null
-	done
-fi
-# }}}
 # hacks =============================================================== {{{
+# @note macos's ssh-agent doen't export SSH_AGENT_PID, set it manually
+# @warn envs are not persistent, use `eval $(ssh-agent -k)` to avoid orphaned instances
+# @todo probably should be removed
+if [[ $(ps ax | grep 'ssh-agent' | grep -v grep) ]]; then
+	[[ -z "${SSH_AGENT_PID}" ]] \
+		&& export SSH_AGENT_PID=$(ps ax -o pid,command | awk '$2 ~ "ssh-agent" {print $1}') \
+		|| true
+else
+	eval "$($(which ssh-agent) -s)"
+fi
 # @note get lua install location as system rocks_tree
 (( $+commands[mise] )) && export LUAROCKS_HOME="$(mise where lua)/luarocks"
 # @note use bat output only if bat installed
