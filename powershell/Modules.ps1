@@ -1,4 +1,5 @@
 Import-Module Terminal-Icons
+
 Import-Module PSReadLine
 	Set-PSReadLineOption -ShowToolTips:$true
 	Set-PSReadLineOption -HistoryNoDuplicates:$true
@@ -12,8 +13,11 @@ Import-Module PSReadLine
 		Write-Host -NoNewLine (($mode.Equals('Insert')) ? "`e[6 q" : "`e[2 q")
 	}
 	Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete -ViMode Insert
+
 Import-Module CompletionPredictor
+
 Import-Module ps-menu
+
 Import-Module posh-git
 	$Global:GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
 	$Global:GitPromptSettings.DefaultPromptBeforeSuffix.Text = '$(PromptWriteErrorInfo)'
@@ -22,5 +26,7 @@ Import-Module posh-git
 	$Global:GitPromptSettings.EnablePromptStatus = $true
 	$Global:GitPromptSettings.EnableStashStatus = $true
 	$Global:GitPromptSettings.UntrackedFilesMode = 'All'
+
 Import-Module Microsoft.PowerShell.SecretManagement
+
 Import-Module Microsoft.PowerShell.SecretStore
