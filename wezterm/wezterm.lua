@@ -6,7 +6,7 @@ local launch_menu = require('launch_menu')
 return {
 	term                                       = 'xterm-256color',
 	launch_menu                                = launch_menu,
-	default_prog                               = { 'zsh', '--login', '--interactive', '-c', 'tmux new -A' },
+	default_prog                               = { 'zsh', '-cli', 'tmux new' },
 	exit_behavior                              = 'CloseOnCleanExit',
 	scrollback_lines                           = 1000000,
 	-- Appearance - window
