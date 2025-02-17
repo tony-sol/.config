@@ -28,7 +28,7 @@ if [[ -d "${HOMEBREW_PREFIX}/bin" ]]; then
 fi
 export PATH=$(__prepend_path $PATH $XDG_BIN_HOME)
 (( $+commands[mise] )) && source <(mise activate zsh) || export PATH=$(__prepend_path $PATH $MISE_SHIMS) # @hack
-export PATH=$(__prepend_path $PATH $M2 $DOTNET_CLI_TOOLS $GOBIN $CARGO_BIN $GEM_BIN $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
+export PATH=$(__prepend_path $PATH $DOTNET_CLI_TOOLS $GOBIN $CARGO_BIN $GEM_BIN $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
 export FPATH=$(__prepend_path $FPATH "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
 # }}}
 
@@ -96,8 +96,15 @@ if [[ $(ps ax | grep 'ssh-agent' | grep -v grep) ]]; then
 else
 	eval "$($(which ssh-agent) -s)"
 fi
-# @note get lua install location as system rocks_tree
-(( $+commands[mise] )) && export LUAROCKS_HOME="$(mise where lua)/luarocks"
+if (( $+commands[mise] )); then
+	# @note get lua install location as system rocks_tree
+	export LUAROCKS_HOME="$(mise where lua)/luarocks"
+	# @note get mvn install location
+	export MAVEN_HOME="$(mise where maven)"
+	export MVN_HOME="${MAVEN_HOME}"
+	export M3_HOME="${MAVEN_HOME}"
+	export M2_HOME="${MAVEN_HOME}"
+fi
 # @note use bat output only if bat installed
 if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
