@@ -185,9 +185,9 @@
 			],
 			[
 				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
+				"KC_BTN1",
+				"KC_BTN3",
+				"KC_BTN2",
 				"KC_TRNS",
 				"KC_TRNS"
 			],
