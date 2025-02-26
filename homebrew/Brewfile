@@ -1,6 +1,5 @@
 tap "cirruslabs/cli"
 tap "gromgit/fuse" if OS.mac?
-tap "helmwave/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "mutagen-io/mutagen"
@@ -116,8 +115,6 @@ brew "gromgit/fuse/simple-mtpfs-mac" if OS.mac?
 brew "gromgit/fuse/squashfuse-mac" if OS.mac?
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac" if OS.mac?
-# Helmwave is true release management for helm
-brew "helmwave/tap/helmwave"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
 # Quantum Mechanical Keyboard (QMK) Firmware
