@@ -57,7 +57,7 @@ brew "octosql"
 # Tools and libraries for smart cards
 brew "opensc" unless OS.mac?
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
-brew "openvpn", restart_service: true
+brew "openvpn", restart_service: :changed
 # PAM module for reattaching to the user's GUI (Aqua) session
 brew "pam-reattach" if OS.mac?
 # Provides an easy way to use U2F-compliant authenticators with PAM
@@ -79,7 +79,7 @@ brew "socat"
 # Non-interactive SSH password auth
 brew "sshpass"
 # Easiest, most secure way to use WireGuard and 2FA
-brew "tailscale", restart_service: true
+brew "tailscale", restart_service: :changed
 # Command-line packet analyzer
 brew "tcpdump"
 # Modern SSH server for teams managing distributed infrastructure
