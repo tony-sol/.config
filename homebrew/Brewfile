@@ -123,8 +123,6 @@ brew "qmk/qmk/qmk"
 cask "android-file-transfer"
 # Remotely access another computer through the Google Chrome browser
 cask "chrome-remote-desktop-host"
-# Developer platform
-cask "dotnet-sdk"
 # Web browser
 cask "firefox@developer-edition"
 cask "font-jetbrains-mono-nerd-font"
@@ -164,8 +162,6 @@ cask "proton-drive"
 cask "proton-pass"
 # Peer to peer Bitorrent client
 cask "qbittorrent"
-# Companion app for Flipper Zero devices
-cask "qflipper"
 # Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
 # Move and resize windows using keyboard shortcuts or snap areas
