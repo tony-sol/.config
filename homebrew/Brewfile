@@ -17,24 +17,14 @@ brew "docker-buildx"
 brew "docker-compose"
 # Platform keystore credential helper for Docker
 brew "docker-credential-helper"
-# Command-line DNS Client for Humans
-brew "doggo"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Simple vaultless password manager in Go
-brew "gokey"
-# Command-line hex viewer
-brew "hexyl"
-# Uses CSS selectors to extract bits content from HTML files
-brew "htmlq"
 # Improved top (interactive process viewer)
 brew "htop"
-# Automate cluster operations on all your environments
-brew "kubeone"
 # Provides library functionality for FIDO U2F & FIDO 2.0, including USB
 brew "libfido2"
 # Linux virtual machines
@@ -51,8 +41,6 @@ brew "ncdu"
 brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
-# SQL query tool to analyze data from different file formats and databases
-brew "octosql"
 # Tools and libraries for smart cards
 brew "opensc" unless OS.mac?
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
