@@ -22,12 +22,21 @@
 	all = true
 [rebase]
 	autoStash = true
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[merge]
+	conflictStyle = diff3
 [pull]
 	rebase = true
 [push]
 	default = current
 [diff]
 	context = 2
+	algorithm = histogram
+	mnemonicPrefix = true
+	colorMoved = plain
 [color]
 	ui = always
 	grep = always
@@ -43,13 +52,17 @@
 	meta = yellow
 	frag = magenta
 	old = red
+	oldMoved = blue
 	new = green
+	newMoved = yellow
 [color "status"]
 	added = yellow
 	changed = green
 	untracked = cyan
+[column]
+	ui = auto
 [format]
-	pretty = format:%C(cyan bold)%H%C(reset) %ci %C(italic)(%cr)%C(reset) %C(blue)%cn%C(reset) %C(auto,bold)%G?(%GT)%C(reset) %C(green)%s%C(magenta)%d%C(reset) %C(red)(%an)%C(reset) %C(yellow)[%p]%C(reset) %b
+	pretty = format:%C(cyan bold)%H%C(reset) %ci %C(italic)(%cr)%C(reset) %C(blue)%cn%C(reset) %C(auto,bold)%G?(%GT)%C(reset) %C(green)%s%C(magenta)%d%C(reset) %C(red)(%an)%C(reset) %C(yellow)[%p]%C(reset)
 [i18n]
 	logOutputEncoding = utf-8
 [filter "lfs"]
