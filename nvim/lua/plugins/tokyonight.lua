@@ -7,7 +7,7 @@ return {
 		tokyonight.setup {
 			style           = 'night',
 			light_style     = 'day',
-			transparent     = false,
+			transparent     = true,
 			terminal_colors = true,
 			styles          = {
 				comments  = {
@@ -19,8 +19,8 @@ return {
 				functions = {},
 				variables = {},
 				-- Background styles. Can be "dark", "transparent" or "normal"
-				sidebars  = 'normal',
-				floats    = 'normal',
+				sidebars  = 'transparent',
+				floats    = 'transparent',
 			},
 			day_brightness  = 0.3,
 			dim_inactive    = false,
