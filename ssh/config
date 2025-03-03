@@ -1,21 +1,10 @@
-Include external/config
+Include .override.config
 
-Host github.com
-	Hostname ssh.github.com
-
-Host gitlab.com
-	Hostname altssh.gitlab.com
-
-Match Host ssh.github.com,altssh.gitlab.com
-	Port 443
-
-Match Host github.com,ssh.github.com,gitlab.com,altssh.gitlab.com
-	IdentityFile ~/.ssh/keys/id_ed25519
-
-Host *
+Match all
 	IdentitiesOnly yes
 	AddKeysToAgent yes
 	PKCS11Provider /usr/local/lib/opensc-pkcs11.so
 	ControlMaster auto
-	ControlPath ~/.ssh/control/%r@%h:%p
+	ControlPath ~/.ssh/.%r@%h:%p
+	ControlPersist 10m
 	SetEnv TERM=xterm-256color

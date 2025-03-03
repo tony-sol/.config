@@ -1,1 +1,5 @@
-known_hosts*
+*
+!.gitignore
+!README.md
+!config
+!*.pub
