@@ -22,6 +22,7 @@ return {
 	color_scheme                               = appearance(os.getenv('COLORTHEME') or 'tokyonight'),
 	force_reverse_video_cursor                 = true,
 	bold_brightens_ansi_colors                 = 'BrightAndBold',
+	window_background_opacity                  = 0.80,
 	-- Font
 	unicode_version                            = 16,
 	custom_block_glyphs                        = false,
