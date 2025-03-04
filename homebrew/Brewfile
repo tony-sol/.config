@@ -59,8 +59,6 @@ brew "pv"
 brew "reflex"
 # GNU Make with improved error handling, tracing, and a debugger
 brew "remake"
-# Tool for shell commands execution, visualization and alerting
-brew "sampler"
 # SOcket CAT: netcat on steroids
 brew "socat"
 # Non-interactive SSH password auth
