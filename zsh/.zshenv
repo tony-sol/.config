@@ -102,15 +102,16 @@ export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite/history"
 # set bat configs ===================================================== {{{
 export BAT_THEME_DARK="${COLORTHEME}-night"
 export BAT_THEME_LIGHT="${COLORTHEME}-day"
+export BAT_THEME="${BAT_THEME_DARK}"
 # }}}
 # set fzf configs ===================================================== {{{
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_COMMAND="fd --follow --hidden"
 export FZF_CTRL_T_COMMAND="fd --type file --type symlink --type socket --follow --hidden"
-export FZF_CTRL_T_OPTS='--preview "$ZDOTDIR/plugins/fzf-preview.sh {}"'
+export FZF_CTRL_T_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
 export FZF_ALT_C_COMMAND="fd --type directory --follow --hidden"
-export FZF_ALT_C_OPTS='--preview "$ZDOTDIR/plugins/fzf-preview.sh {}"'
+export FZF_ALT_C_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
 # }}}
 # set lima configs ==================================================== {{{
 export LIMA_HOME="${XDG_DATA_HOME}/lima"
