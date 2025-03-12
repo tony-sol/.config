@@ -134,6 +134,8 @@ cask "metasploit"
 cask "mos"
 # Open-source software for live streaming and screen recording
 cask "obs"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Cloud storage client
 cask "onedrive"
 # Smart card libraries and utilities
