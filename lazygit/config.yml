@@ -36,7 +36,7 @@ gui:
         show: true
     mouseEvents: true
     skipDiscardChangeWarning: true
-    skipStashWarning: false
+    skipStashWarning: true
     showFileTree: true
     showListFooter: true
     showRandomTip: false
@@ -87,7 +87,7 @@ confirmOnQuit: false
 quitOnTopLevelReturn: false
 disableStartupPopups: false
 notARepository: 'prompt'
-promptToReturnFromSubprocess: true
+promptToReturnFromSubprocess: false
 keybinding:
     universal:
         quit: 'q'
