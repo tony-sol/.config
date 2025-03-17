@@ -98,3 +98,7 @@ go_set_gobin = false
 go_set_goroot = true
 # trust all mise configs in XDG_PROJECTS_DIR
 trusted_config_paths = [ "~/Projects/" ]
+
+# @hack temporary ignore node gpg keys
+[settings.node]
+gpg_verify = false
