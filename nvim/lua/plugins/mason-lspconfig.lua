@@ -19,6 +19,7 @@ return {
 				'clangd',
 				'docker_compose_language_service',
 				'dockerls',
+				'gitlab_ci_ls',
 				'golangci_lint_ls',
 				'gopls',
 				'graphql',
