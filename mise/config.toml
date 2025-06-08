@@ -13,9 +13,9 @@ usage = "latest"
 go = "latest"
 java = "latest"
 kotlin = "latest"
-lua = "latest"
+lua = "latest" # use 5.1 for neovim, requires unzip
 node = "latest"
-ruby = "latest"
+ruby = "latest" # requires libz-dev libssl-dev libffi-dev libyaml-dev
 rust = "latest"
 # langs package managers
 yarn = "latest"
