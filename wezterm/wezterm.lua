@@ -1,25 +1,23 @@
-local appearance  = require('appearance')
-local font        = require('font')
-local keymaps     = require('keymaps')
-local launch_menu = require('launch_menu')
+local appearance         = require('appearance')
+local font               = require('font')
+local keymaps            = require('keymaps')
+local launch_menu        = require('launch_menu')
 
 return {
 	term                                       = 'xterm-256color',
 	launch_menu                                = launch_menu,
 	default_prog                               = { 'zsh', '-cli', 'tmux new' },
 	exit_behavior                              = 'CloseOnCleanExit',
-	scrollback_lines                           = 1000000,
+	scrollback_lines                           = 2000000,
 	-- Appearance - window
 	window_padding                             = { left = 1, right = 1, top = 1, bottom = 1 },
-	window_decorations                         = 'RESIZE',
-	initial_cols                               = 120,
-	initial_rows                               = 40,
+	window_decorations                         = appearance.decorations,
 	adjust_window_size_when_changing_font_size = false,
 	tab_bar_at_bottom                          = true,
 	hide_tab_bar_if_only_one_tab               = true,
 	native_macos_fullscreen_mode               = true,
 	-- Appearance - colors
-	color_scheme                               = appearance(os.getenv('COLORTHEME') or 'tokyonight'),
+	color_scheme                               = appearance.color_scheme,
 	force_reverse_video_cursor                 = true,
 	bold_brightens_ansi_colors                 = 'BrightAndBold',
 	window_background_opacity                  = 0.80,
@@ -31,5 +29,6 @@ return {
 	command_palette_font_size                  = 14.0,
 	-- Keymap
 	disable_default_key_bindings               = true,
-	keys                                       = keymaps,
+	leader                                     = keymaps.leader(),
+	keys                                       = keymaps.list(),
 }

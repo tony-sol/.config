@@ -1,9 +1,9 @@
----Colors scheme name with `-dark` or `-light` suffix based on system appearance
----Requires `${name}-dark` and `${name}-light` color files in ./colors/
----@param name string
----@return string
-return function(name)
-	local wezterm    = require('wezterm')
-	local appearance = wezterm.gui and wezterm.gui.get_appearance() or 'Dark'
-	return name .. (appearance:find('Dark') and '-dark' or '-light')
-end
+local utils    = require('utils')
+local M        = {}
+
+-- @note On X11 and Wayland, the windowing system may override the window decorations
+M.decorations  = utils.is_darwin and 'RESIZE' or 'TITLE|RESIZE'
+
+M.color_scheme = utils.get_appearance(os.getenv('COLORTHEME') or 'tokyonight')
+
+return M
