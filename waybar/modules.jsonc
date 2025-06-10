@@ -1,0 +1,142 @@
+{
+	"hyprland/workspaces": {
+		"active-only": false,
+		"hide-active": false,
+		"all-outputs": true,
+		"format": "{name} {windows}",
+		// "format-icons": {
+		// 	"active": "",
+		// 	"default": "",
+		// 	"empty": "",
+		// 	"persistent": "",
+		// 	"special": "",
+		// 	"urgent": ""
+		// },
+		"persistent-workspaces": {},
+		"persistent-only": false,
+		"show-special": true,
+		"special-visible-only": true,
+		"sort-by": "DEFAULT",
+		"format-window-separator": "|",
+		"ignore-workspaces": []
+	},
+	"hyprland/window": {
+		"format": "{title}",
+		"rewrite": {},
+		"separate-outputs": false,
+		"icon": true,
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"pulseaudio": {
+		"format": "{icon}  {volume}%",
+		"format-bluetooth": "{icon} {volume}%  {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pavucontrol"
+	},
+	"network": {
+		"format-wifi": "  {essid} ({signalStrength}%)",
+		"format-ethernet": "{ipaddr}/{cidr} ",
+		"tooltip-format": "{ifname} via {gwaddr} ",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "Disconnected ⚠",
+		// "on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
+	},
+	"cpu": {
+		"format": " {usage}%",
+		"tooltip": true
+	},
+	"memory": {
+		"format": " {}%",
+		"tooltip": true
+	},
+	"temperature": {
+		"critical-threshold": 80,
+		"format-critical": " {temperatureC}°C",
+		"format": " {temperatureC}°C",
+		"tooltip": true
+	},
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "🇺🇸 EN",
+		"format-ru": "🇷🇺 RU"
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"battery#bat2": {
+		"bat": "BAT2"
+	},
+	"keyboard-state": {
+		"numlock": true,
+		"capslock": true,
+		"format": "{name} {icon}",
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
+	},
+	"clock": {
+		"interval": 1,
+		"format": "{:%H:%M:%S | %e %B %y}",
+		// "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+		"on-click": "mode",
+		"on-click-middle": "",
+		"on-click-right": "",
+		"on-scroll-up": "shift_up",
+		"on-scroll-down": "shift_down"
+	},
+	"tray": {
+		"show-passive-items": true,
+		"spacing": 10
+	},
+	"custom/power": {
+		"format": "⏻ ",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"shutdown": "shutdown",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate"
+		}
+	},
+}
