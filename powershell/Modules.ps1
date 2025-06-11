@@ -30,3 +30,9 @@ Import-Module posh-git
 Import-Module Microsoft.PowerShell.SecretManagement
 
 Import-Module Microsoft.PowerShell.SecretStore
+
+Import-Module Microsoft.WinGet.Client
+
+Import-Module Microsoft.WinGet.Configuration
+
+Import-Module Microsoft.WinGet.DSC
