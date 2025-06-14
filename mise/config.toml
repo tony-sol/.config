@@ -26,7 +26,6 @@ gradle = "latest"
 # cli tools
 act = "latest"
 ast-grep = "latest"
-conftest = "latest"
 bat = "latest"
 doggo = "latest"
 fd = "latest"
@@ -38,44 +37,16 @@ gokey = "latest"
 grpcurl = "latest"
 hexyl = "latest"
 htmlq = "latest"
-jfrog-cli = "latest"
 lazydocker = "latest"
 lazygit = "latest"
 lazyjournal = "latest"
+neovim = "latest"
 octosql = "latest"
-opa = "latest"
 ripgrep = "latest"
-sampler = "latest"
+ripgrep-all = "latest"
 sops = "latest"
 task = "latest"
 yq = "latest"
-# container tools
-argocd = "latest"
-dive = "latest"
-dockle = "latest"
-helm = "latest"
-helmfile = "latest"
-helmwave = "latest"
-hadolint = "latest"
-kind = "latest"
-krew = "latest"
-kube-linter = "latest"
-kubeconform = "latest"
-kubectl = "latest"
-kubent = "latest"
-kubeone = "latest"
-kustomize = "latest"
-minikube = "latest"
-syft = "latest"
-regctl = "latest"
-trivy = "latest"
-# hashicorp
-consul = "latest"
-nomad = "latest"
-packer = "latest"
-terraform = "latest"
-vault = "latest"
-waypoint = "latest"
 
 [settings]
 # common
@@ -98,7 +69,3 @@ go_set_gobin = false
 go_set_goroot = true
 # trust all mise configs in XDG_PROJECTS_DIR
 trusted_config_paths = [ "~/Projects/" ]
-
-# @hack temporary ignore node gpg keys
-[settings.node]
-gpg_verify = false
