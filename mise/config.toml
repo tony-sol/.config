@@ -26,7 +26,7 @@ gradle = "latest"
 # cli tools
 act = "latest"
 ast-grep = "latest"
-conftest = "latest"
+conftest = "latest" # or stay with opa
 bat = "latest"
 doggo = "latest"
 fd = "latest"
@@ -38,14 +38,14 @@ gokey = "latest"
 grpcurl = "latest"
 hexyl = "latest"
 htmlq = "latest"
-jfrog-cli = "latest"
 lazydocker = "latest"
 lazygit = "latest"
 lazyjournal = "latest"
+neovim = "latest"
 octosql = "latest"
-opa = "latest"
+opa = "latest" # or stay with conftest
 ripgrep = "latest"
-sampler = "latest"
+ripgrep-all = "latest"
 sops = "latest"
 task = "latest"
 yq = "latest"
@@ -53,10 +53,10 @@ yq = "latest"
 argocd = "latest"
 dive = "latest"
 dockle = "latest"
+hadolint = "latest"
 helm = "latest"
 helmfile = "latest"
 helmwave = "latest"
-hadolint = "latest"
 kind = "latest"
 krew = "latest"
 kube-linter = "latest"
@@ -66,8 +66,8 @@ kubent = "latest"
 kubeone = "latest"
 kustomize = "latest"
 minikube = "latest"
-syft = "latest"
 regctl = "latest"
+syft = "latest"
 trivy = "latest"
 # hashicorp
 consul = "latest"
@@ -98,7 +98,3 @@ go_set_gobin = false
 go_set_goroot = true
 # trust all mise configs in XDG_PROJECTS_DIR
 trusted_config_paths = [ "~/Projects/" ]
-
-# @hack temporary ignore node gpg keys
-[settings.node]
-gpg_verify = false
