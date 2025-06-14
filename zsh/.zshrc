@@ -98,12 +98,16 @@ else
 fi
 if (( $+commands[mise] )); then
 	# @note get lua install location as system rocks_tree
-	export LUAROCKS_HOME="$(mise where lua)/luarocks"
+	__lua=$(mise where lua 2>/dev/null) && {
+		export LUAROCKS_HOME="${__lua}/luarocks"
+	} && unset __lua
 	# @note get mvn install location
-	export MAVEN_HOME="$(mise where maven)"
-	export MVN_HOME="${MAVEN_HOME}"
-	export M3_HOME="${MAVEN_HOME}"
-	export M2_HOME="${MAVEN_HOME}"
+	__maven=$(mise where maven 2>/dev/null) && {
+		export MAVEN_HOME="${__maven}"
+		export MVN_HOME="${MAVEN_HOME}"
+		export M3_HOME="${MAVEN_HOME}"
+		export M2_HOME="${MAVEN_HOME}"
+	} && unset __maven
 fi
 # @note use bat output only if bat installed
 if (( $+commands[bat] )); then
