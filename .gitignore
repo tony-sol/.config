@@ -7,5 +7,5 @@ auth[._-]*
 *[._-]local[._-]*
 *[._-]local
 # ...and any locks
-*[._-]lock[._-$]*
+*[._-]lock[._-]*
 *[._-]lock
