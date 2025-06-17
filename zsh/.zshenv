@@ -96,6 +96,9 @@ export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 # set ripgrep configs ================================================= {{{
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # }}}
+# set fd configs ================================================= {{{
+export FD_CONFIG_PATH="${XDG_CONFIG_HOME}/fd/config"
+# }}}
 # set sqlite configs ================================================== {{{
 export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite/history"
 # }}}
