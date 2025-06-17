@@ -38,11 +38,11 @@
 	mnemonicPrefix = true
 	colorMoved = plain
 [color]
-	ui = always
-	grep = always
-	interactive = always
-	branch = always
-	status = always
+	ui = auto
+	grep = auto
+	interactive = auto
+	branch = auto
+	status = auto
 	diff = auto
 [color "branch"]
 	current = magenta

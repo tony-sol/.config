@@ -1,27 +1,38 @@
-[submodule "tmux/plugins/tpm"]
-	path = tmux/plugins/tpm
-	url = https://github.com/tony-sol/tpm.git
-[submodule "zsh/plugins/git-aware-prompt"]
-	path = zsh/plugins/git-aware-prompt
-	url = https://github.com/tony-sol/git-aware-prompt.git
-[submodule "zsh/plugins/zsh-autosuggestions"]
-	path = zsh/plugins/zsh-autosuggestions
-	url = https://github.com/tony-sol/zsh-autosuggestions.git
-[submodule "zsh/plugins/zsh-syntax-highlighting"]
-	path = zsh/plugins/zsh-syntax-highlighting
-	url = https://github.com/tony-sol/zsh-syntax-highlighting.git
-[submodule "zsh/plugins/zsh-autocomplete"]
-	path = zsh/plugins/zsh-autocomplete
-	url = https://github.com/tony-sol/zsh-autocomplete.git
-[submodule "zsh/plugins/zsh-completions"]
-	path = zsh/plugins/zsh-completions
-	url = https://github.com/tony-sol/zsh-completions.git
-[submodule "zsh/plugins/zsh-lazyload"]
-	path = zsh/plugins/zsh-lazyload
-	url = https://github.com/tony-sol/zsh-lazyload.git
-[submodule "zsh/plugins/zsh-ssh"]
-	path = zsh/plugins/zsh-ssh
-	url = https://github.com/tony-sol/zsh-ssh.git
+[submodule]
+	shallow = true
 [submodule "qmk/qmk-hid-host"]
 	path = qmk/qmk-hid-host
-	url = https://github.com/tony-sol/qmk-hid-host.git
+	url = git@github.com:tony-sol/qmk-hid-host.git
+	branch = main
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = git@github.com:tony-sol/tpm.git
+	branch = master
+[submodule "zsh/plugins/git-aware-prompt"]
+	path = zsh/plugins/git-aware-prompt
+	url = git@github.com:tony-sol/git-aware-prompt.git
+	branch = master
+[submodule "zsh/plugins/zsh-autocomplete"]
+	path = zsh/plugins/zsh-autocomplete
+	url = git@github.com:tony-sol/zsh-autocomplete.git
+	branch = main
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = git@github.com:tony-sol/zsh-autosuggestions.git
+	branch = master
+[submodule "zsh/plugins/zsh-completions"]
+	path = zsh/plugins/zsh-completions
+	url = git@github.com:tony-sol/zsh-completions.git
+	branch = master
+[submodule "zsh/plugins/zsh-lazyload"]
+	path = zsh/plugins/zsh-lazyload
+	url = git@github.com:tony-sol/zsh-lazyload.git
+	branch = master
+[submodule "zsh/plugins/zsh-ssh"]
+	path = zsh/plugins/zsh-ssh
+	url = git@github.com:tony-sol/zsh-ssh.git
+	branch = master
+[submodule "zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/plugins/zsh-syntax-highlighting
+	url = git@github.com:tony-sol/zsh-syntax-highlighting.git
+	branch = master
