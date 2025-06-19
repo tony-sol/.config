@@ -2,6 +2,7 @@ Import-Module Terminal-Icons
 
 Import-Module PSReadLine
 	Set-PSReadLineOption -ShowToolTips:$true
+	Set-PSReadLineOption -MaximumHistoryCount:2000000
 	Set-PSReadLineOption -HistoryNoDuplicates:$true
 	Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 	Set-PSReadLineOption -PredictionSource:'HistoryAndPlugin'
