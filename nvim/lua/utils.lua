@@ -22,7 +22,8 @@ end
 ---@return number
 function M.defaultSidebarSize()
 	---@diagnostic disable-next-line: undefined-global
-	return math.min(math.floor(vim.api.nvim_get_option('columns') / 5), 40)
+	local fifth = math.floor(M.getWidth() / 5)
+	return fifth < 20 and 20 or (fifth > 40 and 40 or fifth)
 end
 
 ---@return {wbr: string, vert: string, vertleft: string, vertright: string, verthoriz: string, horiz: string, horizup: string, horizdown: string, foldopen: string, foldclose: string, foldsep: string, diff: string, msgsep: string, eob: string, lastline: string}

@@ -6,9 +6,6 @@ return {
 		},
 	},
 	lazy         = false,
-	config       = function()
-		local helpview = require('helpview')
-		helpview.setup {
-		}
-	end
+	opts         = {
+	},
 }
