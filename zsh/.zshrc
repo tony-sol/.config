@@ -26,9 +26,9 @@ if [[ -d "${HOMEBREW_PREFIX}/bin" ]]; then
 	export MANPATH=$(__prepend_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
 	export INFOPATH=$(__prepend_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
 fi
-export PATH=$(__prepend_path $PATH $XDG_BIN_HOME)
-(( $+commands[mise] )) && source <(mise activate zsh) || export PATH=$(__prepend_path $PATH $MISE_SHIMS) # @hack
+
 export PATH=$(__prepend_path $PATH $DOTNET_CLI_TOOLS $GOBIN $CARGO_BIN $GEM_BIN $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
+(( $+commands[mise] )) && source <(mise activate zsh)
 export FPATH=$(__prepend_path $FPATH "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
 # }}}
 
@@ -96,6 +96,7 @@ if [[ $(ps ax | grep 'ssh-agent' | grep -v grep) ]]; then
 else
 	eval "$($(which ssh-agent) -s)"
 fi
+
 if (( $+commands[mise] )); then
 	# @note get lua install location as system rocks_tree
 	__lua=$(mise where lua 2>/dev/null) && {
@@ -109,6 +110,7 @@ if (( $+commands[mise] )); then
 		export M2_HOME="${MAVEN_HOME}"
 	} && unset __maven
 fi
+
 # @note use bat output only if bat installed
 if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
@@ -116,9 +118,11 @@ if (( $+commands[bat] )); then
 	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
 	view() { for arg in $@; do $XDG_CONFIG_HOME/fzf/fzf-preview $arg; [[ "$arg" =~ "$@[-1]" ]] || echo; done }
 fi
+
 # @note fzf doesn't support theme files, load them into vars
 local __fzf_theme_tokyonight_night=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-night")
 local __fzf_theme_tokyonight_day=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-day")
+
 # @note per-system hacks
 case $(uname -s) in
 	[Dd]arwin )
@@ -152,44 +156,6 @@ _complete_alias() {
 zstyle ':completion:*' completer _complete _ignored _complete_alias
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' verbose yes
-
-# lazyload completions
-lazyload pip3 -- 'source <(pip3 completion --zsh)'
-lazyload molecule -- 'source <(_MOLECULE_COMPLETE=zsh_source molecule)'
-lazyload npm -- 'source <(npm completion)'
-lazyload pnpm -- 'source <(pnpm completion zsh)'
-lazyload gh -- 'source <(gh completion --shell=zsh)'
-lazyload glab -- 'source <(glab completion --shell=zsh)'
-lazyload werf -- 'source <(werf completion --shell=zsh)'
-lazyload limactl -- 'source <(limactl completion zsh)'
-lazyload kubectl -- 'source <(kubectl completion zsh)'
-lazyload minikube -- 'source <(minikube completion zsh)'
-lazyload kind -- 'source <(kind completion zsh)'
-lazyload helm -- 'source <(helm completion zsh)'
-lazyload helmfile -- 'source <(helmfile completion zsh)'
-lazyload helmwave -- 'source <(helmwave completion zsh)'
-lazyload argocd -- 'source <(argocd completion zsh)'
-lazyload opa -- 'source <(opa completion zsh)'
-lazyload conftest -- 'source <(conftest completion zsh)'
-lazyload kube-linter -- 'source <(kube-linter completion zsh)'
-lazyload kubeone -- 'source <(kubeone completion zsh)'
-lazyload trivy -- 'source <(trivy completion zsh)'
-lazyload regctl -- 'source <(regctl completion zsh)'
-lazyload syft -- 'source <(syft completion zsh)'
-lazyload octosql -- 'source <(octosql completion zsh)'
-lazyload tsh -- 'source <(tsh --completion-script-zsh)'
-lazyload mise -- 'source <(mise completion zsh)'
-lazyload sg -- 'source <(sg completions zsh)'
-lazyload tailscale -- 'source <(tailscale completion zsh)'
-lazyload jf -- 'source <(jf completion zsh)'
-
-# other completions
-complete -o nospace -C "${MISE_SHIMS}/terraform" terraform
-complete -o nospace -C "${MISE_SHIMS}/vault" vault
-complete -o nospace -C "${MISE_SHIMS}/consul" consul
-complete -o nospace -C "${MISE_SHIMS}/nomad" nomad
-complete -o nospace -C "${MISE_SHIMS}/waypoint" waypoint
-complete -o nospace -C "${MISE_SHIMS}/packer" packer
 # }}}
 # hooks =============================================================== {{{
 (( $+commands[fzf] )) && source <(fzf --zsh)
