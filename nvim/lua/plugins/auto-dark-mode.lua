@@ -1,6 +1,6 @@
 return {
 	'f-person/auto-dark-mode.nvim',
-	event = 'VeryLazy',
+	event = 'UIEnter',
 	opts  = {
 		update_interval = 500,
 	},

@@ -1,7 +1,6 @@
 return {
 	'sindrets/diffview.nvim',
-	event = 'VeryLazy',
-	opts  = {
+	opts = {
 		enhanced_diff_hl = true,
 		view             = {
 			default      = {

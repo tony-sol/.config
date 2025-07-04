@@ -1,6 +1,7 @@
 require('options')
 
 ---@diagnostic disable: undefined-global
+local cmd    = vim.cmd
 local fn     = vim.fn
 local loader = vim.loader
 local loop   = vim.loop
@@ -23,16 +24,19 @@ end
 opt.runtimepath:prepend(lazypath)
 
 require('lazy').setup('plugins', {
-	install = {
-		colorscheme = { 'tokyonight' },
+	defaults = {
+		lazy = false,
 	},
-	ui      = {
+	ui       = {
 		border = 'rounded',
 		size   = utils.defaultModalSize(),
 	},
-	diff    = {
+	diff     = {
 		cmd = 'diffview.nvim',
 	},
 })
+
+cmd.colorscheme('tokyonight')
+
 require('filetypes')
 require('keymaps')

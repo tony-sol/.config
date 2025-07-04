@@ -1,5 +1,6 @@
 return {
 	'hedyhli/outline.nvim',
+	event  = 'VimEnter',
 	config = function()
 		local fchars  = require('utils').defaultFillchars()
 		local schars  = require('utils').specialChars()

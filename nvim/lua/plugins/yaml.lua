@@ -1,6 +1,5 @@
 return {
 	'cuducos/yaml.nvim',
-	ft           = { 'yaml', 'yml' },
 	dependencies = {
 		{
 			'nvim-treesitter/nvim-treesitter',
@@ -9,4 +8,5 @@ return {
 			'nvim-telescope/telescope.nvim',
 		},
 	},
+	ft           = { 'yaml', 'yml' },
 }

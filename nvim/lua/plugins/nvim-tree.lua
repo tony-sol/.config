@@ -5,7 +5,7 @@ return {
 			'nvim-tree/nvim-web-devicons',
 		},
 	},
-	lazy         = false,
+	event        = 'VimEnter',
 	config       = function()
 		local fchars    = require('utils').defaultFillchars()
 		local schars    = require('utils').specialChars()

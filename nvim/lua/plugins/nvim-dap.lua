@@ -1,6 +1,6 @@
 return {
 	'mfussenegger/nvim-dap',
-	event  = 'VeryLazy',
+	lazy   = true,
 	config = function()
 		local dap = require('dap')
 		-- dap.setup {

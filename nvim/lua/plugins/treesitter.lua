@@ -1,5 +1,6 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
+	priority     = 50,
 	dependencies = {
 		{
 			'nvim-treesitter/nvim-treesitter-context',
@@ -9,6 +10,9 @@ return {
 		},
 		{
 			'nvim-treesitter/nvim-treesitter-textobjects',
+		},
+		{
+			'OXY2DEV/markview.nvim',
 		},
 	},
 	build        = ':TSUpdate',

@@ -80,7 +80,7 @@ end
 ---@return {tab: string, trail: string, nbsp: string, space: string, eol:string}
 function M.defaultListchars()
 	return {
-		tab   = ' ',
+		tab   = '󰌒 ',
 		trail = '-',
 		nbsp  = '+',
 		space = '·',

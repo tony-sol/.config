@@ -1,5 +1,6 @@
 return {
 	'ramilito/kubectl.nvim',
+	event  = 'VimEnter',
 	config = function()
 		local utils   = require('utils')
 		local kubectl = require('kubectl')

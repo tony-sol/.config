@@ -1,11 +1,11 @@
 return {
 	'OXY2DEV/markview.nvim',
+	priority     = 49,
 	dependencies = {
 		{
 			'nvim-tree/nvim-web-devicons',
 		},
 	},
-	lazy         = false,
 	config       = function()
 		local markview = require('markview')
 		local presets  = require('markview.presets')

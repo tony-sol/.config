@@ -1,32 +1,27 @@
 return {
 	'folke/tokyonight.nvim',
 	priority = 9000,
-	lazy     = false,
-	config   = function()
-		local tokyonight = require('tokyonight')
-		tokyonight.setup {
-			style           = 'night',
-			light_style     = 'day',
-			transparent     = true,
-			terminal_colors = true,
-			styles          = {
-				comments  = {
-					italic = true,
-				},
-				keywords  = {
-					italic = true,
-				},
-				functions = {},
-				variables = {},
-				-- Background styles. Can be "dark", "transparent" or "normal"
-				sidebars  = 'transparent',
-				floats    = 'transparent',
+	opts     = {
+		style           = 'night',
+		light_style     = 'day',
+		transparent     = true,
+		terminal_colors = true,
+		styles          = {
+			comments  = {
+				italic = true,
 			},
-			day_brightness  = 0.3,
-			dim_inactive    = false,
-			lualine_bold    = true,
-			cache           = false,
-		}
-		tokyonight.load()
-	end
+			keywords  = {
+				italic = true,
+			},
+			functions = {},
+			variables = {},
+			-- Background styles. Can be "dark", "transparent" or "normal"
+			sidebars  = 'transparent',
+			floats    = 'transparent',
+		},
+		day_brightness  = 0.3,
+		dim_inactive    = false,
+		lualine_bold    = true,
+		cache           = true,
+	}
 }
