@@ -14,6 +14,9 @@ return {
 			'nvim-telescope/telescope-ui-select.nvim',
 		},
 		{
+			'debugloop/telescope-undo.nvim',
+		},
+		{
 			'Marskey/telescope-sg',
 		},
 		{
@@ -74,6 +77,7 @@ return {
 				['notify']         = {},
 				['todo-comments']  = {},
 				['ui-select']      = {},
+				['undo']           = {},
 				['ast_grep']       = {
 					command         = { 'sg', '--json=stream' },
 					grep_open_files = false,
@@ -89,6 +93,7 @@ return {
 		telescope.load_extension('notify')
 		telescope.load_extension('todo-comments')
 		telescope.load_extension('ui-select')
+		telescope.load_extension('undo')
 		telescope.load_extension('ast_grep')
 		telescope.load_extension('rest')
 	end

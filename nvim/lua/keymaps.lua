@@ -189,6 +189,14 @@ keymap.set(
 )
 keymap.set(
 	{ 'n' },
+	'<leader>tu',
+	function()
+		telescope_extensions['undo'].undo()
+	end,
+	{ desc = 'Telescope: undo' }
+)
+keymap.set(
+	{ 'n' },
 	'<leader>tf',
 	function()
 		telescope_builtin.current_buffer_fuzzy_find()
