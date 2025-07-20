@@ -1,8 +1,9 @@
 #!/bin/bash
+
 # systemctl restart --user xdg-desktop-portal.service
 
-# gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-# gsettings set org.gnome.desktop.interface gtk-theme "Breeze-Dark
+# @note set dark appearance
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 # sleep 1
 
