@@ -119,19 +119,13 @@ if (( $+commands[bat] )); then
 	view() { for arg in $@; do $XDG_CONFIG_HOME/fzf/fzf-preview $arg; [[ "$arg" =~ "$@[-1]" ]] || echo; done }
 fi
 
-# @note fzf doesn't support theme files, load them into vars
-local __fzf_theme_tokyonight_night=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-night")
-local __fzf_theme_tokyonight_day=$(<"${XDG_CONFIG_HOME}/fzf/themes/tokyonight-day")
-
 # @note per-system hacks
 case $(uname -s) in
 	[Dd]arwin )
-		alias fzf='fzf --color=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo $__fzf_theme_tokyonight_night || echo $__fzf_theme_tokyonight_day)'
 		del() { mv "$@" ~/.Trash }
 		get_secret_note() { security find-generic-password -C note -s "$1" -w | xxd -revert -plain | yq --input-format xml --prettyPrint '.plist.dict.string' }
 		;;
 	[Ll]inux )
-		alias fzf='fzf --color=$__fzf_theme_tokyonight_night'
 		del() { mv "$@" "${XDG_DATA_HOME}/Trash" }
 		;;
 esac
@@ -141,6 +135,7 @@ alias l='ls -AF'
 alias ll='l -hl'
 alias tt='tree -halFpugND'
 alias t='tt -L 1'
+alias fzf='fzf --color=$(<"${XDG_CONFIG_HOME}/fzf/themes/$COLORTHEME-$COLORSCHEME")'
 # }}}
 # keymappings ========================================================= {{{
 bindkey "^[[1;3C" forward-word

@@ -69,10 +69,13 @@ case $(uname -s) in
 	[Dd]arwin )
 		export LSCOLORS=GxFxCxDxBxegedabagacad
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
+		export COLORSCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
 		;;
 	[Ll]inux )
 		export LS_COLORS="di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
+		# @todo use `gsettings get org.gnome.desktop.interface color-scheme` or `dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color-scheme`
+		export COLORSCHEME="dark"
 		;;
 esac
 # }}}
