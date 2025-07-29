@@ -4,7 +4,7 @@ if [ -f "${ZDOTDIR}/.zshrc.before" ]; then
 	source "${ZDOTDIR}/.zshrc.before"
 fi
 
-# =====================================================================
+# ====================================================================
 
 # setup PATHs ==================================================== {{{
 function __prepend_path {
@@ -31,14 +31,15 @@ export PATH=$(__prepend_path $PATH $DOTNET_CLI_TOOLS $GOBIN $CARGO_BIN $GEM_BIN 
 (( $+commands[mise] )) && source <(mise activate zsh)
 export FPATH=$(__prepend_path $FPATH "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
 # }}}
-
-# zsh vi mode with cursor style ======================================= {{{
+# zsh vi mode with cursor style ================================== {{{
 function zle-keymap-select zle-line-init {
 	case "${KEYMAP}" in
 		vicmd)
+			psvar[1]=$'\U276E'
 			print -n -- '\033[2 q'
 			;;
 		viins|main)
+			psvar[1]=$'\U276F'
 			print -n -- '\033[6 q'
 			;;
 	esac
@@ -55,13 +56,13 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 # }}}
-# prompt ============================================================== {{{
-autoload -Uz colors && colors
-# '\U2714'='✔︎'; '\U2718'='✘'
-export PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%} $([ $? -ne 0 ] && echo -e "%{$fg_bold[red]%}\U2718" || echo -e "%{$fg_bold[green]%}\U2714")%{$reset_color%} $ '
-export RPROMPT='%{$fg_bold[green]%}$git_ahead_mark$git_ahead_count%{$fg_bold[red]%}$git_behind_mark$git_behind_count%{$fg_bold[cyan]%}$git_stash_mark$git_stash_count%{$fg_bold[yellow]%}$git_dirty_mark$git_dirty_count%{$fg_bold[blue]%}$git_staged_mark$git_staged_count%{$fg_bold[magenta]%}$git_unknown_mark$git_unknown_count%{$reset_color%}%{$fg[cyan]%} $git_branch$(exit_code=$?; [[ $exit_code -ne 0 ]] && echo -e " %{$fg_bold[red]%}$exit_code") %{$fg[cyan]%}%D{%H:%M:%S}%{$reset_color%}'
+# prompt ========================================================= {{{
+setopt PROMPT_SUBST
+# '\U276E'='❮'; '\U276F'='❯'
+export PROMPT='%(!,%S,)%B%F{cyan}%~ %(?,%F{green},%F{red})%v%b%f%(!,%s,) '
+export RPROMPT='%B%F{green}$git_ahead_mark$git_ahead_count%F{red}$git_behind_mark$git_behind_count%F{cyan}$git_stash_mark$git_stash_count%F{yellow}$git_dirty_mark$git_dirty_count%F{blue}$git_staged_mark$git_staged_count%F{magenta}$git_unknown_mark$git_unknown_count%b%F{cyan} $git_branch%(?,, %B%F{red}%?%b%f)%F{cyan} %D{%H:%M:%S}%b%f'
 # }}}
-# zsh plugins ========================================================= {{{
+# zsh plugins ==================================================== {{{
 source "${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -85,7 +86,7 @@ source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
 
 source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh" # @todo remove
 # }}}
-# hacks =============================================================== {{{
+# hacks ========================================================== {{{
 # @note macos's ssh-agent doen't export SSH_AGENT_PID, set it manually
 # @warn envs are not persistent, use `eval $(ssh-agent -k)` to avoid orphaned instances
 # @todo probably should be removed
@@ -130,18 +131,17 @@ case $(uname -s) in
 		;;
 esac
 # }}}
-# aliases ============================================================= {{{
+# aliases ======================================================== {{{
 alias l='ls -AF'
 alias ll='l -hl'
 alias tt='tree -halFpugND'
 alias t='tt -L 1'
-alias fzf='fzf --color=$(<"${XDG_CONFIG_HOME}/fzf/themes/$COLORTHEME-$COLORSCHEME")'
 # }}}
-# keymappings ========================================================= {{{
+# keymappings ==================================================== {{{
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 # }}}
-# auto completion ===================================================== {{{
+# auto completion ================================================ {{{
 autoload -Uz compinit && compinit -C
 autoload -Uz +X bashcompinit && bashcompinit -C
 _complete_alias() {
@@ -152,11 +152,11 @@ zstyle ':completion:*' completer _complete _ignored _complete_alias
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' verbose yes
 # }}}
-# hooks =============================================================== {{{
+# fzf ============================================================ {{{
 (( $+commands[fzf] )) && source <(fzf --zsh)
 # }}}
 
-# =====================================================================
+# ====================================================================
 
 if [ -f "${ZDOTDIR}/.zshrc.after" ]; then
 	source "${ZDOTDIR}/.zshrc.after"
