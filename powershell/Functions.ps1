@@ -1,11 +1,12 @@
-Function global:PromptWriteErrorInfo()
+Function global:PromptWriteBeforeSuffix()
 {
-	if ($global:GitPromptValues.DollarQuestion)
+	if (!($global:GitPromptValues.DollarQuestion))
 	{
-		Write-Prompt " $([char]0x2714) " -ForegroundColor ([ConsoleColor]::Green)
+		Write-Prompt " $($global:GitPromptValues.LastExitCode)" -ForegroundColor ([ConsoleColor]::Red)
 	}
-	else
-	{
-		Write-Prompt " $([char]0x2718) $($global:GitPromptValues.LastExitCode) " -ForegroundColor ([ConsoleColor]::Red)
-	}
+}
+
+Function global:PromptWriteSuffix()
+{
+	Write-Prompt " $([char]0x276F) " -ForegroundColor (($global:GitPromptValues.DollarQuestion) ? ([ConsoleColor]::Green) : ([ConsoleColor]::Red))
 }

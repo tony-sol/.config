@@ -21,7 +21,8 @@ Import-Module ps-menu
 
 Import-Module posh-git
 	$Global:GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-	$Global:GitPromptSettings.DefaultPromptBeforeSuffix.Text = '$(PromptWriteErrorInfo)'
+	$Global:GitPromptSettings.DefaultPromptBeforeSuffix.Text = '$(PromptWriteBeforeSuffix)'
+	$Global:GitPromptSettings.DefaultPromptSuffix.Text = '$(PromptWriteSuffix)'
 	$Global:GitPromptSettings.DefaultPromptPath.ForegroundColor = 'Orange'
 	$Global:GitPromptSettings.EnableFileStatus = $true
 	$Global:GitPromptSettings.EnablePromptStatus = $true
