@@ -29,6 +29,6 @@ return {
 	command_palette_font_size                  = 14.0,
 	-- Keymap
 	disable_default_key_bindings               = true,
-	leader                                     = keymaps.leader(),
-	keys                                       = keymaps.list(),
+	leader                                     = keymaps.leader,
+	keys                                       = keymaps.list,
 }
