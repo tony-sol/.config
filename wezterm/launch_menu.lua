@@ -1,14 +1,14 @@
 return {
 	{
 		label = 'shell: default',
-		args = {},
+		args  = {},
 	},
 	{
 		label = 'shell: powershell',
-		args = { 'zsh', '-cli', 'pwsh'},
+		args  = { 'zsh', '-cli', 'pwsh' },
 	},
 	{
 		label = 'tmux: new',
-		args = { 'zsh', '-cli', 'tmux new'},
+		args  = { 'zsh', '-cli', 'tmux new' },
 	},
 }
