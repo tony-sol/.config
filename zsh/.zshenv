@@ -268,6 +268,15 @@ export QMK_HOME="${XDG_DATA_HOME}/qmk_firmware"
 # set ufbt configs =============================================== {{{
 export UFBT_HOME="${XDG_DATA_HOME}/ufbt"
 # }}}
+# setup PATH ===================================================== {{{
+# @note difference between `typeset -gU X x`, `typeset -xU X x` and `export -TU X x` is unclear
+# typeset -gU PATH path
+export -TU PATH path
+if [[ -d "${HOMEBREW_PREFIX}/bin" ]]; then
+	path=( "${HOMEBREW_PREFIX}/bin" "${HOMEBREW_PREFIX}/sbin" $path[@] )
+fi
+path=( $XDG_BIN_HOME $MISE_SHIMS "${PYTHONUSERBASE}/bin" $MASON_BIN $KREW_BIN $GEM_BIN $CARGO_BIN $GOBIN $DOTNET_CLI_TOOLS $path[@] )
+# }}}
 
 # =====================================================================
 

@@ -7,29 +7,17 @@ fi
 # ====================================================================
 
 # setup PATHs ==================================================== {{{
-function __prepend_path {
-	local path=$1
-	shift
-	for value in $@
-	do
-		if [[ ":${path}:" == *:"$value":* ]]; then
-			path="${path//$value/}"
-		fi
-		path="${value}${path+:${path//::/:}}"
-	done
-	echo ${${path#:}%:}
-}
-
-if [[ -d "${HOMEBREW_PREFIX}/bin" ]]; then
-	export PATH=$(__prepend_path $PATH "${HOMEBREW_PREFIX}/sbin" "${HOMEBREW_PREFIX}/bin")
-	export FPATH=$(__prepend_path $FPATH "${HOMEBREW_PREFIX}/share/zsh/site-functions")
-	export MANPATH=$(__prepend_path $MANPATH "${HOMEBREW_PREFIX}/share/man")
-	export INFOPATH=$(__prepend_path $INFOPATH "${HOMEBREW_PREFIX}/share/info")
+export -TU FPATH fpath
+export -TU MANPATH manpath
+export -TU INFOPATH infopath
+if [[ -d "${HOMEBREW_PREFIX}/share" ]]; then
+	fpath=( "${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath[@] )
+	manpath=( "${HOMEBREW_PREFIX}/share/man" $manpath[@] )
+	infopath=( "${HOMEBREW_PREFIX}/share/info" $infopath[@] )
 fi
-
-export PATH=$(__prepend_path $PATH $DOTNET_CLI_TOOLS $GOBIN $CARGO_BIN $GEM_BIN $KREW_BIN $MASON_BIN "${PYTHONUSERBASE}/bin" $XDG_BIN_HOME)
-(( $+commands[mise] )) && source <(mise activate zsh)
-export FPATH=$(__prepend_path $FPATH "${ZDOTDIR}/plugins/zsh-completions/src" "${ZDOTDIR}/plugins/zsh-autocomplete/Completions")
+fpath=( "${ZDOTDIR}/plugins/zsh-completions/src" $fpath[@] )
+# manpath=( $manpath[@] )
+# infopath=( $infopath[@] )
 # }}}
 # zsh vi mode with cursor style ================================== {{{
 function zle-keymap-select zle-line-init {
@@ -98,6 +86,9 @@ else
 	eval "$($(which ssh-agent) -s)"
 fi
 
+(( $+commands[fzf] )) && source <(fzf --zsh)
+(( $+commands[mise] )) && source <(mise activate zsh)
+
 if (( $+commands[mise] )); then
 	# @note get lua install location as system rocks_tree
 	__lua=$(mise where lua 2>/dev/null) && {
@@ -151,9 +142,6 @@ _complete_alias() {
 zstyle ':completion:*' completer _complete _ignored _complete_alias
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' verbose yes
-# }}}
-# fzf ============================================================ {{{
-(( $+commands[fzf] )) && source <(fzf --zsh)
 # }}}
 
 # ====================================================================
