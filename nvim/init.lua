@@ -27,6 +27,9 @@ require('lazy').setup('plugins', {
 	defaults = {
 		lazy = false,
 	},
+	install  = {
+		colorscheme = { 'tokyonight' },
+	},
 	ui       = {
 		border = 'rounded',
 		size   = utils.defaultModalSize(),
@@ -38,5 +41,6 @@ require('lazy').setup('plugins', {
 
 cmd.colorscheme('tokyonight')
 
+require('handlers')
 require('filetypes')
 require('keymaps')

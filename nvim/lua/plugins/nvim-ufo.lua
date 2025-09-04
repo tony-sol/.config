@@ -13,7 +13,7 @@ return {
 		local promise = require('promise')
 		local ufo     = require('ufo')
 		ufo.setup {
-			preview = {
+			preview                   = {
 				win_config = {
 					border   = {
 						'',
@@ -35,7 +35,7 @@ return {
 				}
 			},
 			---@diagnostic disable: unused-local
-			provider_selector = function(bufnr, filetype, buftype)
+			provider_selector         = function(bufnr, filetype, buftype)
 				return function(_bufnr)
 					return ufo.getFolds(_bufnr, 'lsp')
 						:catch(function(err)
@@ -49,8 +49,9 @@ return {
 						end)
 				end
 			end,
+			enable_get_fold_virt_text = false,
 			---@diagnostic enable: unused-local
-			fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
+			fold_virt_text_handler    = function(virtText, lnum, endLnum, width, truncate)
 				local newVirtText = {}
 				local suffix      = (' %s %d '):format(schars.arrow_ext.bottomleft, endLnum - lnum)
 				local sufWidth    = fn.strdisplaywidth(suffix)
