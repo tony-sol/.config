@@ -7,8 +7,6 @@ tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
 tap "wez/wezterm"
-# Automate deployment, configuration, and upgrading
-brew "ansible"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Docker CLI plugin for extended build capabilities with BuildKit
@@ -33,8 +31,6 @@ brew "lima" if OS.mac?
 brew "mas" if OS.mac?
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
-# Automated testing for Ansible roles
-brew "molecule"
 # NCurses Disk Usage
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility

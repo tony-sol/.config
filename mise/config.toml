@@ -3,6 +3,11 @@
 POETRY_CONFIG_DIR = "{{ env.XDG_CONFIG_HOME }}/pypoetry"
 POETRY_DATA_DIR = "{{ env.XDG_DATA_HOME }}/pypoetry"
 POETRY_CACHE_DIR = "{{ env.XDG_CACHE_HOME }}/pypoetry"
+# python:pipx
+PIPX_HOME = "{{ env.XDG_DATA_HOME }}/pipx"
+PIPX_BIN_DIR = "{{ env.XDG_BIN_HOME }}"
+# python:shiv
+SHIV_ROOT = "{{ env.XDG_DATA_HOME }}/shiv"
 # node:yarn
 YARN_GLOBAL_FOLDER = "{{ env.XDG_DATA_HOME }}/yarn"
 
@@ -20,11 +25,13 @@ rust = "latest"
 # langs package managers
 yarn = "latest"
 pnpm = "latest"
+pipx = "latest"
 poetry = "latest"
 maven = "latest"
 gradle = "latest"
 # cli tools
 act = "latest"
+ansible = "latest"
 ast-grep = "latest"
 conftest = "latest" # or stay with opa
 bat = "latest"
@@ -35,15 +42,18 @@ gh = "latest"
 glab = "latest"
 glow = "latest"
 gokey = "latest"
+gron = "latest"
 grpcurl = "latest"
 hexyl = "latest"
 htmlq = "latest"
 lazydocker = "latest"
 lazygit = "latest"
 lazyjournal = "latest"
-neovim = "latest"
 octosql = "latest"
 opa = "latest" # or stay with conftest
+openbao = "latest" # open-source hashicorp/vault
+opentofu = "latest" # open-source hashicorp/terraform
+process-compose = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
 sops = "latest"
@@ -59,6 +69,7 @@ helmfile = "latest"
 helmwave = "latest"
 kind = "latest"
 krew = "latest"
+kompose = "latest"
 kube-linter = "latest"
 kubeconform = "latest"
 kubectl = "latest"
@@ -72,7 +83,6 @@ trivy = "latest"
 # hashicorp
 consul = "latest"
 nomad = "latest"
-packer = "latest"
 terraform = "latest"
 vault = "latest"
 waypoint = "latest"
