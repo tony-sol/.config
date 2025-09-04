@@ -1,5 +1,7 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
+	-- @todo switch to main branch
+	-- branch       = 'main',
 	priority     = 50,
 	dependencies = {
 		{
@@ -21,6 +23,7 @@ return {
 		treesitter_configs.setup {
 			auto_install          = true,
 			ensure_installed      = 'all',
+			ignore_install        = { 'ipkg' },
 			highlight             = {
 				enable = true,
 				additional_vim_regex_highlighting = true,

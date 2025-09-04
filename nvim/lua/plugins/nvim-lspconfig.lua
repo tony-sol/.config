@@ -13,46 +13,30 @@ return {
 	},
 	config       = function()
 		---@diagnostic disable: undefined-global
-		local fn                   = vim.fn
-		local fs                   = vim.fs
+		local lsp          = vim.lsp
 		---@diagnostic enable: undefined-global
-		local lsp_config           = require('lspconfig')
-		local lsp_config_util      = require('lspconfig/util')
-		local capabilities         = require('cmp_nvim_lsp')
-		local default_capabilities = capabilities.default_capabilities({
-			dynamicRegistration = true,
-		})
-		default_capabilities       = {
+		local utils        = require('utils')
+		-- @todo consider switch to vim.lsp.protocol.make_client_capabilities()
+		local capabilities = require('cmp_nvim_lsp').default_capabilities()
+		capabilities       = utils.merge(capabilities, {
 			textDocument = {
+				completion = {
+					dynamicRegistration = true,
+				},
 				foldingRange = {
 					dynamicRegistration = false,
 					lineFoldingOnly     = true,
-				}
-			}
-		}
-		lsp_config.ansiblels.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.bashls.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.clangd.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.docker_compose_language_service.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.dockerls.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.golangci_lint_ls.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.gopls.setup {
-			capabilities = default_capabilities,
-			cmd          = { 'gopls', 'serve' },
-			filetypes    = { 'go', 'gomod' },
-			root_dir     = lsp_config_util.root_pattern('go.work', 'go.mod', '.git'),
+				},
+				semanticTokens = {
+					multilineTokenSupport = true,
+				},
+			},
+		})
+		lsp.config('*', {
+			capabilities = capabilities
+		})
+		lsp.config('gopls', {
+			capabilities = capabilities,
 			settings     = {
 				gopls = {
 					analyses = {
@@ -61,60 +45,15 @@ return {
 					staticcheck = true,
 				},
 			},
-		}
-		lsp_config.graphql.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.intelephense.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.jsonls.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.kotlin_language_server.setup {
-			capabilities = default_capabilities,
-			---@diagnostic disable-next-line: unused-local
-			before_init  = function(params, config)
-				-- @todo get workspace hash and join to bases storagePath
-				-- config.init_options.storagePath = fs.joinpath(
-				-- 	config.init_options.storagePath,
-				-- 	'' -- config.root_dir
-				-- )
-				_ = fn.isdirectory(config.init_options.storagePath) ~= 0
-					or fn.mkdir(config.init_options.storagePath, 'p')
-			end,
-			init_options = {
-				storagePath = fs.joinpath(fn.stdpath('state'), '/fwcd.kotlin')
-			},
-		}
-		lsp_config.lua_ls.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.marksman.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.omnisharp.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.pylsp.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.rubocop.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.rust_analyzer.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.terraformls.setup {
-			capabilities = default_capabilities,
-		}
-		lsp_config.yamlls.setup {
-			capabilities = default_capabilities,
+		})
+		lsp.config('yamlls', {
+			capabilities = capabilities,
 			settings     = {
 				yaml = {
 					keyOrdering = false,
 				},
 			},
-		}
+		})
+		-- @todo call vim.lsp.enable(lsp_name)
 	end
 }

@@ -35,8 +35,15 @@ opt.scrolloff      = 10
 -- Wrap settings
 opt.linebreak      = false
 
+-- Columns settings
+opt.relativenumber = true
+opt.number         = true
+opt.numberwidth    = 1
+opt.foldcolumn     = 'auto:9'
+opt.signcolumn     = 'auto:1-9'
+opt.statuscolumn   = ''
+
 -- Fold settings
-opt.foldcolumn     = '1'
 opt.foldlevel      = 99
 opt.foldlevelstart = 99
 opt.foldenable     = true
@@ -49,13 +56,6 @@ opt.splitkeep      = 'screen'
 -- Search settings
 opt.smartcase      = true
 opt.hlsearch       = true
-
--- Columns settings
-opt.numberwidth    = 1
-opt.relativenumber = true
-opt.number         = true
-opt.signcolumn     = 'auto:1-9'
-opt.statuscolumn   = ''
 
 -- Mouse settings
 opt.mouse          = 'a'

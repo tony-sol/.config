@@ -37,8 +37,8 @@ function M.defaultFillchars()
 		horiz     = '─',
 		horizup   = '┴',
 		horizdown = '┬',
-		foldopen  = '',
-		foldclose = '',
+		foldopen  = '',
+		foldclose = '',
 		foldsep   = '│',
 		diff      = '-',
 		msgsep    = ' ',
@@ -63,10 +63,10 @@ function M.specialChars()
 			topleft     = '󰁛',
 		},
 		corner    = {
-			upright   = '└',
-			upleft    = '┘',
-			downright = '┌',
-			downleft  = '┐',
+			upright   = '╰', -- '└'
+			upleft    = '╯', -- '┘'
+			downright = '╭', -- '┌'
+			downleft  = '╮', -- '┐'
 		},
 		dashed    = {
 			vert  = '┆',
