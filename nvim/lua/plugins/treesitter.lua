@@ -21,6 +21,7 @@ return {
 		treesitter_configs.setup {
 			auto_install          = true,
 			ensure_installed      = 'all',
+			ignore_install        = { 'ipkg' },
 			highlight             = {
 				enable = true,
 				additional_vim_regex_highlighting = true,

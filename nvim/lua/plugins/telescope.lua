@@ -16,6 +16,11 @@ return {
 		{
 			'debugloop/telescope-undo.nvim',
 		},
+		-- @warn this would mirror kubectl.nvim plugin
+		-- @see https://github.com/kezhenxu94/telescope-kubectl.nvim/issues/1
+		-- {
+		-- 	'kezhenxu94/telescope-kubectl.nvim',
+		-- },
 		{
 			'Marskey/telescope-sg',
 		},
@@ -85,6 +90,7 @@ return {
 					lang            = nil,
 				},
 				['rest']           = {},
+				-- ['kubectl']        = {},
 			},
 		}
 		telescope.load_extension('file_browser')
@@ -97,5 +103,6 @@ return {
 		telescope.load_extension('undo')
 		telescope.load_extension('ast_grep')
 		telescope.load_extension('rest')
+		-- telescope.load_extension('kubectl')
 	end
 }
