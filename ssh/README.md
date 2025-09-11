@@ -3,7 +3,7 @@
 ## Copy identity for sshd
 
 ```shell
-cat ./id_ed25519.pub >> ~/.ssh/authorized_keys
+cat ./keys/id_ed25519.pub >> ~/.ssh/authorized_keys
 ```
 
 ## Trust ssh key for git sign
