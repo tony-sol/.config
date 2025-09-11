@@ -1,5 +1,6 @@
-*
-!.gitignore
-!README.md
-!config
-!*.pub
+keys/*
+!keys/id_ed25519.pub
+
+allowed_signers
+authorized_keys
+known_hosts*
