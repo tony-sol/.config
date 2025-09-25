@@ -1,5 +1,7 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
+	-- @todo switch to main branch
+	-- branch       = 'main',
 	priority     = 50,
 	dependencies = {
 		{
