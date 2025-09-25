@@ -23,12 +23,14 @@ if not loop.fs_stat(lazypath) then
 end
 opt.runtimepath:prepend(lazypath)
 
+local colorscheme = 'tokyonight'
+
 require('lazy').setup('plugins', {
 	defaults = {
 		lazy = false,
 	},
 	install  = {
-		colorscheme = { 'tokyonight' },
+		colorscheme = { colorscheme },
 	},
 	ui       = {
 		border = 'rounded',
@@ -39,8 +41,8 @@ require('lazy').setup('plugins', {
 	},
 })
 
-cmd.colorscheme('tokyonight')
+cmd.colorscheme(colorscheme)
 
-require('handlers')
-require('filetypes')
-require('keymaps')
+require('handlers').init()
+require('filetypes').init()
+require('keymaps').init()
