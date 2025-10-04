@@ -1,16 +1,3 @@
-[env]
-# python:poetry
-POETRY_CONFIG_DIR = "{{ env.XDG_CONFIG_HOME }}/pypoetry"
-POETRY_DATA_DIR = "{{ env.XDG_DATA_HOME }}/pypoetry"
-POETRY_CACHE_DIR = "{{ env.XDG_CACHE_HOME }}/pypoetry"
-# python:pipx
-PIPX_HOME = "{{ env.XDG_DATA_HOME }}/pipx"
-PIPX_BIN_DIR = "{{ env.XDG_BIN_HOME }}"
-# python:shiv
-SHIV_ROOT = "{{ env.XDG_DATA_HOME }}/shiv"
-# node:yarn
-YARN_GLOBAL_FOLDER = "{{ env.XDG_DATA_HOME }}/yarn"
-
 [tools]
 # mise completions
 usage = "latest"

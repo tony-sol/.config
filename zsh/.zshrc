@@ -105,6 +105,7 @@ fi
 
 # @note use bat output only if bat installed
 if (( $+commands[bat] )); then
+	export MANROFFOPT="-c"
 	export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
 	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
 	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"

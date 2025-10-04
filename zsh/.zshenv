@@ -1,6 +1,7 @@
 # vim: foldmethod=marker
 
-export ZDOTDIR="${${(%):-%x}:P:h}" # @hack realpath to .zshenv file directory
+# @hack realpath to .zshenv file directory
+export ZDOTDIR="${${(%):-%x}:P:h}"
 
 if [ -f "${ZDOTDIR}/.zshenv.before" ]; then
 	source "${ZDOTDIR}/.zshenv.before"
@@ -99,9 +100,6 @@ export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 # set ripgrep configs ============================================ {{{
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # }}}
-# set fd configs ================================================= {{{
-export FD_CONFIG_PATH="${XDG_CONFIG_HOME}/fd/config"
-# }}}
 # set sqlite configs ============================================= {{{
 export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite/history"
 # }}}
@@ -112,12 +110,12 @@ export BAT_THEME="${BAT_THEME_DARK}"
 # }}}
 # set fzf configs ================================================ {{{
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
-export FZF_DEFAULT_OPTS="--color=$(<"${XDG_CONFIG_HOME}/fzf/themes/$COLORTHEME-$COLORSCHEME")"
+export FZF_DEFAULT_OPTS="--color=$(<"${XDG_CONFIG_HOME}/fzf/themes/${COLORTHEME}-${COLORSCHEME}")"
 export FZF_COMPLETION_TRIGGER='~~'
-export FZF_DEFAULT_COMMAND="fd --follow --hidden"
-export FZF_CTRL_T_COMMAND="fd --type file --type symlink --type socket --follow --hidden"
+export FZF_DEFAULT_COMMAND="fd --follow --hidden --no-ignore --exclude=.git/ --color=auto"
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND} --type file --type symlink --type socket"
 export FZF_CTRL_T_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
-export FZF_ALT_C_COMMAND="fd --type directory --follow --hidden"
+export FZF_ALT_C_COMMAND="${FZF_DEFAULT_COMMAND} --type directory"
 export FZF_ALT_C_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
 # }}}
 # set lima configs =============================================== {{{
@@ -175,6 +173,18 @@ export VIRTUALENV_CONFIG_FILE="${XDG_CONFIG_HOME}/virtualenv/config.toml"
 # set pip configs ================================================ {{{
 export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
 # }}}
+# set pipx configs =============================================== {{{
+export PIPX_HOME="${XDG_DATA_HOME}/pipx"
+export PIPX_BIN_DIR="${XDG_BIN_HOME}"
+# }}}
+# set poetry configs ============================================= {{{
+export POETRY_CONFIG_DIR="${XDG_CONFIG_HOME}/pypoetry"
+export POETRY_DATA_DIR="${XDG_DATA_HOME}/pypoetry"
+export POETRY_CACHE_DIR="${XDG_CACHE_HOME}/pypoetry"
+# }}}
+# set shiv configs =============================================== {{{
+export SHIV_ROOT="${XDG_DATA_HOME}/shiv"
+# }}}
 # set go configs ================================================= {{{
 export GOPATH="${XDG_DATA_HOME}/go"
 export GOBIN="${GOPATH}/bin"
@@ -193,6 +203,9 @@ export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 # set npm/node configs =========================================== {{{
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
+# }}}
+# set yarn configs =============================================== {{{
+export YARN_GLOBAL_FOLDER="${XDG_DATA_HOME}/yarn"
 # }}}
 # set cargo configs ============================================== {{{
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
