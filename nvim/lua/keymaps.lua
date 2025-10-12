@@ -92,6 +92,14 @@ function M.init()
 	)
 	keymap.set(
 		{ 'n' },
+		'<leader>nr',
+		function()
+			tree_api.tree.reload()
+		end,
+		{ desc = 'NvimTree: refresh' }
+	)
+	keymap.set(
+		{ 'n' },
 		'<leader>K',
 		function()
 			kubectl.toggle()
@@ -787,6 +795,8 @@ function M.on_lsp_attach(ev)
 	local lsp               = vim.lsp
 	---@diagnostic enable: undefined-global
 	local utils             = require('utils')
+	local dap               = require('dap')
+	local dap_ui            = require('dapui')
 
 	-- @note enable builtin completion triggered by <c-x><c-o>
 	---@diagnostic disable-next-line: undefined-global
@@ -899,6 +909,79 @@ function M.on_lsp_attach(ev)
 			lsp.buf.format { async = true }
 		end,
 		utils.merge(opts, { desc = 'Lsp: format' })
+	)
+
+	keymap.set(
+		{ 'n' },
+		'<leader>D',
+		function()
+			dap_ui.toggle()
+		end,
+		utils.merge(opts, { desc = 'Debug UI' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<leader>dc',
+		function()
+			dap.continue()
+		end,
+		utils.merge(opts, { desc = 'DAP: continue' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<leader>do',
+		function()
+			dap.step_over()
+		end,
+		utils.merge(opts, { desc = 'DAP: step over' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<leader>di',
+		function()
+			dap.step_into()
+		end,
+		utils.merge(opts, { desc = 'DAP: step into' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<leader>dO',
+		function()
+			dap.step_out()
+		end,
+		utils.merge(opts, { desc = 'DAP: step out' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<leader>db',
+		function()
+			dap.toggle_breakpoint()
+		end,
+		utils.merge(opts, { desc = 'DAP: toggle breakpoint' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<leader>dB',
+		function()
+			dap.set_breakpoint()
+		end,
+		utils.merge(opts, { desc = 'DAP: set breakpoint' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<leader>dR',
+		function()
+			dap.repl.open()
+		end,
+		utils.merge(opts, { desc = 'DAP: open REPL' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<leader>dr',
+		function()
+			dap.run_last()
+		end,
+		utils.merge(opts, { desc = 'DAP: run last' })
 	)
 end
 
