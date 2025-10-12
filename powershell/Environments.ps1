@@ -2,6 +2,7 @@ switch ($true)
 {
 	($IsMacOS -or $IsLinux)
 	{
+		$env:SHELL = '/usr/local/bin/pwsh'
 		# mimic XDG Base Directory Specification {{{
 		$env:XDG_CONFIG_HOME ??= "$env:HOME/.config"
 		$env:XDG_BIN_HOME ??= "$env:HOME/.local/bin"

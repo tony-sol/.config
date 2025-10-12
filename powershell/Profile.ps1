@@ -1,5 +1,3 @@
-$env:SHELL = '/usr/local/bin/pwsh'
-
 if (Test-Path "$PSScriptRoot\Profile.before.ps1")
 {
 	. "$PSScriptRoot\Profile.before.ps1"
