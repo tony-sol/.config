@@ -75,15 +75,8 @@ source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
 source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh" # @todo remove
 # }}}
 # hacks ========================================================== {{{
-# @note macos's ssh-agent doen't export SSH_AGENT_PID, set it manually
-# @warn envs are not persistent, use `eval $(ssh-agent -k)` to avoid orphaned instances
-# @todo probably should be removed
-if [[ $(ps ax | grep 'ssh-agent' | grep -v grep) ]]; then
-	[[ -z "${SSH_AGENT_PID}" ]] \
-		&& export SSH_AGENT_PID=$(ps ax -o pid,command | awk '$2 ~ "ssh-agent" {print $1}') \
-		|| true
-else
-	eval "$($(which ssh-agent) -s)"
+if [[ -z "${SSH_CONNECTION}" ]]; then
+	ssh-add -ql >/dev/null || find ~/.ssh/keys -type f -and -not -iname '*.pub' -and -not -iname '*.ppk' -exec ssh-add -q {} \;
 fi
 
 (( $+commands[fzf] )) && source <(fzf --zsh)
@@ -103,7 +96,7 @@ if (( $+commands[mise] )); then
 	} && unset __maven
 fi
 
-# @note use bat output only if bat installed
+# @note use bat wrapper only if bat installed
 if (( $+commands[bat] )); then
 	export MANROFFOPT="-c"
 	export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
@@ -126,8 +119,12 @@ esac
 # aliases ======================================================== {{{
 alias l='ls -AF'
 alias ll='l -hl'
-alias tt='tree -halFpugND'
-alias t='tt -L 1'
+
+# @note use tree aliases only if tree installed
+if (( $+commands[tree] )); then
+	alias tt='tree -halFpugND'
+	alias t='tt -L 1'
+fi
 # }}}
 # keymappings ==================================================== {{{
 bindkey "^[[1;3C" forward-word
