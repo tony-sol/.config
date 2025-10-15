@@ -1,21 +1,7 @@
 apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority: raspberry.pem
-    server: https://raspberry-01:6443
-  name: raspberry
-contexts:
-- context:
-    cluster: raspberry
-    namespace: default
-    user: raspberry-admin
-  name: admin@raspberry
-current-context: admin@raspberry
+clusters: []
+contexts: []
 kind: Config
 preferences:
   colors: true
-users:
-- name: raspberry-admin
-  user:
-    client-certificate: raspberry/admin.pem
-    client-key: raspberry/admin.key
+users: []
