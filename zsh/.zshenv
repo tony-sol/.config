@@ -65,6 +65,11 @@ export COLORTHEME=tokyonight
 export EDITOR=nvim
 export VISUAL=nvim
 # }}}
+# set ssh socket ================================================= {{{
+if [[ -z "${SSH_CONNECTION}" ]]; then
+	export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-${XDG_RUNTIME_DIR}/ssh-agent.socket}"
+fi
+# }}}
 # set system dependent configs =================================== {{{
 case $(uname -s) in
 	[Dd]arwin )
