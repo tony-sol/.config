@@ -133,10 +133,12 @@
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
 		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
+			"lock": "hyprlock", // "loginctl lock-session",
+			"logout": "loginctl terminate-user $UID",
 			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
+			"hibernate": "systemctl hibernate",
+			"shutdown": "systemctl poweroff",
+			"reboot": "systemctl reboot"
 		}
 	},
 }
