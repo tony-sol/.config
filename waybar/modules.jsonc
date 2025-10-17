@@ -1,81 +1,129 @@
 {
 	"hyprland/workspaces": {
 		"active-only": false,
-		"hide-active": false,
 		"all-outputs": true,
+		"hide-active": false,
 		"format": "{name} {windows}",
-		// "format-icons": {
-		// 	"active": "",
-		// 	"default": "",
-		// 	"empty": "",
-		// 	"persistent": "",
-		// 	"special": "",
-		// 	"urgent": ""
-		// },
-		"persistent-workspaces": {},
+		"format-icons": {
+			"active": "",
+			"default": "",
+			"empty": "",
+			"persistent": "",
+			"special": "",
+			"urgent": ""
+		},
+		"format-window-separator": "│",
+		"ignore-workspaces": [],
 		"persistent-only": false,
+		"persistent-workspaces": {},
 		"show-special": true,
-		"special-visible-only": true,
 		"sort-by": "DEFAULT",
-		"format-window-separator": "|",
-		"ignore-workspaces": []
+		"special-visible-only": true,
+		"workspace-taskbar": {
+			"enable": true,
+			"update-active-window": true,
+			"format": "{icon}",
+			"icon-size": 24,
+			"orientation": "horizontal"
+		}
 	},
 	"hyprland/window": {
 		"format": "{title}",
 		"rewrite": {},
 		"separate-outputs": false,
 		"icon": true,
+		"icon-size": 24
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
-			"activated": "",
-			"deactivated": ""
+			"activated": " ",
+			"deactivated": " "
 		}
 	},
-	"pulseaudio": {
-		"format": "{icon}  {volume}%",
-		"format-bluetooth": "{icon} {volume}%  {format_source}",
-		"format-bluetooth-muted": " {icon} {format_source}",
-		"format-muted": " {format_source}",
+	"wireplumber": {
+		"format": "{icon} {volume} | {format_source}",
+		"format-muted": "  {volume} | {format_source}",
 		"format-source": " {volume}%",
-		"format-source-muted": "",
+		"format-source-muted": " {volume}",
 		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
+			"headphone": " ",
+			"hands-free": " ",
+			"headset": " ",
+			"phone": " ",
+			"portable": " ",
+			"car": " ",
 			"default": [
-				"",
-				"",
-				""
+				" ",
+				" ",
+				" "
 			]
 		},
-		"on-click": "pavucontrol"
+		"tooltip": true,
+		"tooltip-format": "{source_desc}",
+		"on-click": "pavucontrol",
+		"on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+		"on-click-middle": "coppwr"
 	},
 	"network": {
-		"format-wifi": "  {essid} ({signalStrength}%)",
-		"format-ethernet": "{ipaddr}/{cidr} ",
-		"tooltip-format": "{ifname} via {gwaddr} ",
-		"format-linked": "{ifname} (No IP) ",
-		"format-disconnected": "Disconnected ⚠",
-		// "on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
+		"format": "{icon}",
+		"format-wifi": "{icon} {essid} ({signalStrength}%)",
+		"format-ethernet": "{icon} {ipaddr}/{cidr}",
+		"format-linked": "{icon} {ifname} (No IP)",
+		"format-disconnected": "{icon} Disconnected",
+		"tooltip-format": "{ifname} via {gwaddr}\n  {bandwidthUpBytes}    {bandwidthDownBytes}",
+		// 	// "on-click": "",
+		// 	// "on-click-middle": "",
+		// 	// "on-click-right": ""
+		"format-icons": {
+			"wifi": " ",
+			"ethernet": " ",
+			"linked": " ",
+			"disconnected": " "
+		}
+	},
+	"bluetooth": {
+		"format":"󰂯 {status}",
+		"format-disabled":"",
+		"format-off":"󰂲 {status}",
+		"format-on":"󰂱 {status}",
+		"format-connected": " {num_connections} connected",
+		"format-no-controller": "󰂯 {status}",
+
+		"tooltip-format": "{controller_alias}\t{controller_address}\t{controller_address_type}",
+		"tooltip-format-disabled":"",
+		"tooltip-format-off":"",
+		"tooltip-format-on":"",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}\t{device_address_type}",
+		"on-click": "",
+		"on-click-right": "",
+		"on-click-middle": ""
 	},
 	"cpu": {
-		"format": " {usage}%",
+		"format": "{icon} {usage}%",
+		"format-icons": [
+			" "
+		],
 		"tooltip": true
 	},
 	"memory": {
-		"format": " {}%",
-		"tooltip": true
+		"format": "{icon} {percentage}%",
+		"format-icons": [
+			" "
+		],
+		"tooltip": true,
+		"tooltip-format": "{used} / {total} GiB"
 	},
 	"temperature": {
 		"critical-threshold": 80,
-		"format-critical": " {temperatureC}°C",
-		"format": " {temperatureC}°C",
-		"tooltip": true
+		"format-critical": "{icon} {temperatureC}°C",
+		"format": "{icon} {temperatureC}°C",
+		"format-icons": [
+			"",
+			""
+		],
+		"tooltip": false
 	},
 	"hyprland/language": {
 		"format": "{}",
@@ -89,15 +137,15 @@
 		},
 		"format": "{icon} {capacity}%",
 		"format-full": "{icon} {capacity}%",
-		"format-charging": " {capacity}%",
+		"format-charging": " {capacity}%",
 		"format-plugged": " {capacity}%",
 		"format-alt": "{time} {icon}",
 		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
 		]
 	},
 	"battery#bat2": {
@@ -108,20 +156,35 @@
 		"capslock": true,
 		"format": "{name} {icon}",
 		"format-icons": {
-			"locked": "",
-			"unlocked": ""
+			"locked": " ",
+			"unlocked": " "
 		}
 	},
 	"clock": {
 		"interval": 1,
-		"format": "{:%H:%M:%S | %e %B %y}",
-		// "format-alt": "{:%Y-%m-%d %H:%M:%S}",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-		"on-click": "mode",
-		"on-click-middle": "",
-		"on-click-right": "",
-		"on-scroll-up": "shift_up",
-		"on-scroll-down": "shift_down"
+		"format": "{:L%H:%M:%S | %e %B %Y}",
+		"tooltip": true,
+		"tooltip-format": "<tt><big>{calendar}</big></tt>",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 4,
+			"weeks-pos": "left",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span color='#a4daff'><b>{}</b></span>",
+				"days": "<span color='#7aa2f7'><b>{}</b></span>",
+				"weeks": "<span color='#c0caf5'><b>{:%W}│</b></span>",
+				"weekdays": "<span color='#c7a9ff'><b><u>{}</u></b></span>",
+				"today": "<span color='#9fe044'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click": "mode",
+			"on-click-middle": "",
+			"on-click-right": "shift_reset",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
 	},
 	"tray": {
 		"show-passive-items": true,
@@ -133,10 +196,12 @@
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
 		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
+			"lock": "loginctl lock-session",
+			"logout": "loginctl terminate-user $UID",
 			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
+			"hibernate": "systemctl hibernate",
+			"shutdown": "systemctl poweroff",
+			"reboot": "systemctl reboot"
 		}
-	},
+	}
 }

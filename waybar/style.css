@@ -73,12 +73,9 @@ window#waybar {
     background: rgba(26, 27, 38, 0.9);
 }
 
-
 #workspaces button {
   background: transparent;
-  font-family:
-    JetBrainsMono Nerd Font,
-    feather;
+  font-family: JetBrainsMono Nerd Font, feather;
   font-weight: 900;
   font-size: 13pt;
   color: #c0caf5;

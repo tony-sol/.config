@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"position": "top",
-	// "spacing": 4,
+	"spacing": 4,
 	"include": [
 		"~/.config/waybar/modules.jsonc"
 	],
@@ -13,13 +13,14 @@
 	],
 	"modules-right": [
 		"idle_inhibitor",
-		"pulseaudio",
+		"wireplumber",
 		"network",
+		"bluetooth",
 		"cpu",
 		"memory",
 		"temperature",
 		"hyprland/language",
-		// "keyboard-state",
+	// 	// "keyboard-state",
 		"clock",
 		"tray",
 		"custom/power"
