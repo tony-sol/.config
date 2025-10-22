@@ -6,6 +6,8 @@ auth[._-]*
 # ...any local config...
 *[._-]local[._-]*
 *[._-]local
-# ...and any locks
+# ...and any locks...
 *[._-]lock[._-]*
 *[._-]lock
+# ...and any logs O_o
+*[._-]log
