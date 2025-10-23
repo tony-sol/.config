@@ -14,13 +14,10 @@ M.is_linux    = wezterm.target_triple:find('linux') ~= nil
 ---@return boolean
 M.is_windows  = wezterm.target_triple:find('windows') ~= nil
 
----Colors scheme name with `-dark` or `-light` suffix based on system appearance
----Requires `${name}-dark` and `${name}-light` color files in ./colors/
----@param name string
----@return string
-function M.get_appearance(name)
-	local appearance = wezterm.gui and wezterm.gui.get_appearance() or 'Dark'
-	return name .. (appearance:find('Dark') and '-dark' or '-light')
+---Colorscheme name
+---@return 'dark' | 'light' | nil
+function M.appearance()
+	return wezterm.gui and wezterm.gui.get_appearance():gsub('HighContrast', ''):lower() or nil
 end
 
 return M
