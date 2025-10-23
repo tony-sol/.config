@@ -23,6 +23,7 @@ ast-grep = "latest"
 conftest = "latest" # or stay with opa
 bat = "latest"
 doggo = "latest"
+eza = "latest"
 fd = "latest"
 fzf = "latest"
 gh = "latest"
