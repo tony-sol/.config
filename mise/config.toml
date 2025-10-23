@@ -46,6 +46,7 @@ ripgrep = "latest"
 ripgrep-all = "latest"
 sops = "latest"
 task = "latest"
+vivid = "latest"
 yq = "latest"
 # container tools
 argocd = "latest"

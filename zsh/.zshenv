@@ -73,15 +73,15 @@ fi
 # set system dependent configs =================================== {{{
 case $(uname -s) in
 	[Dd]arwin )
-		export LSCOLORS=GxFxCxDxBxegedabagacad
+		export LSCOLORS=ExGxFxdaCxDaDahbadacec
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 		export COLORSCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
 		;;
 	[Ll]inux )
-		export LS_COLORS="di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+		export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
 		# @todo use `gsettings get org.gnome.desktop.interface color-scheme` or `dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color-scheme`
-		export COLORSCHEME="dark"
+		export COLORSCHEME='dark'
 		;;
 esac
 # }}}
@@ -109,9 +109,7 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite/history"
 # }}}
 # set bat configs ================================================ {{{
-export BAT_THEME_DARK="${COLORTHEME}-night"
-export BAT_THEME_LIGHT="${COLORTHEME}-day"
-export BAT_THEME="${BAT_THEME_DARK}"
+export BAT_THEME="${COLORTHEME}-${COLORSCHEME}"
 # }}}
 # set fzf configs ================================================ {{{
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"

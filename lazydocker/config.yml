@@ -3,12 +3,14 @@ gui:
   language: auto
   theme:
     activeBorderColor:
-      - green
-      - bold
+      - "#ff9e64"
+      - "bold"
     inactiveBorderColor:
-      - white
+      - "#27a1b9"
+    selectedLineBgColor:
+      - "#283457"
     optionsTextColor:
-      - blue
+      - "#7aa2f7"
   returnImmediately: false
   wrapMainPanel: true
   expandFocusedSidePanel: true

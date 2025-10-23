@@ -47,6 +47,7 @@ zle -N zle-keymap-select
 # prompt ========================================================= {{{
 setopt PROMPT_SUBST
 # '\U276E'='❮'; '\U276F'='❯'
+# @see https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Prompt-Expansion
 export PROMPT='%(!,%S,)%B%F{cyan}%~ %(?,%F{green},%F{red})%v%b%f%(!,%s,) '
 export RPROMPT='%B%F{green}$git_ahead_mark$git_ahead_count%F{red}$git_behind_mark$git_behind_count%F{cyan}$git_stash_mark$git_stash_count%F{yellow}$git_dirty_mark$git_dirty_count%F{blue}$git_staged_mark$git_staged_count%F{magenta}$git_unknown_mark$git_unknown_count%b%F{cyan} $git_branch%(?,, %B%F{red}%?%b%f)%F{cyan} %D{%H:%M:%S}%b%f'
 # }}}
@@ -113,6 +114,7 @@ case $(uname -s) in
 		;;
 	[Ll]inux )
 		del() { mv "$@" "${XDG_DATA_HOME}/Trash" }
+		(( $+commands[vivid] )) && export LS_COLORS=$(vivid generate "${XDG_CONFIG_HOME}/vivid/themes/${COLORTHEME}-${COLORSCHEME}.yml")
 		;;
 esac
 # }}}
