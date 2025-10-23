@@ -113,6 +113,7 @@ case $(uname -s) in
 		;;
 	[Ll]inux )
 		del() { mv "$@" "${XDG_DATA_HOME}/Trash" }
+		(( $+commands[vivid] )) && export LS_COLORS=$(vivid generate "${XDG_CONFIG_HOME}/vivid/themes/${COLORTHEME}-${COLORSCHEME}.yml")
 		;;
 esac
 # }}}

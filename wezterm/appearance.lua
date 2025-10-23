@@ -7,6 +7,6 @@ local M        = {}
 M.decorations  = utils.is_darwin and 'RESIZE' or 'TITLE|RESIZE'
 
 ---@type string
-M.color_scheme = utils.get_appearance(os.getenv('COLORTHEME') or 'tokyonight')
+M.color_scheme = (os.getenv('COLORTHEME') or 'tokyonight') .. '-' .. (utils.appearance() or 'dark')
 
 return M
