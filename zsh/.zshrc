@@ -99,7 +99,7 @@ fi
 # @note use bat wrapper only if bat installed
 if (( $+commands[bat] )); then
 	export MANROFFOPT="-c"
-	export MANPAGER="sh -c 'col -bx | bat --style=plain --language=man'"
+	export MANPAGER="sh -c 'col -bx | bat --language=man --style=plain'"
 	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
 	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
 	view() { for arg in $@; do $XDG_CONFIG_HOME/fzf/fzf-preview $arg; [[ "$arg" =~ "$@[-1]" ]] || echo; done }
@@ -117,13 +117,19 @@ case $(uname -s) in
 esac
 # }}}
 # aliases ======================================================== {{{
-alias l='ls -AF'
-alias ll='l -hl'
+alias l='ls --almost-all --color=auto --classify=auto'
+alias ll='l -l --human-readable'
 
 # @note use tree aliases only if tree installed
 if (( $+commands[tree] )); then
-	alias tt='tree -halFpugND'
+	alias tt='tree -a -l --metafirst -N -p -u -g -h -D -F --dirsfirst'
 	alias t='tt -L 1'
+fi
+
+# @note use eza aliases only if eza installed
+if (( $+commands[eza] )); then
+	alias ee='eza --long --tree --classify=auto --color=auto --icons=auto --hyperlink --follow-symlinks --almost-all --group-directories-first --smart-group --time=changed --git'
+	alias e='ee --level 1 --git-repos'
 fi
 # }}}
 # keymappings ==================================================== {{{
