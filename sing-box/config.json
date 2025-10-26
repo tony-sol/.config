@@ -1,0 +1,41 @@
+{
+	"log": {
+		"level": "info",
+		"timestamp": true
+	},
+	"dns": {
+		"servers": [
+			{
+				"type": "local",
+				"tag": "local"
+			}
+		],
+		"rules": []
+	},
+	"inbounds": [
+		{
+			"type": "mixed",
+			"tag": "mixed-in",
+			"listen": "127.0.0.1",
+			"listen_port": 2080,
+			"set_system_proxy": true,
+			"sniff": true,
+			"domain_strategy": "prefer_ipv4"
+		}
+	],
+	"route": {
+		"rules": [
+			{
+				"protocol": "dns",
+				"action": "hijack-dns"
+			}
+		],
+		"rule_set": [],
+		"auto_detect_interface": true
+	},
+	"experimental": {
+		"cache_file": {
+			"enabled": false
+		}
+	}
+}
