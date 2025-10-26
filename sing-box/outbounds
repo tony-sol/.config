@@ -1,0 +1,110 @@
+#! /usr/bin/env python3
+
+import argparse
+import base64
+import json
+import logging
+import sys
+import urllib.request
+import urllib.parse
+import urllib.error
+
+
+class Outbound:
+    type: str
+    tag: str
+    server: str
+    server_port: int
+    uuid: str
+    flow: str
+    network: str
+
+    def __init__(self, url: str):
+        link = urllib.parse.urlparse(url, allow_fragments=True)
+        self.type = link.scheme
+        self.tag = link.fragment
+        self.server = link.hostname
+        self.server_port = link.port
+        self.uuid = link.username
+
+        link_query = dict(
+            urllib.parse.parse_qsl(link.query, keep_blank_values=True)
+        )
+        self.flow = link_query.get('flow')
+        self.network = link_query.get('type')
+
+        # @todo parse other types
+        if self.type == 'vless':
+            self.tls = self._tls(link_query)
+
+    def _tls(self, query):
+        tls = {
+            'enabled': True,
+            'server_name': query.get('sni'),
+        }
+        match query.get('security'):
+            case 'reality':
+                tls.update({
+                    # uTLS is required by reality client
+                    'utls': {
+                        'enabled': True,
+                    },
+                    'reality': {
+                        'enabled': True,
+                        'public_key': query.get('pbk'),
+                        'short_id': query.get('sid'),
+                    },
+                })
+        return tls
+
+    def __repr__(self):
+        return json.dumps(vars(self), ensure_ascii=False)
+
+
+def main(args):
+    try:  # to get from subscription
+        with urllib.request.urlopen(args.subscription_url) as response:
+            content = response.read()
+    except urllib.error.HTTPError as e:
+        logging.critical(f"HTTP error: {e.code} - {e.reason}")
+    except urllib.error.URLError as e:
+        logging.critical(f"URL error: {e.reason}")
+
+    try:  # to fetch links from response
+        data = base64.b64decode(content).decode('utf-8').splitlines(False)
+        # data = base64.b64decode(content).splitlines(False)
+    except base64.binascii.Error as e:
+        logging.critical(f"Base64 decode error: {e}")
+    except UnicodeDecodeError as e:
+        logging.critical(f"UTF-8 decode error: {e}")
+
+    outbounds = []
+    for link in data:
+        logging.debug(link)
+        outbound = Outbound(link)
+        outbounds.append(outbound)
+        if args.fzf:
+            print(f"{outbound}#{outbound.tag}")
+    if not args.fzf:
+        print(outbounds)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='Sing-box outbounds.json builder',
+    )
+    parser.add_argument(
+        'subscription_url',
+        help='subscription url',
+    )
+    parser.add_argument(
+        '--fzf',
+        action=argparse.BooleanOptionalAction,
+        help='fzf compatible output',
+    )
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(levelname)s | %(message)s',
+        stream=sys.stderr,
+    )
+    main(parser.parse_args())
