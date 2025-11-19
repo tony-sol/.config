@@ -10,24 +10,10 @@ fi
 # ====================================================================
 
 # set options ==================================================== {{{
-# @todo move opts for interactive shell into .zshrc
 unsetopt MULTIOS
 setopt MAGIC_EQUAL_SUBST
 setopt BSD_ECHO
 setopt SH_WORD_SPLIT
-setopt INTERACTIVE_COMMENTS
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_FIND_NO_DUPS
-setopt HIST_VERIFY
-setopt HIST_NO_STORE
-setopt HIST_REDUCE_BLANKS
-setopt SHARE_HISTORY
-setopt EXTENDED_HISTORY
-setopt APPEND_HISTORY
-setopt INC_APPEND_HISTORY
 # }}}
 # set XDG Base Directory Specification =========================== {{{
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
@@ -73,15 +59,24 @@ fi
 # set system dependent configs =================================== {{{
 case $(uname -s) in
 	[Dd]arwin )
+		# common ================================================= {{{
 		export LSCOLORS=ExGxFxdaCxDaDahbadacec
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 		export COLORSCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
+		# }}}
+		# custom ================================================= {{{
+		export TART_HOME="${XDG_DATA_HOME}/tart"
+		# }}}
 		;;
 	[Ll]inux )
+		# common ================================================= {{{
 		export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
 		# @todo use `gsettings get org.gnome.desktop.interface color-scheme` or `dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color-scheme`
 		export COLORSCHEME='dark'
+		# }}}
+		# custom ================================================= {{{
+		# }}}
 		;;
 esac
 # }}}
@@ -149,6 +144,7 @@ export MINIKUBE_HOME="${XDG_DATA_HOME}/minikube"
 export HELM_CACHE_HOME="${XDG_CACHE_HOME}/helm"
 export HELM_CONFIG_HOME="${XDG_CONFIG_HOME}/helm"
 export HELM_DATA_HOME="${XDG_DATA_HOME}/helm"
+export HELM_COLOR="auto"
 # }}}
 # set argocd configs ============================================= {{{
 export ARGOCD_CONFIG_DIR="${XDG_DATA_HOME}/argocd"
@@ -265,18 +261,12 @@ export TELEPORT_CONFIG_FILE="${XDG_CONFIG_HOME}/teleport/tctl.yaml"
 export TELEPORT_HOME="${XDG_DATA_HOME}/tsh"
 export TELEPORT_GLOBAL_TSH_CONFIG="${XDG_CONFIG_HOME}/teleport/tsh.yaml"
 # }}}
-# set tart configs =============================================== {{{
-export TART_HOME="${XDG_DATA_HOME}/tart"
-# }}}
 # set glow configs =============================================== {{{
 export GLAMOUR_STYLE="auto"
 # }}}
 # set glab configs =============================================== {{{
 export GLAB_CONFIG_DIR="${XDG_CONFIG_HOME}/glab"
 export GH_CONFIG_DIR="${XDG_CONFIG_HOME}/gh"
-# }}}
-# set jf configs ================================================= {{{
-export JFROG_CLI_HOME_DIR="${XDG_DATA_HOME}/jfrog"
 # }}}
 # set qmk configs ================================================ {{{
 export QMK_HOME="${XDG_DATA_HOME}/qmk_firmware"

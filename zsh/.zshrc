@@ -44,6 +44,21 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 # }}}
+# options ======================================================== {{{
+setopt INTERACTIVE_COMMENTS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_VERIFY
+setopt HIST_NO_STORE
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+# }}}
 # prompt ========================================================= {{{
 setopt PROMPT_SUBST
 # '\U276E'='❮'; '\U276F'='❯'
@@ -51,14 +66,14 @@ setopt PROMPT_SUBST
 export PROMPT='%(!,%S,)%B%F{cyan}%~ %(?,%F{green},%F{red})%v%b%f%(!,%s,) '
 export RPROMPT='%B%F{green}$git_ahead_mark$git_ahead_count%F{red}$git_behind_mark$git_behind_count%F{cyan}$git_stash_mark$git_stash_count%F{yellow}$git_dirty_mark$git_dirty_count%F{blue}$git_staged_mark$git_staged_count%F{magenta}$git_unknown_mark$git_unknown_count%b%F{cyan} $git_branch%(?,, %B%F{red}%?%b%f)%F{cyan} %D{%H:%M:%S}%b%f'
 # }}}
-# zsh plugins ==================================================== {{{
+# zsh plugin syntax highlighting ================================= {{{
 source "${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[alias]="fg=blue"
-
+# zsh plugin autocomplete ======================================== {{{
 source "${ZDOTDIR}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 bindkey "\t" menu-select "${terminfo}[kcbt]" menu-select
 bindkey -M menuselect "\t" menu-complete "${terminfo}[kcbt]" reverse-menu-complete
@@ -66,14 +81,19 @@ zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-complete
 zstyle ':autocomplete:*' fzf-completion yes
 zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
-
+# }}}
+# zsh plugin autosuggestions ===================================== {{{
 source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-
+# }}}
+# zsh plugin lazyload ============================================ {{{
 source "${ZDOTDIR}/plugins/zsh-lazyload/zsh-lazyload.plugin.zsh"
-
+# }}}
+# zsh plugin ssh ================================================= {{{
 source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
-
-source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh" # @todo remove
+# }}}
+# zsh plugin git aware prompt ==================================== {{{
+# @todo https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
+source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh"
 # }}}
 # hacks ========================================================== {{{
 if [[ -z "${SSH_CONNECTION}" ]]; then
