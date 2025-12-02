@@ -63,7 +63,7 @@
 		"tooltip-format": "{source_desc}",
 		"on-click": "pavucontrol",
 		"on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
-		"on-click-middle": "coppwr"
+		"on-click-middle": "hyprpwcenter"
 	},
 	"network": {
 		"format": "{icon}",
