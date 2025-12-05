@@ -150,8 +150,8 @@ fi
 
 # @note use eza aliases only if eza installed
 if (( $+commands[eza] )); then
-	alias ee='eza --long --tree --classify=auto --color=auto --icons=auto --hyperlink --follow-symlinks --almost-all --group-directories-first --smart-group --time=changed --git'
-	alias e='ee --level 1 --git-repos'
+	alias ee='eza --long --tree --classify=auto --color=auto --icons=auto --follow-symlinks --almost-all --group-directories-first --smart-group --time=changed --git --git-repos'
+	alias e='ee --level 1'
 fi
 # }}}
 # keymappings ==================================================== {{{
