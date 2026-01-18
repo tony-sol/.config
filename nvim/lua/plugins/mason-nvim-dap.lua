@@ -8,15 +8,6 @@ return {
 			'mfussenegger/nvim-dap',
 		},
 	},
-	config       = function()
-		local mason_dap = require('mason-nvim-dap')
-		mason_dap.setup {
-			automatic_installation = true,
-			ensure_installed       = {
-				'debugpy',
-				'delve',
-				'kotlin-debug-adapter',
-			},
-		}
-	end
+	opts         = {
+	}
 }
