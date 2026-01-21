@@ -1,9 +1,5 @@
 [submodule]
 	shallow = true
-[submodule "qmk/qmk-hid-host"]
-	path = qmk/qmk-hid-host
-	url = git@github.com:tony-sol/qmk-hid-host.git
-	branch = main
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = git@github.com:tony-sol/tpm.git
