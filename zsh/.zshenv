@@ -45,44 +45,29 @@ export TERMINFO_DIRS="${TERMINFO_DIRS:-${TERMINFO}:/usr/share/terminfo}"
 export WORDCHARS='*?[]~=&!#$%^(){}<>'
 export KEYTIMEOUT=1
 export ZLE_RPROMPT_INDENT=0
+export EDITOR=vim
+export VISUAL=vim
 export CLICOLOR=1
+export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 export COLORTERM=truecolor
 export COLORTHEME=tokyonight
-export EDITOR=nvim
-export VISUAL=nvim
+# @todo use `gsettings get org.gnome.desktop.interface color-scheme` or `dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color-scheme`
+export COLORSCHEME=dark
 # }}}
 # set ssh socket ================================================= {{{
 if [[ -z "${SSH_CONNECTION}" ]]; then
 	export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-${XDG_RUNTIME_DIR}/ssh-agent.socket}"
 fi
 # }}}
-# set system dependent configs =================================== {{{
-case $(uname -s) in
-	[Dd]arwin )
-		# common ================================================= {{{
-		export LSCOLORS=ExGxFxdaCxDaDahbadacec
-		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
-		export COLORSCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
-		# }}}
-		# custom ================================================= {{{
-		export TART_HOME="${XDG_DATA_HOME}/tart"
-		# }}}
-		;;
-	[Ll]inux )
-		# common ================================================= {{{
-		export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32"
-		export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
-		# @todo use `gsettings get org.gnome.desktop.interface color-scheme` or `dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color-scheme`
-		export COLORSCHEME='dark'
-		# }}}
-		# custom ================================================= {{{
-		# }}}
-		;;
-esac
-# }}}
-# set homebrew configs =========================================== {{{
-export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX/Homebrew}"
-export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
+# @todo remove system dependent configs ========================== {{{
+if [[ $(uname -s) =~ [Dd]arwin ]]; then
+	export COLORSCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
+	export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
+	export HOMEBREW_REPOSITORY="${HOMEBREW_REPOSITORY:-$HOMEBREW_PREFIX/Homebrew}"
+	export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$HOMEBREW_PREFIX/Cellar}"
+	export LSCOLORS=ExGxFxdaCxDaDahbadacec
+	export TART_HOME="${XDG_DATA_HOME}/tart"
+fi
 # }}}
 # set tmux configs =============================================== {{{
 export TMUX_CONF="${XDG_CONFIG_HOME}/tmux/tmux.conf"
@@ -148,10 +133,6 @@ export HELM_COLOR="auto"
 # }}}
 # set argocd configs ============================================= {{{
 export ARGOCD_CONFIG_DIR="${XDG_DATA_HOME}/argocd"
-# }}}
-# set werf configs =============================================== {{{
-export WERF_TMP_DIR="${XDG_CACHE_HOME}/werf"
-export WERF_HOME="${XDG_CONFIG_HOME}/werf"
 # }}}
 # set gnupg configs ============================================== {{{
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
@@ -221,28 +202,6 @@ export MISE_CACHE_DIR="${XDG_CACHE_HOME}/mise"
 export MISE_DATA_DIR="${XDG_DATA_HOME}/mise"
 export MISE_SHIMS="${MISE_DATA_DIR}/shims"
 # }}}
-# set dotnet configs ============================================= {{{
-export DOTNET_ROOT="/usr/local/share/dotnet"
-export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
-export DOTNET_CLI_TOOLS="${DOTNET_CLI_HOME}/tools"
-# }}}
-# set nuget configs ============================================== {{{
-export NUGET_PACKAGES="${XDG_DATA_HOME}/nuget/packages"
-export NUGET_HTTP_CACHE_PATH="${XDG_CACHE_HOME}/nuget"
-export NUGET_PLUGINS_CACHE_PATH="${XDG_CACHE_HOME}/nuget/plugins"
-# }}}
-# set java configs =============================================== {{{
-export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep java.home | grep -o '/.*')
-# }}}
-# set maven configs ============================================== {{{
-export MAVEN_REPOSITORY="${XDG_DATA_HOME}/m2/repository"
-export MAVEN_ARGS="-gs ${XDG_CONFIG_HOME}/m2/settings.xml"
-export MAVEN_OPTS="-Dmaven.repo.local=${MAVEN_REPOSITORY}"
-# }}}
-# set gradle configs ============================================= {{{
-export GRADLE_HOME="${XDG_DATA_HOME}/gradle"
-export GRADLE_USER_HOME="${GRADLE_HOME}"
-# }}}
 # set luarocks configs =========================================== {{{
 export LUAROCKS_CONFIG="${XDG_CONFIG_HOME}/luarocks/config.lua"
 # }}}
@@ -252,9 +211,6 @@ export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
 # }}}
 # set mutagen configs ============================================ {{{
 export MUTAGEN_DATA_DIRECTORY="${XDG_DATA_HOME}/mutagen"
-# }}}
-# set code configs =============================================== {{{
-export VSCODE_EXTENSIONS="${XDG_DATA_HOME}/code/extensions"
 # }}}
 # set teleport configs =========================================== {{{
 export TELEPORT_CONFIG_FILE="${XDG_CONFIG_HOME}/teleport/tctl.yaml"
@@ -281,7 +237,7 @@ export -TU PATH path
 if [[ -d "${HOMEBREW_PREFIX}/bin" ]]; then
 	path=( "${HOMEBREW_PREFIX}/bin" "${HOMEBREW_PREFIX}/sbin" $path[@] )
 fi
-path=( $XDG_BIN_HOME $MISE_SHIMS "${PYTHONUSERBASE}/bin" $MASON_BIN $KREW_BIN $GEM_BIN $CARGO_BIN $GOBIN $DOTNET_CLI_TOOLS $path[@] )
+path=( $XDG_BIN_HOME $MISE_SHIMS "${PYTHONUSERBASE}/bin" $MASON_BIN $KREW_BIN $GEM_BIN $CARGO_BIN $GOBIN $path[@] )
 # }}}
 
 # =====================================================================

@@ -95,48 +95,25 @@ source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
 # @todo https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
 source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh"
 # }}}
-# hacks ========================================================== {{{
+# autoload ssh keys ============================================== {{{
 if [[ -z "${SSH_CONNECTION}" ]]; then
 	ssh-add -ql >/dev/null || find ~/.ssh/keys -type f -and -not -iname '*.pub' -and -not -iname '*.ppk' -exec ssh-add -q {} \;
 fi
-
+# }}}
+# hooks ========================================================== {{{
 (( $+commands[fzf] )) && source <(fzf --zsh)
 (( $+commands[mise] )) && source <(mise activate zsh)
 
 if (( $+commands[mise] )); then
 	# @note get lua install location as system rocks_tree
+	# @todo check is this REALLY needed
 	__lua=$(mise where lua 2>/dev/null) && {
 		export LUAROCKS_HOME="${__lua}/luarocks"
 	} && unset __lua
-	# @note get mvn install location
-	__maven=$(mise where maven 2>/dev/null) && {
-		export MAVEN_HOME="${__maven}"
-		export MVN_HOME="${MAVEN_HOME}"
-		export M3_HOME="${MAVEN_HOME}"
-		export M2_HOME="${MAVEN_HOME}"
-	} && unset __maven
 fi
 
-# @note use bat wrapper only if bat installed
-if (( $+commands[bat] )); then
-	export MANROFFOPT="-c"
-	export MANPAGER="sh -c 'col -bx | bat --language=man --style=plain'"
-	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
-	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
-	view() { for arg in $@; do $XDG_CONFIG_HOME/fzf/fzf-preview $arg; [[ "$arg" =~ "$@[-1]" ]] || echo; done }
-fi
-
-# @note per-system hacks
-case $(uname -s) in
-	[Dd]arwin )
-		del() { mv "$@" ~/.Trash }
-		get_secret_note() { security find-generic-password -C note -s "$1" -w | xxd -revert -plain | yq --input-format xml --prettyPrint '.plist.dict.string' }
-		;;
-	[Ll]inux )
-		del() { mv "$@" "${XDG_DATA_HOME}/Trash" }
-		(( $+commands[vivid] )) && export LS_COLORS=$(vivid generate "${XDG_CONFIG_HOME}/vivid/themes/${COLORTHEME}-${COLORSCHEME}.yml")
-		;;
-esac
+# @note use vivid colors generation if vivid installed
+(( $+commands[vivid] )) && export LS_COLORS=$(vivid generate "${XDG_CONFIG_HOME}/vivid/themes/${COLORTHEME}-${COLORSCHEME}.yml")
 # }}}
 # aliases ======================================================== {{{
 alias l='ls --almost-all --color=auto --classify=auto'
@@ -152,6 +129,22 @@ fi
 if (( $+commands[eza] )); then
 	alias ee='eza --long --tree --classify=auto --color=auto --icons=auto --follow-symlinks --almost-all --group-directories-first --smart-group --time=changed --git --git-repos'
 	alias e='ee --level 1'
+fi
+
+# @note use nvim as vim replacement if nvim installed
+if (( $+commands[nvim] )); then
+	export EDITOR=nvim
+	export VISUAL=nvim
+	alias vim="nvim"
+fi
+
+# @note use bat wrapper only if bat installed
+if (( $+commands[bat] )); then
+	export MANROFFOPT="-c"
+	export MANPAGER="sh -c 'col -bx | bat --language=man --style=plain'"
+	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
+	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
+	view() { for arg in $@; do $XDG_CONFIG_HOME/fzf/fzf-preview $arg; [[ "$arg" =~ "$@[-1]" ]] || echo; done }
 fi
 # }}}
 # keymappings ==================================================== {{{
