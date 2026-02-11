@@ -5,10 +5,9 @@ pitchfork = "latest"
 usage = "latest"
 # langs
 go = "latest"
-java = "latest"
-kotlin = "latest"
 lua = "latest" # use 5.1 for neovim, requires unzip
 node = "latest"
+python = "latest"
 ruby = "latest" # requires libz-dev libssl-dev libffi-dev libyaml-dev
 rust = "latest"
 # langs package managers
@@ -16,14 +15,12 @@ yarn = "latest"
 pnpm = "latest"
 pipx = "latest"
 poetry = "latest"
-maven = "latest"
-gradle = "latest"
 # cli tools
 act = "latest"
 ansible = "latest"
 ast-grep = "latest"
-conftest = "latest" # or stay with opa
 bat = "latest"
+ctop = "latest"
 doggo = "latest"
 eza = "latest"
 fd = "latest"
@@ -38,8 +35,9 @@ hexyl = "latest"
 lazydocker = "latest"
 lazygit = "latest"
 lazyjournal = "latest"
+lima = "latest"
+mutagen = "latest"
 octosql = "latest"
-opa = "latest" # or stay with conftest
 openbao = "latest" # open-source hashicorp/vault
 opentofu = "latest" # open-source hashicorp/terraform
 process-compose = "latest"
@@ -50,48 +48,28 @@ vivid = "latest"
 yq = "latest"
 # container tools
 argocd = "latest"
-dive = "latest"
-dockle = "latest"
-hadolint = "latest"
 helm = "latest"
 helmfile = "latest"
 helmwave = "latest"
 kind = "latest"
 krew = "latest"
 kompose = "latest"
-kube-linter = "latest"
-kubeconform = "latest"
 kubectl = "latest"
-kubent = "latest"
-kubeone = "latest"
 kustomize = "latest"
 minikube = "latest"
-regctl = "latest"
-syft = "latest"
-trivy = "latest"
-# hashicorp
-consul = "latest"
-nomad = "latest"
-terraform = "latest"
-vault = "latest"
-waypoint = "latest"
 
 [settings]
-# common
 activate_aggressive = false
 always_keep_download = false
 always_keep_install = false
 auto_install = false
 env_file = ".env"
 experimental = true
-idiomatic_version_file = true
 paranoid = true
 quiet = false
 raw = true
 verbose = false
 yes = true
-# use system python by default
-disable_tools = [ "python" ]
 # don't override GOBIN...
 go_set_gobin = false
 # ...but setup GOROOT

@@ -2,7 +2,6 @@ tap "cirruslabs/cli"
 tap "gromgit/fuse" if OS.mac?
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "mutagen-io/mutagen"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
@@ -25,14 +24,10 @@ brew "gnupg"
 brew "htop"
 # Provides library functionality for FIDO U2F & FIDO 2.0, including USB
 brew "libfido2"
-# Linux virtual machines
-brew "lima"
 # Mac App Store command-line interface
 brew "mas"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
-# NCurses Disk Usage
-brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Port scanning utility for large networks
@@ -47,8 +42,6 @@ brew "pam-reattach" if OS.mac?
 brew "pam-u2f"
 # Tool for managing OCI containers and pods
 brew "podman"
-# Podman Terminal User Interface
-brew "podman-tui"
 # GNU Make with improved error handling, tracing, and a debugger
 brew "remake"
 # SOcket CAT: netcat on steroids
@@ -89,8 +82,6 @@ brew "gromgit/fuse/simple-mtpfs-mac" if OS.mac?
 brew "gromgit/fuse/squashfuse-mac" if OS.mac?
 # File system client based on SSH File Transfer Protocol
 brew "gromgit/fuse/sshfs-mac" if OS.mac?
-# Fast file synchronization and network forwarding for remote development
-brew "mutagen-io/mutagen/mutagen"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # Transfer files from and to an Android smartphone
@@ -158,8 +149,6 @@ cask "utm"
 cask "vial"
 # OpenVPN client with AppleScript support
 cask "viscosity"
-# Open-source code editor
-cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
 # Create, manage, and run virtual machines
