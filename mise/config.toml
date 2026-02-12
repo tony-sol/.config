@@ -1,5 +1,7 @@
 [tools]
-# mise completions
+# mise components
+fnox = "latest"
+pitchfork = "latest"
 usage = "latest"
 # langs
 go = "latest"
@@ -43,8 +45,7 @@ opentofu = "latest" # open-source hashicorp/terraform
 process-compose = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
-sops = "latest"
-task = "latest"
+ttyd = "latest"
 vivid = "latest"
 yq = "latest"
 # container tools
@@ -80,6 +81,7 @@ waypoint = "latest"
 activate_aggressive = false
 always_keep_download = false
 always_keep_install = false
+auto_install = false
 env_file = ".env"
 experimental = true
 idiomatic_version_file = true
