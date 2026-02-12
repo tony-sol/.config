@@ -1,5 +1,7 @@
 [tools]
-# mise completions
+# mise components
+fnox = "latest"
+pitchfork = "latest"
 usage = "latest"
 # langs
 go = "latest"
