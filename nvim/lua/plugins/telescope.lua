@@ -25,9 +25,6 @@ return {
 			'Marskey/telescope-sg',
 		},
 		{
-			'rest-nvim/rest.nvim',
-		},
-		{
 			'nvim-lua/plenary.nvim',
 		},
 	},
@@ -89,7 +86,6 @@ return {
 					grep_open_files = false,
 					lang            = nil,
 				},
-				['rest']           = {},
 				-- ['kubectl']        = {},
 			},
 		}
@@ -102,7 +98,6 @@ return {
 		telescope.load_extension('ui-select')
 		telescope.load_extension('undo')
 		telescope.load_extension('ast_grep')
-		telescope.load_extension('rest')
 		-- telescope.load_extension('kubectl')
 	end
 }
