@@ -12,16 +12,26 @@ return {
 		local utils     = require('utils')
 		local nvim_tree = require('nvim-tree')
 		nvim_tree.setup {
-			disable_netrw       = false,
-			hijack_netrw        = true,
-			view                = {
+			on_attach                          = 'default',
+			hijack_cursor                      = false,
+			auto_reload_on_write               = true,
+			disable_netrw                      = false,
+			hijack_netrw                       = true,
+			hijack_unnamed_buffer_when_opening = false,
+			root_dirs                          = {},
+			prefer_startup_root                = false,
+			sync_root_with_cwd                 = false,
+			reload_on_bufenter                 = false,
+			respect_buf_cwd                    = false,
+			select_prompts                     = false,
+			view                               = {
 				centralize_selection        = true,
 				preserve_window_proportions = true,
 				number                      = true,
 				relativenumber              = true,
 				width                       = utils.defaultSidebarSize(),
 			},
-			renderer            = {
+			renderer                           = {
 				add_trailing           = true,
 				highlight_git          = true,
 				highlight_opened_files = 'all',
@@ -54,21 +64,21 @@ return {
 					},
 				},
 			},
-			hijack_directories  = {
+			hijack_directories                 = {
 				enable    = true,
 				auto_open = true,
 			},
-			update_focused_file = {
+			update_focused_file                = {
 				enable      = true,
 				update_root = true,
 				ignore_list = {},
 			},
-			diagnostics         = {
+			diagnostics                        = {
 				enable            = true,
 				show_on_dirs      = true,
 				show_on_open_dirs = true,
 			},
-			filters             = {
+			filters                            = {
 				git_ignored = false,
 				dotfiles    = false,
 				git_clean   = false,
@@ -76,15 +86,25 @@ return {
 				custom      = {},
 				exclude     = {},
 			},
-			modified            = {
+			modified                           = {
 				enable            = true,
 				show_on_dirs      = true,
 				show_on_open_dirs = true,
 			},
-			trash               = {
+			trash                              = {
 				cmd = 'trash',
 			},
-			experimental        = {},
+			tab                                = {
+				sync = {
+					open   = true,
+					close  = true,
+					ignore = {},
+				},
+			},
+			bookmarks                          = {
+				persist = true,
+			},
+			experimental                       = {},
 		}
 	end
 }

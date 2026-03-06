@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 return {
 	'ramilito/kubectl.nvim',
 	dependencies = {
@@ -5,15 +7,11 @@ return {
 			'saghen/blink.download',
 		},
 	},
-	event  = 'VimEnter',
-	config = function()
-		local utils   = require('utils')
-		local kubectl = require('kubectl')
-		kubectl.setup {
-			diff = {
-				bin = nil,
-			},
-			float_size = utils.defaultModalSize(),
-		}
-	end
+	event        = 'VimEnter',
+	opts         = {
+		diff = {
+			bin = nil,
+		},
+		float_size = utils.defaultModalSize(),
+	}
 }
