@@ -46,7 +46,7 @@ return {
 			},
 			outline_items  = {
 				show_symbol_details    = true,
-				show_symbol_lineno     = false,
+				show_symbol_lineno     = true,
 				highlight_hovered_item = true,
 			},
 			-- provider       = {

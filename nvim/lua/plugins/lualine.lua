@@ -4,20 +4,11 @@ return {
 		{
 			'nvim-tree/nvim-web-devicons',
 		},
-		{
-			'Bekaboo/dropbar.nvim',
-		},
 	},
 	config       = function()
 		local lualine = require('lualine')
 		local noice   = require('noice')
 		local utils   = require('utils')
-		---@return string
-		local function breadcrumbs()
-			-- '%{%v:lua.dropbar()%}'
-			---@diagnostic disable-next-line:undefined-global
-			return dropbar()
-		end
 		local ftypes   = {
 			TelescopePrompt = 'Telescope',
 			NvimTree        = 'NvimTree',
@@ -32,7 +23,7 @@ return {
 				{
 					noice.api.status.mode.get,
 					cond = noice.api.status.mode.has
-				}
+				},
 			},
 			lualine_b = {
 				'branch',
@@ -47,7 +38,10 @@ return {
 				},
 			},
 			lualine_x = {
-				'encoding',
+				{
+					'encoding',
+					show_bomb = true,
+				},
 				'fileformat',
 				'filetype',
 			},
@@ -65,7 +59,6 @@ return {
 			lualine_b = {
 			},
 			lualine_c = {
-				breadcrumbs,
 			},
 			lualine_x = {
 			},
@@ -85,7 +78,6 @@ return {
 					mode              = 2,
 					filetype_names    = ftypes,
 					disabled_buftypes = {
-						'nofile',
 						'quickfix',
 						'prompt',
 					},
@@ -94,18 +86,10 @@ return {
 			lualine_b = {
 			},
 			lualine_c = {
-				-- @hack center component
 				{
-					'%=',
-					-- @hack disable separator
-					separator = {},
-				},
-				{
-					'tabs',
-					mode      = 2,
-					path      = 1,
-					-- @hack disable separator
-					separator = {},
+					'buffers',
+					mode           = 4,
+					filetype_names = ftypes,
 				},
 			},
 			-- @todo implement `lualine_m` - middle component
@@ -115,9 +99,9 @@ return {
 			},
 			lualine_z = {
 				{
-					'buffers',
-					mode           = 4,
-					filetype_names = ftypes,
+					'tabs',
+					mode = 2,
+					path = 1,
 				},
 			}
 		}

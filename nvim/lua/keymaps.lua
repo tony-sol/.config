@@ -190,9 +190,9 @@ function M.init()
 		{ 'n' },
 		'<leader>tR',
 		function()
-			telescope_extensions['rest'].select_env()
+			telescope_builtin.resume()
 		end,
-		{ desc = 'Telescope: REST env' }
+		{ desc = 'Telescope: resume' }
 	)
 	keymap.set(
 		{ 'n' },
