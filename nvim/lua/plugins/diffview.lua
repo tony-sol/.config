@@ -1,5 +1,5 @@
 return {
-	'sindrets/diffview.nvim',
+	'dlyongemallo/diffview.nvim',
 	opts = {
 		enhanced_diff_hl = true,
 		view             = {

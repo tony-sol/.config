@@ -2,6 +2,9 @@ return {
 	'nvim-telescope/telescope.nvim',
 	dependencies = {
 		{
+			'nvim-lua/plenary.nvim',
+		},
+		{
 			'nvim-telescope/telescope-file-browser.nvim',
 		},
 		{
@@ -14,18 +17,13 @@ return {
 			'nvim-telescope/telescope-ui-select.nvim',
 		},
 		{
+			'nvim-telescope/telescope-symbols.nvim',
+		},
+		{
 			'debugloop/telescope-undo.nvim',
 		},
-		-- @warn this would mirror kubectl.nvim plugin
-		-- @see https://github.com/kezhenxu94/telescope-kubectl.nvim/issues/1
-		-- {
-		-- 	'kezhenxu94/telescope-kubectl.nvim',
-		-- },
 		{
-			'Marskey/telescope-sg',
-		},
-		{
-			'nvim-lua/plenary.nvim',
+			'marskey/telescope-sg',
 		},
 	},
 	event        = 'VimEnter',
@@ -86,7 +84,6 @@ return {
 					grep_open_files = false,
 					lang            = nil,
 				},
-				-- ['kubectl']        = {},
 			},
 		}
 		telescope.load_extension('file_browser')
@@ -98,6 +95,5 @@ return {
 		telescope.load_extension('ui-select')
 		telescope.load_extension('undo')
 		telescope.load_extension('ast_grep')
-		-- telescope.load_extension('kubectl')
 	end
 }

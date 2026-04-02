@@ -190,9 +190,9 @@ function M.init()
 		{ 'n' },
 		'<leader>tR',
 		function()
-			telescope_extensions['rest'].select_env()
+			telescope_builtin.resume()
 		end,
-		{ desc = 'Telescope: REST env' }
+		{ desc = 'Telescope: resume' }
 	)
 	keymap.set(
 		{ 'n' },
@@ -202,110 +202,6 @@ function M.init()
 		end,
 		{ desc = 'Telescope: undo' }
 	)
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkct',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].contexts()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl contexts' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkcm',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].configmaps()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl configmaps' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkcj',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].cronjobs()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl cronjobs' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkd',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].deployments()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl deployments' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkj',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].jobs()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl jobs' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkr',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].api_resources()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl resources' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkns',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].namespaces()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl namespaces' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkno',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].nodes()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl nodes' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tksc',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].secrets()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl secrets' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tksv',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].services()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl services' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkst',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].statefulsets()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl statefulsets' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkpo',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].pods()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl pods' }
-	-- )
-	-- keymap.set(
-	-- 	{ 'n' },
-	-- 	'<leader>tkpf',
-	-- 	function()
-	-- 		telescope_extensions['kubectl'].port_forwards()
-	-- 	end,
-	-- 	{ desc = 'Telescope: kubectl port forwards' }
-	-- )
 	keymap.set(
 		{ 'n' },
 		'<leader>tf',
@@ -714,24 +610,6 @@ function M.init()
 	)
 	keymap.set(
 		{ 'n' },
-		'<space>e',
-		diagnostic.open_float,
-		{ desc = 'Diagnostic: open float' }
-	)
-	keymap.set(
-		{ 'n' },
-		'[d',
-		diagnostic.goto_prev,
-		{ desc = 'Diagnostic: go to previous' }
-	)
-	keymap.set(
-		{ 'n' },
-		']d',
-		diagnostic.goto_next,
-		{ desc = 'Diagnostic: go to next' }
-	)
-	keymap.set(
-		{ 'n' },
 		']b',
 		function()
 			command.bnext()
@@ -910,7 +788,6 @@ function M.on_lsp_attach(ev)
 		end,
 		utils.merge(opts, { desc = 'Lsp: format' })
 	)
-
 	keymap.set(
 		{ 'n' },
 		'<leader>D',

@@ -12,9 +12,8 @@ return {
 		},
 	},
 	config       = function()
-		---@diagnostic disable: undefined-global
+		---@diagnostic disable-next-line: undefined-global
 		local lsp          = vim.lsp
-		---@diagnostic enable: undefined-global
 		local utils        = require('utils')
 		-- @todo consider switch to vim.lsp.protocol.make_client_capabilities()
 		local capabilities = require('cmp_nvim_lsp').default_capabilities()

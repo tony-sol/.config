@@ -4,27 +4,20 @@ return {
 		{
 			'nvim-tree/nvim-web-devicons',
 		},
-		{
-			'Bekaboo/dropbar.nvim',
-		},
 	},
 	config       = function()
-		local lualine = require('lualine')
-		local noice   = require('noice')
-		local utils   = require('utils')
-		---@return string
-		local function breadcrumbs()
-			-- '%{%v:lua.dropbar()%}'
-			---@diagnostic disable-next-line:undefined-global
-			return dropbar()
-		end
+		---@diagnostic disable-next-line: undefined-global
+		local fn       = vim.fn
+		local lualine  = require('lualine')
+		local noice    = require('noice')
+		local utils    = require('utils')
 		local ftypes   = {
-			TelescopePrompt = 'Telescope',
 			NvimTree        = 'NvimTree',
-			dashboard       = 'Dashboard',
-			packer          = 'Packer',
-			fzf             = 'FZF',
-			alpha           = 'Alpha',
+			Outline         = 'Outline',
+			TelescopePrompt = 'Telescope',
+			fzf             = 'Fzf',
+			noice           = 'Noice',
+			trouble         = 'Trouble',
 		}
 		local sections = {
 			lualine_a = {
@@ -32,7 +25,7 @@ return {
 				{
 					noice.api.status.mode.get,
 					cond = noice.api.status.mode.has
-				}
+				},
 			},
 			lualine_b = {
 				'branch',
@@ -47,7 +40,14 @@ return {
 				},
 			},
 			lualine_x = {
-				'encoding',
+				{
+					noice.api.status.search.get,
+					cond = noice.api.status.search.has,
+				},
+				{
+					'encoding',
+					show_bomb = true,
+				},
 				'fileformat',
 				'filetype',
 			},
@@ -59,25 +59,6 @@ return {
 				'selectioncount',
 			}
 		}
-		local winbar   = {
-			lualine_a = {
-			},
-			lualine_b = {
-			},
-			lualine_c = {
-				breadcrumbs,
-			},
-			lualine_x = {
-			},
-			lualine_y = {
-			},
-			lualine_z = {
-				{
-					noice.api.status.search.get,
-					cond = noice.api.status.search.has,
-				},
-			}
-		}
 		local tabline  = {
 			lualine_a = {
 				{
@@ -85,54 +66,67 @@ return {
 					mode              = 2,
 					filetype_names    = ftypes,
 					disabled_buftypes = {
-						'nofile',
-						'quickfix',
-						'prompt',
 					},
 				},
 			},
 			lualine_b = {
+				{
+					'buffers',
+					mode           = 4,
+					filetype_names = ftypes,
+				},
 			},
 			lualine_c = {
-				-- @hack center component
-				{
-					'%=',
-					-- @hack disable separator
-					separator = {},
-				},
-				{
-					'tabs',
-					mode      = 2,
-					path      = 1,
-					-- @hack disable separator
-					separator = {},
-				},
 			},
-			-- @todo implement `lualine_m` - middle component
 			lualine_x = {
 			},
 			lualine_y = {
 			},
 			lualine_z = {
 				{
-					'buffers',
-					mode           = 4,
-					filetype_names = ftypes,
+					'tabs',
+					mode = 2,
+					path = 1,
+					---@diagnostic disable-next-line: unused-local
+					fmt = function(name, context)
+						return fn.fnamemodify(fn.getcwd(fn.tabpagewinnr(context.tabnr), context.tabnr), ':~')
+					end
 				},
+			}
+		}
+		local winbar   = {
+			lualine_a = {
+			},
+			lualine_b = {
+			},
+			lualine_c = {
+			},
+			lualine_x = {
+			},
+			lualine_y = {
+			},
+			lualine_z = {
 			}
 		}
 		lualine.setup {
 			options           = {
-				icons_enabled        = true,
-				component_separators = { left = '', right = '' },
-				section_separators   = { left = '', right = '' },
-				disabled_filetypes   = {
+				disabled_filetypes = {
 					statusline = {
 					},
 					winbar     = {
+						'',
 						'NvimTree',
 						'Outline',
-						'Trouble',
+						'noice',
+						'qf',
+						'trouble',
+						-- @todo fetch ftypes from require('kubectl')
+						'k8s_deployments',
+						'k8s_pods',
+						'k8s_configmaps',
+						'k8s_secrets',
+						'k8s_services',
+						'k8s_ingresses',
 					},
 				},
 			},
@@ -144,14 +138,17 @@ return {
 			tabline           = tabline,
 			winbar            = winbar,
 			inactive_winbar   = utils.merge(winbar, {
+				lualine_a = {
+				},
 			}),
 			extensions        = {
 				'fzf',
 				'lazy',
 				'man',
 				'mason',
-				'nvim-tree',
 				'nvim-dap-ui',
+				'nvim-tree',
+				'quickfix',
 				'symbols-outline',
 				'trouble',
 			},
