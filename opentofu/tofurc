@@ -1,0 +1,6 @@
+plugin_cache_dir = "${XDG_CACHE_HOME}/opentofu/plugins-cache"
+
+registry_protocols {
+  retry_count = 3
+  request_timeout_seconds = 30
+}
