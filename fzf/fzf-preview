@@ -1,33 +1,49 @@
 #!/usr/bin/env zsh
 
-file=$1
+local file="$1"
+local mime_type mime_subtype
+IFS="/" read -r mime_type mime_subtype <<< $(file --brief --dereference --mime-type "$file")
 
-case $(file --brief --dereference --mime-type "$file") in
-	inode/x-empty)
-		echo 'inode/x-empty files cannot be previewed'
-		;;
-	application/octet-stream*)
-		echo 'application/octet-stream files cannot be previewed'
-		;;
-	application/x*-binary*)
-		echo 'application/x*-binary* files cannot be previewed'
-		;;
-	application/vnd.openxmlformats-officedocument.*)
-		echo 'OpenXML office document formats cannot be previewed'
-		;;
-	application/gzip|application/x-tar*|application/x-compressed-tar*|application/x-*-compressed-tar*)
-		tar -tvf "$file"
-		;;
-	application/zip*)
-		unzip -l "$file"
-		;;
-	inode/directory)
-		tree -CalFN "$file" | head -200
-		;;
-	image/*)
+setopt extendedglob
+
+case "$mime_type" in
+	(#i)application)
+		case "$mime_subtype" in
+			(#i)vnd.openxmlformats-officedocument.*)
+				echo 'OpenXML office document formats cannot be previewed'
+				return ;;
+			(#i)gzip|x-tar*|x-compressed-tar*|x-*-compressed-tar*)
+				tar -tvf "$file"
+				return ;;
+			(#i)zip*)
+				unzip -l "$file"
+				return ;;
+		esac
+		;|
+	(#i)inode)
+		case "$mime_subtype" in
+			directory)
+				tree -CalFN "$file" | head -200
+				return ;;
+		esac
+		;|
+	(#i)text)
+		case "$mime_subtype" in
+			*)
+				case "${file##*.}" in
+					(#i)md)
+						glow "$file"
+						return ;;
+					*)
+						bat --color=always --paging=never --style=changes,numbers "$file"
+						return ;;
+				esac
+		esac
+		;|
+	(#i)image)
 		wezterm imgcat --no-resample --tmux-passthru=detect --height="${FZF_PREVIEW_LINES:-auto}" --width="${FZF_PREVIEW_COLUMNS:-auto}" "$file"
 		;;
 	*)
-		bat --color=always --paging=never --style=changes,numbers "$file"
+		echo "$file: unsupported mime-type: ${mime_type}/${mime_subtype}" >&2
 		;;
 esac
