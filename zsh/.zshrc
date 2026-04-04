@@ -89,7 +89,7 @@ source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 source "${ZDOTDIR}/plugins/zsh-lazyload/zsh-lazyload.plugin.zsh"
 # }}}
 # zsh plugin ssh ================================================= {{{
-source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
+source "${ZDOTDIR}/plugins/zsh-fuzzy-ssh/zsh-fuzzy-ssh.plugin.zsh"
 # }}}
 # zsh plugin git aware prompt ==================================== {{{
 # @todo https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
@@ -102,15 +102,6 @@ fi
 # }}}
 # hooks ========================================================== {{{
 (( $+commands[fzf] )) && source <(fzf --zsh)
-(( $+commands[mise] )) && source <(mise activate zsh)
-
-if (( $+commands[mise] )); then
-	# @note get lua install location as system rocks_tree
-	# @todo check is this REALLY needed
-	__lua=$(mise where lua 2>/dev/null) && {
-		export LUAROCKS_HOME="${__lua}/luarocks"
-	} && unset __lua
-fi
 
 # @note use vivid colors generation if vivid installed
 (( $+commands[vivid] )) && export LS_COLORS=$(vivid generate "${XDG_CONFIG_HOME}/vivid/themes/${COLORTHEME}-${COLORSCHEME}.yml")

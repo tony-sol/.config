@@ -24,9 +24,9 @@
 	path = zsh/plugins/zsh-lazyload
 	url = git@github.com:tony-sol/zsh-lazyload.git
 	branch = master
-[submodule "zsh/plugins/zsh-ssh"]
-	path = zsh/plugins/zsh-ssh
-	url = git@github.com:tony-sol/zsh-ssh.git
+[submodule "zsh/plugins/zsh-fuzzy-ssh"]
+	path = zsh/plugins/zsh-fuzzy-ssh
+	url = git@github.com:tony-sol/zsh-fuzzy-ssh.git
 	branch = master
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting

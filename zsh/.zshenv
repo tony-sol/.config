@@ -35,6 +35,7 @@ export XDG_TEMPLATES_DIR="${XDG_TEMPLATES_DIR:-${HOME}/Templates}"
 export XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-${HOME}/Videos}"
 # }}}
 # set zsh configs ================================================ {{{
+export SHELL=/usr/bin/zsh
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=2000000
@@ -226,6 +227,16 @@ if [[ -d "${HOMEBREW_PREFIX}/bin" ]]; then
 	path=( "${HOMEBREW_PREFIX}/bin" "${HOMEBREW_PREFIX}/sbin" $path[@] )
 fi
 path=( $XDG_BIN_HOME $MISE_SHIMS "${PYTHONUSERBASE}/bin" $MASON_BIN $KREW_BIN $GEM_BIN $CARGO_BIN $GOBIN $path[@] )
+
+if (( $+commands[mise] )); then
+	# @note activate mise in zshenv for non-interactive usage
+	source <(mise activate "${SHELL##*/}")
+	# @note get lua install location as system rocks_tree
+	# @todo check is this REALLY needed
+	__lua=$(mise where lua 2>/dev/null) && {
+		export LUAROCKS_HOME="${__lua}/luarocks"
+	} && unset __lua
+fi
 # }}}
 
 # =====================================================================
