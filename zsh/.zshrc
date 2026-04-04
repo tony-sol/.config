@@ -15,7 +15,7 @@ if [[ -d "${HOMEBREW_PREFIX}/share" ]]; then
 	manpath=( "${HOMEBREW_PREFIX}/share/man" $manpath[@] )
 	infopath=( "${HOMEBREW_PREFIX}/share/info" $infopath[@] )
 fi
-fpath=( "${ZDOTDIR}/plugins/zsh-completions/src" $fpath[@] )
+# fpath=( $fpath[@] )
 # manpath=( $manpath[@] )
 # infopath=( $infopath[@] )
 # }}}
@@ -89,7 +89,7 @@ source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 source "${ZDOTDIR}/plugins/zsh-lazyload/zsh-lazyload.plugin.zsh"
 # }}}
 # zsh plugin ssh ================================================= {{{
-source "${ZDOTDIR}/plugins/zsh-ssh/zsh-ssh.plugin.zsh"
+source "${ZDOTDIR}/plugins/zsh-fuzzy-ssh/zsh-fuzzy-ssh.plugin.zsh"
 # }}}
 # zsh plugin git aware prompt ==================================== {{{
 # @todo https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
@@ -97,20 +97,11 @@ source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh"
 # }}}
 # autoload ssh keys ============================================== {{{
 if [[ -z "${SSH_CONNECTION}" ]]; then
-	ssh-add -ql >/dev/null || find ~/.ssh/keys -type f -and -not -iname '*.pub' -and -not -iname '*.ppk' -exec ssh-add -q {} \;
+	ssh-add -ql >/dev/null || find ~/.ssh/keys -type f -and -not -iname '*.pub' -and -not -iname '*.ppk' -exec ssh-add -q {} \; 2>/dev/null
 fi
 # }}}
 # hooks ========================================================== {{{
 (( $+commands[fzf] )) && source <(fzf --zsh)
-(( $+commands[mise] )) && source <(mise activate zsh)
-
-if (( $+commands[mise] )); then
-	# @note get lua install location as system rocks_tree
-	# @todo check is this REALLY needed
-	__lua=$(mise where lua 2>/dev/null) && {
-		export LUAROCKS_HOME="${__lua}/luarocks"
-	} && unset __lua
-fi
 
 # @note use vivid colors generation if vivid installed
 (( $+commands[vivid] )) && export LS_COLORS=$(vivid generate "${XDG_CONFIG_HOME}/vivid/themes/${COLORTHEME}-${COLORSCHEME}.yml")
@@ -144,8 +135,15 @@ if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat --paging=always --language=man --style=plain'"
 	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
 	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
-	view() { for arg in $@; do $XDG_CONFIG_HOME/fzf/fzf-preview $arg; [[ "$arg" =~ "$@[-1]" ]] || echo; done }
 fi
+# }}}
+# functions ====================================================== {{{
+view() {
+	for arg in "$@"; do
+		$XDG_CONFIG_HOME/fzf/fzf-preview "$arg";
+		[[ "$arg" =~ "$@[-1]" ]] || echo;
+	done
+}
 # }}}
 # keymappings ==================================================== {{{
 bindkey "^[[1;3C" forward-word
