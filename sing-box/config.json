@@ -1,41 +1,133 @@
+// vim: filetype=jsonc
 {
 	"log": {
 		"level": "info",
 		"timestamp": true
 	},
 	"dns": {
+		"strategy": "ipv4_only",
+		"reverse_mapping": true,
 		"servers": [
 			{
 				"type": "local",
 				"tag": "local"
+			},
+			{
+				"type": "https",
+				"tag": "dns-secure",
+				"server": "8.8.8.8",
+				"tls": {
+					"server_name": "dns.google"
+				}
+			},
+			{
+				"type": "https",
+				"tag": "dns-direct",
+				"server": "77.88.8.88",
+				"tls": {
+					"server_name": "safe.dot.dns.yandex.net"
+				}
 			}
 		],
-		"rules": []
+		"rules": [
+			{
+				"rule_set": [
+					"sites-direct"
+				],
+				"server": "dns-direct"
+			}
+		]
 	},
 	"inbounds": [
 		{
-			"type": "mixed",
-			"tag": "mixed-in",
-			"listen": "127.0.0.1",
-			"listen_port": 2080,
-			"set_system_proxy": true,
-			"sniff": true,
-			"domain_strategy": "prefer_ipv4"
+			"type": "tun",
+			"tag": "tun-in",
+			"address": [
+				"fdfe:dcba:9876::1/126",
+				"172.19.0.1/30"
+			],
+			"auto_route": true,
+			"stack": "mixed",
+			"mtu": 1400,
+			"route_exclude_address": [
+				"192.168.0.0/16",
+				"224.0.0.0/4",
+				"255.255.255.255/32"
+			]
+		}
+	],
+	"outbounds": [
+		// @note must be in ./outbounds.json
+		// {
+		// 	"type": "selector",
+		// 	"tag": "proxy-select",
+		// 	"outbounds": [
+		// 	],
+		// 	"interrupt_exist_connections": true
+		// },
+		{
+			"type": "direct",
+			"tag": "direct"
 		}
 	],
 	"route": {
+		"final": "proxy-select",
+		"auto_detect_interface": true,
+		"default_domain_resolver": {
+			"server": "dns-secure"
+		},
 		"rules": [
+			{
+				"action": "sniff",
+				"sniffer": [
+					"http",
+					"tls",
+					"dns",
+					"quic"
+				],
+				"timeout": "300ms"
+			},
 			{
 				"protocol": "dns",
 				"action": "hijack-dns"
+			},
+			{
+				"action": "resolve"
+			},
+			{
+				"rule_set": [
+					"sites-direct"
+				],
+				"action": "route",
+				"outbound": "direct"
 			}
 		],
-		"rule_set": [],
-		"auto_detect_interface": true
+		"rule_set": [
+			{
+				"tag": "sites-direct",
+				"rules": [
+					{
+						"domain_suffix": [
+							".ru",
+							".su",
+							".xn--p1ai",
+							"yandex.net",
+							"yastatic.net",
+							"vk.com",
+							"vk-portal.net",
+							"2gis.com"
+						]
+					}
+				]
+			}
+		]
 	},
 	"experimental": {
 		"cache_file": {
 			"enabled": false
+		},
+		"clash_api": {
+			"external_controller": "127.0.0.1:9090"
 		}
 	}
 }
