@@ -43,6 +43,7 @@ opentofu = "latest" # open-source hashicorp/terraform
 process-compose = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
+sing-box = "latest"
 ttyd = "latest"
 vivid = "latest"
 yq = "latest"

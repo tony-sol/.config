@@ -13,7 +13,7 @@ curl --silent --location <your-subscription-url> | base64 --decode | fzf --delim
 ### Create outbounds with all connections:
 
 ```shell
-./outbounds <your-subscription-url> | yq --input-format=json --output-format=json eval '{"outbounds": .}' > outbounds.json
+./outbounds <your-subscription-url> --no-fzf | yq --input-format=json --output-format=json eval '{"outbounds": .}' > outbounds.json
 ```
 
 ### Create outbounds with selected connections:
@@ -55,6 +55,9 @@ Wants=network.target network-online.target systemd-networkd-wait-online.service
 
 [Service]
 ConfigurationDirectory=sing-box
+StateDirectory=sing-box
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_PTRACE CAP_DAC_READ_SEARCH
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_PTRACE CAP_DAC_READ_SEARCH
 ExecReload=/bin/kill -HUP $MAINPID
 ExecStart=/usr/bin/sing-box -D ${STATE_DIRECTORY} -C ${CONFIGURATION_DIRECTORY} run
 LimitNOFILE=infinity
@@ -70,7 +73,6 @@ Restart=on-failure
 RestartSec=10s
 RestrictNamespaces=true
 RestrictRealtime=true
-StateDirectory=sing-box
 SystemCallArchitectures=native
 SystemCallFilter=@system-service
 
