@@ -5,10 +5,10 @@ pitchfork = "latest"
 usage = "latest"
 # langs
 go = "latest"
-lua = "latest" # use 5.1 for neovim, requires unzip
+lua = [{ version = "latest" }, { version = "5.1" }]
 node = "latest"
 python = "latest"
-ruby = "latest" # requires libz-dev libssl-dev libffi-dev libyaml-dev
+ruby = "latest"  # requires libz-dev libssl-dev libffi-dev libyaml-dev
 rust = "latest"
 # langs package managers
 yarn = "latest"
@@ -17,9 +17,10 @@ pipx = "latest"
 poetry = "latest"
 # cli tools
 act = "latest"
-ansible = "latest"
+ansible = { version = "latest", depends = ["pipx@latest"] }
 ast-grep = "latest"
 bat = "latest"
+btop = "latest"
 ctop = "latest"
 doggo = "latest"
 eza = "latest"
@@ -37,13 +38,18 @@ lazygit = "latest"
 lazyjournal = "latest"
 lima = "latest"
 mutagen = "latest"
+neovim = { version = "latest", depends = ["lua@5.1", "tree-sitter@latest"] }
 octosql = "latest"
-openbao = "latest" # open-source hashicorp/vault
-opentofu = "latest" # open-source hashicorp/terraform
+openbao = "latest"  # open-source hashicorp/vault
+opentofu = "latest"  # open-source hashicorp/terraform
+podlet = "latest"
+podman = { version = "latest", rename_exe = "podman-remote" }
+podman-tui = "latest"
 process-compose = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
-sing-box = "latest"
+sing-box = { version = "latest", system = true }
+tree-sitter = "latest"
 ttyd = "latest"
 vivid = "latest"
 yq = "latest"
@@ -60,20 +66,25 @@ kustomize = "latest"
 minikube = "latest"
 
 [settings]
-activate_aggressive = false
-always_keep_download = false
-always_keep_install = false
+# @see https://mise.jdx.dev/configuration/settings.html#auto_install
 auto_install = false
-env_file = ".env"
+# @see https://mise.jdx.dev/configuration/settings.html#env_shell_expand
+env_shell_expand = false
+# @see https://mise.jdx.dev/configuration/settings.html#experimental
 experimental = true
+# @see https://mise.jdx.dev/configuration/settings.html#paranoid
 paranoid = true
-quiet = false
+# @see https://mise.jdx.dev/configuration/settings.html#raw
 raw = true
-verbose = false
-yes = true
-# don't override GOBIN...
-go_set_gobin = false
-# ...but setup GOROOT
-go_set_goroot = true
+# @see https://mise.jdx.dev/configuration/settings.html#trusted_config_paths
 # trust all mise configs in XDG_PROJECTS_DIR
-trusted_config_paths = [ "~/Projects/" ]
+trusted_config_paths = ["~/Projects"]
+
+[settings.go]
+# @see https://mise.jdx.dev/configuration/settings.html#go.set_gobin
+# don't override GOBIN set in .zshenv
+set_gobin = false
+
+[settings.node]
+# @see https://github.com/jdx/mise/discussions/5027
+gpg_verify = false
