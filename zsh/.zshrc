@@ -19,31 +19,6 @@ fi
 # manpath=( $manpath[@] )
 # infopath=( $infopath[@] )
 # }}}
-# zsh vi mode with cursor style ================================== {{{
-function zle-keymap-select zle-line-init {
-	case "${KEYMAP}" in
-		vicmd)
-			psvar[1]=$'\U276E'
-			print -n -- '\033[2 q'
-			;;
-		viins|main)
-			psvar[1]=$'\U276F'
-			print -n -- '\033[6 q'
-			;;
-	esac
-	zle reset-prompt
-	zle -R
-}
-
-function zle-line-finish {
-	print -n -- '\033[2 q'
-}
-
-setopt VI
-zle -N zle-line-init
-zle -N zle-line-finish
-zle -N zle-keymap-select
-# }}}
 # options ======================================================== {{{
 setopt INTERACTIVE_COMMENTS
 setopt HIST_IGNORE_DUPS
@@ -58,13 +33,54 @@ setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
+setopt PROMPT_SUBST
+setopt VI
 # }}}
 # prompt ========================================================= {{{
-setopt PROMPT_SUBST
-# '\U276E'='❮'; '\U276F'='❯'
+function zle-keymap-select zle-line-init {
+	case "${KEYMAP}" in
+		vicmd)
+			# '\U276E'='❮'
+			psvar[1]=$'\U276E'
+			print -n -- '\033[2 q'
+			;;
+		viins|main)
+			# '\U276F'='❯'
+			psvar[1]=$'\U276F'
+			print -n -- '\033[6 q'
+			;;
+	esac
+	zle reset-prompt
+	zle -R
+}
+
+function zle-line-finish {
+	print -n -- '\033[2 q'
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+
 # @see https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Prompt-Expansion
+# %(!,A,B)  - use A if shell running with privileges, B otherwise
+# %S/%s     - start/stop standout mode
+# %B/%b     - start/stop bold text
+# %F{C}/%f  - start/stop using foreground Color
+# %~        - current working directory
+# %(N?,A,B) - use A if exit status of the last command was N (default N is 0), B otherwise
+# %Nv       - psvar[N] (default N is 1)
 export PROMPT='%(!,%S,)%B%F{cyan}%~ %(?,%F{green},%F{red})%v%b%f%(!,%s,) '
-export RPROMPT='%B%F{green}$git_ahead_mark$git_ahead_count%F{red}$git_behind_mark$git_behind_count%F{cyan}$git_stash_mark$git_stash_count%F{yellow}$git_dirty_mark$git_dirty_count%F{blue}$git_staged_mark$git_staged_count%F{magenta}$git_unknown_mark$git_unknown_count%b%F{cyan} $git_branch%(?,, %B%F{red}%?%b%f)%F{cyan} %D{%H:%M:%S}%b%f'
+# %?    - return status of the last command
+# %D{f} - current date in f-string format
+#   %H  - the hour as a decimal number using a 24-hour clock
+#   %M  - the minute as a decimal number
+#   %S  - the second as a decimal number
+export RPROMPT='%(?,,%B%F{red}%?%b%f )%F{cyan}%D{%H:%M:%S}%f'
+
+# @todo https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
+source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh"
+export RPROMPT="%B%F{green}\$git_ahead_mark\$git_ahead_count%F{red}\$git_behind_mark\$git_behind_count%F{cyan}\$git_stash_mark\$git_stash_count%F{yellow}\$git_dirty_mark\$git_dirty_count%F{blue}\$git_staged_mark\$git_staged_count%F{magenta}\$git_unknown_mark\$git_unknown_count%b%F{cyan} \$git_branch%f $RPROMPT"
 # }}}
 # zsh plugin syntax highlighting ================================= {{{
 source "${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
@@ -73,6 +89,7 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[alias]="fg=blue"
+# }}}
 # zsh plugin autocomplete ======================================== {{{
 source "${ZDOTDIR}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 bindkey "\t" menu-select "${terminfo}[kcbt]" menu-select
@@ -90,10 +107,6 @@ source "${ZDOTDIR}/plugins/zsh-lazyload/zsh-lazyload.plugin.zsh"
 # }}}
 # zsh plugin ssh ================================================= {{{
 source "${ZDOTDIR}/plugins/zsh-fuzzy-ssh/zsh-fuzzy-ssh.plugin.zsh"
-# }}}
-# zsh plugin git aware prompt ==================================== {{{
-# @todo https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
-source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh"
 # }}}
 # autoload ssh keys ============================================== {{{
 if [[ -z "${SSH_CONNECTION}" ]]; then
@@ -135,6 +148,11 @@ if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat --paging=always --language=man --style=plain'"
 	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
 	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
+fi
+
+# @note use ctop wrapper only if ctop installed
+if (( $+commands[ctop] )); then
+	alias ctop='TERM="${TERM/tmux/screen}" ctop'
 fi
 # }}}
 # functions ====================================================== {{{
