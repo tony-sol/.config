@@ -11,6 +11,11 @@ Import-Module PSReadLine || Install-Module PSReadLine && &{
     Set-PSReadLineOption -MaximumHistoryCount 2000000
     Set-PSReadLineOption -HistoryNoDuplicates:$true
     Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
+    Set-PSReadLineOption -AddToHistoryHandler {
+        param([String]$line)
+        # Do not store lines starting with whitespaces
+        return $line -notMatch '^\s+'
+    }
     Set-PSReadLineOption -PredictionSource HistoryAndPlugin
     Set-PSReadlineOption -EditMode Vi
     Set-PSReadLineOption -ViModeIndicator Script
@@ -78,4 +83,3 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 if (Test-Path "${PSScriptRoot}\Profile.after.ps1") {
 	. "${PSScriptRoot}\Profile.after.ps1"
 }
-
