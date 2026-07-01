@@ -21,16 +21,24 @@ return {
 		}
 		local sections = {
 			lualine_a = {
-				'mode',
+				{
+					'mode',
+				},
 				{
 					noice.api.status.mode.get,
 					cond = noice.api.status.mode.has
 				},
 			},
 			lualine_b = {
-				'branch',
-				'diff',
-				'diagnostics',
+				{
+					'branch',
+				},
+				{
+					'diff',
+				},
+				{
+					'diagnostics',
+				},
 			},
 			lualine_c = {
 				{
@@ -48,21 +56,32 @@ return {
 					'encoding',
 					show_bomb = true,
 				},
-				'fileformat',
-				'filetype',
+				{
+					'fileformat',
+				},
+				{
+					'filetype',
+				},
 			},
 			lualine_y = {
-				'progress',
+				{
+					'progress',
+				},
 			},
 			lualine_z = {
-				'location',
-				'selectioncount',
+				{
+					'location',
+				},
+				{
+					'selectioncount',
+				},
 			}
 		}
 		local tabline  = {
 			lualine_a = {
 				{
 					'windows',
+					use_mode_colors   = true,
 					mode              = 2,
 					filetype_names    = ftypes,
 					disabled_buftypes = {
@@ -70,11 +89,6 @@ return {
 				},
 			},
 			lualine_b = {
-				{
-					'buffers',
-					mode           = 4,
-					filetype_names = ftypes,
-				},
 			},
 			lualine_c = {
 			},
@@ -85,10 +99,11 @@ return {
 			lualine_z = {
 				{
 					'tabs',
-					mode = 2,
-					path = 1,
+					use_mode_colors = true,
+					mode            = 2,
+					path            = 1,
 					---@diagnostic disable-next-line: unused-local
-					fmt = function(name, context)
+					fmt             = function(name, context)
 						return fn.fnamemodify(fn.getcwd(fn.tabpagewinnr(context.tabnr), context.tabnr), ':~')
 					end
 				},
@@ -96,6 +111,12 @@ return {
 		}
 		local winbar   = {
 			lualine_a = {
+				{
+					'buffers',
+					use_mode_colors = true,
+					mode            = 4,
+					filetype_names  = ftypes,
+				},
 			},
 			lualine_b = {
 			},
@@ -138,8 +159,6 @@ return {
 			tabline           = tabline,
 			winbar            = winbar,
 			inactive_winbar   = utils.merge(winbar, {
-				lualine_a = {
-				},
 			}),
 			extensions        = {
 				'fzf',
