@@ -2,53 +2,10 @@
 
 ---@diagnostic disable-next-line:undefined-global
 local hyprland = hl
+local colors   = require('utils.colors')
 
-------------------
----- MONITORS ----
-------------------
+require('land/monitor')
 
--- @See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hyprland.monitor({
-	output   = "",
-	mode     = "3840x2160@120",
-	position = "auto",
-	scale    = 1.25,
-	bitdepth = 10
-})
-
-
--------------------
----- AUTOSTART ----
--------------------
-
--- @See https://wiki.hypr.land/Configuring/Basics/Autostart/
-
-require('land/autostarts')
-
-
--------------------------------
----- ENVIRONMENT VARIABLES ----
--------------------------------
-
--- @See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
-require('land/environment')
-
-
------------------------
------ PERMISSIONS -----
------------------------
-
--- @See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
-
-require('land/permissions')
-
-
--------------------
----- VARIABLES ----
--------------------
-
--- @See https://wiki.hypr.land/Configuring/Basics/Variables/
 hyprland.config({
 	general = {
 		border_size             = 2,
@@ -57,18 +14,16 @@ hyprland.config({
 		float_gaps              = 0,
 		gaps_workspaces         = 0,
 		col                     = {
-			active_border         = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-			inactive_border       = "rgba(595959aa)",
-			nogroup_border        = "rgba(ffaaffff)",
-			nogroup_border_active = "rgba(ff00ffff)",
+			active_border         = { colors = { colors.cyan, colors.green }, angle = 45 },
+			inactive_border       = colors.gray,
+			nogroup_border        = colors.magenta,
+			nogroup_border_active = colors.magenta_bright,
 		},
 		layout                  = "dwindle",
 		no_focus_fallback       = false,
-		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
 		resize_on_border        = true,
 		extend_border_grab_area = 15,
 		hover_icon_on_border    = true,
-		-- Please @see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
 		allow_tearing           = false,
 		resize_corner           = 0,
 		modal_parent_blocking   = true,
@@ -80,11 +35,9 @@ hyprland.config({
 			respect_gaps = true,
 		},
 	},
-	-- @See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 	dwindle = {
 		preserve_split = true,
 	},
-	-- @See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 	master = {
 		new_status = "master",
 	},
@@ -92,89 +45,91 @@ hyprland.config({
 		enabled = true,
 		force_zero_scaling = false,
 	},
-	-- @See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 	scrolling = {
 		fullscreen_on_one_column = true,
 	},
-})
-
-require('land/animations')
-require('land/decorations')
-
-
----------------
----- INPUT ----
----------------
-
--- @See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
-
-require('land/inputs')
-
-
----------------------
----- KEYBINDINGS ----
----------------------
-
-require('land/binds')
-
-
------------------
----- PLUGINS ----
------------------
-
-require('land/plugins')
-
-
---------------------------------
----- WINDOWS AND WORKSPACES ----
---------------------------------
-
--- @See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- @Seettps://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
-
--- local suppressMaximizeRule = hyprland.window_rule({
--- 	-- Ignore maximize requests from all apps. You'll probably like this.
--- 	name           = "suppress-maximize-events",
--- 	match          = { class = ".*" },
-
--- 	suppress_event = "maximize",
--- })
--- suppressMaximizeRule:set_enabled(false)
-
-hyprland.window_rule({
-	-- Fix some dragging issues with XWayland
-	name     = "fix-xwayland-drags",
-	match    = {
-		class      = "^$",
-		title      = "^$",
-		xwayland   = true,
-		float      = true,
-		fullscreen = false,
-		pin        = false,
+	animations = {
+		enabled = true,
 	},
-	no_focus = true,
+	decoration = {
+		rounding = 10,
+		rounding_power = 2,
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
+		fullscreen_opacity = 1.0,
+		dim_modal = true,
+		dim_inactive = false,
+		dim_strength = 0.5,
+		dim_special = 0.2,
+		dim_around = 0.4,
+		screen_shader = "",
+		border_part_of_window = true,
+		blur = {
+			enabled = true,
+			size = 3,
+			passes = 1,
+			ignore_opacity = true,
+			new_optimizations = true,
+			xray = false,
+			noise = 0.0117,
+			contrast = 0.8916,
+			brightness = 0.8172,
+			vibrancy = 0.1696,
+			vibrancy_darkness = 0.0,
+			special = false,
+			popups = false,
+			popups_ignorealpha = 0.2,
+			input_methods = false,
+			input_methods_ignorealpha = 0.2,
+		},
+		shadow = {
+			enabled = true,
+			range = 4,
+			render_power = 3,
+			sharp = false,
+			color = "rgba(1a1a1aee)",
+			offset = "0, 0",
+			scale = 1.0,
+		},
+	},
+	input = {
+		kb_layout    = "us,ru",
+		kb_variant   = "",
+		kb_model     = "",
+		kb_options   = "grp:alt_shift_toggle",
+		kb_rules     = "",
+		follow_mouse = 1,
+		sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+		touchpad     = {
+			natural_scroll = false,
+		},
+	},
+	ecosystem = {
+		enforce_permissions = true,
+	},
+	-- 	plugin = {
+	-- 		hyprbars = {
+	-- 			bar_height = 20,
+	-- 			on_double_click = "hyprctl dispatch fullscreen 1"
+	-- 		},
+	-- 		hyprexpo = {
+	-- 			columns          = 3,
+	-- 			gap_size         = 5,
+	-- 			bg_col           = "rgb(111111)",
+	-- 			workspace_method = "center current",
+	-- 			enable_gesture   = true,
+	-- 			gesture_fingers  = 3,
+	-- 			gesture_distance = 300,
+	-- 			gesture_positive = true,
+	-- 		},
+	-- 	}
 })
 
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
+require('land/autostarts')
+require('land/environment')
+require('land/permissions')
+require('land/animations')
+require('land/windows_rules')
+require('land/inputs')
+require('land/binds')
+require('land/plugins')
