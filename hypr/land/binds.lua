@@ -65,12 +65,18 @@ hyprland.bind(mainMod .. " + mouse:272", hyprland.dsp.window.drag(), { mouse = t
 hyprland.bind(mainMod .. " + mouse:273", hyprland.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hyprland.bind("XF86AudioRaiseVolume", hyprland.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hyprland.bind("XF86AudioLowerVolume", hyprland.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
-hyprland.bind("XF86AudioMute", hyprland.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
-hyprland.bind("XF86AudioMicMute", hyprland.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true })
-hyprland.bind("XF86MonBrightnessUp", hyprland.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hyprland.bind("XF86MonBrightnessDown", hyprland.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+hyprland.bind("XF86AudioRaiseVolume", hyprland.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true })
+hyprland.bind("XF86AudioLowerVolume", hyprland.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true })
+hyprland.bind("XF86AudioMute", hyprland.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	{ locked = true, repeating = true })
+hyprland.bind("XF86AudioMicMute", hyprland.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	{ locked = true, repeating = true })
+hyprland.bind("XF86MonBrightnessUp", hyprland.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),
+	{ locked = true, repeating = true })
+hyprland.bind("XF86MonBrightnessDown", hyprland.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),
+	{ locked = true, repeating = true })
 
 -- Requires playerctl
 hyprland.bind("XF86AudioNext", hyprland.dsp.exec_cmd("playerctl next"), { locked = true })

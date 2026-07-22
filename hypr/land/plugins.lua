@@ -1,25 +1,6 @@
 ---@diagnostic disable-next-line:undefined-global
 local hyprland = hl
 
--- hyprland.config({
--- 	plugin = {
--- 		hyprbars = {
--- 			bar_height = 20,
--- 			on_double_click = "hyprctl dispatch fullscreen 1"
--- 		},
--- 		hyprexpo = {
--- 			columns          = 3,
--- 			gap_size         = 5,
--- 			bg_col           = "rgb(111111)",
--- 			workspace_method = "center current",
--- 			enable_gesture   = true,
--- 			gesture_fingers  = 3,
--- 			gesture_distance = 300,
--- 			gesture_positive = true,
--- 		},
--- 	}
--- })
-
 -- hyprland.plugin.hyprbars.add_button({
 -- 	bg_color = "rgb(ff4040)",
 -- 	fg_color = "rgb(ffffff)",
