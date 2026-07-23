@@ -1,4 +1,3 @@
---pager="less --RAW-CONTROL-CHARS --mouse"
 --map-syntax=".zshenv.*:Bourne Again Shell (bash)"
 --map-syntax=".zshrc.*:Bourne Again Shell (bash)"
 --map-syntax=".zprofile.*:Bourne Again Shell (bash)"

@@ -62,6 +62,8 @@
 	untracked = cyan
 [column]
 	ui = auto
+[alias]
+	root = rev-parse --show-toplevel
 [format]
 	pretty = format:%C(cyan bold)%H%C(reset) %ci %C(italic)(%cr)%C(reset) %C(blue)%cn%C(reset) %C(auto,bold)%G?(%GT)%C(reset) %C(green)%s%C(magenta)%d%C(reset) %C(red)(%an)%C(reset) %C(yellow)[%p]%C(reset)
 [i18n]

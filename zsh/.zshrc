@@ -122,6 +122,7 @@ fi
 # aliases ======================================================== {{{
 alias l='ls --almost-all --color=auto --classify=auto'
 alias ll='l -l --human-readable'
+alias disks='lsblk -o UUID,PARTUUID,NAME,LABEL,PARTLABEL,TYPE,MOUNTPOINT,SIZE,FSTYPE,FSSIZE'
 
 # @note use tree aliases only if tree installed
 if (( $+commands[tree] )); then

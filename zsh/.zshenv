@@ -51,9 +51,18 @@ export VISUAL=vim
 export CLICOLOR=1
 export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 export COLORTERM=truecolor
-export COLORTHEME=tokyonight
-# @todo use `gsettings get org.gnome.desktop.interface color-scheme` or `dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color-scheme`
-export COLORSCHEME=dark
+export COLORTHEME="${COLORTHEME:-tokyonight}"
+# @todo also check `gsettings get org.gnome.desktop.interface color-scheme`
+export COLORSCHEME=$(
+	case "$(dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color 2>/dev/null)" in
+		*0)
+			echo 'light'
+			;;
+		*)
+			echo 'dark'
+			;;
+	esac
+)
 # }}}
 # set ssh socket ================================================= {{{
 if [[ -z "${SSH_CONNECTION}" ]]; then
