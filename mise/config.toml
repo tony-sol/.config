@@ -17,7 +17,7 @@ pipx = "latest"
 poetry = "latest"
 # cli tools
 act = "latest"
-ansible = { version = "latest", depends = ["pipx@latest"] }
+ansible = [{ version = "latest", depends = ["pipx@latest"] }]
 ast-grep = "latest"
 bat = "latest"
 btop = "latest"
@@ -38,23 +38,24 @@ lazygit = "latest"
 lazyjournal = "latest"
 lima = "latest"
 mutagen = "latest"
-neovim = { version = "latest", depends = ["lua@5.1", "tree-sitter@latest"] }
+neovim = [{ version = "latest", depends = ["lua@5.1", "tree-sitter@latest"] }]
 octosql = "latest"
 openbao = "latest"  # open-source hashicorp/vault
 opentofu = "latest"  # open-source hashicorp/terraform
 podlet = "latest"
-podman = { version = "latest", rename_exe = "podman-remote" }
+podman = [{ version = "latest", rename_exe = "podman-remote" }]
 podman-tui = "latest"
 process-compose = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
-sing-box = { version = "latest", system = true }
+sing-box = [{ version = "latest", system = true }]
 tree-sitter = "latest"
 ttyd = "latest"
 vivid = "latest"
 yq = "latest"
 # container tools
 argocd = "latest"
+clusterctl = "latest"
 helm = "latest"
 helmfile = "latest"
 helmwave = "latest"
