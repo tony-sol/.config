@@ -53,9 +53,10 @@ gui:
   animateExplosion: true
   portraitMode: auto
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
       useConfig: true
+      type: rawGit
   commit:
     signOff: true
   merging:
