@@ -105,9 +105,6 @@ source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 # zsh plugin lazyload ============================================ {{{
 source "${ZDOTDIR}/plugins/zsh-lazyload/zsh-lazyload.plugin.zsh"
 # }}}
-# zsh plugin ssh ================================================= {{{
-source "${ZDOTDIR}/plugins/zsh-fuzzy-ssh/zsh-fuzzy-ssh.plugin.zsh"
-# }}}
 # autoload ssh keys ============================================== {{{
 if [[ -z "${SSH_CONNECTION}" ]]; then
 	ssh-add -ql >/dev/null || find ~/.ssh/keys -type f -and -not -iname '*.pub' -and -not -iname '*.ppk' -exec ssh-add -q {} \; 2>/dev/null
