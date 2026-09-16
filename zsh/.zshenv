@@ -55,12 +55,8 @@ export COLORTHEME="${COLORTHEME:-tokyonight}"
 # @todo also check `gsettings get org.gnome.desktop.interface color-scheme`
 export COLORSCHEME=$(
 	case "$(dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color 2>/dev/null)" in
-		*0)
-			echo 'light'
-			;;
-		*)
-			echo 'dark'
-			;;
+		*0)	echo 'light' ;;
+		*)  echo 'dark'  ;;
 	esac
 )
 # }}}
@@ -97,19 +93,6 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 # }}}
 # set sqlite configs ============================================= {{{
 export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite/history"
-# }}}
-# set bat configs ================================================ {{{
-export BAT_THEME="${COLORTHEME}-${COLORSCHEME}"
-# }}}
-# set fzf configs ================================================ {{{
-export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
-export FZF_DEFAULT_OPTS="--color=$(<"${XDG_CONFIG_HOME}/fzf/themes/${COLORTHEME}-${COLORSCHEME}")"
-export FZF_COMPLETION_TRIGGER='~~'
-export FZF_DEFAULT_COMMAND="fd --follow --hidden --no-ignore --exclude=.git/ --color=auto"
-export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND} --type file --type symlink --type socket"
-export FZF_CTRL_T_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
-export FZF_ALT_C_COMMAND="${FZF_DEFAULT_COMMAND} --type directory"
-export FZF_ALT_C_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
 # }}}
 # set lima configs =============================================== {{{
 export LIMA_HOME="${XDG_DATA_HOME}/lima"

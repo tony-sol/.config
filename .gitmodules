@@ -8,6 +8,10 @@
 	path = zsh/plugins/git-aware-prompt
 	url = git@github.com:tony-sol/git-aware-prompt.git
 	branch = master
+[submodule "zsh/plugins/zasync"]
+	path = zsh/plugins/zasync
+	url = git@github.com:tony-sol/zasync.git
+	branch = main
 [submodule "zsh/plugins/zsh-autocomplete"]
 	path = zsh/plugins/zsh-autocomplete
 	url = git@github.com:tony-sol/zsh-autocomplete.git

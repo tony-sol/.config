@@ -15,9 +15,9 @@ if [[ -d "${HOMEBREW_PREFIX}/share" ]]; then
 	manpath=( "${HOMEBREW_PREFIX}/share/man" $manpath[@] )
 	infopath=( "${HOMEBREW_PREFIX}/share/info" $infopath[@] )
 fi
-# fpath=( $fpath[@] )
-# manpath=( $manpath[@] )
-# infopath=( $infopath[@] )
+fpath=( "${ZDOTDIR}/plugins/zasync" "${ZDOTDIR}/plugins/zsh-completions/src" $fpath[@] )
+manpath=( $manpath[@] )
+infopath=( $infopath[@] )
 # }}}
 # options ======================================================== {{{
 setopt INTERACTIVE_COMMENTS
@@ -39,16 +39,10 @@ setopt VI
 # prompt ========================================================= {{{
 function zle-keymap-select zle-line-init {
 	case "${KEYMAP}" in
-		vicmd)
-			# '\U276E'='❮'
-			psvar[1]=$'\U276E'
-			print -n -- '\033[2 q'
-			;;
-		viins|main)
-			# '\U276F'='❯'
-			psvar[1]=$'\U276F'
-			print -n -- '\033[6 q'
-			;;
+		# '\U276E'='❮'
+		vicmd)      psvar[1]=$'\U276E'; print -n -- '\033[2 q' ;;
+		# '\U276F'='❯'
+		viins|main) psvar[1]=$'\U276F'; print -n -- '\033[6 q' ;;
 	esac
 	zle reset-prompt
 	zle -R
@@ -82,99 +76,133 @@ export RPROMPT='%(?,,%B%F{red}%?%b%f )%F{cyan}%D{%H:%M:%S}%f'
 source "${ZDOTDIR}/plugins/git-aware-prompt/main.sh"
 export RPROMPT="%B%F{green}\$git_ahead_mark\$git_ahead_count%F{red}\$git_behind_mark\$git_behind_count%F{cyan}\$git_stash_mark\$git_stash_count%F{yellow}\$git_dirty_mark\$git_dirty_count%F{blue}\$git_staged_mark\$git_staged_count%F{magenta}\$git_unknown_mark\$git_unknown_count%b%F{cyan} \$git_branch%f $RPROMPT"
 # }}}
-# zsh plugin syntax highlighting ================================= {{{
+# plugins ======================================================== {{{
+## syntax highlighting =========================================== {{{
 source "${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[alias]="fg=blue"
-# }}}
-# zsh plugin autocomplete ======================================== {{{
+## }}}
+## autocomplete ================================================== {{{
+autoload -Uz zasync
+
 source "${ZDOTDIR}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-bindkey "\t" menu-select "${terminfo}[kcbt]" menu-select
-bindkey -M menuselect "\t" menu-complete "${terminfo}[kcbt]" reverse-menu-complete
-zstyle ':autocomplete:*' insert-unambiguous yes
-zstyle ':autocomplete:*' widget-style menu-complete
-zstyle ':autocomplete:*' fzf-completion yes
+
+# KEY       | $terminfo[] | RAW  | APP
+# Up        | kcuu1       | ^[[A | ^[0A
+# Down      | kcud1       | ^[[B | ^[0B
+# Right     | kcuf1       | ^[[C | ^[0C
+# Left      | kcub1       | ^[[D | ^[0D
+# Tab       | kctab       | ^I   | ^I
+# Shift+Tab | kcbt        | ^[[Z | ^[[Z
+bindkey               '^I' menu-select   '^[[Z' menu-select
+bindkey -M menuselect '^I' menu-complete '^[[Z' reverse-menu-complete
+
+zstyle    ':autocomplete:*' insert-unambiguous yes
+zstyle    ':autocomplete:*' widget-style menu-complete
+zstyle    ':autocomplete:*' fzf-completion yes
 zstyle -e ':autocomplete:*' list-lines 'reply=( $(( LINES / 3 )) )'
-# }}}
-# zsh plugin autosuggestions ===================================== {{{
+
+function _complete_alias() {
+	[[ -n $PREFIX ]] && compadd -- ${(M)${(k)galiases}:#$PREFIX*}
+	return 1
+}
+
+zstyle ':completion:*' completer _complete _ignored _complete_alias
+zstyle ':completion:*' rehash yes
+zstyle ':completion:*' verbose yes
+## }}}
+## autosuggestions =============================================== {{{
 source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-# }}}
-# zsh plugin lazyload ============================================ {{{
+## }}}
+## lazyload ====================================================== {{{
 source "${ZDOTDIR}/plugins/zsh-lazyload/zsh-lazyload.plugin.zsh"
+## }}}
 # }}}
 # autoload ssh keys ============================================== {{{
 if [[ -z "${SSH_CONNECTION}" ]]; then
 	ssh-add -ql >/dev/null || find ~/.ssh/keys -type f -and -not -iname '*.pub' -and -not -iname '*.ppk' -exec ssh-add -q {} \; 2>/dev/null
 fi
 # }}}
-# hooks ========================================================== {{{
-(( $+commands[fzf] )) && source <(fzf --zsh)
+# tools ========================================================== {{{
+## fzf =========================================================== {{{
+if (( $+commands[fzf] )); then
+	export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
+	export FZF_DEFAULT_OPTS="--color=$(<"${XDG_CONFIG_HOME}/fzf/themes/${COLORTHEME}-${COLORSCHEME}")"
+	export FZF_DEFAULT_COMMAND="fd --follow --hidden --no-ignore --exclude=.git/ --color=auto"
+	export FZF_COMPLETION_TRIGGER='~~'
+	#export FZF_COMPLETION_OPTS=''
+	export FZF_COMPLETION_PATH_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
+	export FZF_COMPLETION_DIR_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
+	export FZF_CTRL_R_OPTS='--input-border=none'
+	export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND} --type file --type symlink --type socket"
+	export FZF_CTRL_T_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
+	export FZF_ALT_C_COMMAND="${FZF_DEFAULT_COMMAND} --type directory"
+	export FZF_ALT_C_OPTS='--preview "$XDG_CONFIG_HOME/fzf/fzf-preview {}"'
 
-# @note use vivid colors generation if vivid installed
-(( $+commands[vivid] )) && export LS_COLORS=$(vivid generate "${XDG_CONFIG_HOME}/vivid/themes/${COLORTHEME}-${COLORSCHEME}.yml")
+	function _fzf_comprun() {
+		local command=$1
+		shift
+		case "$command" in
+			ssh)
+				fzf --preview 'ssh -T -G $(cut -f 1 -d " " <<< {}) | grep -i -E "^user |^hostname |^port |^identityfile |^controlmaster |^forwardagent |^localforward |^remoteforward |^proxycommand |^proxyjump "' "$@"
+				;;
+			*) fzf "$@" ;;
+		esac
+	}
+	source <(fzf --zsh)
+fi
+## }}}
+## bat =========================================================== {{{
+if (( $+commands[bat] )); then
+	export BAT_THEME="${COLORTHEME}-${COLORSCHEME}"
+	export MANROFFOPT="-c"
+	export MANPAGER="sh -c 'col -bx | bat --paging=always --language=man --style=plain'"
+	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
+	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
+fi
+## }}}
+## vivid ========================================================= {{{
+## @todo replace? remove?
+if (( $+commands[vivid] )); then
+	export LS_COLORS=$(vivid generate "${COLORTHEME}-${COLORSCHEME}")
+fi
+## }}}
 # }}}
 # aliases ======================================================== {{{
 alias l='ls --almost-all --color=auto --classify=auto'
 alias ll='l -l --human-readable'
 alias disks='lsblk -o UUID,PARTUUID,NAME,LABEL,PARTLABEL,TYPE,MOUNTPOINT,SIZE,FSTYPE,FSSIZE'
 
-# @note use tree aliases only if tree installed
 if (( $+commands[tree] )); then
 	alias tt='tree -a -l --metafirst -N -p -u -g -h -D -F --dirsfirst'
 	alias t='tt -L 1'
 fi
 
-# @note use eza aliases only if eza installed
 if (( $+commands[eza] )); then
 	alias ee='eza --long --tree --classify=auto --color=auto --icons=auto --follow-symlinks --almost-all --group-directories-first --smart-group --time=changed --git --git-repos'
 	alias e='ee --level 1'
 fi
 
-# @note use nvim as vim replacement if nvim installed
 if (( $+commands[nvim] )); then
 	export EDITOR=nvim
 	export VISUAL=nvim
 	alias vim="nvim"
 fi
 
-# @note use bat wrapper only if bat installed
-if (( $+commands[bat] )); then
-	export MANROFFOPT="-c"
-	export MANPAGER="sh -c 'col -bx | bat --paging=always --language=man --style=plain'"
-	alias -g -- --help="--help 2>&1 | bat --paging=never --language=help --style=plain"
-	alias -g -- help="help 2>&1 | bat --paging=never --language=help --style=plain"
-fi
-
-# @note use ctop wrapper only if ctop installed
 if (( $+commands[ctop] )); then
 	alias ctop='TERM="${TERM/tmux/screen}" ctop'
 fi
 # }}}
 # functions ====================================================== {{{
-view() {
+function view() {
 	for arg in "$@"; do
 		$XDG_CONFIG_HOME/fzf/fzf-preview "$arg";
 		[[ "$arg" =~ "$@[-1]" ]] || echo;
 	done
 }
-# }}}
-# keymappings ==================================================== {{{
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
-# }}}
-# auto completion ================================================ {{{
-autoload -Uz compinit && compinit -C
-autoload -Uz +X bashcompinit && bashcompinit -C
-_complete_alias() {
-	[[ -n $PREFIX ]] && compadd -- ${(M)${(k)galiases}:#$PREFIX*}
-	return 1
-}
-zstyle ':completion:*' completer _complete _ignored _complete_alias
-zstyle ':completion:*' rehash true
-zstyle ':completion:*' verbose yes
 # }}}
 
 # ====================================================================
