@@ -10,7 +10,7 @@ case "$mime_type" in
 	(#i)application)
 		case "$mime_subtype" in
 			(#i)vnd.openxmlformats-officedocument.*)
-				echo 'OpenXML office document formats cannot be previewed'
+				echo 'OpenXML office document formats cannot be previewed' >&2
 				return ;;
 			(#i)gzip|x-tar*|x-compressed-tar*|x-*-compressed-tar*)
 				tar -tvf "$file"
@@ -32,16 +32,22 @@ case "$mime_type" in
 			*)
 				case "${file##*.}" in
 					(#i)md)
-						glow "$file"
+						command -v glow >/dev/null 2>&1 \
+							&& glow "$file" \
+							|| cat "$file"
 						return ;;
 					*)
-						bat --color=always --paging=never --style=changes,numbers "$file"
+						command -v bat >/dev/null 2>&1 \
+							&& bat --color=always --paging=never --style=changes,numbers "$file" \
+							|| cat --number "$file"
 						return ;;
 				esac
 		esac
 		;|
 	(#i)image)
-		wezterm imgcat --no-resample --tmux-passthru=detect --height="${FZF_PREVIEW_LINES:-auto}" --width="${FZF_PREVIEW_COLUMNS:-auto}" "$file"
+		command -v bat >/dev/null 2>&1 \
+			&& wezterm imgcat --no-resample --tmux-passthru=detect --height="${FZF_PREVIEW_LINES:-auto}" --width="${FZF_PREVIEW_COLUMNS:-auto}" "$file" \
+			|| echo 'wezterm imgcat required for image preview' >&2
 		;;
 	*)
 		echo "$file: unsupported mime-type: ${mime_type}/${mime_subtype}" >&2
