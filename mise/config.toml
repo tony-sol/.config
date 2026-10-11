@@ -49,6 +49,7 @@ process-compose = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
 sing-box = [{ version = "latest", system = true }]
+superfile = "latest"
 tree-sitter = "latest"
 ttyd = "latest"
 vivid = "latest"
