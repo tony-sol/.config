@@ -13,11 +13,11 @@ rust = "latest"
 # langs package managers
 yarn = "latest"
 pnpm = "latest"
-pipx = "latest"
 poetry = "latest"
+uv = "latest"
 # cli tools
 act = "latest"
-ansible = [{ version = "latest", depends = ["pipx@latest"] }]
+ansible = [{ version = "latest", depends = ["uv@latest"] }]
 ast-grep = "latest"
 bat = "latest"
 btop = "latest"

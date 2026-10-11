@@ -137,13 +137,6 @@ export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history"
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 # }}}
-# set pipx configs =============================================== {{{
-export PIPX_HOME="${XDG_DATA_HOME}/pipx"
-export PIPX_BIN_DIR="${XDG_BIN_HOME}"
-# }}}
-# set shiv configs =============================================== {{{
-export SHIV_ROOT="${XDG_DATA_HOME}/shiv"
-# }}}
 # set go configs ================================================= {{{
 export GOPATH="${XDG_DATA_HOME}/go"
 export GOBIN="${GOPATH}/bin"
