@@ -25,6 +25,7 @@ ctop = "latest"
 doggo = "latest"
 eza = "latest"
 fd = "latest"
+ffmpeg = "latest"
 fzf = "latest"
 gh = "latest"
 glab = "latest"
@@ -54,6 +55,7 @@ tree-sitter = "latest"
 ttyd = "latest"
 vivid = "latest"
 yq = "latest"
+yt-dlp = "latest"
 # container tools
 argocd = "latest"
 clusterctl = "latest"
@@ -66,6 +68,10 @@ kompose = "latest"
 kubectl = "latest"
 kustomize = "latest"
 minikube = "latest"
+
+[tools."github:xdagiz/xytz"]
+version = "latest"
+depends = ["ffmpeg@latest", "yt-dlp@latest"]
 
 [settings]
 # @see https://mise.jdx.dev/configuration/settings.html#auto_install
