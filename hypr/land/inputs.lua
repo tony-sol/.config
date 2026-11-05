@@ -1,8 +1,9 @@
----@diagnostic disable-next-line:undefined-global
-local hyprland = hl
+---@diagnostic disable:undefined-global
+local gesture = hl.gesture
+---@diagnostic enable:undefined-global
 
-hyprland.gesture({
-	fingers = 3,
-	direction = "horizontal",
-	action = "workspace"
+gesture({
+	fingers   = 3,
+	direction = 'horizontal',
+	action    = 'workspace'
 })
