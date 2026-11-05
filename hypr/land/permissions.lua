@@ -1,9 +1,9 @@
----@diagnostic disable-next-line:undefined-global
-local hyprland = hl
+---@diagnostic disable:undefined-global
+local permission = hl.permission
+---@diagnostic enable:undefined-global
 
-hyprland.permission("/usr/lib(|exec|64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
-hyprland.permission("/usr/(|local/)bin/hyprlock", "screencopy", "allow")
-hyprland.permission("/usr/(|local/)bin/hyprshot", "screencopy", "allow")
-hyprland.permission("/usr/(|local/)bin/grim", "screencopy", "allow")
-hyprland.permission("/usr/(|local/)bin/hyprpm", "plugin", "allow")
-hyprland.permission("/usr/(|local/)bin/quickshell", "screencopy", "allow")
+permission('/usr/lib(|exec|64)/xdg-desktop-portal-hyprland', 'screencopy', 'allow')
+permission('/usr/(|local/)bin/grim', 'screencopy', 'allow')
+permission('/usr/(|local/)bin/hyprpm', 'plugin', 'allow')
+permission('/usr/(|local/)bin/quickshell', 'screencopy', 'allow')
+permission('/usr/(|local/)bin/noctalia', 'screencopy', 'allow')

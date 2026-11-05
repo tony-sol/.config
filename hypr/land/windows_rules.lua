@@ -1,5 +1,8 @@
----@diagnostic disable-next-line:undefined-global
-local hyprland = hl
+---@diagnostic disable:undefined-global
+local window_rule = hl.window_rule
+---@diagnostic enable:undefined-global
+
+window_rule({ name = 'happ', match = { class = '(?i)happ' }, float = true })
 
 -- "Smart gaps" / "No gaps when only"
 -- uncomment all if you wish to use that.
@@ -26,20 +29,6 @@ local hyprland = hl
 -- 	suppress_event = "maximize",
 -- })
 -- suppressMaximizeRule:set_enabled(false)
-
-hyprland.window_rule({
-	-- Fix some dragging issues with XWayland
-	name     = "fix-xwayland-drags",
-	match    = {
-		class      = "^$",
-		title      = "^$",
-		xwayland   = true,
-		float      = true,
-		fullscreen = false,
-		pin        = false,
-	},
-	no_focus = true,
-})
 
 -- Layer rules also return a handle.
 -- local overlayLayerRule = hl.layer_rule({
