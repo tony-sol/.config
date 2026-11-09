@@ -52,11 +52,25 @@ export CLICOLOR=1
 export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 export COLORTERM=truecolor
 export COLORTHEME="${COLORTHEME:-tokyonight}"
-# @todo also check `gsettings get org.gnome.desktop.interface color-scheme`
 export COLORSCHEME=$(
-	case "$(dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color 2>/dev/null)" in
-		*0)	echo 'light' ;;
-		*)  echo 'dark'  ;;
+	# @see https://github.com/flatpak/xdg-desktop-portal/blob/main/data/org.freedesktop.impl.portal.Settings.xml#L18
+	# @see https://github.com/GNOME/gsettings-desktop-schemas/blob/main/schemas/org.gnome.desktop.interface.gschema.xml.in#L298
+	case $({
+		dbus-send \
+			--session \
+			--print-reply=literal \
+			--reply-timeout=1000 \
+			--dest=org.freedesktop.portal.Desktop \
+			/org/freedesktop/portal/desktop \
+			org.freedesktop.portal.Settings.Read \
+			string:org.freedesktop.appearance \
+			string:color-scheme \
+		|| gsettings get org.gnome.desktop.interface color-scheme
+	} 2>/dev/null ) in
+		*2 | *light*) echo 'light' ;;
+		*1 | *dark*)  echo 'dark'  ;;
+		# fallback to dark if 0 (No preference) or 'default'
+		*) echo 'dark' ;;
 	esac
 )
 # }}}
@@ -99,7 +113,6 @@ export LIMA_HOME="${XDG_DATA_HOME}/lima"
 # }}}
 # set podman configs ============================================= {{{
 export CONTAINERS_CONF="${XDG_CONFIG_HOME}/containers/containers.conf"
-export CONTAINERS_CONF_OVERRIDE="${XDG_CONFIG_HOME}/containers/containers.override.conf"
 export CONTAINERS_REGISTRIES_CONF="${XDG_CONFIG_HOME}/containers/registries.conf"
 export CONTAINERS_STORAGE_CONF="${XDG_CONFIG_HOME}/containers/storage.conf"
 # }}}
