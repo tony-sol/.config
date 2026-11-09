@@ -1,6 +1,6 @@
 {
 	"version": 1,
-	"uid": 1506555995001120612,
+	"uid": 7270857109399201812,
 	"layout": [
 		[
 			[
@@ -64,7 +64,7 @@
 				"KC_PGDOWN"
 			],
 			[
-				"KC_LCTRL",
+				"KC_CAPSLOCK",
 				"KC_A",
 				"KC_S",
 				"KC_D",
@@ -104,7 +104,7 @@
 				"KC_NO"
 			],
 			[
-				"KC_CAPSLOCK",
+				"KC_LCTRL",
 				"KC_LGUI",
 				"KC_LALT",
 				-1,
@@ -126,11 +126,11 @@
 		],
 		[
 			[
-				"RGB_TOG",
+				"RM_TOGG",
+				"KC_TRNS",
+				"0x7002",
 				"MAGIC_TOGGLE_CTL_GUI",
 				"MAGIC_TOGGLE_ALT_GUI",
-				"MAGIC_SWAP_CONTROL_CAPSLOCK",
-				"MAGIC_UNSWAP_CONTROL_CAPSLOCK",
 				"KC_TRNS",
 				"KC_MPRV",
 				"KC_MPLY",
@@ -141,22 +141,22 @@
 				"KC_VOLU",
 				"KC_TRNS",
 				"KC_NUMLOCK",
-				"KC_TRNS",
+				"QK_LAYER_LOCK",
 				-1,
 				-1
 			],
 			[
 				"KC_TRNS",
-				"KC_KP_1",
-				"KC_KP_2",
-				"KC_KP_3",
-				"KC_KP_4",
-				"KC_KP_5",
-				"KC_KP_6",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
 				"KC_KP_7",
 				"KC_KP_8",
 				"KC_KP_9",
-				"KC_KP_0",
+				"KC_KP_EQUAL",
 				"KC_KP_MINUS",
 				"KC_KP_PLUS",
 				-1,
@@ -167,15 +167,15 @@
 			],
 			[
 				"KC_TRNS",
-				"RGB_VAI",
-				"RGB_SAI",
-				"RGB_HUI",
-				"RGB_MOD",
-				"RGB_SPI",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_KP_4",
+				"KC_KP_5",
+				"KC_KP_6",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
@@ -187,26 +187,26 @@
 			],
 			[
 				"KC_TRNS",
-				"RGB_VAD",
-				"RGB_SAD",
-				"RGB_HUD",
-				"RGB_RMOD",
-				"RGB_SPD",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
+				"KC_TRNS",
+				"KC_KP_1",
+				"KC_KP_2",
+				"KC_KP_3",
+				"KC_KP_ASTERISK",
 				"KC_TRNS",
 				"KC_KP_ENTER",
 				-1,
 				-1,
-				"KC_NO",
-				"KC_NO",
-				"KC_NO"
+				"KC_TRNS",
+				"KC_TRNS",
+				"KC_TRNS"
 			],
 			[
-				"KC_TRNS",
+				"LT2(KC_TRNS)",
 				-1,
 				"KC_TRNS",
 				"KC_TRNS",
@@ -214,16 +214,16 @@
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
+				"KC_KP_0",
+				"KC_KP_COMMA",
 				"KC_KP_DOT",
 				"KC_KP_SLASH",
-				"KC_KP_ASTERISK",
+				"LT2(KC_TRNS)",
 				-1,
 				-1,
-				"KC_NO",
 				"KC_TRNS",
-				"KC_NO"
+				"KC_TRNS",
+				"KC_TRNS"
 			],
 			[
 				"KC_TRNS",
@@ -237,7 +237,7 @@
 				-1,
 				-1,
 				"KC_TRNS",
-				"LT2(KC_TRNS)",
+				"KC_TRNS",
 				"KC_TRNS",
 				-1,
 				"KC_TRNS",
@@ -248,7 +248,7 @@
 		],
 		[
 			[
-				"KC_TRNS",
+				"QK_BOOT",
 				"KC_F13",
 				"KC_F14",
 				"KC_F15",
@@ -328,7 +328,7 @@
 				"KC_TRNS"
 			],
 			[
-				"KC_TRNS",
+				"LT3(KC_TRNS)",
 				-1,
 				"KC_TRNS",
 				"KC_TRNS",
@@ -340,7 +340,7 @@
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
-				"KC_TRNS",
+				"LT3(KC_TRNS)",
 				-1,
 				-1,
 				"KC_TRNS",
@@ -411,11 +411,11 @@
 			],
 			[
 				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
+				"RM_VALU",
+				"RM_SATU",
+				"RM_HUEU",
+				"RM_NEXT",
+				"RM_SPDU",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
@@ -431,11 +431,11 @@
 			],
 			[
 				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
-				"KC_TRNS",
+				"RM_VALD",
+				"RM_SATD",
+				"RM_HUED",
+				"RM_PREV",
+				"RM_SPDD",
 				"KC_TRNS",
 				"KC_TRNS",
 				"KC_TRNS",
@@ -513,9 +513,10 @@
 		[],
 		[],
 		[],
+		[],
 		[]
 	],
-	"vial_protocol": 5,
+	"vial_protocol": 6,
 	"via_protocol": 9,
 	"tap_dance": [
 		[
@@ -1259,6 +1260,200 @@
 			"options": 7
 		}
 	],
+	"alt_repeat_key": [
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		},
+		{
+			"keycode": "KC_NO",
+			"alt_keycode": "KC_NO",
+			"allowed_mods": 0,
+			"options": 0
+		}
+	],
 	"settings": {
 		"1": 0,
 		"2": 50,
@@ -1267,7 +1462,6 @@
 		"5": 5,
 		"6": 5000,
 		"7": 200,
-		"8": 0,
 		"9": 10,
 		"10": 20,
 		"11": 8,
@@ -1280,6 +1474,12 @@
 		"18": 0,
 		"19": 80,
 		"20": 5,
-		"21": 128
+		"21": 129,
+		"22": 0,
+		"23": 0,
+		"24": 0,
+		"25": 200,
+		"26": 0,
+		"27": 0
 	}
 }
