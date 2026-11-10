@@ -1,7 +1,7 @@
-local appearance         = require('appearance')
-local font               = require('font')
-local keymaps            = require('keymaps')
-local launch_menu        = require('launch_menu')
+local appearance  = require('appearance')
+local font        = require('font')
+local keymaps     = require('keymaps')
+local launch_menu = require('launch_menu')
 
 return {
 	term                                       = 'xterm-256color',
@@ -9,6 +9,8 @@ return {
 	default_prog                               = { 'zsh', '-cli', 'tmux new' },
 	exit_behavior                              = 'CloseOnCleanExit',
 	scrollback_lines                           = 2000000,
+	mux_enable_ssh_agent                       = false,
+	enable_kitty_graphics                      = true,
 	-- Appearance - window
 	window_padding                             = { left = 1, right = 1, top = 1, bottom = 1 },
 	window_decorations                         = appearance.decorations,
@@ -20,13 +22,14 @@ return {
 	color_scheme                               = appearance.color_scheme,
 	force_reverse_video_cursor                 = true,
 	bold_brightens_ansi_colors                 = 'BrightAndBold',
-	window_background_opacity                  = 0.80,
+	window_background_opacity                  = 0.90,
 	-- Font
 	unicode_version                            = 16,
 	custom_block_glyphs                        = false,
 	font                                       = font,
 	font_size                                  = 14.0,
 	command_palette_font_size                  = 14.0,
+	harfbuzz_features                          = { 'calt=1', 'clig=1', 'liga=1' },
 	-- Keymap
 	disable_default_key_bindings               = true,
 	leader                                     = keymaps.leader,
