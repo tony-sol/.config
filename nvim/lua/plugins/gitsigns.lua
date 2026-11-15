@@ -39,13 +39,6 @@ return {
 			update_debounce              = 100,
 			status_formatter             = nil, -- Use default
 			max_file_length              = 40000,
-			preview_config               = {
-				border   = 'single',
-				style    = 'minimal',
-				relative = 'cursor',
-				row      = 0,
-				col      = 1,
-			},
 		}
 	end
 }

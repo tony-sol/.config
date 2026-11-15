@@ -4,7 +4,6 @@ function M.init()
 	---@diagnostic disable: undefined-global
 	local api                  = vim.api
 	local command              = vim.cmd
-	local diagnostic           = vim.diagnostic
 	local keymap               = vim.keymap
 	local options              = vim.opt
 	---@diagnostic enable: undefined-global
@@ -604,12 +603,6 @@ function M.init()
 	)
 	keymap.set(
 		{ 'n' },
-		'<space>q',
-		diagnostic.setloclist,
-		{ desc = 'Diagnostic: setloclist' }
-	)
-	keymap.set(
-		{ 'n' },
 		']b',
 		function()
 			command.bnext()
@@ -671,6 +664,7 @@ function M.on_lsp_attach(ev)
 	local keymap            = vim.keymap
 	local inspect           = vim.inspect
 	local lsp               = vim.lsp
+	local diagnostic        = vim.diagnostic
 	---@diagnostic enable: undefined-global
 	local utils             = require('utils')
 	local dap               = require('dap')
@@ -684,6 +678,22 @@ function M.on_lsp_attach(ev)
 	local opts              = {
 		buffer = ev.buf,
 	}
+	keymap.set(
+		{ 'n' },
+		'<space>q',
+		function()
+			diagnostic.open_float()
+		end,
+		utils.merge(opts, { desc = 'Diagnostic: open float' })
+	)
+	keymap.set(
+		{ 'n' },
+		'<space>Q',
+		function()
+			diagnostic.setloclist()
+		end,
+		utils.merge(opts, { desc = 'Diagnostic: location list' })
+	)
 	keymap.set(
 		{ 'n' },
 		'<space>D',
@@ -784,7 +794,7 @@ function M.on_lsp_attach(ev)
 		{ 'n' },
 		'<space>f',
 		function()
-			lsp.buf.format { async = true }
+			lsp.buf.format({ async = true })
 		end,
 		utils.merge(opts, { desc = 'Lsp: format' })
 	)

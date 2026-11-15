@@ -141,7 +141,6 @@ return {
 					statusline = {
 					},
 					winbar     = {
-						'',
 						'NvimTree',
 						'Outline',
 						'noice',
