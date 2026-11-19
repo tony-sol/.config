@@ -75,9 +75,8 @@
 	required = true
 
 # include common overrides
+# e.g.
+# [includeIf "gitdir/i:~/Projects/work/"]
+# 	path = ~/Projects/work/.gitconfig
 [include]
 	path = config.override
-
-# include work overrides
-[includeIf "gitdir/i:~/Projects/work/"]
-	path = ~/Projects/work/.gitconfig
